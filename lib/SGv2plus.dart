@@ -5,6 +5,7 @@ import 'dart:html';
 
 part 'giveaway.dart';
 part 'my_string.dart';
+part 'styles.dart';
 
 void collapsePinnedGAs() {
   ElementList giveAwayElements = document.querySelectorAll('.giveaway__row-outer-wrap');
@@ -31,7 +32,17 @@ void addMarginToHeader() {
 }
 
 void fixNavigation() {
-  Element navigationElement = querySelector('header');
+  Element navigationHeaderElement = querySelector('header');
+//  Element navigationElement = querySelector('header>nav');
 
-  navigationElement.setAttribute('style', 'position: fixed; top: 0; left: 0; right: 0; z-index: 9999; width: 100%;');
+//  navigationHeaderElement.innerHtml = "";
+
+//  DivElement divContainer = new DivElement();
+
+  navigationHeaderElement.classes.add('fixed-navigation-bar');
+//  divContainer.append(navigationElement);
+
+//  navigationHeaderElement.append(divContainer);
+
+  //navigationElement.classes.add('fixed-navigation-bar');
 }
