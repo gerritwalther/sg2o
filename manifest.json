@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "content_scripts": [ {
+        "exclude_globs":    [  ],
+        "include_globs":    [ "*" ],
+        "js":               [ "sgv2plus.user.js"
+                            ],
+        "matches":          [   "http://www.steamgifts.com/*"
+                            ],
+        "run_at": "document_end"
+    } ],
+    "converted_from_user_script": true,
+    "description":  "Bring old functions from sg+ to SGv2.",
+    "name":         "SGv2plus",
+    "version":      "0.1",
+    "web_accessible_resources": [ "sgv2plus.user.js.map"
+                                ]
+}
