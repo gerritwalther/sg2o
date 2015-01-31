@@ -13,7 +13,14 @@
 // ==/UserScript==
 
 import 'package:SGv2plus/SGv2plus.dart' as SGv2plus;
+import 'package:path/path.dart' as path;
+import 'dart:html';
 
 main() {
-  SGv2plus.collapsePinnedGAs();
+  String currentUrl = document.baseUri;
+  List<String> urlParts = path.split(currentUrl);
+
+  if (urlParts.length == 1) { // We are on the main page
+    SGv2plus.collapsePinnedGAs();
+  }
 }
