@@ -11,7 +11,7 @@ class GiveAway {
   int copies = 1;
   int comments;
   String link;
-  
+
   GiveAway(Element gaHtml) {
     ElementList copiesAndPoints = gaHtml.querySelectorAll('span.giveaway__heading__thin');
     Element copies;
@@ -33,26 +33,21 @@ class GiveAway {
     ElementList entriesAndComments = gaHtml.querySelectorAll('div.giveaway__links>a>span');
     this.entries = parseNumber(entriesAndComments.first.text);
     this.comments = parseNumber(entriesAndComments.last.text);
-    this.imageWithLink = gaHtml.querySelector('global__image-outer-wrap');
+    this.imageWithLink = gaHtml.querySelector('a.global__image-outer-wrap--game-medium');
   }
-  
+
+  Element wrappedWithStyles() {
+    Element container = new DivElement();
+    container.setAttribute('style', "float: left; width: 18%; margin-right: 1%; margin-left: 1%; margin-bottom: 0.5em;");
+    container.append(this.imageWithLink);
+    return container;
+  }
+
   void print() {
     window.console.info(toString());
   }
-  
+
   String toString() {
     return "Giveaway: " + name + " with " + points.toString() + " Points, created by " + creator + " " + created + " ago,  still open for: " + remaining + ", has " + entries.toString() + " entries and " + comments.toString() + " comments, link: " + link;
-  }
-  
-  // Extract the following somewhere else
-  int parseNumber(String stringWithNumber) {
-    var regexp = new RegExp(r'\d+');
-    int number = int.parse(regexp.allMatches(stringWithNumber.replaceAll(",", "")).first.group(0));
-    return number;
-  }
-  
-  String parseTime(String stringWithTime) {
-    int amount = parseNumber(stringWithTime);
-    return amount.toString() + " " + stringWithTime.split(" ").elementAt(1); 
   }
 }

@@ -4,18 +4,22 @@ library SGv2plus;
 import 'dart:html';
 
 part 'giveaway.dart';
-
-int calculate() {
-  return 6 * 7;
-}
+part 'my_string.dart';
 
 void collapsePinnedGAs() {
-  var giveAwayElements = document.querySelectorAll('.giveaway__row-outer-wrap');
-  giveAwayElements.forEach(printGA);
-}
+  ElementList giveAwayElements = document.querySelectorAll('.giveaway__row-outer-wrap');
+  Element parentElement = giveAwayElements[0].parent;
+  parentElement.innerHtml = "";
 
-void printGA(Element giveAwayHtml) {
-  var giveAway = new GiveAway(giveAwayHtml);
-  
-  giveAway.print();
+  for(final giveAwayElement in giveAwayElements) {
+    GiveAway giveAway = new GiveAway(giveAwayElement);
+
+    parentElement.append(giveAway.wrappedWithStyles());
+  }
+
+  Element stopStyles = new ParagraphElement();
+
+  stopStyles.setAttribute('style', 'clear:both;');
+
+  parentElement.append(stopStyles);
 }
