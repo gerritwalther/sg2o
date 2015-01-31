@@ -22,5 +22,6 @@ main() {
 
   if (urlParts.length == 1) { // We are on the main page
     SGv2plus.collapsePinnedGAs();
+    SGv2plus.addMarginToHeader();
   }
 }

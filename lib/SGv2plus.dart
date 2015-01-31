@@ -23,3 +23,9 @@ void collapsePinnedGAs() {
 
   parentElement.append(stopStyles);
 }
+
+void addMarginToHeader() {
+  Element headerElement = querySelector('.page__heading');
+
+  headerElement.setAttribute('style', 'margin-bottom: 0.5em');
+}

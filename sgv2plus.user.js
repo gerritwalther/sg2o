@@ -2014,7 +2014,7 @@ var $$ = Object.create(null);
     }
   },
   ListIterator: {
-    "^": "Object;_iterable,__internal$_length,_index,_current",
+    "^": "Object;_iterable,_length,_index,_current",
     get$current: function() {
       return this._current;
     },
@@ -2023,7 +2023,7 @@ var $$ = Object.create(null);
       t1 = this._iterable;
       t2 = J.getInterceptor$asx(t1);
       $length = t2.get$length(t1);
-      if (this.__internal$_length !== $length)
+      if (this._length !== $length)
         throw H.wrapException(P.ConcurrentModificationError$(t1));
       t3 = this._index;
       if (t3 >= $length) {
@@ -5086,11 +5086,11 @@ var $$ = Object.create(null);
     }
   },
   FixedSizeListIterator: {
-    "^": "Object;_array,_length,_position,_html$_current",
+    "^": "Object;_array,_html$_length,_position,_html$_current",
     moveNext$0: function() {
       var nextPosition, t1;
       nextPosition = this._position + 1;
-      t1 = this._length;
+      t1 = this._html$_length;
       if (nextPosition < t1) {
         this._html$_current = J.$index$asx(this._array, nextPosition);
         this._position = nextPosition;
@@ -5289,8 +5289,10 @@ var $$ = Object.create(null);
   "^": "",
   main: function() {
     var currentUrl = document.baseURI;
-    if ($.get$context().split$1(0, currentUrl).length === 1)
+    if ($.get$context().split$1(0, currentUrl).length === 1) {
       L.collapsePinnedGAs();
+      document.querySelector(".page__heading").setAttribute("style", "margin-bottom: 0.5em");
+    }
   }
 },
 1],
