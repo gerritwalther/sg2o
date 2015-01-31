@@ -5293,6 +5293,7 @@ var $$ = Object.create(null);
       L.collapsePinnedGAs();
       document.querySelector(".page__heading").setAttribute("style", "margin-bottom: 0.5em");
     }
+    document.querySelector("header").setAttribute("style", "position: fixed; top: 0; left: 0; right: 0; z-index: 9999; width: 100%;");
   }
 },
 1],

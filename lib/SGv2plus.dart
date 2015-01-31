@@ -29,3 +29,9 @@ void addMarginToHeader() {
 
   headerElement.setAttribute('style', 'margin-bottom: 0.5em');
 }
+
+void fixNavigation() {
+  Element navigationElement = querySelector('header');
+
+  navigationElement.setAttribute('style', 'position: fixed; top: 0; left: 0; right: 0; z-index: 9999; width: 100%;');
+}

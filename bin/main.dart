@@ -24,4 +24,6 @@ main() {
     SGv2plus.collapsePinnedGAs();
     SGv2plus.addMarginToHeader();
   }
+
+  SGv2plus.fixNavigation();
 }
