@@ -14,6 +14,6 @@
 (function () {
   var sgv2plus = document.createElement('script');
   sgv2plus.type = 'text/javascript';
-  sgv2plus.src = 'https://github.com/gerritwalther/sgv2plus/raw/master/sgv2plus.user.js';
+  sgv2plus.src = 'https://rawgit.com/gerritwalther/sgv2plus/master/install.user.js';
   document.body.appendChild(sgv2plus);
 })();
