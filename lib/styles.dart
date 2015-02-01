@@ -28,4 +28,17 @@ body {
 ''';
 
   styleSheet.insertRule(rule, 0);
+
+  rule =
+'''
+.giveaway-gridview {
+  float: left;
+  width: 18%;
+  margin-right: 1%;
+  margin-left: 1%;
+  margin-bottom: 0.5em;
+}
+''';
+
+  styleSheet.insertRule(rule, 0);
 }

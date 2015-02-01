@@ -8,7 +8,7 @@ part 'my_string.dart';
 part 'styles.dart';
 
 void collapsePinnedGAs() {
-  ElementList giveAwayElements = document.querySelectorAll('.giveaway__row-outer-wrap');
+  ElementList giveAwayElements = document.querySelectorAll('.pinned-giveaways>.giveaway__row-outer-wrap');
   Element parentElement = giveAwayElements[0].parent;
   parentElement.innerHtml = "";
 
@@ -17,12 +17,29 @@ void collapsePinnedGAs() {
 
     parentElement.append(giveAway.wrappedWithStyles());
   }
+  addStopStyleParagraph(parentElement);
+}
 
+void addStopStyleParagraph(Element parentElement) {
   Element stopStyles = new ParagraphElement();
 
   stopStyles.setAttribute('style', 'clear:both;');
 
   parentElement.append(stopStyles);
+}
+
+void collapseGAList() {
+  int numberPinnedGAs = querySelectorAll('.pinned-giveaways>.giveaway__row-outer-wrap').length;
+  ElementList giveAwayElements = document.querySelectorAll('.giveaway__row-outer-wrap');
+  Element parentElement = giveAwayElements[numberPinnedGAs].parent;
+  parentElement.innerHtml = "";
+
+  for(int i = numberPinnedGAs; i < giveAwayElements.length; i++) {
+    GiveAway giveAway = new GiveAway(giveAwayElements[i]);
+
+    parentElement.append(giveAway.wrappedWithStyles());
+  }
+  addStopStyleParagraph(parentElement);
 }
 
 void addMarginToHeader() {

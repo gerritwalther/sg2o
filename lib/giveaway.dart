@@ -38,7 +38,7 @@ class GiveAway {
 
   Element wrappedWithStyles() {
     Element container = new DivElement();
-    container.setAttribute('style', "float: left; width: 18%; margin-right: 1%; margin-left: 1%; margin-bottom: 0.5em;");
+    container.classes.add('giveaway-gridview');
     container.append(this.imageWithLink);
     return container;
   }

@@ -270,24 +270,43 @@ var $$ = Object.create(null);
 ["SGv2plus", "package:SGv2plus/SGv2plus.dart", , L, {
   "^": "",
   collapsePinnedGAs: function() {
-    var giveAwayElements, t1, parentElement, giveAway, container, stopStyles;
-    giveAwayElements = W._FrozenElementList$_wrap(document.querySelectorAll(".giveaway__row-outer-wrap"), null);
+    var giveAwayElements, t1, parentElement, giveAway, container;
+    giveAwayElements = W._FrozenElementList$_wrap(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"), null);
     t1 = giveAwayElements._nodeList;
     if (0 >= t1.length)
       return H.ioore(t1, 0);
     parentElement = t1[0].parentElement;
     J.set$innerHtml$x(parentElement, "");
     for (t1 = giveAwayElements.get$iterator(giveAwayElements); t1.moveNext$0();) {
-      giveAway = new L.GiveAway(null, null, null, null, null, null, null, 1, null, null);
-      giveAway.GiveAway$1(t1._current);
+      giveAway = L.GiveAway$(t1._current);
       container = document.createElement("div", null);
-      container.setAttribute("style", "float: left; width: 18%; margin-right: 1%; margin-left: 1%; margin-bottom: 0.5em;");
+      J.get$classes$x(container).add$1(0, "giveaway-gridview");
       container.appendChild(giveAway.imageWithLink);
       parentElement.appendChild(container);
     }
-    stopStyles = document.createElement("p", null);
+    L.addStopStyleParagraph(parentElement);
+  },
+  addStopStyleParagraph: function(parentElement) {
+    var stopStyles = document.createElement("p", null);
     stopStyles.setAttribute("style", "clear:both;");
     parentElement.appendChild(stopStyles);
+  },
+  collapseGAList: function() {
+    var numberPinnedGAs, t1, parentElement, i, giveAway, container;
+    numberPinnedGAs = W._FrozenElementList$_wrap(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"), null)._nodeList.length;
+    t1 = W._FrozenElementList$_wrap(document.querySelectorAll(".giveaway__row-outer-wrap"), null)._nodeList;
+    if (numberPinnedGAs >= t1.length)
+      return H.ioore(t1, numberPinnedGAs);
+    parentElement = t1[numberPinnedGAs].parentElement;
+    J.set$innerHtml$x(parentElement, "");
+    for (i = numberPinnedGAs; i < t1.length; ++i) {
+      giveAway = L.GiveAway$(t1[i]);
+      container = document.createElement("div", null);
+      J.get$classes$x(container).add$1(0, "giveaway-gridview");
+      container.appendChild(giveAway.imageWithLink);
+      parentElement.appendChild(container);
+    }
+    L.addStopStyleParagraph(parentElement);
   },
   parseNumber: function(stringWithNumber) {
     var t1 = H.JSSyntaxRegExp_makeNative("\\d+", false, true, false);
@@ -341,7 +360,12 @@ var $$ = Object.create(null);
       this.entries = L.parseNumber(J.get$text$x(C.NodeList_methods.get$first(t2)));
       this.comments = L.parseNumber(J.get$text$x(C.NodeList_methods.get$last(t2)));
       this.imageWithLink = t1.querySelector$1(gaHtml, "a.global__image-outer-wrap--game-medium");
-    }
+    },
+    static: {GiveAway$: function(gaHtml) {
+        var t1 = new L.GiveAway(null, null, null, null, null, null, null, 1, null, null);
+        t1.GiveAway$1(gaHtml);
+        return t1;
+      }}
   }
 }],
 ["_foreign_helper", "dart:_foreign_helper", , H, {
@@ -5525,9 +5549,11 @@ var $$ = Object.create(null);
     styleSheet = J.get$sheet$x(styles);
     J.insertRule$2$x(styleSheet, "body {\n  margin-top: 39px;\n}\n", 0);
     styleSheet.insertRule(".fixed-navigation-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 9999;\n  width: 100%;\n}\n", 0);
+    styleSheet.insertRule(".giveaway-gridview {\n  float: left;\n  width: 18%; \n  margin-right: 1%; \n  margin-left: 1%; \n  margin-bottom: 0.5em;\n}\n", 0);
     J.get$classes$x(document.querySelector("header")).add$1(0, "fixed-navigation-bar");
     if (urlParts.length === 1) {
       L.collapsePinnedGAs();
+      L.collapseGAList();
       document.querySelector(".page__heading").setAttribute("style", "margin-bottom: 0.5em");
     }
   }
