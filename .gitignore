@@ -5,6 +5,7 @@ packages/
 .pub/
 
 # Or the files created by dart2js.
+sgv2plus.user.js
 *.dart.js
 *.dart.precompiled.js
 *.js_
