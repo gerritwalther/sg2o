@@ -6,6 +6,7 @@ main() {
   window.console.log('Hello this is sgv2plus');
   String currentUrl = document.baseUri;
   List<String> urlParts = path.split(currentUrl);
+  SGv2plus.SideBar sidebar = new SGv2plus.SideBar();
 
   SGv2plus.addStylesToHeader();
   SGv2plus.fixNavigation();
@@ -14,5 +15,9 @@ main() {
     SGv2plus.collapsePinnedGAs();
     SGv2plus.collapseGAList();
     SGv2plus.addMarginToHeader();
+  }
+
+  if (sidebar.isSidebarPresent()) {
+    sidebar.fixSidebar();
   }
 }

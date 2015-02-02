@@ -41,4 +41,45 @@ body {
 ''';
 
   styleSheet.insertRule(rule, 0);
+
+  rule =
+'''
+.page__heading {
+  margin-bottom: 0.5em;
+}
+''';
+
+  styleSheet.insertRule(rule, 0);
+
+//  rule =
+//'''
+//.sidebar {
+//  top: 351px;
+//}
+//''';
+//
+//  styleSheet.insertRule(rule, 0);
+//
+//  rule =
+//'''
+//.emptySideBarBlob {
+//  min-width: 206px;
+//}
+//''';
+//
+//  styleSheet.insertRule(rule, 0);
+}
+
+void addStopStyleParagraph(Element parentElement) {
+  Element stopStyles = new ParagraphElement();
+
+  stopStyles.setAttribute('style', 'clear:both;');
+
+  parentElement.append(stopStyles);
+}
+
+void addMarginToHeader() {
+  Element headerElement = querySelector('.page__heading');
+
+  headerElement.setAttribute('style', 'margin-bottom: 0.5em');
 }
