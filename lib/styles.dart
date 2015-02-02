@@ -50,24 +50,6 @@ body {
 ''';
 
   styleSheet.insertRule(rule, 0);
-
-//  rule =
-//'''
-//.sidebar {
-//  top: 351px;
-//}
-//''';
-//
-//  styleSheet.insertRule(rule, 0);
-//
-//  rule =
-//'''
-//.emptySideBarBlob {
-//  min-width: 206px;
-//}
-//''';
-//
-//  styleSheet.insertRule(rule, 0);
 }
 
 void addStopStyleParagraph(Element parentElement) {
