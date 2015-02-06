@@ -35,6 +35,12 @@ void collapseGAList() {
   addStopStyleParagraph(parentElement);
 }
 
+bool pinnedGAsExist() {
+  ElementList pinnedGAs = querySelectorAll('.pinned-giveaways>.giveaway__row-outer-wrap');
+  window.console.log(pinnedGAs.length);
+  return pinnedGAs.isNotEmpty;
+}
+
 void fixNavigation() {
   Element navigationHeaderElement = querySelector('header');
 
