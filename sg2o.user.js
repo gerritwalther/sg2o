@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name          SGv2plus
-// @namespace     sgv2plus
-// @description   Bring old functions from sg+ to SGv2.
+// @name          SG2O
+// @namespace     sg2o
+// @description   Bring old functions from sg+ back to SGv2.
 // @copyright     2014+, Clerius (https://github.com/gerritwalther)
 // @license       GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
 // @version       0.1
@@ -1918,10 +1918,10 @@ gdU:function(){return this.FR},
 gco:function(){return this.FR},
 static:{"^":"cz,QZ,RV,lF,os,M9,nG,IN,vj,bO"}},
 vs:{
-"^":"a;YM,t9<,O1",
-gAT:function(){return this.YM===8},
-sKl:function(a){if(a)this.YM=2
-else this.YM=0},
+"^":"a;Df,t9<,O1",
+gAT:function(){return this.Df===8},
+sKl:function(a){if(a)this.Df=2
+else this.Df=0},
 Rx:function(a,b){var z,y
 z=H.VM(new P.vs(0,$.X3,null),[null])
 y=z.t9
@@ -1938,13 +1938,13 @@ this.xf(new P.Fe(null,y,8,a,null))
 return y},
 gcF:function(){return this.O1},
 gSt:function(){return this.O1},
-vd:function(a){this.YM=4
+vd:function(a){this.Df=4
 this.O1=a},
-P9:function(a){this.YM=8
+P9:function(a){this.Df=8
 this.O1=a},
 Is:function(a,b){this.P9(new P.OH(a,b))},
 xf:function(a){var z
-if(this.YM>=4){z=this.t9
+if(this.Df>=4){z=this.t9
 z.toString
 P.Tk(null,null,z,new P.da(this,a))}else{a.nV=this.O1
 this.O1=a}},
@@ -1968,11 +1968,11 @@ this.P9(new P.OH(a,b))
 P.HZ(this,z)},function(a){return this.ZL(a,null)},"yk","$2","$1","gFa",2,2,14,15],
 $isvs:true,
 $isb8:true,
-static:{"^":"Gn,Ry,cp,UX,NK",k3:function(a,b){b.YM=2
+static:{"^":"Gn,Ry,cp,UX,NK",k3:function(a,b){b.Df=2
 a.Rx(new P.pV(b),new P.U7(b))},A9:function(a,b){var z
-b.YM=2
+b.Df=2
 z=new P.Fe(null,b,0,null,null)
-if(a.YM>=4)P.HZ(a,z)
+if(a.Df>=4)P.HZ(a,z)
 else a.xf(z)},HZ:function(a,b){var z,y,x,w,v,u,t,s,r,q,p,o
 z={}
 z.e=a
@@ -2014,7 +2014,7 @@ if(x.b===!0){y=x.c
 y=(s==null?y!=null:s!==y)&&!!J.x(y).$isb8}else y=!1
 if(y){p=x.c
 o=b.yG
-if(!!J.x(p).$isvs)if(p.YM>=4){o.YM=2
+if(!!J.x(p).$isvs)if(p.Df>=4){o.Df=2
 z.e=p
 b=new P.Fe(null,o,0,null,null)
 y=p
@@ -2024,8 +2024,8 @@ return}}o=b.yG
 b=o.ah()
 y=x.b
 x=x.c
-if(y===!0){o.YM=4
-o.O1=x}else{o.YM=8
+if(y===!0){o.Df=4
+o.O1=x}else{o.Df=8
 o.O1=x}z.e=o
 y=o}}}},
 da:{
@@ -3775,7 +3775,7 @@ QP:{
 "^":"qE;",
 $isQP:true,
 "%":"HTMLBodyElement"},
-IF:{
+uQ:{
 "^":"qE;oc:name=,P:value=",
 "%":"HTMLButtonElement"},
 nx:{
@@ -4307,7 +4307,7 @@ return},
 DN:function(){var z=this.H2
 if(z!=null&&this.UU<=0)J.qV(this.J6,this.fA,z,this.el)},
 EO:function(){var z=this.H2
-if(z!=null)J.GJ(this.J6,this.fA,z,this.el)}},
+if(z!=null)J.IF(this.J6,this.fA,z,this.el)}},
 JQ:{
 "^":"a;Ks<",
 i0:function(a){return $.AM().tg(0,a.tagName)},
@@ -4715,43 +4715,49 @@ GS:{
 "^":"Tp:11;",
 $1:function(a){return J.Mp(a)}}}],["","",,F,{
 "^":"",
-Iq:[function(){var z,y,x,w,v,u
+Iq:[function(){var z,y,x,w,v,u,t,s
 window
 if(typeof console!="undefined")console.log("Hello this is sgv2plus")
 z=document.baseURI
 y=$.cM().Fr(0,z)
 x=new Q.Qw(null)
 x.hD()
-w=Q.Go()
-J.dp(w,"body {\n  margin-top: 39px;\n}\n",0)
-w.insertRule(".fixed-navigation-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 9999;\n  width: 100%;\n}\n",0)
-w.insertRule(".giveaway-gridview {\n  float: left;\n  width: 184px;\n  margin-left: 1%;\n  margin-right: 1%;\n  border-radius: 2px;\n  margin-bottom: 0.5em;\n}\n",0)
-w.insertRule(".page__heading {\n  margin-bottom: 0.5em;\n}\n",0)
-w.insertRule(".gridview-info {\n  z-index: 100;\n  font-size: 10;\n  border: 1px solid #d2d6e0;\n  width: inherit;\n  margin-top: -5px;\n  border-radius: 3px;\n  padding: 5px;\n  background: white;\n  position: absolute;\n}\n",0)
-w.insertRule(".gridview-avatar {\n  width: 25px;\n  height: 25px;\n  padding: 2px;\n  border: 1px solid #d2d6e0;\n  border-radius: 1px;\n}\n",0)
-w.insertRule(".float-left {\n  float: left;\n}\n",0)
-w.insertRule(".float-right {\n  float: right;\n}\n",0)
-w.insertRule(".ga-name {\n  font-weight: bold;\n  min-height: 30px;\n  margin-bottom: 0.5em;\n}\n",0)
-w.insertRule(".hidden {\n  display: none !important;\n}\n",0)
-w.insertRule(".faded {\n  opacity: 0.5;\n}\n",0)
-w=Q.Go()
-J.dp(w,".group-border {\n  background: #308430;\n}\n",0)
-w.insertRule(".contributor-above-border {\n  background: #B80000;\n}\n",0)
-w.insertRule(".contributor-below-border {\n  background: #0033CC;\n}\n",0)
-w.insertRule(".wishlist-border {\n  background: #9933FF;\n}\n",0)
-w.insertRule(".group-contributor-above-border {\n  background-color: #308430;\n  background-image: linear-gradient( \n    to right,\n    transparent 50%,\n    #B80000 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
-w.insertRule(".group-contributor-below-border {\n  background-color: #308430;\n  background-image: linear-gradient( \n    to right,\n    transparent 50%,\n    #0033CC 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
-w.insertRule(".group-wishlist-border {\n  background-color: #308430;\n  background-image: linear-gradient( \n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
-w.insertRule(".contributor-above-wishlist-border {\n  background-color: #B80000;\n  background-image: linear-gradient( \n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
-w.insertRule(".contributor-below-wishlist-border {\n  background-color: #0033CC;\n  background-image: linear-gradient( \n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
-w.insertRule(Q.uL("group-contributor-above-wishlist","#308430","#B80000","#9933FF"),0)
-w.insertRule(Q.uL("group-contributor-below-wishlist","#308430","#0033CC","#9933FF"),0)
+w=new Q.Ej(null)
+w.YM=w.qa()
+v=new Q.XB("#308430","#B80000","#0033CC","#9933FF",null)
+u=v.qa()
+v.YM=u
+J.dp(u,".group-border {\n  background: #308430;\n}\n",0)
+J.dp(v.YM,".contributor-above-border {\n  background: #B80000;\n}\n",0)
+J.dp(v.YM,".contributor-below-border {\n  background: #0033CC;\n}\n",0)
+J.dp(v.YM,".wishlist-border {\n  background: #9933FF;\n}\n",0)
+J.dp(v.YM,".group-contributor-above-border {\n  background-color: #308430;\n  background-image: linear-gradient( \n    to right,\n    transparent 50%,\n    #B80000 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(v.YM,".group-contributor-below-border {\n  background-color: #308430;\n  background-image: linear-gradient( \n    to right,\n    transparent 50%,\n    #0033CC 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(v.YM,".group-wishlist-border {\n  background-color: #308430;\n  background-image: linear-gradient( \n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(v.YM,".contributor-above-wishlist-border {\n  background-color: #B80000;\n  background-image: linear-gradient( \n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(v.YM,".contributor-below-wishlist-border {\n  background-color: #0033CC;\n  background-image: linear-gradient( \n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(v.YM,v.Hx("group-contributor-above-wishlist","#308430","#B80000","#9933FF"),0)
+J.dp(v.YM,v.Hx("group-contributor-below-wishlist","#308430","#0033CC","#9933FF"),0)
+v=new Q.GJ(null)
+v.YM=v.qa()
+t=v.qa()
+J.dp(t,"body {\n  margin-top: 39px;\n}\n",0)
+t.insertRule(".fixed-navigation-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 9999;\n  width: 100%;\n}\n",0)
+t.insertRule(".giveaway-gridview {\n  float: left;\n  width: 184px;\n  margin-left: 1%;\n  margin-right: 1%;\n  border-radius: 2px;\n  margin-bottom: 0.5em;\n}\n",0)
+t.insertRule(".page__heading {\n  margin-bottom: 0.5em;\n}\n",0)
+t.insertRule(".gridview-info {\n  z-index: 100;\n  font-size: 10;\n  border: 1px solid #d2d6e0;\n  width: inherit;\n  margin-top: -5px;\n  border-radius: 3px;\n  padding: 5px;\n  background: white;\n  position: absolute;\n}\n",0)
+t.insertRule(".gridview-avatar {\n  width: 25px;\n  height: 25px;\n  padding: 2px;\n  border: 1px solid #d2d6e0;\n  border-radius: 1px;\n}\n",0)
+t.insertRule(".float-left {\n  float: left;\n}\n",0)
+t.insertRule(".float-right {\n  float: right;\n}\n",0)
+t.insertRule(".ga-name {\n  font-weight: bold;\n  min-height: 30px;\n  margin-bottom: 0.5em;\n}\n",0)
+t.insertRule(".hidden {\n  display: none !important;\n}\n",0)
+t.insertRule(".faded {\n  opacity: 0.5;\n}\n",0)
 J.pP(document.querySelector("header")).h(0,"fixed-navigation-bar")
 v=y.length
 if(v!==1){if(1>=v)return H.e(y,1)
 v=J.xC(y[1],"giveaways")}else v=!0
-if(v){u=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null)
-if(u.gor(u))Q.Dw()
+if(v){s=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null)
+if(s.gor(s))Q.Dw()
 Q.Sk()
 document.querySelector(".page__heading").setAttribute("style","margin-bottom: 0.5em")}if(W.vD(document.querySelectorAll(".sidebar"),null).Wf.length>=1){document.querySelector(".sidebar")
 v=H.VM(new W.RO(window,"scroll",!1),[null])
@@ -4877,7 +4883,12 @@ if(!(z===47||z===92))return 0
 return 3},
 hK:function(a){return this.SU(a)===1}}}],["","",,Q,{
 "^":"",
-uL:function(a,b,c,d){return"."+a+"-border {\n  background-image: \n    linear-gradient(\n      to right,\n      "+b+" 33.33%,\n      "+c+" 33.33%,\n      "+c+" 66.66%,\n      "+d+" 66.66%\n    );\n  background-size: 90px 90px;\n}\n"},
+Ws:function(){var z=document.createElement("p",null)
+z.setAttribute("style","clear:both;")
+return z},
+Rp:function(a,b){var z=W.r3(a,null)
+J.Qy(z,b)
+return z},
 xK:function(a){var z=H.v4("\\d+",!1,!0,!1)
 a.toString
 H.Yx("")
@@ -4895,7 +4906,7 @@ if(0>=y.length)return H.e(y,0)
 x=y[0].parentElement
 J.Qy(x,"")
 for(y=z.gA(z);y.G();)x.appendChild(Q.zy(y.lo).pS())
-Q.XU(x)},
+x.appendChild(Q.Ws())},
 Sk:function(){var z,y,x,w
 z=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null).Wf.length
 y=W.vD(document.querySelectorAll(".giveaway__row-outer-wrap"),null).Wf
@@ -4903,24 +4914,12 @@ if(z>=y.length)return H.e(y,z)
 x=y[z].parentElement
 J.Qy(x,"")
 for(w=z;w<y.length;++w)x.appendChild(Q.zy(y[w]).pS())
-Q.XU(x)},
+x.appendChild(Q.Ws())},
 BN:function(){var z,y
 z=document.querySelector(".nav__points")
 if(z!=null){y=W.vD(z.parentElement.querySelectorAll("span"),null).Wf
 if(1>=y.length)return H.e(y,1)
 return Q.xK(J.iz(y[1],"title"))}else return 0},
-Go:function(){var z=document.createElement("style",null)
-document.head.appendChild(z)
-return J.AZ(z)},
-XU:function(a){var z=document.createElement("p",null)
-z.setAttribute("style","clear:both;")
-a.appendChild(z)},
-Ws:function(){var z=document.createElement("p",null)
-z.setAttribute("style","clear:both;")
-return z},
-Rp:function(a,b){var z=W.r3(a,null)
-J.Qy(z,b)
-return z},
 JC:{
 "^":"a;oc,tc,Iz,O6,Ir,dn,cB,Pu,aP,GU,Pj,lR,U7,hW,yY,us",
 pS:function(){var z,y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f
@@ -5066,7 +5065,17 @@ y.toString
 z.setAttribute("style","margin-top:"+C.jn.bu(64+C.CD.yu(C.CD.UD(y.scrollTop))-this.zI)+"px;")}else z.setAttribute("style","margin-top: 0px;")},"$1","gRB",2,0,30],
 hD:function(){var z=document.querySelector(".sidebar")
 z.toString
-this.zI=P.T7(C.CD.yu(C.CD.UD(z.offsetLeft)),C.CD.yu(C.CD.UD(z.offsetTop)),C.CD.yu(C.CD.UD(z.offsetWidth)),C.CD.yu(C.CD.UD(z.offsetHeight)),null).G6}}}],])
+this.zI=P.T7(C.CD.yu(C.CD.UD(z.offsetLeft)),C.CD.yu(C.CD.UD(z.offsetTop)),C.CD.yu(C.CD.UD(z.offsetWidth)),C.CD.yu(C.CD.UD(z.offsetHeight)),null).G6}},
+XB:{
+"^":"Ej;wn,PJ,T3,aj,YM",
+Hx:function(a,b,c,d){return"."+a+"-border {\n  background-image: \n    linear-gradient(\n      to right,\n      "+b+" 33.33%,\n      "+c+" 33.33%,\n      "+c+" 66.66%,\n      "+d+" 66.66%\n    );\n  background-size: 90px 90px;\n}\n"}},
+GJ:{
+"^":"Ej;YM"},
+Ej:{
+"^":"a;YM",
+qa:function(){var z=document.createElement("style",null)
+document.head.appendChild(z)
+return J.AZ(z)}}}],])
 I.$finishClasses($$,$,null)
 $$=null
 ;(function(){var z=!0,y
@@ -5183,9 +5192,9 @@ return J.Wx(a).E(a,b)}
 J.C9=function(a){return J.RE(a).goc(a)}
 J.EE=function(a,b,c){return J.RE(a).AS(a,b,c)}
 J.FN=function(a){return J.U6(a).gl0(a)}
-J.GJ=function(a,b,c,d){return J.RE(a).Y9(a,b,c,d)}
 J.GP=function(a){return J.w1(a).gA(a)}
 J.Gw=function(a,b){return J.Wx(a).WZ(a,b)}
+J.IF=function(a,b,c,d){return J.RE(a).Y9(a,b,c,d)}
 J.Is=function(a,b){return J.rY(a).Tc(a,b)}
 J.MQ=function(a){return J.w1(a).grZ(a)}
 J.Mp=function(a){return J.w1(a).wg(a)}

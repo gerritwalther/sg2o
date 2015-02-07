@@ -7,7 +7,9 @@ main() {
   String currentUrl = document.baseUri;
   List<String> urlParts = path.split(currentUrl);
   sg2o.SideBar sidebar = new sg2o.SideBar();
-  sg2o.addStylesToHeader();
+  sg2o.Styles styles = new sg2o.Styles();
+
+  styles.addStyles();
   sg2o.fixNavigation();
 
   if (urlParts.length == 1 || urlParts.elementAt(1) == "giveaways") { // We are on the GA page
@@ -15,7 +17,7 @@ main() {
       sg2o.collapsePinnedGAs();
     }
     sg2o.collapseGAList();
-    sg2o.addMarginToHeader();
+    styles.addMarginToHeader();
   }
 
   if (sidebar.isSidebarPresent()) {

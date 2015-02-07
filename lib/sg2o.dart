@@ -5,9 +5,11 @@ import 'dart:html';
 
 part 'giveaway.dart';
 part 'my_string.dart';
-part 'styles.dart';
-part 'borderStyles.dart';
+part 'styles/styles.dart';
+part 'styles/border_styles.dart';
+part 'styles/common_styles.dart';
 part 'sidebar.dart';
+part 'dom/my_dom.dart';
 
 int myLevel = getMyLevel();
 
