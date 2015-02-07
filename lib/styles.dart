@@ -117,6 +117,15 @@ body {
 
   styleSheet.insertRule(rule, 0);
 
+  rule =
+'''
+.faded {
+  opacity: 0.5;
+}
+''';
+
+  styleSheet.insertRule(rule, 0);
+
   addBorderStyles();
 }
 

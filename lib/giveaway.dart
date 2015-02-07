@@ -72,15 +72,13 @@ class GiveAway {
     giveAwayContainer
       ..classes.add('giveaway-gridview')
       ..append(giveAwayLink)
-      ..append(informationContainer);
-
-    if(entered) {
-      giveAwayContainer.classes.add('is-faded');
-    }
-
-    giveAwayContainer
+      ..append(informationContainer)
       ..onMouseEnter.listen((e) => informationContainer.classes.remove('hidden'))
       ..onMouseLeave.listen((e) => informationContainer.classes.add('hidden'));
+
+    if (entered) {
+      giveAwayLink.classes.add('faded');
+    }
 
     return giveAwayContainer;
   }
@@ -97,7 +95,6 @@ class GiveAway {
     nameContainer
       ..classes.add('ga-name')
       ..innerHtml = name;
-
 
     DivElement copiesContainer = new DivElement();
     copiesContainer
@@ -140,6 +137,17 @@ class GiveAway {
       ..classes.add('float-left')
       ..append(createStrongElement(this.comments))
       ..append(createTextElement(' comments'));
+
+    if (entered) {
+      nameContainer.classes.add('faded');
+      copiesContainer.classes.add('faded');
+      pointsContainer.classes.add('faded');
+      timeRemainingContainer.classes.add('faded');
+      avatarContainer.classes.add('faded');
+      entriesContainer.classes.add('faded');
+      chanceToWinContainer.classes.add('faded');
+      commentsContainer.classes.add('faded');
+    }
 
     informationContainer
       ..append(nameContainer)
