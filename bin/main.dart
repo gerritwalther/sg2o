@@ -3,7 +3,6 @@ import 'package:path/path.dart' as path;
 import 'dart:html';
 
 main() {
-  window.console.log('Hello this is sgv2plus');
   String currentUrl = document.baseUri;
   List<String> urlParts = path.split(currentUrl);
   sg2o.SideBar sidebar = new sg2o.SideBar();
@@ -18,6 +17,7 @@ main() {
     }
     sg2o.collapseGAList();
     styles.addMarginToHeader();
+    sg2o.replaceFeatured();
   }
 
   if (sidebar.isSidebarPresent()) {

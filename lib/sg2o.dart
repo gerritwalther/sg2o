@@ -13,6 +13,15 @@ part 'dom/my_dom.dart';
 
 int myLevel = getMyLevel();
 
+int getMyLevel() {
+  Element navigationPointsElement = querySelector('.nav__points');
+  if(navigationPointsElement != null) {
+    return parseNumber(navigationPointsElement.parent.querySelectorAll('span')[1].getAttribute('title'));
+  } else {
+    return 0;
+  }
+}
+
 void collapsePinnedGAs() {
   ElementList giveAwayElements = document.querySelectorAll('.pinned-giveaways>.giveaway__row-outer-wrap');
   Element parentElement = giveAwayElements[0].parent;
@@ -52,11 +61,18 @@ void fixNavigation() {
   navigationHeaderElement.classes.add('fixed-navigation-bar');
 }
 
-int getMyLevel() {
-  Element navigationPointsElement = querySelector('.nav__points');
-  if(navigationPointsElement != null) {
-    return parseNumber(navigationPointsElement.parent.querySelectorAll('span')[1].getAttribute('title'));
-  } else {
-    return 0;
-  }
+void replaceFeatured() {
+  Element featuredContainer = querySelector('.featured__container');
+  ElementList widgetContainers = querySelectorAll('.widget-container');
+  Element pageHeading = querySelector('.page__heading');
+//  Element voteContainer = widgetContainers.elementAt(1);
+  Element forumContainer = widgetContainers.elementAt(2);
+
+  featuredContainer.remove();
+  pageHeading.parent
+    ..insertBefore(forumContainer, pageHeading);
+//    ..insertBefore(voteContainer, pageHeading);
+
+  forumContainer.classes.remove('widget-container--margin-top');
+  pageHeading.classes.add('widget-container--margin-top');
 }
