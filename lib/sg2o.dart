@@ -1,5 +1,5 @@
-/// The SGv2plus library.
-library SGv2plus;
+/// The sg2o library.
+library sg2o;
 
 import 'dart:html';
 

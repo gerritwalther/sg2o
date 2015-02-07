@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name          SGv2plus
-// @namespace     sgv2plus
-// @description   Bring old functions from sg+ to SGv2.
+// @name          SG2O
+// @namespace     sg2o
+// @description   Bring old functions from sg+ back to SGv2.
 // @copyright     2014+, Clerius (https://github.com/gerritwalther)
 // @license       GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
 // @version       0.1
@@ -12,8 +12,8 @@
 //
 // ==/UserScript==
 (function () {
-  var sgv2plus = document.createElement('script');
-  sgv2plus.type = 'text/javascript';
-  sgv2plus.src = 'https://raw.githack.com/gerritwalther/sgv2plus/master/sgv2plus.user.js';
-  document.body.appendChild(sgv2plus);
+  var sg2o = document.createElement('script');
+  sg2o.type = 'text/javascript';
+  sg2o.src = 'https://raw.githack.com/gerritwalther/sg2o/master/sg2o.user.js';
+  document.body.appendChild(sg2o);
 })();

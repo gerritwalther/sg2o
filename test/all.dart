@@ -3,8 +3,8 @@
 
 library all_tests;
 
-import 'SGv2plus_test.dart' as SGv2plus_test;
+//import 'sg2o_test.dart' as sg2o_test;
 
 void main() {
-  SGv2plus_test.defineTests();
+//  sg2o_test.defineTests();
 }

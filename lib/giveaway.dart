@@ -1,4 +1,4 @@
-part of SGv2plus;
+part of sg2o;
 
 class GiveAway {
   String name;

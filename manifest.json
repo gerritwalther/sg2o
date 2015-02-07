@@ -3,7 +3,7 @@
     "content_scripts": [ {
         "exclude_globs":    [  ],
         "include_globs":    [ "*" ],
-        "js":               [ "sgv2plus.user.js"
+        "js":               [ "sg2o.user.js"
                             ],
         "matches":          [   "http://www.steamgifts.com/*"
                             ],
@@ -11,9 +11,9 @@
     } ],
     "converted_from_user_script": true,
     "description":  "Bring old functions from sg+ to SGv2.",
-    "name":         "SGv2plus",
+    "name":         "sg2o",
     "version":      "0.1",
-    "web_accessible_resources": [ "sgv2plus.user.js.map",
+    "web_accessible_resources": [ "sg2o.user.js.map",
                                   "lib/*.dart",
                                   "bin/*.dart"
                                 ]
