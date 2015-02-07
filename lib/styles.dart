@@ -1,10 +1,7 @@
 part of SGv2plus;
 
 void addStylesToHeader() {
-  StyleElement styles = new StyleElement();
-  document.head.append(styles);
-
-  CssStyleSheet styleSheet = styles.sheet;
+  CssStyleSheet styleSheet = createStyleSheetElement();
 
   String rule =
 '''
@@ -34,8 +31,8 @@ body {
 .giveaway-gridview {
   float: left;
   width: 184px;
-  margin-right: 1%;
   margin-left: 1%;
+  margin-right: 1%;
   border-radius: 2px;
   margin-bottom: 0.5em;
 }
@@ -119,6 +116,15 @@ body {
 ''';
 
   styleSheet.insertRule(rule, 0);
+
+  addBorderStyles();
+}
+
+CssStyleSheet createStyleSheetElement() {
+  StyleElement styles = new StyleElement();
+  document.head.append(styles);
+
+  return styles.sheet;
 }
 
 void addStopStyleParagraph(Element parentElement) {

@@ -12,6 +12,10 @@ class GiveAway {
   int copies = 1;
   int comments;
   String link;
+  bool isContributorGA;
+  int contributorLevel = 0;
+  bool isGroupGA;
+  bool isWishListGA;
 
   GiveAway(Element gaHtml) {
     ElementList copiesAndPoints = gaHtml.querySelectorAll('span.giveaway__heading__thin');
@@ -36,6 +40,13 @@ class GiveAway {
     this.comments = parseNumber(entriesAndComments.last.text);
     this.image = gaHtml.querySelector('a.global__image-outer-wrap--game-medium').children.first;
     this.avatar = gaHtml.querySelector('.global__image-outer-wrap--avatar-small>.global__image-inner-wrap');
+    ElementList contributorElement = gaHtml.querySelectorAll('.giveaway__column--contributor-level');
+    this.isContributorGA = contributorElement.length > 0;
+    if (this.isContributorGA) {
+      this.contributorLevel = parseNumber(contributorElement[0].text);
+    }
+    this.isGroupGA = gaHtml.querySelectorAll('.giveaway__column--group').length > 0;
+    this.isWishListGA = false;
   }
 
   Element wrappedWithStyles() {
@@ -49,6 +60,7 @@ class GiveAway {
       ..setAttribute('href', this.link)
       ..classes.add('global__image-outer-wrap')
       ..classes.add('global__image-outer-wrap--game-medium')
+      ..classes.add(getBorderColorClass())
       ..append(giveAwayImage);
 
     giveAwayImage
@@ -144,6 +156,27 @@ class GiveAway {
   }
 
   String toString() {
-    return "Giveaway: " + name + " with " + points.toString() + " Points, created by " + creator + " " + created + " ago,  still open for: " + remaining + ", has " + entries.toString() + " entries and " + comments.toString() + " comments, link: " + link;
+    return "Giveaway: " + name
+        + " with " + points.toString() + " Points, created by " + creator
+        + " " + created + " ago,  still open for: " + remaining
+        + ", has " + entries.toString() + " entries and "
+        + comments.toString() + " comments, link: " + link
+        + " is a group GA: " + isGroupGA.toString()
+        + " and a contributorGA: " + isContributorGA.toString()
+        + " with level " + contributorLevel.toString();
+  }
+
+  String getBorderColorClass() {
+    List borderLevels = ['', 'group', // 0, 1
+                         'contributor-above', 'group-contributor-above', 'contributor-below', 'group-contributor-below', '', '', // 2-7
+                         'wishlist', 'group-wishlist', 'contributor-above-wishlist', 'group-contributor-above-wishlist', // 8-11
+                         'contributor-below-wishlist', 'group-contributor-below-wishlist', '', '']; // 12-15
+    int borderLevel = 0;
+    borderLevel += (isGroupGA) ? 1 : 0;
+    borderLevel += (isContributorGA && contributorLevel > myLevel) ? 2 : 0;
+    borderLevel += (isContributorGA && contributorLevel <= myLevel) ? 4 : 0;
+    borderLevel += (isWishListGA) ? 8 : 0;
+
+    return borderLevels[borderLevel] + '-border';
   }
 }
