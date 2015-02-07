@@ -16,6 +16,7 @@ class GiveAway {
   int contributorLevel = 0;
   bool isGroupGA;
   bool isWishListGA;
+  bool entered;
 
   GiveAway(Element gaHtml) {
     ElementList copiesAndPoints = gaHtml.querySelectorAll('span.giveaway__heading__thin');
@@ -47,6 +48,7 @@ class GiveAway {
     }
     this.isGroupGA = gaHtml.querySelectorAll('.giveaway__column--group').length > 0;
     this.isWishListGA = false;
+    this.entered = gaHtml.querySelectorAll('.is-faded').length > 0;
   }
 
   Element wrappedWithStyles() {
@@ -71,6 +73,10 @@ class GiveAway {
       ..classes.add('giveaway-gridview')
       ..append(giveAwayLink)
       ..append(informationContainer);
+
+    if(entered) {
+      giveAwayContainer.classes.add('is-faded');
+    }
 
     giveAwayContainer
       ..onMouseEnter.listen((e) => informationContainer.classes.remove('hidden'))

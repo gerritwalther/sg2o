@@ -343,7 +343,7 @@ var $$ = Object.create(null);
     return element;
   },
   GiveAway: {
-    "^": "Object;name,created,creator,remaining,image,avatar,points,entries,copies,comments,link,isContributorGA,contributorLevel,isGroupGA,isWishListGA",
+    "^": "Object;name,created,creator,remaining,image,avatar,points,entries,copies,comments,link,isContributorGA,contributorLevel,isGroupGA,isWishListGA,entered",
     wrappedWithStyles$0: function() {
       var giveAwayContainer, informationContainer, t1, nameContainer, copiesContainer, pointsContainer, timeRemainingContainer, avatarContainer, entriesContainer, chanceToWinContainer, commentsContainer, giveAwayLink, giveAwayImage, borderLevel, t2, t3, t4;
       giveAwayContainer = document.createElement("div", null);
@@ -418,8 +418,10 @@ var $$ = Object.create(null);
       t4.get$classes(giveAwayContainer).add$1(0, "giveaway-gridview");
       giveAwayContainer.appendChild(giveAwayLink);
       giveAwayContainer.appendChild(informationContainer);
-      t3 = t4.get$onMouseEnter(giveAwayContainer);
-      H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t3._target, t3._eventType, W._wrapZone(new L.GiveAway_wrappedWithStyles_closure(informationContainer)), t3._useCapture), [H.getTypeArgumentByIndex(t3, 0)])._tryResume$0();
+      if (this.entered)
+        t4.get$classes(giveAwayContainer).add$1(0, "is-faded");
+      t1 = t4.get$onMouseEnter(giveAwayContainer);
+      H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t1._target, t1._eventType, W._wrapZone(new L.GiveAway_wrappedWithStyles_closure(informationContainer)), t1._useCapture), [H.getTypeArgumentByIndex(t1, 0)])._tryResume$0();
       t4 = t4.get$onMouseLeave(giveAwayContainer);
       H.setRuntimeTypeInfo(new W._EventStreamSubscription(0, t4._target, t4._eventType, W._wrapZone(new L.GiveAway_wrappedWithStyles_closure0(informationContainer)), t4._useCapture), [H.getTypeArgumentByIndex(t4, 0)])._tryResume$0();
       return giveAwayContainer;
@@ -468,9 +470,10 @@ var $$ = Object.create(null);
         this.contributorLevel = L.parseNumber(J.get$text$x(t2[0]));
       this.isGroupGA = t1.querySelectorAll$1(gaHtml, ".giveaway__column--group")._nodeList.length > 0;
       this.isWishListGA = false;
+      this.entered = t1.querySelectorAll$1(gaHtml, ".is-faded")._nodeList.length > 0;
     },
     static: {GiveAway$: function(gaHtml) {
-        var t1 = new L.GiveAway(null, null, null, null, null, null, null, null, 1, null, null, null, 0, null, null);
+        var t1 = new L.GiveAway(null, null, null, null, null, null, null, null, 1, null, null, null, 0, null, null, null);
         t1.GiveAway$1(gaHtml);
         return t1;
       }}
@@ -9703,10 +9706,6 @@ var $$ = Object.create(null);
     styleSheet.insertRule(L.createThreeColorStripedBorderRule("group-contributor-above-wishlist", "#308430", "#B80000", "#9933FF"), 0);
     styleSheet.insertRule(L.createThreeColorStripedBorderRule("group-contributor-below-wishlist", "#308430", "#0033CC", "#9933FF"), 0);
     J.get$classes$x(document.querySelector("header")).add$1(0, "fixed-navigation-bar");
-    window;
-    t1 = $.get$myLevel();
-    if (typeof console != "undefined")
-      console.log(t1);
     t1 = urlParts.length;
     if (t1 !== 1) {
       if (1 >= t1)
