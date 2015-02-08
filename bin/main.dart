@@ -5,7 +5,6 @@ import 'dart:html';
 main() {
   String currentUrl = document.baseUri;
   List<String> urlParts = path.split(currentUrl);
-  sg2o.SideBar sidebar = new sg2o.SideBar();
   sg2o.Styles styles = new sg2o.Styles();
 
   styles.addStyles();
@@ -18,14 +17,16 @@ main() {
     sg2o.collapseGAList();
     styles.addMarginToHeader();
     sg2o.replaceFeatured();
+
+    if (sg2o.paginationAvailable()) {
+      sg2o.EndlessGiveAway endlessGiveAwayScroll = new sg2o.EndlessGiveAway();
+      endlessGiveAwayScroll.loadPages();
+    }
   }
+
+  sg2o.SideBar sidebar = new sg2o.SideBar();
 
   if (sidebar.isSidebarPresent()) {
     sidebar.fixSidebar();
-  }
-
-  if (sg2o.paginationAvailable()) {
-    sg2o.EndlessGiveAway endlessGiveAwayScroll = new sg2o.EndlessGiveAway();
-    endlessGiveAwayScroll.loadPages();
   }
 }

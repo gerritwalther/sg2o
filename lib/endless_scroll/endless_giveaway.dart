@@ -12,6 +12,8 @@ class EndlessGiveAway extends EndlessScroll {
     if (scrollTop > paginationTop && !isLoading && nextPage < lastPage) {
       isLoading = true;
       updatePage();
+      nextPage += 1;
+      isLoading = false;
     }
   }
 
@@ -25,8 +27,6 @@ class EndlessGiveAway extends EndlessScroll {
 
         ElementList pagination = nextPageDocument.querySelector('.pagination').children;
         updatePagination(pagination.first, pagination.last);
-        nextPage += 1;
-        isLoading = false;
       }
     );
   }
