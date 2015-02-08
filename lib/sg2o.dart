@@ -10,6 +10,8 @@ part 'styles/border_styles.dart';
 part 'styles/common_styles.dart';
 part 'sidebar.dart';
 part 'dom/my_dom.dart';
+part 'endless_scroll/endless_scroll.dart';
+part 'endless_scroll/endless_giveaway.dart';
 
 int myLevel = getMyLevel();
 
@@ -25,7 +27,9 @@ int getMyLevel() {
 void collapsePinnedGAs() {
   ElementList giveAwayElements = document.querySelectorAll('.pinned-giveaways>.giveaway__row-outer-wrap');
   Element parentElement = giveAwayElements[0].parent;
-  parentElement.innerHtml = "";
+  parentElement
+      ..innerHtml = ""
+      ..classes.add('pinned-gridview-container');
 
   for (final giveAwayElement in giveAwayElements) {
     GiveAway giveAway = new GiveAway(giveAwayElement);
@@ -39,7 +43,9 @@ void collapseGAList() {
   int numberPinnedGAs = querySelectorAll('.pinned-giveaways>.giveaway__row-outer-wrap').length;
   ElementList giveAwayElements = document.querySelectorAll('.giveaway__row-outer-wrap');
   Element parentElement = giveAwayElements[numberPinnedGAs].parent;
-  parentElement.innerHtml = "";
+  parentElement
+    ..innerHtml = ""
+    ..classes.add('gridview-container');
 
   for (int i = numberPinnedGAs; i < giveAwayElements.length; i++) {
     GiveAway giveAway = new GiveAway(giveAwayElements[i]);
@@ -47,6 +53,21 @@ void collapseGAList() {
     parentElement.append(giveAway.wrappedWithStyles());
   }
   addStopStyleParagraph(parentElement);
+}
+
+Element collapseGAListOnDocument(Document documentToQuery) {
+  int numberPinnedGAs = documentToQuery.querySelectorAll('.pinned-giveaways>.giveaway__row-outer-wrap').length;
+  ElementList giveAwayElements = documentToQuery.querySelectorAll('.giveaway__row-outer-wrap');
+  Element parentElement = giveAwayElements[numberPinnedGAs].parent;
+  parentElement.innerHtml = '';
+
+  for (int i = numberPinnedGAs; i < giveAwayElements.length; i++) {
+    GiveAway giveAway = new GiveAway(giveAwayElements[i]);
+
+    parentElement.append(giveAway.wrappedWithStyles());
+  }
+  addStopStyleParagraph(parentElement);
+  return parentElement;
 }
 
 bool pinnedGAsExist() {

@@ -29,3 +29,7 @@ Element createElementWithName(String name, content) {
   element.innerHtml = content;
   return element;
 }
+
+bool paginationAvailable() {
+  return querySelectorAll('.pagination').isNotEmpty;
+}

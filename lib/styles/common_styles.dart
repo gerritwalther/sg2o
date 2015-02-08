@@ -13,7 +13,6 @@ body {
   margin-top: 39px;
 }
 ''';
-
     styleSheet.insertRule(rule, 0);
 
     rule =
@@ -27,7 +26,6 @@ body {
   width: 100%;
 }
 ''';
-
     styleSheet.insertRule(rule, 0);
 
     rule =
@@ -41,7 +39,6 @@ body {
   margin-bottom: 0.5em;
 }
 ''';
-
     styleSheet.insertRule(rule, 0);
 
     rule =
@@ -50,7 +47,6 @@ body {
   margin-bottom: 0.5em;
 }
 ''';
-
     styleSheet.insertRule(rule, 0);
 
     rule =
@@ -67,7 +63,6 @@ body {
   position: absolute;
 }
 ''';
-
     styleSheet.insertRule(rule, 0);
 
     rule =
@@ -80,7 +75,6 @@ body {
   border-radius: 1px;
 }
 ''';
-
     styleSheet.insertRule(rule, 0);
 
     rule =
@@ -89,7 +83,6 @@ body {
   float: left;
 }
 ''';
-
     styleSheet.insertRule(rule, 0);
 
     rule =
@@ -98,7 +91,6 @@ body {
   float: right;
 }
 ''';
-
     styleSheet.insertRule(rule, 0);
 
     rule =
@@ -109,7 +101,6 @@ body {
   margin-bottom: 0.5em;
 }
 ''';
-
     styleSheet.insertRule(rule, 0);
 
     rule =
@@ -118,7 +109,6 @@ body {
   display: none !important;
 }
 ''';
-
     styleSheet.insertRule(rule, 0);
 
     rule =
@@ -127,7 +117,14 @@ body {
   opacity: 0.5;
 }
 ''';
+    styleSheet.insertRule(rule, 0);
 
+    rule =
+'''
+.sg2o-table-heading {
+  margin-bottom: 5px;
+}
+''';
     styleSheet.insertRule(rule, 0);
   }
 }

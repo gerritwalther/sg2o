@@ -23,4 +23,10 @@ main() {
   if (sidebar.isSidebarPresent()) {
     sidebar.fixSidebar();
   }
+
+  if (sg2o.paginationAvailable()) {
+    window.console.log('Pagination available');
+    sg2o.EndlessGiveAway endlessGiveAwayScroll = new sg2o.EndlessGiveAway();
+    endlessGiveAwayScroll.loadNextPage();
+  }
 }
