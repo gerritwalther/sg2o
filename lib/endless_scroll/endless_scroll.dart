@@ -7,6 +7,7 @@ abstract class EndlessScroll {
   int lastPage;
   Element itemsContainer;
   DomParser domParser = new DomParser();
+  bool isLoading = false;
 
   EndlessScroll() {
     Element lastPageLink = querySelectorAll('.pagination__navigation>a').last;
@@ -14,7 +15,7 @@ abstract class EndlessScroll {
   }
 
   void loadPages() {
-
+    window.onScroll.listen(loadNextPage);
   }
 
   void updatePagination(Element newPaginationInfo, Element newPaginator) {
@@ -25,7 +26,7 @@ abstract class EndlessScroll {
       ..append(newPaginator);
   }
 
-  void loadNextPage();
+  void loadNextPage(Event e);
 
   Element createHeading();
 }

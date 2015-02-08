@@ -6,7 +6,16 @@ class EndlessGiveAway extends EndlessScroll {
     itemsContainer = querySelector('.gridview-container');
   }
 
-  void loadNextPage() {
+  void loadNextPage(Event e) {
+    int scrollTop = document.body.scrollHeight;
+    int paginationTop = querySelector('.pagination').offsetTop;
+    if (scrollTop > paginationTop && !isLoading && nextPage < lastPage) {
+      isLoading = true;
+      updatePage();
+    }
+  }
+
+  void updatePage() {
     HttpRequest.request('/giveaways/search?page=$nextPage').then((HttpRequest resp) {
         Document nextPageDocument = domParser.parseFromString(resp.responseText, 'text/html');
         Element nextPageGiveawayGrid = collapseGAListOnDocument(nextPageDocument);
@@ -16,6 +25,8 @@ class EndlessGiveAway extends EndlessScroll {
 
         ElementList pagination = nextPageDocument.querySelector('.pagination').children;
         updatePagination(pagination.first, pagination.last);
+        nextPage += 1;
+        isLoading = false;
       }
     );
   }
