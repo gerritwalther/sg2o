@@ -56,7 +56,7 @@ body {
   font-size: 10;
   border: 1px solid #d2d6e0;
   width: inherit;
-  margin-top: -5.5px;
+  margin-top: -5.6px;
   border-radius: 3px;
   padding: 5px;
   background: white;

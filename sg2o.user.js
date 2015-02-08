@@ -3195,7 +3195,7 @@ g:function(a,b){return P.k5(0,0,this.m5+b.gm5(),0,0,0)},
 C:function(a,b){return C.jn.C(this.m5,b.gm5())},
 D:function(a,b){return this.m5>b.gm5()},
 E:function(a,b){return this.m5<=b.gm5()},
-F:function(a,b){return C.jn.F(this.m5,b.gm5())},
+F:function(a,b){return this.m5>=b.gm5()},
 n:function(a,b){if(b==null)return!1
 if(!J.x(b).$isa6)return!1
 return this.m5===b.m5},
@@ -5204,7 +5204,7 @@ Xt:{
 TD:function(){this.A7=H.BU(J.Vs(C.t5.grZ(W.vD(document.querySelectorAll(".pagination__navigation>a"),null).Wf)).dA.getAttribute("data-page-number"),null,null)}},
 JC:{
 "^":"a;oc,tc,Iz,O6,Ir,dn,cB,Pu,aP,GU,Pj,lR,U7,hW,yY,us",
-pS:function(){var z,y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f
+pS:function(){var z,y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d
 z=document.createElement("div",null)
 y=document.createElement("div",null)
 x=J.RE(y)
@@ -5252,6 +5252,13 @@ j=J.RE(i)
 j.gDD(i).h(0,"float-left")
 i.appendChild(Q.Rp("strong",this.GU))
 i.appendChild(Q.Rp("text"," comments"))
+h=document.createElement("div",null)
+g=J.RE(h)
+g.gDD(h).h(0,"giveaway__column--contributor-level")
+g.gDD(h).h(0,"float-right")
+g.shf(h,H.d(this.U7)+"+")
+if(J.J5($.xE(),this.U7))g.gDD(h).h(0,"giveaway__column--contributor-level--positive")
+else g.gDD(h).h(0,"giveaway__column--contributor-level--negative")
 if(this.us){x.gDD(w).h(0,"faded")
 u.gDD(v).h(0,"faded")
 s.gDD(t).h(0,"faded")
@@ -5259,7 +5266,8 @@ q.gDD(r).h(0,"faded")
 o.gDD(p).h(0,"faded")
 m.gDD(n).h(0,"faded")
 k.gDD(l).h(0,"faded")
-j.gDD(i).h(0,"faded")}y.appendChild(w)
+j.gDD(i).h(0,"faded")
+g.gDD(h).h(0,"faded")}y.appendChild(w)
 y.appendChild(p)
 y.appendChild(v)
 y.appendChild(t)
@@ -5270,30 +5278,31 @@ y.appendChild(n)
 y.appendChild(l)
 y.appendChild(Q.Ws())
 y.appendChild(i)
-h=Q.Rp("a","")
-g=document.createElement("div",null)
-x=J.RE(h)
-x.a7(h,"href",this.Pj)
-x.gDD(h).h(0,"global__image-outer-wrap")
-x.gDD(h).h(0,"global__image-outer-wrap--game-medium")
-u=x.gDD(h)
-f=this.hW?1:0
+y.appendChild(h)
+f=Q.Rp("a","")
+e=document.createElement("div",null)
+x=J.RE(f)
+x.a7(f,"href",this.Pj)
+x.gDD(f).h(0,"global__image-outer-wrap")
+x.gDD(f).h(0,"global__image-outer-wrap--game-medium")
+u=x.gDD(f)
+d=this.hW?1:0
 s=this.lR&&J.xZ(this.U7,$.xE())?2:0
 q=this.lR&&J.Hb(this.U7,$.xE())?4:0
 o=this.yY?8:0
-u.h(0,["","group","contributor-above","group-contributor-above","contributor-below","group-contributor-below","","","wishlist","group-wishlist","contributor-above-wishlist","group-contributor-above-wishlist","contributor-below-wishlist","group-contributor-below-wishlist","",""][f+s+q+o]+"-border")
-h.appendChild(g)
-J.pP(g).h(0,"global__image-inner-wrap")
-g.setAttribute("style",J.iz(this.Ir,"style"))
+u.h(0,["","group","contributor-above","group-contributor-above","contributor-below","group-contributor-below","","","wishlist","group-wishlist","contributor-above-wishlist","group-contributor-above-wishlist","contributor-below-wishlist","group-contributor-below-wishlist","",""][d+s+q+o]+"-border")
+f.appendChild(e)
+J.pP(e).h(0,"global__image-inner-wrap")
+e.setAttribute("style",J.iz(this.Ir,"style"))
 o=J.RE(z)
 o.gDD(z).h(0,"giveaway-gridview")
-z.appendChild(h)
+z.appendChild(f)
 z.appendChild(y)
 q=o.gek(z)
 H.VM(new W.Ov(0,q.J6,q.fA,W.VF(new Q.og(y)),q.el),[H.Kp(q,0)]).DN()
 o=o.gcb(z)
 H.VM(new W.Ov(0,o.J6,o.fA,W.VF(new Q.c2(y)),o.el),[H.Kp(o,0)]).DN()
-if(this.us)x.gDD(h).h(0,"faded")
+if(this.us)x.gDD(f).h(0,"faded")
 return z},
 bu:function(a){return C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g("Giveaway: ",this.oc)+" with ",J.AG(this.cB))+" Points, created by ",this.Iz)+" ",this.tc)+" ago,  still open for: ",this.O6)+", has ",J.AG(this.Pu))+" entries and ",J.AG(this.GU))+" comments, link: ",this.Pj)+" is a group GA: "+String(this.hW)+" and a contributorGA: "+String(this.lR)+" with level ",J.AG(this.U7))},
 Of:function(a){var z,y,x,w,v,u
@@ -5485,6 +5494,8 @@ J.Hb=function(a,b){if(typeof a=="number"&&typeof b=="number")return a<=b
 return J.Wx(a).E(a,b)}
 J.IF=function(a,b,c,d){return J.RE(a).Y9(a,b,c,d)}
 J.Is=function(a,b){return J.rY(a).Tc(a,b)}
+J.J5=function(a,b){if(typeof a=="number"&&typeof b=="number")return a>=b
+return J.Wx(a).F(a,b)}
 J.MQ=function(a){return J.w1(a).grZ(a)}
 J.Mp=function(a){return J.w1(a).wg(a)}
 J.Mz=function(a){return J.rY(a).hc(a)}

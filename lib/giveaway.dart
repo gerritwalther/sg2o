@@ -138,6 +138,18 @@ class GiveAway {
       ..append(createStrongElement(this.comments))
       ..append(createTextElement(' comments'));
 
+    DivElement levelContainer = new DivElement();
+    levelContainer
+      ..classes.add('giveaway__column--contributor-level')
+      ..classes.add('float-right')
+      ..innerHtml = '$contributorLevel+';
+
+    if (myLevel >= contributorLevel) {
+      levelContainer.classes.add('giveaway__column--contributor-level--positive');
+    } else {
+      levelContainer.classes.add('giveaway__column--contributor-level--negative');
+    }
+
     if (entered) {
       nameContainer.classes.add('faded');
       copiesContainer.classes.add('faded');
@@ -147,6 +159,7 @@ class GiveAway {
       entriesContainer.classes.add('faded');
       chanceToWinContainer.classes.add('faded');
       commentsContainer.classes.add('faded');
+      levelContainer.classes.add('faded');
     }
 
     informationContainer
@@ -160,7 +173,8 @@ class GiveAway {
       ..append(entriesContainer)
       ..append(chanceToWinContainer)
       ..append(createStopStyleParagraph())
-      ..append(commentsContainer);
+      ..append(commentsContainer)
+      ..append(levelContainer);
 
     return informationContainer;
   }
