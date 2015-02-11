@@ -5,13 +5,14 @@ import 'dart:html';
 
 part 'giveaway.dart';
 part 'my_string.dart';
-part 'styles/styles.dart';
-part 'styles/border_styles.dart';
-part 'styles/common_styles.dart';
-part 'sidebar.dart';
 part 'dom/my_dom.dart';
 part 'endless_scroll/endless_scroll.dart';
 part 'endless_scroll/endless_giveaway.dart';
+part 'sidebar.dart';
+part 'storage/my_storage.dart';
+part 'styles/border_styles.dart';
+part 'styles/common_styles.dart';
+part 'styles/styles.dart';
 
 int myLevel = getMyLevel();
 

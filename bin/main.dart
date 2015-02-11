@@ -6,6 +6,7 @@ main() {
   String currentUrl = document.baseUri;
   List<String> urlParts = path.split(currentUrl);
   sg2o.Styles styles = new sg2o.Styles();
+  sg2o.MyStorage storage = new sg2o.MyStorage();
 
   styles.addStyles();
   sg2o.fixNavigation();
