@@ -787,7 +787,7 @@ if(v==null)return
 u=v.Zt(w)
 if(u==null)return
 return new H.JM(u,x)}else return new H.ns(y,w,x)},
-Op:function(a){return new H.ku(J.UQ(a,1))},
+CU:function(a){return new H.ku(J.UQ(a,1))},
 J2:function(a){return H.Cr(J.UQ(a,1))}},
 aJ:{
 "^":"a;kw",
@@ -891,7 +891,7 @@ return this.Bw.t(0,y)
 case"list":return this.vo(a)
 case"map":return this.Mh(a)
 case"sendport":return this.Vf(a)
-case"capability":return this.Op(a)
+case"capability":return this.CU(a)
 case"function":return this.J2(a)
 default:return this.fp(a)}},
 vo:function(a){var z,y,x,w,v
@@ -3998,7 +3998,7 @@ hY:{
 "^":"pS;kc:error=",
 "%":"ErrorEvent"},
 pS:{
-"^":"Gv;",
+"^":"Gv;ee:timeStamp=",
 "%":"AnimationPlayerEvent|ApplicationCacheErrorEvent|AudioProcessingEvent|AutocompleteErrorEvent|BeforeUnloadEvent|CloseEvent|CompositionEvent|CustomEvent|DeviceLightEvent|DeviceMotionEvent|DeviceOrientationEvent|DragEvent|FetchEvent|FocusEvent|FontFaceSetLoadEvent|GamepadEvent|HashChangeEvent|IDBVersionChangeEvent|InstallEvent|InstallPhaseEvent|KeyboardEvent|MIDIConnectionEvent|MIDIMessageEvent|MSPointerEvent|MediaKeyEvent|MediaKeyMessageEvent|MediaKeyNeededEvent|MediaStreamEvent|MediaStreamTrackEvent|MessageEvent|MouseEvent|MouseScrollEvent|MouseWheelEvent|MutationEvent|OfflineAudioCompletionEvent|OverflowEvent|PageTransitionEvent|PointerEvent|PopStateEvent|ProgressEvent|PushEvent|RTCDTMFToneChangeEvent|RTCDataChannelEvent|RTCIceCandidateEvent|RelatedEvent|ResourceProgressEvent|SVGZoomEvent|SecurityPolicyViolationEvent|SpeechRecognitionEvent|SpeechSynthesisEvent|StorageEvent|TextEvent|TouchEvent|TrackEvent|TransitionEvent|UIEvent|WebGLContextEvent|WebKitAnimationEvent|WebKitTransitionEvent|WheelEvent|XMLHttpRequestProgressEvent;ClipboardEvent|Event|InputEvent"},
 D0:{
 "^":"Gv;",
@@ -4977,7 +4977,7 @@ q.parentElement.insertBefore(p,q)
 J.pP(p).Rz(0,"widget-container--margin-top")
 J.pP(q).h(0,"widget-container--margin-top")
 w=W.vD(document.querySelectorAll(".pagination"),null)
-if(w.gor(w)){o=new Q.x2(1,2,null,null,new DOMParser(),!1)
+if(w.gor(w)){o=new Q.x2(1,2,null,null,new DOMParser(),!1,null)
 o.TD()
 o.yc=document.querySelector(".gridview-container")
 w=H.VM(new W.RO(window,"scroll",!1),[null])
@@ -5158,25 +5158,10 @@ for(w=z;w<y.length;++w)x.appendChild(Q.zy(y[w]).pS())
 x.appendChild(Q.Ws())
 return x},
 x2:{
-"^":"Xt;tZ,te,A7,yc,Wx,qq",
-Ou:[function(a){var z,y,x
-z=document.body
-z.toString
-y=C.CD.yu(C.CD.UD(z.scrollHeight))
-z=document.querySelector(".pagination")
-z.toString
-if(y>C.CD.yu(C.CD.UD(z.offsetTop)))if(!this.qq){z=this.te
-x=this.A7
-if(typeof x!=="number")return H.s(x)
-x=z<=x
-z=x}else z=!1
-else z=!1
-if(z){this.qq=!0
-this.Mg();++this.te
-this.qq=!1}},"$1","gxg",2,0,31],
-Mg:function(){W.lt("/giveaways/search?page="+this.te,null,null,null,null,null,null,null).ml(new Q.Zz(this))}},
+"^":"Xt;tZ,te,A7,yc,Wx,qq,Op",
+hA:function(a){W.lt("/giveaways/search?page="+this.te,null,null,null,null,null,null,null).ml(new Q.Zz(this,a))}},
 Zz:{
-"^":"Tp:32;a",
+"^":"Tp:31;a,b",
 $1:function(a){var z,y,x,w,v,u,t,s,r
 z=this.a
 y=z.Wx.parseFromString(J.CA(a),"text/html")
@@ -5186,7 +5171,7 @@ v=document.createElement("div",null)
 u=document.createElement("div",null)
 t=J.RE(u)
 t.gDD(u).h(0,"table__column--width-fill")
-t.shf(u,"Page "+z.te+" of "+H.d(z.A7))
+t.shf(u,"Page "+this.b+" of "+H.d(z.A7))
 z=J.RE(v)
 z.gDD(v).h(0,"table__heading")
 z.gDD(v).h(0,"sg2o-table-heading")
@@ -5202,7 +5187,30 @@ r.appendChild(w)
 r.appendChild(z)}},
 Xt:{
 "^":"a;",
-TD:function(){this.A7=H.BU(J.Vs(C.t5.grZ(W.vD(document.querySelectorAll(".pagination__navigation>a"),null).Wf)).dA.getAttribute("data-page-number"),null,null)}},
+Ou:[function(a){var z,y,x,w,v
+z=Date.now()
+if(!this.qq){y=this.Op
+if(typeof y!=="number")return H.s(y)
+y=z-y<700
+z=y}else z=!0
+if(z)return
+else{this.qq=!0
+this.Op=J.zn(a)}x=document.querySelector(".pagination")
+z=document.body
+z.toString
+w=C.CD.yu(C.CD.UD(z.scrollTop))
+z=window.innerHeight
+if(typeof z!=="number")return z.g()
+x.toString
+v=C.CD.yu(C.CD.UD(x.offsetTop))
+if(v+C.CD.yu(C.CD.UD(x.clientHeight))<=z+w&&v>=w){z=this.te
+y=this.A7
+if(typeof y!=="number")return H.s(y)
+y=z<=y
+z=y}else z=!1
+if(z){this.hA(this.te);++this.te}this.qq=!1},"$1","gxg",2,0,32],
+TD:function(){this.A7=H.BU(J.Vs(C.t5.grZ(W.vD(document.querySelectorAll(".pagination__navigation>a"),null).Wf)).dA.getAttribute("data-page-number"),null,null)
+this.Op=Date.now()}},
 JC:{
 "^":"a;oc,tc,Iz,O6,Ir,dn,cB,Pu,aP,GU,Pj,lR,U7,hW,yY,us",
 pS:function(){var z,y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d
@@ -5354,7 +5362,7 @@ y=document.body
 y.toString
 if(C.CD.yu(C.CD.UD(y.scrollTop))+39>this.zI){y=document.body
 y.toString
-z.setAttribute("style","margin-top:"+C.jn.bu(64+C.CD.yu(C.CD.UD(y.scrollTop))-this.zI)+"px;")}else z.setAttribute("style","margin-top: 0px;")},"$1","gRB",2,0,31],
+z.setAttribute("style","margin-top:"+C.jn.bu(64+C.CD.yu(C.CD.UD(y.scrollTop))-this.zI)+"px;")}else z.setAttribute("style","margin-top: 0px;")},"$1","gRB",2,0,32],
 hD:function(){var z=document.querySelector(".sidebar")
 z.toString
 this.zI=P.T7(C.CD.yu(C.CD.UD(z.offsetLeft)),C.CD.yu(C.CD.UD(z.offsetTop)),C.CD.yu(C.CD.UD(z.offsetWidth)),C.CD.yu(C.CD.UD(z.offsetHeight)),null).G6}},
@@ -5546,6 +5554,7 @@ return J.x(a).n(a,b)}
 J.xZ=function(a,b){if(typeof a=="number"&&typeof b=="number")return a>b
 return J.Wx(a).D(a,b)}
 J.yx=function(a){return J.U6(a).gor(a)}
+J.zn=function(a){return J.RE(a).gee(a)}
 I.uL=function(a){a.immutable$list=Array
 a.fixed$length=Array
 return a}
@@ -5771,7 +5780,7 @@ I.$lazy($,"platform","ls","Ef",function(){return S.Rh()})
 I.$lazy($,"myLevel","cP","xE",function(){return Q.BN()})
 
 
-init.metadata=[{func:"uO",args:[P.qU]},{func:"n9",void:true,args:[{func:"X0",void:true}]},{func:"X0",void:true},{func:"Ib",ret:P.a2,args:[null,null]},{func:"bX",ret:P.KN,args:[null]},{func:"E0",ret:P.a2,args:[P.a,P.a]},{func:"ZY",ret:P.KN,args:[P.a]},{func:"zs",ret:P.qU,args:[P.qU]},{func:"Vv",ret:P.a2,args:[W.cv,P.qU,P.qU,W.JQ]},{func:"NT"},{func:"bh",args:[null,null]},{func:"aB",args:[null]},{func:"TS",args:[null,P.qU]},{func:"xO",args:[{func:"X0",void:true}]},{func:"Ns",void:true,args:[P.a],opt:[P.mE]},,{func:"mQ",void:true,args:[null],opt:[P.mE]},{func:"BG",args:[null],opt:[null]},{func:"Uf",ret:P.a2},{func:"WK",args:[P.a2]},{func:"bb",args:[null,P.mE]},{func:"W4",ret:P.KN,args:[null,P.KN]},{func:"jt",void:true,args:[P.KN,P.KN]},{func:"lv",args:[P.wv,null]},{func:"Pt",ret:P.qU,args:[P.KN]},{func:"N4",ret:P.a2,args:[P.KN]},{func:"Z9",ret:P.KN,args:[null,null]},{func:"xM",void:true,args:[P.qU]},{func:"lu",void:true,args:[P.qU],opt:[null]},{func:"BC",ret:P.KN,args:[P.KN,P.KN]},{func:"qu",void:true,args:[W.KV]},{func:"WW",void:true,args:[W.pS]},{func:"c3",args:[W.zU]},];$=null
+init.metadata=[{func:"uO",args:[P.qU]},{func:"n9",void:true,args:[{func:"X0",void:true}]},{func:"X0",void:true},{func:"Ib",ret:P.a2,args:[null,null]},{func:"bX",ret:P.KN,args:[null]},{func:"E0",ret:P.a2,args:[P.a,P.a]},{func:"ZY",ret:P.KN,args:[P.a]},{func:"zs",ret:P.qU,args:[P.qU]},{func:"Vv",ret:P.a2,args:[W.cv,P.qU,P.qU,W.JQ]},{func:"NT"},{func:"bh",args:[null,null]},{func:"aB",args:[null]},{func:"TS",args:[null,P.qU]},{func:"xO",args:[{func:"X0",void:true}]},{func:"Ns",void:true,args:[P.a],opt:[P.mE]},,{func:"mQ",void:true,args:[null],opt:[P.mE]},{func:"BG",args:[null],opt:[null]},{func:"Uf",ret:P.a2},{func:"WK",args:[P.a2]},{func:"bb",args:[null,P.mE]},{func:"W4",ret:P.KN,args:[null,P.KN]},{func:"jt",void:true,args:[P.KN,P.KN]},{func:"lv",args:[P.wv,null]},{func:"Pt",ret:P.qU,args:[P.KN]},{func:"N4",ret:P.a2,args:[P.KN]},{func:"Z9",ret:P.KN,args:[null,null]},{func:"xM",void:true,args:[P.qU]},{func:"lu",void:true,args:[P.qU],opt:[null]},{func:"BC",ret:P.KN,args:[P.KN,P.KN]},{func:"qu",void:true,args:[W.KV]},{func:"c3",args:[W.zU]},{func:"WW",void:true,args:[W.pS]},];$=null
 I = I.$finishIsolateConstructor(I)
 $=new I()
 function convertToFastObject(a){function MyClass(){}MyClass.prototype=a

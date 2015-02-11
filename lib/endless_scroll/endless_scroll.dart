@@ -8,14 +8,32 @@ abstract class EndlessScroll {
   Element itemsContainer;
   DomParser domParser = new DomParser();
   bool isLoading = false;
+  num lastLoading;
 
   EndlessScroll() {
     Element lastPageLink = querySelectorAll('.pagination__navigation>a').last;
     lastPage = int.parse(lastPageLink.attributes['data-page-number']);
+    lastLoading = new DateTime.now().millisecondsSinceEpoch;
   }
 
   void loadPages() {
     window.onScroll.listen(loadNextPage);
+  }
+
+  void loadNextPage(Event e) {
+    num now = new DateTime.now().millisecondsSinceEpoch;
+    if (isLoading || now - lastLoading < 700) {
+      return;
+    } else {
+      isLoading = true;
+      lastLoading = e.timeStamp;
+    }
+    Element pagination = querySelector('.pagination');
+    if (isElementCompletelyVisible(pagination) && nextPage <= lastPage) {
+      updatePage(nextPage);
+      nextPage += 1;
+    }
+    isLoading = false;
   }
 
   void updatePagination(Element newPaginationInfo, Element newPaginator) {
@@ -26,7 +44,21 @@ abstract class EndlessScroll {
       ..append(newPaginator);
   }
 
-  void loadNextPage(Event e);
+  void updatePage(num page);
 
-  Element createHeading();
+  Element createHeading (num page) {
+    DivElement headingContainer = new DivElement();
+    DivElement headingText = new DivElement();
+
+    headingText
+      ..classes.add('table__column--width-fill')
+      ..innerHtml = 'Page $page of $lastPage';
+
+    headingContainer
+      ..classes.add('table__heading')
+      ..classes.add('sg2o-table-heading')
+      ..append(headingText);
+
+    return headingContainer;
+  }
 }

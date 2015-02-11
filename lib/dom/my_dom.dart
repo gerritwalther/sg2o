@@ -33,3 +33,13 @@ Element createElementWithName(String name, content) {
 bool paginationAvailable() {
   return querySelectorAll('.pagination').isNotEmpty;
 }
+
+bool isElementCompletelyVisible(Element el) {
+  int documentViewTop = document.body.scrollTop;
+  int documentViewBottom = window.innerHeight + documentViewTop;
+
+  int elementTop = el.offsetTop;
+  int elementBottom = elementTop + el.clientHeight;
+
+  return ((elementBottom <= documentViewBottom) && (elementTop >= documentViewTop));
+}
