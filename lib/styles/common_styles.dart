@@ -43,6 +43,14 @@ body {
 
     rule =
   '''
+.pinned-gridview-container {
+  padding-top: 5px;
+}
+''';
+    styleSheet.insertRule(rule, 0);
+
+    rule =
+  '''
 .page__heading {
   margin-bottom: 0.5em;
 }
