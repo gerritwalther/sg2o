@@ -43,3 +43,29 @@ bool isElementCompletelyVisible(Element el) {
 
   return ((elementBottom <= documentViewBottom) && (elementTop >= documentViewTop));
 }
+
+Element createHeading(String text, String linkTarget) {
+  DivElement headingContainer = new DivElement();
+  DivElement headingText = new DivElement();
+
+  headingText.classes.add('page__heading__breadcrumbs');
+
+  if (linkTarget != null) {
+    Element link = new Element.a();
+    link
+      ..setAttribute('href', linkTarget)
+      ..innerHtml = text;
+    headingText
+      ..append(link);
+  } else {
+    headingText
+      ..innerHtml = text;
+  }
+
+  headingContainer
+    ..classes.add('page__heading')
+    ..classes.add('sg2o-table-heading')
+    ..append(headingText);
+
+  return headingContainer;
+}

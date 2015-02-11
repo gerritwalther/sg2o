@@ -11,7 +11,7 @@ class EndlessGiveAway extends EndlessScroll {
         Document nextPageDocument = domParser.parseFromString(resp.responseText, 'text/html');
         Element nextPageGiveawayGrid = collapseGAListOnDocument(nextPageDocument);
         itemsContainer
-          ..append(createHeading(page))
+          ..append(this.createHeading(page))
           ..append(nextPageGiveawayGrid);
 
         ElementList pagination = nextPageDocument.querySelector('.pagination').children;

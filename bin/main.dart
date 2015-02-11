@@ -11,12 +11,12 @@ main() {
   sg2o.fixNavigation();
 
   if (urlParts.length == 1 || urlParts.elementAt(1) == "giveaways") { // We are on the GA page
+    sg2o.replaceFeatured();
     if(sg2o.pinnedGAsExist()) {
       sg2o.collapsePinnedGAs();
     }
     sg2o.collapseGAList();
     styles.addMarginToHeader();
-    sg2o.replaceFeatured();
 
     if (sg2o.paginationAvailable()) {
       sg2o.EndlessGiveAway endlessGiveAwayScroll = new sg2o.EndlessGiveAway();

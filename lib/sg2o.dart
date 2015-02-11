@@ -31,6 +31,11 @@ void collapsePinnedGAs() {
       ..innerHtml = ""
       ..classes.add('pinned-gridview-container');
 
+  parentElement
+      ..parent.insertBefore(createHeading('Pinned giveaways', '/'), parentElement)
+      ..setAttribute('style', 'margin-top: 0px;');
+
+
   for (final giveAwayElement in giveAwayElements) {
     GiveAway giveAway = new GiveAway(giveAwayElement);
 
@@ -85,15 +90,21 @@ void fixNavigation() {
 void replaceFeatured() {
   Element featuredContainer = querySelector('.featured__container');
   ElementList widgetContainers = querySelectorAll('.widget-container');
-  Element pageHeading = querySelector('.page__heading');
+  Element placeBeforeThis;
 //  Element voteContainer = widgetContainers.elementAt(1);
   Element forumContainer = widgetContainers.elementAt(2);
 
+  if (querySelectorAll('.pinned-giveaways').length > 0) {
+    placeBeforeThis = querySelector('.pinned-giveaways');
+  } else {
+    placeBeforeThis = querySelector('.page__heading');
+  }
+
   featuredContainer.remove();
-  pageHeading.parent
-    ..insertBefore(forumContainer, pageHeading);
-//    ..insertBefore(voteContainer, pageHeading);
+  placeBeforeThis.parent
+    ..insertBefore(forumContainer, placeBeforeThis);
+//    ..insertBefore(voteContainer, placeBeforeThis);
 
   forumContainer.classes.remove('widget-container--margin-top');
-  pageHeading.classes.add('widget-container--margin-top');
+  placeBeforeThis.classes.add('widget-container--margin-top');
 }
