@@ -4951,7 +4951,7 @@ J.dp(u,"body {\n  margin-top: 39px;\n}\n",0)
 u.insertRule(".fixed-navigation-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 9999;\n  width: 100%;\n}\n",0)
 u.insertRule(".giveaway-gridview {\n  float: left;\n  width: 184px;\n  margin-left: 1%;\n  margin-right: 1%;\n  border-radius: 2px;\n  margin-bottom: 0.5em;\n}\n",0)
 u.insertRule(".page__heading {\n  margin-bottom: 0.5em;\n}\n",0)
-u.insertRule(".gridview-info {\n  z-index: 100;\n  font-size: 10;\n  border: 1px solid #d2d6e0;\n  width: inherit;\n  margin-top: -5.5px;\n  border-radius: 3px;\n  padding: 5px;\n  background: white;\n  position: absolute;\n}\n",0)
+u.insertRule(".gridview-info {\n  z-index: 100;\n  font-size: 10;\n  border: 1px solid #d2d6e0;\n  width: inherit;\n  margin-top: -5.6px;\n  border-radius: 3px;\n  padding: 5px;\n  background: white;\n  position: absolute;\n}\n",0)
 u.insertRule(".gridview-avatar {\n  width: 25px;\n  height: 25px;\n  padding: 2px;\n  border: 1px solid #d2d6e0;\n  border-radius: 1px;\n}\n",0)
 u.insertRule(".float-left {\n  float: left;\n}\n",0)
 u.insertRule(".float-right {\n  float: right;\n}\n",0)
@@ -5167,7 +5167,7 @@ z.toString
 if(y>C.CD.yu(C.CD.UD(z.offsetTop)))if(!this.qq){z=this.te
 x=this.A7
 if(typeof x!=="number")return H.s(x)
-x=z<x
+x=z<=x
 z=x}else z=!1
 else z=!1
 if(z){this.qq=!0

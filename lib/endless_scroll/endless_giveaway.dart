@@ -9,7 +9,7 @@ class EndlessGiveAway extends EndlessScroll {
   void loadNextPage(Event e) {
     int scrollTop = document.body.scrollHeight;
     int paginationTop = querySelector('.pagination').offsetTop;
-    if (scrollTop > paginationTop && !isLoading && nextPage < lastPage) {
+    if (scrollTop > paginationTop && !isLoading && nextPage <= lastPage) {
       isLoading = true;
       updatePage();
       nextPage += 1;
