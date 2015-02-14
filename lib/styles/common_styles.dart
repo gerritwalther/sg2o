@@ -5,8 +5,6 @@ class CommonStyles extends Styles {
   CommonStyles() : super ();
 
   void addStyles() {
-    CssStyleSheet styleSheet = createStyleSheetElement();
-
     String rule =
   '''
 body {
