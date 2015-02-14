@@ -21,60 +21,46 @@ part 'styles/styles.dart';
 MyStorage storage = new MyStorage();
 BlackList blackList = new BlackList();
 
+Element collapseGAs(int beginWithNo, Document documentToQuery, String classForContainer, Element parentElementToInsertGAs, ElementList gaList) {
+  parentElementToInsertGAs.innerHtml = '';
+  if (classForContainer != null) {
+    parentElementToInsertGAs.classes.add(classForContainer);
+  }
+
+  for (int i = beginWithNo; i < gaList.length; i++) {
+    GiveAway giveAway = new GiveAway(gaList.elementAt(i));
+
+    if (giveAway.isNotBlackListed()) {
+      parentElementToInsertGAs.append(giveAway.wrappedWithStyles());
+    }
+  }
+  addStopStyleParagraph(parentElementToInsertGAs);
+  return parentElementToInsertGAs;
+}
+
 void collapsePinnedGAs() {
   ElementList giveAwayElements = document.querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow');
   Element parentElement = giveAwayElements[0].parent;
-  parentElement
-      ..innerHtml = ''
-      ..classes.add(classPinnedGAContainer);
 
   parentElement
       ..parent.insertBefore(createHeading('Pinned giveaways', '/'), parentElement)
       ..setAttribute('style', 'margin-top: 0px;');
 
-  for (final giveAwayElement in giveAwayElements) {
-    GiveAway giveAway = new GiveAway(giveAwayElement);
-
-    if (giveAway.isNotBlackListed()) {
-      parentElement.append(giveAway.wrappedWithStyles());
-    }
-  }
-  addStopStyleParagraph(parentElement);
+  collapseGAs(0, document, classPinnedGAContainer, parentElement, giveAwayElements);
 }
 
 void collapseGAList() {
   int numberPinnedGAs = querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow').length;
   ElementList giveAwayElements = document.querySelectorAll('.$classGiveawayRow');
   Element parentElement = giveAwayElements[numberPinnedGAs].parent;
-  parentElement
-    ..innerHtml = ''
-    ..classes.add(classGridViewContainer);
-
-  for (int i = numberPinnedGAs; i < giveAwayElements.length; i++) {
-    GiveAway giveAway = new GiveAway(giveAwayElements[i]);
-
-    if (giveAway.isNotBlackListed()) {
-      parentElement.append(giveAway.wrappedWithStyles());
-    }
-  }
-  addStopStyleParagraph(parentElement);
+  collapseGAs(numberPinnedGAs, document, classGridViewContainer, parentElement, giveAwayElements);
 }
 
 Element collapseGAListOnDocument(Document documentToQuery) {
   int numberPinnedGAs = documentToQuery.querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow').length;
   ElementList giveAwayElements = documentToQuery.querySelectorAll('.$classGiveawayRow');
   Element parentElement = giveAwayElements[numberPinnedGAs].parent;
-  parentElement.innerHtml = '';
-
-  for (int i = numberPinnedGAs; i < giveAwayElements.length; i++) {
-    GiveAway giveAway = new GiveAway(giveAwayElements[i]);
-
-    if (giveAway.isNotBlackListed()) {
-      parentElement.append(giveAway.wrappedWithStyles());
-    }
-  }
-  addStopStyleParagraph(parentElement);
-  return parentElement;
+  return collapseGAs(numberPinnedGAs, documentToQuery, null, parentElement, giveAwayElements);
 }
 
 bool pinnedGAsExist() {

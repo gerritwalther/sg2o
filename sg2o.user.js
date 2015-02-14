@@ -606,7 +606,7 @@ if(z!=null)$=z.gEn()
 if(this.Jd!=null)for(;u=this.Jd,!u.gl0(u);)this.Jd.Ux().$0()}return y},
 Zt:function(a){return this.Gx.t(0,a)},
 ac:function(a,b){var z=this.Gx
-if(z.NZ(0,a))throw H.b(P.FM("Registry: ports must be registered only once."))
+if(z.x4(0,a))throw H.b(P.FM("Registry: ports must be registered only once."))
 z.u(0,a,b)},
 CX:function(){if(this.Gx.hr-this.fW.hr>0||this.RW||!this.xF)init.globalState.i2.u(0,this.jO,this)
 else this.Dm()},
@@ -631,7 +631,7 @@ if(z.QN===z.Bq)return
 return z.Ux()},
 xB:function(){var z,y,x
 z=this.Jc()
-if(z==null){if(init.globalState.Nr!=null&&init.globalState.i2.NZ(0,init.globalState.Nr.jO)&&init.globalState.Ai===!0&&init.globalState.Nr.Gx.hr===0)H.vh(P.FM("Program exited with open ReceivePorts."))
+if(z==null){if(init.globalState.Nr!=null&&init.globalState.i2.x4(0,init.globalState.Nr.jO)&&init.globalState.Ai===!0&&init.globalState.Nr.Gx.hr===0)H.vh(P.FM("Program exited with open ReceivePorts."))
 y=init.globalState
 if(y.EF===!0&&y.i2.hr===0&&y.Xz.yy===0){y=y.rj
 x=H.Gy(P.EF(["command","close"],null,null))
@@ -2373,7 +2373,7 @@ FI:function(a,b){if($.X3===C.NU)return a.$1(b)
 return P.yv(null,null,this,a,b)},
 mg:function(a,b,c){if($.X3===C.NU)return a.$2(b,c)
 return P.Qx(null,null,this,a,b,c)},
-static:{"^":"ln,Cb"}},
+static:{"^":"ln,Sk"}},
 hj:{
 "^":"Tp:9;a,b",
 $0:function(){return this.a.bH(this.b)}},
@@ -2469,7 +2469,7 @@ gl0:function(a){return this.hr===0},
 gor:function(a){return this.hr!==0},
 gvc:function(a){return H.VM(new P.fG(this),[H.Kp(this,0)])},
 gUQ:function(a){return H.K1(H.VM(new P.fG(this),[H.Kp(this,0)]),new P.oi(this),H.Kp(this,0),H.Kp(this,1))},
-NZ:function(a,b){var z
+x4:function(a,b){var z
 if(typeof b==="string"&&b!=="__proto__"){z=this.Mb
 return z==null?!1:z[b]!=null}else return this.KY(b)},
 KY:function(a){var z=this.Cs
@@ -2569,7 +2569,7 @@ gB:function(a){return this.ZD.hr},
 gl0:function(a){return this.ZD.hr===0},
 gA:function(a){var z=this.ZD
 return new P.EQ(z,z.Ig(),0,null)},
-tg:function(a,b){return this.ZD.NZ(0,b)},
+tg:function(a,b){return this.ZD.x4(0,b)},
 aN:function(a,b){var z,y,x,w
 z=this.ZD
 y=z.Ig()
@@ -2595,7 +2595,7 @@ gl0:function(a){return this.hr===0},
 gor:function(a){return this.hr!==0},
 gvc:function(a){return H.VM(new P.i5(this),[H.Kp(this,0)])},
 gUQ:function(a){return H.K1(H.VM(new P.i5(this),[H.Kp(this,0)]),new P.a1(this),H.Kp(this,0),H.Kp(this,1))},
-NZ:function(a,b){var z,y
+x4:function(a,b){var z,y
 if(typeof b==="string"&&b!=="__proto__"){z=this.Mb
 if(z==null)return!1
 return z[b]!=null}else if(typeof b==="number"&&(b&0x3ffffff)===b){y=this.cG
@@ -2630,10 +2630,10 @@ z=this.Cs
 if(z==null){z=P.Qs()
 this.Cs=z}y=this.rk(a)
 x=z[y]
-if(x==null)z[y]=[this.x4(a,b)]
+if(x==null)z[y]=[this.Oz(a,b)]
 else{w=this.DF(x,a)
 if(w>=0)x[w].scA(b)
-else x.push(this.x4(a,b))}},
+else x.push(this.Oz(a,b))}},
 Rz:function(a,b){if(typeof b==="string"&&b!=="__proto__")return this.H4(this.Mb,b)
 else if(typeof b==="number"&&(b&0x3ffffff)===b)return this.H4(this.cG,b)
 else return this.qg(b)},
@@ -2660,7 +2660,7 @@ for(;z!=null;){b.$2(z.gv8(z),z.cA)
 if(y!==this.HU)throw H.b(P.a4(this))
 z=z.tL}},
 u9:function(a,b,c){var z=a[b]
-if(z==null)a[b]=this.x4(b,c)
+if(z==null)a[b]=this.Oz(b,c)
 else z.scA(c)},
 H4:function(a,b){var z
 if(a==null)return
@@ -2669,7 +2669,7 @@ if(z==null)return
 this.GS(z)
 delete a[b]
 return z.gcA()},
-x4:function(a,b){var z,y
+Oz:function(a,b){var z,y
 z=new P.db(a,b,null,null)
 if(this.In==null){this.Nz=z
 this.In=z}else{y=this.Nz
@@ -2713,7 +2713,7 @@ z=this.ZD
 y=new P.N6(z,z.HU,null,null)
 y.Qx=z.In
 return y},
-tg:function(a,b){return this.ZD.NZ(0,b)},
+tg:function(a,b){return this.ZD.x4(0,b)},
 aN:function(a,b){var z,y,x
 z=this.ZD
 y=z.In
@@ -3146,14 +3146,14 @@ if(this.LK==null){z=this.Mq
 return z.gUQ(z)}return H.K1(this.Cf(),new P.A5(this),null,null)},
 u:function(a,b,c){var z,y
 if(this.LK==null)this.Mq.u(0,b,c)
-else if(this.NZ(0,b)){z=this.LK
+else if(this.x4(0,b)){z=this.LK
 z[b]=c
 y=this.EK
 if(y==null?z!=null:y!==z)y[b]=null}else this.XK().u(0,b,c)},
-NZ:function(a,b){if(this.LK==null)return this.Mq.NZ(0,b)
+x4:function(a,b){if(this.LK==null)return this.Mq.x4(0,b)
 if(typeof b!=="string")return!1
 return Object.prototype.hasOwnProperty.call(this.EK,b)},
-Rz:function(a,b){if(this.LK!=null&&!this.NZ(0,b))return
+Rz:function(a,b){if(this.LK!=null&&!this.x4(0,b))return
 return this.XK().Rz(0,b)},
 aN:function(a,b){var z,y,x,w
 if(this.LK==null)return this.Mq.aN(0,b)
@@ -4107,7 +4107,7 @@ if(c==null){z=$.qD
 if(z==null){z=H.VM([],[W.kF])
 y=new W.zW(z)
 z.push(W.Tw(null))
-z.push(W.Bl())
+z.push(W.dL())
 $.qD=y
 d=y}else d=z
 z=$.EU
@@ -4138,7 +4138,7 @@ YC:function(a,b){return this.WN(a,b,null,null)},
 GE:function(a,b){return a.getAttribute(b)},
 a7:function(a,b,c){return a.setAttribute(b,c)},
 Wk:function(a,b){return a.querySelector(b)},
-gek:function(a){return H.VM(new W.Cq(a,"mouseenter",!1),[null])},
+gCi:function(a){return H.VM(new W.Cq(a,"mouseenter",!1),[null])},
 gcb:function(a){return H.VM(new W.Cq(a,"mouseleave",!1),[null])},
 $iscv:true,
 "%":";Element"},
@@ -4154,9 +4154,9 @@ pS:{
 D0:{
 "^":"Gv;",
 On:function(a,b,c,d){if(c!=null)this.v0(a,b,c,d)},
-Y9:function(a,b,c,d){if(c!=null)this.Ci(a,b,c,d)},
+Y9:function(a,b,c,d){if(c!=null)this.HK(a,b,c,d)},
 v0:function(a,b,c,d){return a.addEventListener(b,H.tR(c,1),d)},
-Ci:function(a,b,c,d){return a.removeEventListener(b,H.tR(c,1),d)},
+HK:function(a,b,c,d){return a.removeEventListener(b,H.tR(c,1),d)},
 "%":"DOMWindow|MediaStream|Window;EventTarget"},
 as:{
 "^":"qE;oc:name=",
@@ -4290,7 +4290,7 @@ zD:{
 "%":"SpeechRecognitionError"},
 As:{
 "^":"Gv;",
-NZ:function(a,b){return a.getItem(b)!=null},
+x4:function(a,b){return a.getItem(b)!=null},
 t:function(a,b){return a.getItem(b)},
 u:function(a,b,c){a.setItem(b,c)},
 Rz:function(a,b){var z=a.getItem(b)
@@ -4401,7 +4401,7 @@ return W.Up(W.C0(W.C0(W.C0(W.C0(0,z),y),x),w))},
 $istn:true,
 $astn:function(){return[null]},
 "%":"ClientRect"},
-w4:{
+AF:{
 "^":"IB;",
 gfg:function(a){return a.height},
 gR:function(a){return a.width},
@@ -4611,7 +4611,7 @@ $isZ0:true,
 $asZ0:function(){return[P.qU,P.qU]}},
 i7:{
 "^":"tJ;dA",
-NZ:function(a,b){return this.dA.hasAttribute(b)},
+x4:function(a,b){return this.dA.hasAttribute(b)},
 t:function(a,b){return this.dA.getAttribute(b)},
 u:function(a,b,c){this.dA.setAttribute(b,c)},
 Rz:function(a,b){var z,y
@@ -4752,7 +4752,7 @@ Eb:function(a,b,c){if(W.m6.prototype.Eb.call(this,a,b,c))return!0
 if(b==="template"&&c==="")return!0
 if(a.getAttribute("template")==="")return this.ab.tg(0,b)
 return!1},
-static:{"^":"Xh",Bl:function(){var z,y,x,w
+static:{"^":"Xh",dL:function(){var z,y,x,w
 z=H.VM(new H.A8(C.nm,new W.tE()),[null,null])
 y=P.Ls(null,null,null,null)
 y.Ay(0,["TEMPLATE"])
@@ -4845,7 +4845,7 @@ r6:function(a,b,c,d){var z,y,x,w,v
 z=H.VM([],[W.kF])
 d=new W.zW(z)
 z.push(W.Tw(null))
-z.push(W.Bl())
+z.push(W.dL())
 z.push(new W.Ow())
 c=new W.MM(d)
 y="<svg version=\"1.1\">"+H.d(b)+"</svg>"
@@ -4856,7 +4856,7 @@ z=new W.e7(x)
 v=z.gr8(z)
 for(;z=v.firstChild,z!=null;)w.appendChild(z)
 return w},
-gek:function(a){return H.VM(new W.Cq(a,"mouseenter",!1),[null])},
+gCi:function(a){return H.VM(new W.Cq(a,"mouseenter",!1),[null])},
 gcb:function(a){return H.VM(new W.Cq(a,"mouseleave",!1),[null])},
 $isd5:true,
 "%":"SVGAElement|SVGAltGlyphDefElement|SVGAltGlyphElement|SVGAltGlyphItemElement|SVGAnimateElement|SVGAnimateMotionElement|SVGAnimateTransformElement|SVGAnimationElement|SVGCircleElement|SVGClipPathElement|SVGComponentTransferFunctionElement|SVGCursorElement|SVGDefsElement|SVGDescElement|SVGDiscardElement|SVGEllipseElement|SVGFEBlendElement|SVGFEColorMatrixElement|SVGFEComponentTransferElement|SVGFECompositeElement|SVGFEConvolveMatrixElement|SVGFEDiffuseLightingElement|SVGFEDisplacementMapElement|SVGFEDistantLightElement|SVGFEDropShadowElement|SVGFEFloodElement|SVGFEFuncAElement|SVGFEFuncBElement|SVGFEFuncGElement|SVGFEFuncRElement|SVGFEGaussianBlurElement|SVGFEImageElement|SVGFEMergeElement|SVGFEMergeNodeElement|SVGFEMorphologyElement|SVGFEOffsetElement|SVGFEPointLightElement|SVGFESpecularLightingElement|SVGFESpotLightElement|SVGFETileElement|SVGFETurbulenceElement|SVGFilterElement|SVGFontElement|SVGFontFaceElement|SVGFontFaceFormatElement|SVGFontFaceNameElement|SVGFontFaceSrcElement|SVGFontFaceUriElement|SVGForeignObjectElement|SVGGElement|SVGGeometryElement|SVGGlyphElement|SVGGlyphRefElement|SVGGradientElement|SVGGraphicsElement|SVGHKernElement|SVGImageElement|SVGLineElement|SVGLinearGradientElement|SVGMPathElement|SVGMarkerElement|SVGMaskElement|SVGMetadataElement|SVGMissingGlyphElement|SVGPathElement|SVGPatternElement|SVGPolygonElement|SVGPolylineElement|SVGRadialGradientElement|SVGRectElement|SVGSVGElement|SVGSetElement|SVGStopElement|SVGSwitchElement|SVGSymbolElement|SVGTSpanElement|SVGTextContentElement|SVGTextElement|SVGTextPathElement|SVGTextPositioningElement|SVGTitleElement|SVGUseElement|SVGVKernElement|SVGViewElement;SVGElement"},
@@ -5107,7 +5107,7 @@ GS:{
 "^":"Tp:11;",
 $1:function(a){return J.Mp(a)}}}],["","",,F,{
 "^":"",
-Iq:[function(){var z,y,x,w,v,u,t,s,r,q,p,o,n
+Iq:[function(){var z,y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h
 z=document.baseURI
 y=$.cM().Fr(0,z)
 x=new Q.Ej(null)
@@ -5156,19 +5156,42 @@ q.parentElement.insertBefore(r,q)
 J.pP(r).Rz(0,"widget-container--margin-top")
 J.pP(q).h(0,"widget-container--margin-top")
 p=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null)
-if(p.gor(p))Q.Dw()
-Q.Sk()
+if(p.gor(p)){o=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null)
+w=o.Wf
+if(0>=w.length)return H.e(w,0)
+n=w[0].parentElement
+w=n.parentElement
+m=document.createElement("div",null)
+l=document.createElement("div",null)
+J.pP(l).h(0,"page__heading__breadcrumbs")
+k=W.r3("a",null)
+v=J.RE(k)
+v.a7(k,"href","/")
+v.shf(k,"Pinned giveaways")
+l.appendChild(k)
+v=J.RE(m)
+v.gDD(m).h(0,"page__heading")
+v.gDD(m).h(0,"sg2o-table-heading")
+m.appendChild(l)
+w.insertBefore(m,n)
+n.setAttribute("style","margin-top: 0px;")
+Q.oU(0,document,"pinned-gridview-container",n,o)}j=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null).Wf.length
+o=W.vD(document.querySelectorAll(".giveaway__row-outer-wrap"),null)
+w=o.Wf
+if(j>=w.length)return H.e(w,j)
+n=w[j].parentElement
+Q.oU(j,document,"gridview-container",n,o)
 document.querySelector(".page__heading").setAttribute("style","margin-bottom: 0.5em")
 w=W.vD(document.querySelectorAll(".pagination__navigation"),null)
-if(w.gor(w)){o=new Q.x2(1,2,null,null,new DOMParser(),!1,null)
-o.TD()
-o.ZO()
+if(w.gor(w)){i=new Q.x2(1,2,null,null,new DOMParser(),!1,null)
+i.TD()
+i.ZO()
 w=H.VM(new W.RO(window,"scroll",!1),[null])
-H.VM(new W.Ov(0,w.J6,w.fA,W.VF(o.gxg()),w.el),[H.Kp(w,0)]).DN()}}n=new Q.Qw(null)
-n.hD()
+H.VM(new W.Ov(0,w.J6,w.fA,W.VF(i.gxg()),w.el),[H.Kp(w,0)]).DN()}}h=new Q.Qw(null)
+h.hD()
 if(W.vD(document.querySelectorAll(".sidebar"),null).Wf.length>=1){document.querySelector(".sidebar")
 w=H.VM(new W.RO(window,"scroll",!1),[null])
-H.VM(new W.Ov(0,w.J6,w.fA,W.VF(n.gRB()),w.el),[H.Kp(w,0)]).DN()}},"$0","f8",0,0,9]},1],["","",,F,{
+H.VM(new W.Ov(0,w.J6,w.fA,W.VF(h.gRB()),w.el),[H.Kp(w,0)]).DN()}},"$0","f8",0,0,9]},1],["","",,F,{
 "^":"",
 jX:{
 "^":"a;S,VZ",
@@ -5306,56 +5329,16 @@ z=J.WB(J.AG(Q.xK(a))," ")
 y=a.split(" ")
 if(1>=y.length)return H.e(y,1)
 return J.WB(z,y[1])},
-Dw:function(){var z,y,x,w,v,u,t,s,r
-z=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null)
-y=z.Wf
-if(0>=y.length)return H.e(y,0)
-x=y[0].parentElement
-y=J.RE(x)
-y.shf(x,"")
-y.gDD(x).h(0,"pinned-gridview-container")
-y=x.parentElement
-w=document.createElement("div",null)
-v=document.createElement("div",null)
-J.pP(v).h(0,"page__heading__breadcrumbs")
-u=W.r3("a",null)
-t=J.RE(u)
-t.a7(u,"href","/")
-t.shf(u,"Pinned giveaways")
-v.appendChild(u)
-t=J.RE(w)
-t.gDD(w).h(0,"page__heading")
-t.gDD(w).h(0,"sg2o-table-heading")
-w.appendChild(v)
-y.insertBefore(w,x)
-x.setAttribute("style","margin-top: 0px;")
-for(y=z.gA(z);y.G();){s=Q.zy(y.lo)
-t=$.QO()
-r=s.oc
-if(J.mo(t.JB,r)!==!0)x.appendChild(s.pS())}x.appendChild(Q.Ws())},
-Sk:function(){var z,y,x,w,v,u,t
-z=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null).Wf.length
-y=W.vD(document.querySelectorAll(".giveaway__row-outer-wrap"),null).Wf
-if(z>=y.length)return H.e(y,z)
-x=y[z].parentElement
-w=J.RE(x)
-w.shf(x,"")
-w.gDD(x).h(0,"gridview-container")
-for(v=z;v<y.length;++v){u=Q.zy(y[v])
+oU:function(a,b,c,d,e){var z,y,x,w,v
+z=J.RE(d)
+z.shf(d,"")
+if(c!=null)z.gDD(d).h(0,c)
+for(z=e.Wf,y=a;y<z.length;++y){x=new Q.JC(null,null,null,null,null,null,null,null,1,null,null,null,0,null,null,null)
+x.Of(e.Zv(e,y))
 w=$.QO()
-t=u.oc
-if(J.mo(w.JB,t)!==!0)x.appendChild(u.pS())}x.appendChild(Q.Ws())},
-h0:function(a){var z,y,x,w,v,u,t
-z=W.vD(a.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null).Wf.length
-y=W.vD(a.querySelectorAll(".giveaway__row-outer-wrap"),null).Wf
-if(z>=y.length)return H.e(y,z)
-x=y[z].parentElement
-J.Qy(x,"")
-for(w=z;w<y.length;++w){v=Q.zy(y[w])
-u=$.QO()
-t=v.oc
-if(J.mo(u.JB,t)!==!0)x.appendChild(v.pS())}x.appendChild(Q.Ws())
-return x},
+v=x.oc
+if(J.w4(w.JB,v)!==!0)d.appendChild(x.pS())}d.appendChild(Q.Ws())
+return d},
 kS:function(){var z,y
 z=document.querySelector(".nav__points")
 if(z!=null){y=W.vD(z.parentElement.querySelectorAll("span"),null).Wf
@@ -5367,29 +5350,33 @@ hA:function(a){W.lt("/giveaways/search?page="+this.te,null,null,null,null,null,n
 ZO:function(){this.yc=document.querySelector(".gridview-container")}},
 Zz:{
 "^":"Tp:31;a,b",
-$1:function(a){var z,y,x,w,v,u,t,s,r
+$1:function(a){var z,y,x,w,v,u,t,s,r,q,p
 z=this.a
 y=z.Wx.parseFromString(J.CA(a),"text/html")
-x=Q.h0(y)
-w=z.yc
-v=document.createElement("div",null)
-u=document.createElement("div",null)
-t=J.RE(u)
-t.gDD(u).h(0,"table__column--width-fill")
-t.shf(u,"Page "+this.b+" of "+H.d(z.A7))
-z=J.RE(v)
-z.gDD(v).h(0,"table__heading")
-z.gDD(v).h(0,"sg2o-table-heading")
+x=W.vD(y.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null).Wf.length
+w=W.vD(y.querySelectorAll(".giveaway__row-outer-wrap"),null)
+v=w.Wf
+if(x>=v.length)return H.e(v,x)
+u=Q.oU(x,y,null,v[x].parentElement,w)
+v=z.yc
+t=document.createElement("div",null)
+s=document.createElement("div",null)
+r=J.RE(s)
+r.gDD(s).h(0,"table__column--width-fill")
+r.shf(s,"Page "+this.b+" of "+H.d(z.A7))
+z=J.RE(t)
+z.gDD(t).h(0,"table__heading")
+z.gDD(t).h(0,"sg2o-table-heading")
+t.appendChild(s)
+v.appendChild(t)
 v.appendChild(u)
-w.appendChild(v)
-w.appendChild(x)
-s=J.OG(y.querySelector(".pagination"))
-w=s.gFV(s)
-z=s.grZ(s)
-r=document.querySelector(".pagination")
-J.OG(r).V1(0)
-r.appendChild(w)
-r.appendChild(z)}},
+q=J.OG(y.querySelector(".pagination"))
+v=q.gFV(q)
+z=q.grZ(q)
+p=document.querySelector(".pagination")
+J.OG(p).V1(0)
+p.appendChild(v)
+p.appendChild(z)}},
 Xt:{
 "^":"a;",
 Ou:[function(a){var z,y,x,w,v
@@ -5416,6 +5403,8 @@ z=y}else z=!1
 if(z){this.hA(this.te);++this.te}this.qq=!1},"$1","gxg",2,0,32],
 TD:function(){this.A7=H.BU(J.Vs(C.t5.grZ(W.vD(document.querySelectorAll(".pagination__navigation>a"),null).Wf)).dA.getAttribute("data-page-number"),null,null)
 this.Op=Date.now()}},
+ym:{
+"^":"a;JB"},
 JC:{
 "^":"a;oc,tc,Iz,O6,Ir,dn,cB,Pu,aP,GU,Pj,lR,U7,hW,yY,us",
 pS:function(){var z,y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d
@@ -5502,7 +5491,7 @@ x.gDD(f).h(0,"global__image-outer-wrap--game-medium")
 u=x.gDD(f)
 d=this.hW?1:0
 s=this.lR&&J.xZ(this.U7,$.xE())?2:0
-q=this.lR&&J.Hb(this.U7,$.xE())?4:0
+q=this.lR&&J.Bl(this.U7,$.xE())?4:0
 o=this.yY?8:0
 u.h(0,["","group-border","contributor-above-border","group-contributor-above-border","contributor-below-border","group-contributor-below-border","","","wishlist-border","group-wishlist-border","contributor-above-wishlist-border","group-contributor-above-wishlist","contributor-below-wishlist","group-contributor-below-wishlist","",""][d+s+q+o])
 f.appendChild(e)
@@ -5512,7 +5501,7 @@ o=J.RE(z)
 o.gDD(z).h(0,"giveaway-gridview")
 z.appendChild(f)
 z.appendChild(y)
-q=o.gek(z)
+q=o.gCi(z)
 H.VM(new W.Ov(0,q.J6,q.fA,W.VF(new Q.og(y)),q.el),[H.Kp(q,0)]).DN()
 o=o.gcb(z)
 H.VM(new W.Ov(0,o.J6,o.fA,W.VF(new Q.c2(y)),o.el),[H.Kp(o,0)]).DN()
@@ -5547,18 +5536,13 @@ this.lR=x
 if(x)this.U7=Q.xK(J.nJ(y[0]))
 this.hW=z.Md(a,".giveaway__column--group").Wf.length>0
 this.yY=!1
-this.us=z.Md(a,".is-faded").Wf.length>0},
-static:{zy:function(a){var z=new Q.JC(null,null,null,null,null,null,null,null,1,null,null,null,0,null,null,null)
-z.Of(a)
-return z}}},
+this.us=z.Md(a,".is-faded").Wf.length>0}},
 og:{
 "^":"Tp:11;a",
 $1:function(a){return J.pP(this.a).Rz(0,"hidden")}},
 c2:{
 "^":"Tp:11;b",
 $1:function(a){return J.pP(this.b).h(0,"hidden")}},
-ym:{
-"^":"a;JB"},
 Qw:{
 "^":"a;zI",
 CC:[function(a){var z,y
@@ -5700,14 +5684,14 @@ if(a instanceof P.a)return a
 return J.ks(a)}
 J.AG=function(a){return J.x(a).bu(a)}
 J.AZ=function(a){return J.RE(a).gJj(a)}
+J.Bl=function(a,b){if(typeof a=="number"&&typeof b=="number")return a<=b
+return J.Wx(a).E(a,b)}
 J.C9=function(a){return J.RE(a).goc(a)}
 J.CA=function(a){return J.RE(a).gil(a)}
 J.EE=function(a,b,c){return J.RE(a).AS(a,b,c)}
 J.FN=function(a){return J.U6(a).gl0(a)}
 J.GP=function(a){return J.w1(a).gA(a)}
 J.Gw=function(a,b){return J.Wx(a).WZ(a,b)}
-J.Hb=function(a,b){if(typeof a=="number"&&typeof b=="number")return a<=b
-return J.Wx(a).E(a,b)}
 J.IF=function(a,b,c,d){return J.RE(a).Y9(a,b,c,d)}
 J.Is=function(a,b){return J.rY(a).Tc(a,b)}
 J.J5=function(a,b){if(typeof a=="number"&&typeof b=="number")return a>=b
@@ -5744,7 +5728,6 @@ return J.w1(a).u(a,b,c)}
 J.kp=function(a,b,c,d){return J.RE(a).r6(a,b,c,d)}
 J.kz=function(a){return J.RE(a).bS(a)}
 J.lE=function(a,b){return J.rY(a).j(a,b)}
-J.mo=function(a,b){return J.RE(a).NZ(a,b)}
 J.nG=function(a){return J.RE(a).gv8(a)}
 J.nJ=function(a){return J.RE(a).ga4(a)}
 J.pP=function(a){return J.RE(a).gDD(a)}
@@ -5755,6 +5738,7 @@ J.r0=function(a,b){return J.RE(a).sLU(a,b)}
 J.u6=function(a,b){if(typeof a=="number"&&typeof b=="number")return a<b
 return J.Wx(a).C(a,b)}
 J.uf=function(a){return J.RE(a).gxr(a)}
+J.w4=function(a,b){return J.RE(a).x4(a,b)}
 J.w8=function(a){return J.RE(a).gkc(a)}
 J.wT=function(a,b){return J.w1(a).h(a,b)}
 J.xC=function(a,b){if(a==null)return b==null
