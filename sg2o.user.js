@@ -5009,7 +5009,7 @@ p=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),
 if(p.gor(p))Q.Dw()
 Q.Sk()
 document.querySelector(".page__heading").setAttribute("style","margin-bottom: 0.5em")
-w=W.vD(document.querySelectorAll(".pagination"),null)
+w=W.vD(document.querySelectorAll(".pagination__navigation"),null)
 if(w.gor(w)){o=new Q.x2(1,2,null,null,new DOMParser(),!1,null)
 o.TD()
 o.ZO()

@@ -31,7 +31,7 @@ Element createElementWithName(String name, content) {
 }
 
 bool paginationAvailable() {
-  return querySelectorAll('.$classPagination').isNotEmpty;
+  return querySelectorAll('.$classPaginationNavigation').isNotEmpty;
 }
 
 bool isElementCompletelyVisible(Element el) {
