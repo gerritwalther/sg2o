@@ -21,7 +21,7 @@ class Styles {
   }
 
   void addMarginToHeader() {
-    Element headerElement = querySelector('.page__heading');
+    Element headerElement = querySelector('.$classSectionHeading');
 
     headerElement.setAttribute('style', 'margin-bottom: 0.5em');
   }

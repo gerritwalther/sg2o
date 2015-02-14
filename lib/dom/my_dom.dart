@@ -31,7 +31,7 @@ Element createElementWithName(String name, content) {
 }
 
 bool paginationAvailable() {
-  return querySelectorAll('.pagination').isNotEmpty;
+  return querySelectorAll('.$classPagination').isNotEmpty;
 }
 
 bool isElementCompletelyVisible(Element el) {
@@ -48,7 +48,7 @@ Element createHeading(String text, String linkTarget) {
   DivElement headingContainer = new DivElement();
   DivElement headingText = new DivElement();
 
-  headingText.classes.add('page__heading__breadcrumbs');
+  headingText.classes.add(classPageHeadingBreadCrumbs);
 
   if (linkTarget != null) {
     Element link = new Element.a();
@@ -63,8 +63,8 @@ Element createHeading(String text, String linkTarget) {
   }
 
   headingContainer
-    ..classes.add('page__heading')
-    ..classes.add('sg2o-table-heading')
+    ..classes.add(classSectionHeading)
+    ..classes.add(classSg2oTableHeading)
     ..append(headingText);
 
   return headingContainer;

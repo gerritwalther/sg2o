@@ -11,7 +11,7 @@ abstract class EndlessScroll {
   num lastLoading;
 
   EndlessScroll() {
-    Element lastPageLink = querySelectorAll('.pagination__navigation>a').last;
+    Element lastPageLink = querySelectorAll('.$classPaginationNavigation>a').last;
     lastPage = int.parse(lastPageLink.attributes['data-page-number']);
     lastLoading = new DateTime.now().millisecondsSinceEpoch;
   }
@@ -28,7 +28,7 @@ abstract class EndlessScroll {
       isLoading = true;
       lastLoading = e.timeStamp;
     }
-    Element pagination = querySelector('.pagination');
+    Element pagination = querySelector('.$classPagination');
     if (isElementCompletelyVisible(pagination) && nextPage <= lastPage) {
       updatePage(nextPage);
       nextPage += 1;
@@ -37,7 +37,7 @@ abstract class EndlessScroll {
   }
 
   void updatePagination(Element newPaginationInfo, Element newPaginator) {
-    Element currentPagination = querySelector('.pagination');
+    Element currentPagination = querySelector('.$classPagination');
     currentPagination
       ..children.clear()
       ..append(newPaginationInfo)
@@ -51,12 +51,12 @@ abstract class EndlessScroll {
     DivElement headingText = new DivElement();
 
     headingText
-      ..classes.add('table__column--width-fill')
+      ..classes.add(classTableColumnWidthFill)
       ..innerHtml = 'Page $page of $lastPage';
 
     headingContainer
-      ..classes.add('table__heading')
-      ..classes.add('sg2o-table-heading')
+      ..classes.add(classTableHeading)
+      ..classes.add(classSg2oTableHeading)
       ..append(headingText);
 
     return headingContainer;

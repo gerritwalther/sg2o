@@ -4963,18 +4963,18 @@ y=$.cM().Fr(0,z)
 x=new Q.Ej(null)
 x.YM=x.qa()
 window
-w=new Q.XB("#308430","#B80000","#0033CC","#9933FF",null)
+w=new Q.XB(null)
 v=w.qa()
 w.YM=v
 J.dp(v,".group-border {\n  background: #308430;\n}\n",0)
 J.dp(w.YM,".contributor-above-border {\n  background: #B80000;\n}\n",0)
 J.dp(w.YM,".contributor-below-border {\n  background: #0033CC;\n}\n",0)
 J.dp(w.YM,".wishlist-border {\n  background: #9933FF;\n}\n",0)
-J.dp(w.YM,".group-contributor-above-border {\n  background-color: #308430;\n  background-image: linear-gradient( \n    to right,\n    transparent 50%,\n    #B80000 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
-J.dp(w.YM,".group-contributor-below-border {\n  background-color: #308430;\n  background-image: linear-gradient( \n    to right,\n    transparent 50%,\n    #0033CC 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
-J.dp(w.YM,".group-wishlist-border {\n  background-color: #308430;\n  background-image: linear-gradient( \n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
-J.dp(w.YM,".contributor-above-wishlist-border {\n  background-color: #B80000;\n  background-image: linear-gradient( \n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
-J.dp(w.YM,".contributor-below-wishlist-border {\n  background-color: #0033CC;\n  background-image: linear-gradient( \n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(w.YM,".group-contributor-above-border {\n  background-color: #308430;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #B80000 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(w.YM,".group-contributor-below-border {\n  background-color: #308430;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #0033CC 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(w.YM,".group-wishlist-border {\n  background-color: #308430;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(w.YM,".contributor-above-wishlist-border {\n  background-color: #B80000;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(w.YM,".contributor-below-wishlist {\n  background-color: #0033CC;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
 J.dp(w.YM,w.Hx("group-contributor-above-wishlist","#308430","#B80000","#9933FF"),0)
 J.dp(w.YM,w.Hx("group-contributor-below-wishlist","#308430","#0033CC","#9933FF"),0)
 w=new Q.GJ(null)
@@ -5012,7 +5012,7 @@ document.querySelector(".page__heading").setAttribute("style","margin-bottom: 0.
 w=W.vD(document.querySelectorAll(".pagination"),null)
 if(w.gor(w)){o=new Q.x2(1,2,null,null,new DOMParser(),!1,null)
 o.TD()
-o.yc=document.querySelector(".gridview-container")
+o.ZO()
 w=H.VM(new W.RO(window,"scroll",!1),[null])
 H.VM(new W.Ov(0,w.J6,w.fA,W.VF(o.gxg()),w.el),[H.Kp(w,0)]).DN()}}n=new Q.Qw(null)
 n.hD()
@@ -5156,11 +5156,6 @@ z=J.WB(J.AG(Q.xK(a))," ")
 y=a.split(" ")
 if(1>=y.length)return H.e(y,1)
 return J.WB(z,y[1])},
-BN:function(){var z,y
-z=document.querySelector(".nav__points")
-if(z!=null){y=W.vD(z.parentElement.querySelectorAll("span"),null).Wf
-if(1>=y.length)return H.e(y,1)
-return Q.xK(J.iz(y[1],"title"))}else return 0},
 Dw:function(){var z,y,x,w,v,u,t
 z=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null)
 y=z.Wf
@@ -5205,9 +5200,15 @@ J.Qy(x,"")
 for(w=z;w<y.length;++w)x.appendChild(Q.zy(y[w]).pS())
 x.appendChild(Q.Ws())
 return x},
+kS:function(){var z,y
+z=document.querySelector(".nav__points")
+if(z!=null){y=W.vD(z.parentElement.querySelectorAll("span"),null).Wf
+if(1>=y.length)return H.e(y,1)
+return Q.xK(J.iz(y[1],"title"))}else return 0},
 x2:{
 "^":"Xt;tZ,te,A7,yc,Wx,qq,Op",
-hA:function(a){W.lt("/giveaways/search?page="+this.te,null,null,null,null,null,null,null).ml(new Q.Zz(this,a))}},
+hA:function(a){W.lt("/giveaways/search?page="+this.te,null,null,null,null,null,null,null).ml(new Q.Zz(this,a))},
+ZO:function(){this.yc=document.querySelector(".gridview-container")}},
 Zz:{
 "^":"Tp:31;a,b",
 $1:function(a){var z,y,x,w,v,u,t,s,r
@@ -5347,7 +5348,7 @@ d=this.hW?1:0
 s=this.lR&&J.xZ(this.U7,$.xE())?2:0
 q=this.lR&&J.Hb(this.U7,$.xE())?4:0
 o=this.yY?8:0
-u.h(0,["","group","contributor-above","group-contributor-above","contributor-below","group-contributor-below","","","wishlist","group-wishlist","contributor-above-wishlist","group-contributor-above-wishlist","contributor-below-wishlist","group-contributor-below-wishlist","",""][d+s+q+o]+"-border")
+u.h(0,["","group-border","contributor-above-border","group-contributor-above-border","contributor-below-border","group-contributor-below-border","","","wishlist-border","group-wishlist-border","contributor-above-wishlist-border","group-contributor-above-wishlist","contributor-below-wishlist","group-contributor-below-wishlist","",""][d+s+q+o])
 f.appendChild(e)
 J.pP(e).h(0,"global__image-inner-wrap")
 e.setAttribute("style",J.iz(this.Ir,"style"))
@@ -5377,9 +5378,7 @@ this.oc=u.textContent
 this.Pj=u.getAttribute("href")
 this.O6=Q.aU(z.Wk(a,"div.giveaway__columns>div>span").textContent)
 this.tc=Q.aU(z.Wk(a,"div.giveaway__column--width-fill").textContent)
-y=z.Wk(a,"div.giveaway__column--width-fill").textContent.split(" ")
-if(4>=y.length)return H.e(y,4)
-this.Iz=y[4]
+this.Iz=z.Wk(a,".giveaway__username").textContent
 y=z.Md(a,"div.giveaway__links>a>span").Wf
 this.Pu=Q.xK(J.nJ(C.t5.gFV(y)))
 this.GU=Q.xK(J.nJ(C.t5.grZ(y)))
@@ -5415,8 +5414,8 @@ hD:function(){var z=document.querySelector(".sidebar")
 z.toString
 this.zI=P.T7(C.CD.yu(C.CD.UD(z.offsetLeft)),C.CD.yu(C.CD.UD(z.offsetTop)),C.CD.yu(C.CD.UD(z.offsetWidth)),C.CD.yu(C.CD.UD(z.offsetHeight)),null).G6}},
 XB:{
-"^":"Ej;wn,PJ,T3,aj,YM",
-Hx:function(a,b,c,d){return"."+a+"-border {\n  background-image: \n    linear-gradient(\n      to right,\n      "+b+" 33.33%,\n      "+c+" 33.33%,\n      "+c+" 66.66%,\n      "+d+" 66.66%\n    );\n  background-size: 90px 90px;\n}\n"}},
+"^":"Ej;YM",
+Hx:function(a,b,c,d){return"."+a+" {\n  background-image:\n    linear-gradient(\n      to right,\n      "+b+" 33.33%,\n      "+c+" 33.33%,\n      "+c+" 66.66%,\n      "+d+" 66.66%\n    );\n  background-size: 90px 90px;\n}\n"}},
 GJ:{
 "^":"Ej;YM"},
 Ej:{
@@ -5826,7 +5825,7 @@ I.$lazy($,"posix","yr","Yp",function(){return new Z.OF("posix","/",C.mI,new H.VR
 I.$lazy($,"windows","Mk","ep",function(){return new T.IV("windows","\\",C.Hj,new H.VR("[/\\\\]",H.v4("[/\\\\]",!1,!0,!1),null,null),new H.VR("[^/\\\\]$",H.v4("[^/\\\\]$",!1,!0,!1),null,null),new H.VR("^(\\\\\\\\[^\\\\]+\\\\[^\\\\/]+|[a-zA-Z]:[/\\\\])",H.v4("^(\\\\\\\\[^\\\\]+\\\\[^\\\\/]+|[a-zA-Z]:[/\\\\])",!1,!0,!1),null,null),new H.VR("^[/\\\\](?![/\\\\])",H.v4("^[/\\\\](?![/\\\\])",!1,!0,!1),null,null))})
 I.$lazy($,"url","ak","LT",function(){return new E.ru("url","/",C.mI,new H.VR("/",H.v4("/",!1,!0,!1),null,null),new H.VR("(^[a-zA-Z][-+.a-zA-Z\\d]*://|[^/])$",H.v4("(^[a-zA-Z][-+.a-zA-Z\\d]*://|[^/])$",!1,!0,!1),null,null),new H.VR("[a-zA-Z][-+.a-zA-Z\\d]*://[^/]*",H.v4("[a-zA-Z][-+.a-zA-Z\\d]*://[^/]*",!1,!0,!1),null,null),new H.VR("^/",H.v4("^/",!1,!0,!1),null,null))})
 I.$lazy($,"platform","ls","Ef",function(){return S.Rh()})
-I.$lazy($,"myLevel","cP","xE",function(){return Q.BN()})
+I.$lazy($,"myLevel","cP","xE",function(){return Q.kS()})
 
 
 init.metadata=[{func:"uO",args:[P.qU]},{func:"n9",void:true,args:[{func:"X0",void:true}]},{func:"X0",void:true},{func:"Ib",ret:P.a2,args:[null,null]},{func:"bX",ret:P.KN,args:[null]},{func:"E0",ret:P.a2,args:[P.a,P.a]},{func:"ZY",ret:P.KN,args:[P.a]},{func:"zs",ret:P.qU,args:[P.qU]},{func:"Vv",ret:P.a2,args:[W.cv,P.qU,P.qU,W.JQ]},{func:"NT"},{func:"bh",args:[null,null]},{func:"aB",args:[null]},{func:"TS",args:[null,P.qU]},{func:"xO",args:[{func:"X0",void:true}]},{func:"Ns",void:true,args:[P.a],opt:[P.mE]},,{func:"mQ",void:true,args:[null],opt:[P.mE]},{func:"BG",args:[null],opt:[null]},{func:"Uf",ret:P.a2},{func:"WK",args:[P.a2]},{func:"bb",args:[null,P.mE]},{func:"W4",ret:P.KN,args:[null,P.KN]},{func:"jt",void:true,args:[P.KN,P.KN]},{func:"lv",args:[P.wv,null]},{func:"Pt",ret:P.qU,args:[P.KN]},{func:"N4",ret:P.a2,args:[P.KN]},{func:"Z9",ret:P.KN,args:[null,null]},{func:"xM",void:true,args:[P.qU]},{func:"lu",void:true,args:[P.qU],opt:[null]},{func:"BC",ret:P.KN,args:[P.KN,P.KN]},{func:"qu",void:true,args:[W.KV]},{func:"c3",args:[W.zU]},{func:"WW",void:true,args:[W.pS]},];$=null

@@ -19,7 +19,7 @@ class GiveAway {
   bool entered;
 
   GiveAway(Element gaHtml) {
-    ElementList copiesAndPoints = gaHtml.querySelectorAll('span.giveaway__heading__thin');
+    ElementList copiesAndPoints = gaHtml.querySelectorAll('span.$classGAHeadingThin');
     Element copies;
     Element points;
     if (copiesAndPoints.length == 1) {
@@ -30,25 +30,25 @@ class GiveAway {
       this.copies = parseNumber(copies.text);
     }
     this.points = parseNumber(points.text);
-    Element nameAndLink = gaHtml.querySelector('a.giveaway__heading__name');
+    Element nameAndLink = gaHtml.querySelector('a.$classGAName');
     this.name = nameAndLink.text;
     this.link = nameAndLink.getAttribute('href');
-    this.remaining = parseTime(gaHtml.querySelector('div.giveaway__columns>div>span').text);
-    this.created = parseTime(gaHtml.querySelector('div.giveaway__column--width-fill').text);
-    this.creator = gaHtml.querySelector('div.giveaway__column--width-fill').text.split(" ")[4];
-    ElementList entriesAndComments = gaHtml.querySelectorAll('div.giveaway__links>a>span');
+    this.remaining = parseTime(gaHtml.querySelector('div.$classGAColumns>div>span').text);
+    this.created = parseTime(gaHtml.querySelector('div.$classGAColumnWidthFill').text);
+    this.creator = gaHtml.querySelector('.$classGAUserName').text;
+    ElementList entriesAndComments = gaHtml.querySelectorAll('div.$classGALinks>a>span');
     this.entries = parseNumber(entriesAndComments.first.text);
     this.comments = parseNumber(entriesAndComments.last.text);
-    this.image = gaHtml.querySelector('a.global__image-outer-wrap--game-medium').children.first;
-    this.avatar = gaHtml.querySelector('.global__image-outer-wrap--avatar-small>.global__image-inner-wrap');
-    ElementList contributorElement = gaHtml.querySelectorAll('.giveaway__column--contributor-level');
+    this.image = gaHtml.querySelector('a.$classGAGameImage').children.first;
+    this.avatar = gaHtml.querySelector('.$classGAAvatar>.$classGAAvatarImage');
+    ElementList contributorElement = gaHtml.querySelectorAll('.$classGAContributorLvl');
     this.isContributorGA = contributorElement.length > 0;
     if (this.isContributorGA) {
       this.contributorLevel = parseNumber(contributorElement[0].text);
     }
-    this.isGroupGA = gaHtml.querySelectorAll('.giveaway__column--group').length > 0;
+    this.isGroupGA = gaHtml.querySelectorAll('.$classGAGroupIcon').length > 0;
     this.isWishListGA = false;
-    this.entered = gaHtml.querySelectorAll('.is-faded').length > 0;
+    this.entered = gaHtml.querySelectorAll('.$classGAEntered').length > 0;
   }
 
   Element wrappedWithStyles() {
@@ -60,24 +60,24 @@ class GiveAway {
     Element giveAwayImage = new DivElement();
     giveAwayLink
       ..setAttribute('href', this.link)
-      ..classes.add('global__image-outer-wrap')
-      ..classes.add('global__image-outer-wrap--game-medium')
+      ..classes.add(classGAImageOuterBorder)
+      ..classes.add(classGAGameImage)
       ..classes.add(getBorderColorClass())
       ..append(giveAwayImage);
 
     giveAwayImage
-      ..classes.add('global__image-inner-wrap')
+      ..classes.add(classGAAvatarImage)
       ..setAttribute('style', this.image.getAttribute('style'));
 
     giveAwayContainer
-      ..classes.add('giveaway-gridview')
+      ..classes.add(classGridView)
       ..append(giveAwayLink)
       ..append(informationContainer)
-      ..onMouseEnter.listen((e) => informationContainer.classes.remove('hidden'))
-      ..onMouseLeave.listen((e) => informationContainer.classes.add('hidden'));
+      ..onMouseEnter.listen((e) => informationContainer.classes.remove(classHidden))
+      ..onMouseLeave.listen((e) => informationContainer.classes.add(classHidden));
 
     if (entered) {
-      giveAwayLink.classes.add('faded');
+      giveAwayLink.classes.add(classFaded);
     }
 
     return giveAwayContainer;
@@ -87,79 +87,79 @@ class GiveAway {
     DivElement informationContainer = new DivElement();
 
     informationContainer
-      ..classes.add('hidden')
-      ..classes.add('gridview-info')
+      ..classes.add(classHidden)
+      ..classes.add(classGridViewInfoContainer)
       ..setAttribute('style', 'border-top: 1px #FFFFFF;');
 
     DivElement nameContainer = new DivElement();
     nameContainer
-      ..classes.add('ga-name')
+      ..classes.add(classGridViewGAName)
       ..innerHtml = name;
 
     DivElement copiesContainer = new DivElement();
     copiesContainer
-      ..classes.add('float-left')
+      ..classes.add(classFloatLeft)
       ..append(createStrongElement(this.copies))
       ..append(createTextElement((this.copies == 1) ? ' Copy': ' Copies'));
 
     DivElement pointsContainer = new DivElement();
     pointsContainer
-      ..classes.add('float-right')
+      ..classes.add(classFloatRight)
       ..append(createStrongElement(this.points.toString() + 'P'));
 
     DivElement timeRemainingContainer = new DivElement();
     timeRemainingContainer
-      ..classes.add('float-left')
+      ..classes.add(classFloatLeft)
       ..setAttribute('style', 'margin-top: -16px;')
       ..append(createStrongElement(this.remaining))
       ..append(createTextElement(' remaining'));
 
     DivElement avatarContainer = new DivElement();
     avatarContainer
-      ..classes.add('float-right')
-      ..classes.add('gridview-avatar')
+      ..classes.add(classFloatRight)
+      ..classes.add(classGridViewAvatar)
       ..append(this.avatar);
 
     DivElement entriesContainer = new DivElement();
     entriesContainer
-      ..classes.add('float-left')
+      ..classes.add(classFloatLeft)
       ..append(createStrongElement(this.entries))
       ..append(createTextElement(' entries'));
 
     DivElement chanceToWinContainer = new DivElement();
     chanceToWinContainer
-      ..classes.add('float-right')
+      ..classes.add(classFloatRight)
       ..append(createStrongElement((100 / (this.entries + 1)).toStringAsFixed(2)))
       ..append(createTextElement(' %'));
 
     DivElement commentsContainer = new DivElement();
     commentsContainer
-      ..classes.add('float-left')
+      ..classes.add(classFloatLeft)
       ..append(createStrongElement(this.comments))
       ..append(createTextElement(' comments'));
 
     DivElement levelContainer = new DivElement();
     levelContainer
-      ..classes.add('giveaway__column--contributor-level')
-      ..classes.add('float-right')
+      ..classes.add(classGAContributorLvl)
+      ..classes.add(classFloatRight)
       ..innerHtml = '$contributorLevel+';
 
     if (myLevel >= contributorLevel) {
-      levelContainer.classes.add('giveaway__column--contributor-level--positive');
+      levelContainer.classes.add(classGAContributorPos);
     } else {
-      levelContainer.classes.add('giveaway__column--contributor-level--negative');
+      levelContainer.classes.add(classGAContributorNeg);
     }
 
     if (entered) {
-      nameContainer.classes.add('faded');
-      copiesContainer.classes.add('faded');
-      pointsContainer.classes.add('faded');
-      timeRemainingContainer.classes.add('faded');
-      avatarContainer.classes.add('faded');
-      entriesContainer.classes.add('faded');
-      chanceToWinContainer.classes.add('faded');
-      commentsContainer.classes.add('faded');
-      levelContainer.classes.add('faded');
+      nameContainer.classes.add(classFaded);
+      copiesContainer.classes.add(classFaded);
+      pointsContainer.classes.add(classFaded);
+      timeRemainingContainer.classes.add(classFaded);
+      avatarContainer.classes.add(classFaded);
+      entriesContainer.classes.add(classFaded);
+      chanceToWinContainer.classes.add(classFaded);
+      commentsContainer.classes.add(classFaded);
+      levelContainer.classes.add(classFaded);
     }
 
     informationContainer
@@ -195,16 +195,16 @@ class GiveAway {
   }
 
   String getBorderColorClass() {
-    List borderLevels = ['', 'group', // 0, 1
-                         'contributor-above', 'group-contributor-above', 'contributor-below', 'group-contributor-below', '', '', // 2-7
-                         'wishlist', 'group-wishlist', 'contributor-above-wishlist', 'group-contributor-above-wishlist', // 8-11
-                         'contributor-below-wishlist', 'group-contributor-below-wishlist', '', '']; // 12-15
+    List borderLevels = ['', classBorderGroup, // 0, 1
+                         classBorderContributorAbove, classBorderGroupContributorAbove, classBorderContributorBelow, classBorderGroupContributorBelow, '', '', // 2-7
+                         classBorderWishList, classBorderGroupWishList, classBorderContributorAboveWishList, classBorderGroupContributorAboveWishList, // 8-11
+                         classBorderContributorBelowWishList, classBorderGroupContributorBelowWishList, '', '']; // 12-15
     int borderLevel = 0;
     borderLevel += (isGroupGA) ? 1 : 0;
     borderLevel += (isContributorGA && contributorLevel > myLevel) ? 2 : 0;
     borderLevel += (isContributorGA && contributorLevel <= myLevel) ? 4 : 0;
     borderLevel += (isWishListGA) ? 8 : 0;
 
-    return borderLevels[borderLevel] + '-border';
+    return borderLevels[borderLevel];
   }
 }

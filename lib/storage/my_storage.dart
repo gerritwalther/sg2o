@@ -1,7 +1,6 @@
 part of sg2o;
 
-const String keyName = 'sg2o-';
-const String keyNameTimestamp = '-timestamp';
+
 
 class MyStorage {
 
@@ -33,7 +32,7 @@ class MyStorage {
   void _checkAndDelete(String key, String value) {
     if ( ! key.endsWith(keyNameTimestamp)) {
       DateTime timestamp = new DateTime.fromMillisecondsSinceEpoch(int.parse(storage[key + keyNameTimestamp]));
-      DateTime aYearAgo = new DateTime.now().subtract(new Duration(days: 365));
+      DateTime aYearAgo = new DateTime.now().subtract(new Duration(days: daysForExpiration));
       if (timestamp.isBefore(aYearAgo)) {
         storage.remove(key);
         storage.remove(key + keyNameTimestamp);

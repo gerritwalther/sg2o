@@ -17,7 +17,7 @@ body {
 
     rule =
   '''
-.fixed-navigation-bar {
+.$classFixedNavigation {
   position: fixed;
   top: 0;
   left: 0;
@@ -30,7 +30,7 @@ body {
 
     rule =
   '''
-.giveaway-gridview {
+.$classGridView {
   float: left;
   width: 184px;
   margin-left: 1%;
@@ -43,7 +43,7 @@ body {
 
     rule =
   '''
-.pinned-gridview-container {
+.$classPinnedGAContainer {
   padding-top: 5px;
 }
 ''';
@@ -51,7 +51,7 @@ body {
 
     rule =
   '''
-.page__heading {
+.$classSectionHeading {
   margin-bottom: 0.5em;
 }
 ''';
@@ -59,7 +59,7 @@ body {
 
     rule =
   '''
-.gridview-info {
+.$classGridViewInfoContainer {
   z-index: 100;
   font-size: 10;
   border: 1px solid #d2d6e0;
@@ -75,7 +75,7 @@ body {
 
     rule =
   '''
-.gridview-avatar {
+.$classGridViewAvatar {
   width: 25px;
   height: 25px;
   padding: 2px;
@@ -87,7 +87,7 @@ body {
 
     rule =
   '''
-.float-left {
+.$classFloatLeft {
   float: left;
 }
 ''';
@@ -95,7 +95,7 @@ body {
 
     rule =
   '''
-.float-right {
+.$classFloatRight {
   float: right;
 }
 ''';
@@ -103,7 +103,7 @@ body {
 
     rule =
   '''
-.ga-name {
+.$classGridViewGAName {
   font-weight: bold;
   min-height: 30px;
   margin-bottom: 0.5em;
@@ -113,7 +113,7 @@ body {
 
     rule =
   '''
-.hidden {
+.$classHidden {
   display: none !important;
 }
 ''';
@@ -121,7 +121,7 @@ body {
 
     rule =
   '''
-.faded {
+.$classFaded {
   opacity: 0.5;
 }
 ''';
@@ -129,7 +129,7 @@ body {
 
     rule =
 '''
-.sg2o-table-heading {
+.$classSg2oTableHeading {
   margin-bottom: 5px;
 }
 ''';

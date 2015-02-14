@@ -5,7 +5,7 @@ part of sg2o;
  */
 int parseNumber(String stringWithNumber) {
   var regexp = new RegExp(r'\d+');
-  int number = int.parse(regexp.allMatches(stringWithNumber.replaceAll(",", "")).first.group(0));
+  int number = int.parse(regexp.allMatches(stringWithNumber.replaceAll(',', '')).first.group(0));
   return number;
 }
 
@@ -14,5 +14,5 @@ int parseNumber(String stringWithNumber) {
  */
 String parseTime(String stringWithTime) {
   int amount = parseNumber(stringWithTime);
-  return amount.toString() + " " + stringWithTime.split(" ").elementAt(1);
+  return amount.toString() + ' ' + stringWithTime.split(' ').elementAt(1);
 }

@@ -3,8 +3,10 @@ library sg2o;
 
 import 'dart:html';
 
+part 'constants.dart';
 part 'giveaway.dart';
 part 'my_string.dart';
+part 'user.dart';
 part 'dom/my_dom.dart';
 part 'endless_scroll/endless_scroll.dart';
 part 'endless_scroll/endless_giveaway.dart';
@@ -14,28 +16,16 @@ part 'styles/border_styles.dart';
 part 'styles/common_styles.dart';
 part 'styles/styles.dart';
 
-int myLevel = getMyLevel();
-
-int getMyLevel() {
-  Element navigationPointsElement = querySelector('.nav__points');
-  if(navigationPointsElement != null) {
-    return parseNumber(navigationPointsElement.parent.querySelectorAll('span')[1].getAttribute('title'));
-  } else {
-    return 0;
-  }
-}
-
 void collapsePinnedGAs() {
-  ElementList giveAwayElements = document.querySelectorAll('.pinned-giveaways>.giveaway__row-outer-wrap');
+  ElementList giveAwayElements = document.querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow');
   Element parentElement = giveAwayElements[0].parent;
   parentElement
-      ..innerHtml = ""
-      ..classes.add('pinned-gridview-container');
+      ..innerHtml = ''
+      ..classes.add(classPinnedGAContainer);
 
   parentElement
       ..parent.insertBefore(createHeading('Pinned giveaways', '/'), parentElement)
       ..setAttribute('style', 'margin-top: 0px;');
-
 
   for (final giveAwayElement in giveAwayElements) {
     GiveAway giveAway = new GiveAway(giveAwayElement);
@@ -46,12 +36,12 @@ void collapsePinnedGAs() {
 }
 
 void collapseGAList() {
-  int numberPinnedGAs = querySelectorAll('.pinned-giveaways>.giveaway__row-outer-wrap').length;
-  ElementList giveAwayElements = document.querySelectorAll('.giveaway__row-outer-wrap');
+  int numberPinnedGAs = querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow').length;
+  ElementList giveAwayElements = document.querySelectorAll('.$classGiveawayRow');
   Element parentElement = giveAwayElements[numberPinnedGAs].parent;
   parentElement
-    ..innerHtml = ""
-    ..classes.add('gridview-container');
+    ..innerHtml = ''
+    ..classes.add(classGridViewContainer);
 
   for (int i = numberPinnedGAs; i < giveAwayElements.length; i++) {
     GiveAway giveAway = new GiveAway(giveAwayElements[i]);
@@ -62,8 +52,8 @@ void collapseGAList() {
 }
 
 Element collapseGAListOnDocument(Document documentToQuery) {
-  int numberPinnedGAs = documentToQuery.querySelectorAll('.pinned-giveaways>.giveaway__row-outer-wrap').length;
-  ElementList giveAwayElements = documentToQuery.querySelectorAll('.giveaway__row-outer-wrap');
+  int numberPinnedGAs = documentToQuery.querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow').length;
+  ElementList giveAwayElements = documentToQuery.querySelectorAll('.$classGiveawayRow');
   Element parentElement = giveAwayElements[numberPinnedGAs].parent;
   parentElement.innerHtml = '';
 
@@ -77,28 +67,28 @@ Element collapseGAListOnDocument(Document documentToQuery) {
 }
 
 bool pinnedGAsExist() {
-  ElementList pinnedGAs = querySelectorAll('.pinned-giveaways>.giveaway__row-outer-wrap');
+  ElementList pinnedGAs = querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow');
 
   return pinnedGAs.isNotEmpty;
 }
 
 void fixNavigation() {
-  Element navigationHeaderElement = querySelector('header');
+  Element navigationHeaderElement = querySelector(elementNavigation);
 
-  navigationHeaderElement.classes.add('fixed-navigation-bar');
+  navigationHeaderElement.classes.add(classFixedNavigation);
 }
 
 void replaceFeatured() {
-  Element featuredContainer = querySelector('.featured__container');
-  ElementList widgetContainers = querySelectorAll('.widget-container');
+  Element featuredContainer = querySelector('.$classFeaturedContainer');
+  ElementList widgetContainers = querySelectorAll('.$classWidgetContainers');
   Element placeBeforeThis;
 //  Element voteContainer = widgetContainers.elementAt(1);
   Element forumContainer = widgetContainers.elementAt(2);
 
-  if (querySelectorAll('.pinned-giveaways').length > 0) {
-    placeBeforeThis = querySelector('.pinned-giveaways');
+  if (querySelectorAll('.$classPinnedGiveaways').length > 0) {
+    placeBeforeThis = querySelector('.$classPinnedGiveaways');
   } else {
-    placeBeforeThis = querySelector('.page__heading');
+    placeBeforeThis = querySelector('.$classSectionHeading');
   }
 
   featuredContainer.remove();
@@ -106,6 +96,7 @@ void replaceFeatured() {
     ..insertBefore(forumContainer, placeBeforeThis);
 //    ..insertBefore(voteContainer, placeBeforeThis);
 
-  forumContainer.classes.remove('widget-container--margin-top');
-  placeBeforeThis.classes.add('widget-container--margin-top');
+  forumContainer.classes.remove(classWidgetMarginTop);
+  // TODO: Might not need to add a margin top here (at least not for pinned GAs, extra removal of margin-top for pinnedGAs can be removed if this is removed).
+  placeBeforeThis.classes.add(classWidgetMarginTop);
 }
