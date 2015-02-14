@@ -2,6 +2,7 @@
 library sg2o;
 
 import 'dart:html';
+import 'dart:convert';
 
 part 'constants.dart';
 part 'giveaway.dart';
@@ -10,11 +11,15 @@ part 'user.dart';
 part 'dom/my_dom.dart';
 part 'endless_scroll/endless_scroll.dart';
 part 'endless_scroll/endless_giveaway.dart';
+part 'giveaway/blacklist.dart';
 part 'sidebar.dart';
 part 'storage/my_storage.dart';
 part 'styles/border_styles.dart';
 part 'styles/common_styles.dart';
 part 'styles/styles.dart';
+
+MyStorage storage = new MyStorage();
+BlackList blackList = new BlackList();
 
 void collapsePinnedGAs() {
   ElementList giveAwayElements = document.querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow');
@@ -30,7 +35,9 @@ void collapsePinnedGAs() {
   for (final giveAwayElement in giveAwayElements) {
     GiveAway giveAway = new GiveAway(giveAwayElement);
 
-    parentElement.append(giveAway.wrappedWithStyles());
+    if (giveAway.isNotBlackListed()) {
+      parentElement.append(giveAway.wrappedWithStyles());
+    }
   }
   addStopStyleParagraph(parentElement);
 }
@@ -46,7 +53,9 @@ void collapseGAList() {
   for (int i = numberPinnedGAs; i < giveAwayElements.length; i++) {
     GiveAway giveAway = new GiveAway(giveAwayElements[i]);
 
-    parentElement.append(giveAway.wrappedWithStyles());
+    if (giveAway.isNotBlackListed()) {
+      parentElement.append(giveAway.wrappedWithStyles());
+    }
   }
   addStopStyleParagraph(parentElement);
 }
@@ -60,7 +69,9 @@ Element collapseGAListOnDocument(Document documentToQuery) {
   for (int i = numberPinnedGAs; i < giveAwayElements.length; i++) {
     GiveAway giveAway = new GiveAway(giveAwayElements[i]);
 
-    parentElement.append(giveAway.wrappedWithStyles());
+    if (giveAway.isNotBlackListed()) {
+      parentElement.append(giveAway.wrappedWithStyles());
+    }
   }
   addStopStyleParagraph(parentElement);
   return parentElement;

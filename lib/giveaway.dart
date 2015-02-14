@@ -207,4 +207,8 @@ class GiveAway {
 
     return borderLevels[borderLevel];
   }
+
+  bool isNotBlackListed() {
+    return !blackList.isOnBlackList(name);
+  }
 }

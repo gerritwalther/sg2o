@@ -81,6 +81,8 @@ const String keyName = 'sg2o-';
 const String keyNameTimestamp = '-timestamp';
 const num daysForExpiration = 365;
 
+const String oldFilterKey = 'lscache-sgpgiveawayFilters';
+
 /// Colors
 const String groupColor = '#308430';
 const String contributorAboveLevelColor = '#B80000';

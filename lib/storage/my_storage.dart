@@ -19,6 +19,10 @@ class MyStorage {
     return storage[keyName + key];
   }
 
+  String getForeign(String key) {
+    return storage[key];
+  }
+
   /**
    * Delete all keys that are older than a year.
    */
