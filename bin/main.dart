@@ -11,7 +11,7 @@ main() {
   styles.addStyles();
   sg2o.fixNavigation();
 
-  if (urlParts.length == 1 || urlParts.elementAt(1) == "giveaways") { // We are on the GA page
+  if (sg2o.isOnGAPage()) { // We are on the GA page
     sg2o.replaceFeatured();
     if(sg2o.pinnedGAsExist()) {
       sg2o.collapsePinnedGAs();

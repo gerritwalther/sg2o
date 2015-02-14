@@ -69,3 +69,7 @@ Element createHeading(String text, String linkTarget) {
 
   return headingContainer;
 }
+
+bool isOnGAPage () {
+  return querySelectorAll('.$classGiveawayRow').length > 0;
+}
