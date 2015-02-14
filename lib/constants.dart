@@ -4,6 +4,9 @@ part of sg2o;
 
 int myLevel = getUserLevel();
 
+///
+
+const String pluginName = 'SG₂O';
 
 /// classes defined by sg
 
@@ -13,6 +16,9 @@ const String classFeaturedContainer = 'featured__container';
 const String classWidgetContainers = 'widget-container';
 const String classSectionHeading = 'page__heading';
 const String classPoints = 'nav__points';
+const String classLeftNavigation = 'nav__left-container';
+const String classNavigationButtonContainer = 'nav__button-container';
+const String classNavigationButton = 'nav__button';
 const String classSidebar = 'sidebar';
 
 const String classGAHeadingThin = 'giveaway__heading__thin';
@@ -72,6 +78,10 @@ const String classBorderContributorAboveWishList = 'contributor-above-wishlist-b
 const String classBorderGroupContributorAboveWishList = 'group-contributor-above-wishlist';
 const String classBorderContributorBelowWishList = 'contributor-below-wishlist';
 const String classBorderGroupContributorBelowWishList = 'group-contributor-below-wishlist';
+
+const String classSettingsOverlay = 'sg2o-overlay-settings';
+const String classClose = 'sg2o-close';
+const String classModalDialog = 'sg2o-modal-dialog';
 
 /// URLs
 const String urlGiveAwayPage = '/giveaways/search?page=';

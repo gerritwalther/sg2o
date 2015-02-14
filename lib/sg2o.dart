@@ -7,15 +7,17 @@ import 'dart:convert';
 part 'constants.dart';
 part 'giveaway/giveaway.dart';
 part 'my_string.dart';
+part 'sidebar.dart';
 part 'user.dart';
 part 'dom/my_dom.dart';
 part 'endless_scroll/endless_scroll.dart';
 part 'endless_scroll/endless_giveaway.dart';
 part 'giveaway/blacklist.dart';
-part 'sidebar.dart';
+part 'settings/settings.dart';
 part 'storage/my_storage.dart';
 part 'styles/border_styles.dart';
 part 'styles/common_styles.dart';
+part 'styles/settings_styles.dart';
 part 'styles/styles.dart';
 
 MyStorage storage = new MyStorage();

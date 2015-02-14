@@ -11,6 +11,7 @@ class Styles {
   void addStyles() {
     new BorderStyles().addBorderStyles();
     new CommonStyles().addStyles();
+    new SettingsStyles().addStyles();
   }
 
   CssStyleSheet createStyleSheetElement() {

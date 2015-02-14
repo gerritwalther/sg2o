@@ -30,4 +30,6 @@ main() {
   if (sidebar.isSidebarPresent()) {
     sidebar.fixSidebar();
   }
+
+  sg2o.Settings settings = new sg2o.Settings();
 }
