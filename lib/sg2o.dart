@@ -5,7 +5,7 @@ import 'dart:html';
 import 'dart:convert';
 
 part 'constants.dart';
-part 'giveaway.dart';
+part 'giveaway/giveaway.dart';
 part 'my_string.dart';
 part 'user.dart';
 part 'dom/my_dom.dart';
