@@ -98,3 +98,4 @@ const String groupColor = '#308430';
 const String contributorAboveLevelColor = '#B80000';
 const String contributorBelowLevelColor = '#0033CC';
 const String wishListColor = '#9933FF';
+const String fontColor = '#324862';
