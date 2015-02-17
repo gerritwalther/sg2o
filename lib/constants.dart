@@ -13,6 +13,7 @@ const String pluginName = 'SG₂O';
 const String classPinnedGiveaways = 'pinned-giveaways';
 const String classGiveawayRow =  'giveaway__row-outer-wrap';
 const String classFeaturedContainer = 'featured__container';
+const String classFeaturedOuterWrap = 'featured__outer-wrap--home';
 const String classWidgetContainers = 'widget-container';
 const String classSectionHeading = 'page__heading';
 const String classPoints = 'nav__points';

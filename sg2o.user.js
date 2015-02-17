@@ -510,7 +510,7 @@ JO:{
 "^":"Tp:9;a,c",
 $0:function(){this.c.$2(this.a.a,null)}},
 O2:{
-"^":"a;Hg,oL,Y7,N0,Nr,Xz,Ws,EF,ji,i2,rj,XC,w2",
+"^":"a;Hg,oL,Y7,N0,Nr,Xz,Ai,EF,ji,i2,rj,XC,w2",
 N8:function(a){var z,y,x
 z=self.window==null
 y=self.Worker
@@ -519,7 +519,7 @@ this.EF=x
 if(!x)y=y!=null&&$.Rs()!=null
 else y=!0
 this.ji=y
-this.Ws=z&&!x
+this.Ai=z&&!x
 this.Xz=new H.cC(P.NZ(null,H.IY),0)
 this.i2=P.L5(null,null,null,P.KN,H.aX)
 this.XC=P.L5(null,null,null,P.KN,null)
@@ -631,7 +631,7 @@ if(z.QN===z.Bq)return
 return z.Ux()},
 xB:function(){var z,y,x
 z=this.Jc()
-if(z==null){if(init.globalState.Nr!=null&&init.globalState.i2.NZ(0,init.globalState.Nr.jO)&&init.globalState.Ws===!0&&init.globalState.Nr.Gx.hr===0)H.vh(P.FM("Program exited with open ReceivePorts."))
+if(z==null){if(init.globalState.Nr!=null&&init.globalState.i2.NZ(0,init.globalState.Nr.jO)&&init.globalState.Ai===!0&&init.globalState.Nr.Gx.hr===0)H.vh(P.FM("Program exited with open ReceivePorts."))
 y=init.globalState
 if(y.EF===!0&&y.i2.hr===0&&y.Xz.yy===0){y=y.rj
 x=H.Gy(P.EF(["command","close"],null,null))
@@ -4101,23 +4101,7 @@ gQg:function(a){return new W.i7(a)},
 gwd:function(a){return new W.VG(a,a.children)},
 Md:function(a,b){return W.vD(a.querySelectorAll(b),null)},
 gDD:function(a){return new W.I4(a)},
-Ai:function(a,b){this.Ty(a,"beforeend",b)},
 bu:function(a){return a.localName},
-Ty:function(a,b,c){var z,y,x
-if(!!a.insertAdjacentHTML)a.insertAdjacentHTML(b,c)
-else{z=J.kp(document.body,c,null,null)
-switch(b.toLowerCase()){case"beforebegin":a.parentNode.insertBefore(z,a)
-break
-case"afterbegin":if(a.childNodes.length>0){y=a.childNodes
-if(0>=y.length)return H.e(y,0)
-x=y[0]}else x=null
-a.insertBefore(z,x)
-break
-case"beforeend":a.appendChild(z)
-break
-case"afterend":a.parentNode.insertBefore(z,a.nextSibling)
-break
-default:H.vh(P.u("Invalid position "+b))}}},
 r6:function(a,b,c,d){var z,y,x,w,v
 if(c==null){z=$.lt
 if(z==null){z=H.VM([],[W.kF])
@@ -4431,7 +4415,7 @@ gfg:function(a){return a.height},
 gR:function(a){return a.width},
 "%":"DOMRect"},
 rh:{
-"^":"ma;",
+"^":"rl;",
 gB:function(a){return a.length},
 t:function(a,b){if(b>>>0!==b||b>=a.length)throw H.b(P.Cf(b,a,null,null,null))
 return a[b]},
@@ -4608,7 +4592,7 @@ nj:{
 $iszM:true,
 $aszM:function(){return[W.KV]},
 $isqC:true},
-ma:{
+rl:{
 "^":"nj+CS;",
 $iszM:true,
 $aszM:function(){return[W.KV]},
@@ -4882,7 +4866,6 @@ z=new W.e7(x)
 v=z.gr8(z)
 for(;z=v.firstChild,z!=null;)w.appendChild(z)
 return w},
-Ty:function(a,b,c){throw H.b(P.f("Cannot invoke insertAdjacentHtml on SVG."))},
 gek:function(a){return H.VM(new W.Cq(a,"mouseenter",!1),[null])},
 gcb:function(a){return H.VM(new W.Cq(a,"mouseleave",!1),[null])},
 $isd5:true,
@@ -5092,7 +5075,6 @@ z=this.DG()
 y=z.Rz(0,b)
 this.p5(z)
 return y},
-FV:function(a,b){this.OS(new P.rl(b))},
 grZ:function(a){var z=this.DG()
 return z.grZ(z)},
 OS:function(a){var z,y
@@ -5104,9 +5086,6 @@ $isqC:true},
 GE:{
 "^":"Tp:11;a",
 $1:function(a){return a.h(0,this.a)}},
-rl:{
-"^":"Tp:11;a",
-$1:function(a){return a.FV(0,this.a)}},
 D7:{
 "^":"LU;KB,SB",
 gd3:function(){var z=this.SB
@@ -5180,11 +5159,9 @@ x.YM=w
 J.dp(w,".sg2o-modal-dialog {\n  position: fixed;\n  font-family: Arial, Helvetica, sans-serif;\n  color: #000;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background: rgba(0, 0, 0, 0.8);\n  z-index: 9999;\n  opacity: 0;\n  -webkit-transition: opacity 400ms ease-in;\n  -moz-transition: opacity 400ms ease-in;\n  transition: opacity 400ms ease-in;\n  pointer-events: none;\n}\n",0)
 J.dp(x.YM,".sg2o-modal-dialog:target {\n  opacity: 1;\n  pointer-events: auto;\n}\n",0)
 J.dp(x.YM,".sg2o-modal-dialog > div {\n  width: 1000px;\n  position: relative;\n  margin: 10% auto;\n  padding: 5px 20px 13px 20px;\n  border-radius: 10px;\n  background: #fff;\n  background: -moz-linear-gradient(#fff, #999);\n  background: -webkit-linear-gradient(#fff, #999);\n  background: -o-linear-gradient(#fff, #999);\n}\n",0)
-J.dp(x.YM,".sg2o-close {\n  background: #606061;\n  color: #324862;\n  line-height: 25px;\n  position: absolute;\n  right: -12px;\n  text-align: center;\n  top: -10px;\n  width: 24px;\n  text-decoration: none;\n  font-weight: bold;\n  -webkit-border-radius: 12px;\n  -moz-border-radius: 12px;\n  border-radius: 12px;\n  -moz-box-shadow: 1px 1px 3px #000;\n  -webkit-box-shadow: 1px 1px 3px #000;\n  box-shadow: 1px 1px 3px #000;\n}\n",0)
-J.dp(x.YM,".sg2o-close:hover {\n  background: #00d9ff;\n}\n",0)
-J.dp(x.YM,".sg2o-settings-head {\n  font: 700 20px \"Open Sans\", sans-serif;\n  color: #324862;\n}\n",0)
+J.dp(x.YM,".sg2o-close {\n  background: #606061;\n  color: #FFFFFF;\n  line-height: 25px;\n  position: absolute;\n  right: -12px;\n  text-align: center;\n  top: -10px;\n  width: 24px;\n  text-decoration: none;\n  font-weight: bold;\n  -webkit-border-radius: 12px;\n  -moz-border-radius: 12px;\n  border-radius: 12px;\n  -moz-box-shadow: 1px 1px 3px #000;\n  -webkit-box-shadow: 1px 1px 3px #000;\n  box-shadow: 1px 1px 3px #000;\n}\n",0)
 J.pP(document.querySelector("header")).h(0,"fixed-navigation-bar")
-if(W.vD(document.querySelectorAll(".giveaway__row-outer-wrap"),null).Wf.length>0){v=document.querySelector(".featured__container")
+if(W.vD(document.querySelectorAll(".featured__outer-wrap--home"),null).Wf.length>0){v=document.querySelector(".featured__container")
 u=W.vD(document.querySelectorAll(".widget-container"),null)
 t=u.Zv(u,u.Wf.length-1)
 s=W.vD(document.querySelectorAll(".pinned-giveaways"),null).Wf.length>0?document.querySelector(".pinned-giveaways"):document.querySelector(".page__heading")
@@ -5586,7 +5563,7 @@ c2:{
 $1:function(a){return J.pP(this.b).h(0,"hidden")}},
 Nn:{
 "^":"a;",
-xe:function(){var z,y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c
+xe:function(){var z,y,x,w,v,u,t,s,r,q
 z=document.querySelector(".nav__left-container")
 y=document.querySelector("body")
 x=document.createElement("div",null)
@@ -5599,71 +5576,24 @@ u.a7(v,"href","#close")
 u.smk(v,"Close")
 u.gDD(v).h(0,"sg2o-close")
 u.shf(v,"X")
-t=document.createElement("div",null)
-u=J.RE(t)
-u.shf(t,"Settings for SG\u2082O")
-u.gDD(t).h(0,"sg2o-settings-head")
+t=W.r3("h2",null)
+J.Qy(t,"Modal Box")
+s=document.createElement("p",null)
+J.Qy(s,"This is just a test")
 w.appendChild(v)
 w.appendChild(t)
-s=document.createElement("div",null)
-r=document.createElement("div",null)
-q=document.createElement("div",null)
-p=document.createElement("div",null)
-o=document.createElement("div",null)
-n=W.r3("i",null)
-m=W.r3("i",null)
-l=W.r3("i",null)
-k=document.createElement("div",null)
-j=W.r3("i",null)
-i=W.r3("i",null)
-h=W.r3("i",null)
-J.pP(s).h(0,"form__row")
-s.appendChild(r)
-s.appendChild(p)
-J.pP(r).h(0,"form__heading")
-r.appendChild(q)
-u=J.RE(q)
-u.gDD(q).h(0,"form__heading__text")
-u.shf(q,"Hide entered giveaways?")
-J.pP(p).h(0,"form__row__indent")
-p.appendChild(o)
-p.appendChild(k)
-u=J.RE(o)
-u.gDD(o).h(0,"form__checkbox")
-o.appendChild(n)
-o.appendChild(m)
-o.appendChild(l)
-o.appendChild(document.createTextNode("Yes"))
-g=J.RE(k)
-g.gDD(k).h(0,"form__checkbox")
-k.appendChild(j)
-k.appendChild(i)
-k.appendChild(h)
-k.appendChild(document.createTextNode("No"))
-J.pP(n).FV(0,["form__checkbox__default","fa","fa-circle-o"])
-J.pP(m).FV(0,["form__checkbox__hover","fa","fa-circle"])
-f=J.RE(l)
-f.gDD(l).FV(0,["form__checkbox__selected","fa","fa-check-circle"])
-e=J.RE(j)
-e.gDD(j).FV(0,["form__checkbox__default","fa","fa-circle-o"])
-J.pP(i).FV(0,["form__checkbox__hover","fa","fa-circle"])
-J.pP(h).FV(0,["form__checkbox__selected","fa","fa-check-circle"])
-u.gDD(o).h(0,"is-selected")
-f.Ai(l,"::before")
-g.gDD(k).h(0,"is-disabled")
-e.Ai(j,"::before")
 w.appendChild(s)
 x.appendChild(w)
 y.appendChild(x)
-d=W.r3("a",null)
-u=J.RE(d)
-u.gDD(d).h(0,"nav__button")
-u.a7(d,"href","#sg2o-overlay-settings")
-d.textContent="SG\u2082O"
-c=document.createElement("div",null)
-J.pP(c).h(0,"nav__button-container")
-c.appendChild(d)
-z.appendChild(c)}},
+r=W.r3("a",null)
+u=J.RE(r)
+u.gDD(r).h(0,"nav__button")
+u.a7(r,"href","#sg2o-overlay-settings")
+r.textContent="SG\u2082O"
+q=document.createElement("div",null)
+J.pP(q).h(0,"nav__button-container")
+q.appendChild(r)
+z.appendChild(q)}},
 Qw:{
 "^":"a;zI",
 CC:[function(a){var z,y

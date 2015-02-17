@@ -71,5 +71,5 @@ Element createHeading(String text, String linkTarget) {
 }
 
 bool isOnGAPage () {
-  return querySelectorAll('.$classGiveawayRow').length > 0;
+  return querySelectorAll('.$classFeaturedOuterWrap').length > 0;
 }
