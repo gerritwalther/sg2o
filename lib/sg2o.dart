@@ -81,8 +81,8 @@ void replaceFeatured() {
   Element featuredContainer = querySelector('.$classFeaturedContainer');
   ElementList widgetContainers = querySelectorAll('.$classWidgetContainers');
   Element placeBeforeThis;
-//  Element voteContainer = widgetContainers.elementAt(1);
-  Element forumContainer = widgetContainers.elementAt(2);
+//  Element voteContainer = widgetContainers.elementAt(1); //TODO find a better way to select this, as the community vote does not always exist.
+  Element forumContainer = widgetContainers.elementAt(widgetContainers.length - 1);
 
   if (querySelectorAll('.$classPinnedGiveaways').length > 0) {
     placeBeforeThis = querySelector('.$classPinnedGiveaways');
