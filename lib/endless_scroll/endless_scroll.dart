@@ -13,11 +13,11 @@ abstract class EndlessScroll {
   EndlessScroll() {
     Element lastPageLink = querySelectorAll('.$classPaginationNavigation>a').last;
     lastPage = int.parse(lastPageLink.attributes['data-page-number']);
-    lastLoading = new DateTime.now().millisecondsSinceEpoch;
+    lastLoading = 0;
   }
 
   void loadPages() {
-    loadNextPage(null);
+    loadNextPage(new MouseEvent('click'));
     window.onScroll.listen(loadNextPage);
   }
 
