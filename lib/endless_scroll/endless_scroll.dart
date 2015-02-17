@@ -17,6 +17,7 @@ abstract class EndlessScroll {
   }
 
   void loadPages() {
+    loadNextPage(null);
     window.onScroll.listen(loadNextPage);
   }
 
