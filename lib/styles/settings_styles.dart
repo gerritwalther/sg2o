@@ -80,5 +80,15 @@ class SettingsStyles extends Styles {
   background: #00d9ff;
 }
 ''';
+    styleSheet.insertRule(rule, 0);
+
+    rule =
+    '''
+.$classSettingsHeading {
+  font: 700 20px "Open Sans", sans-serif;
+  color: $fontColor;
+}
+''';
+    styleSheet.insertRule(rule, 0);
   }
 }

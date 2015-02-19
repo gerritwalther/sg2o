@@ -83,6 +83,22 @@ const String classBorderGroupContributorBelowWishList = 'group-contributor-below
 const String classSettingsOverlay = 'sg2o-overlay-settings';
 const String classClose = 'sg2o-close';
 const String classModalDialog = 'sg2o-modal-dialog';
+const String classSettingsHeading = 'sg2o-settings-head';
+
+const String classFormRow = 'form__row';
+const String classFormHeading = 'form__heading';
+const String classFormHeadingText = 'form__heading__text';
+const String classFormRowIndent = 'form__row__indent';
+const String classFormCheckbox = 'form__checkbox';
+const String classFormCheckboxDefault = 'form__checkbox__default';
+const String classFormCheckboxHover = 'form__checkbox__hover';
+const String classFormCheckboxSelected = 'form__checkbox__selected';
+const String classFA = 'fa';
+const String classFACircle = 'fa-circle';
+const String classFACircleO = 'fa-circle-o';
+const String classFACheckedCircle = 'fa-check-circle';
+const String classFormIsSelected = 'is-selected';
+const String classFormIsDisabled = 'is-disabled';
 
 /// URLs
 const String urlGiveAwayPage = '/giveaways/search?page=';
@@ -91,6 +107,8 @@ const String urlGiveAwayPage = '/giveaways/search?page=';
 const String keyName = 'sg2o-';
 const String keyNameTimestamp = '-timestamp';
 const num daysForExpiration = 365;
+
+const String keyHideGAs = 'hide-giveaways';
 
 const String oldFilterKey = 'lscache-sgpgiveawayFilters';
 

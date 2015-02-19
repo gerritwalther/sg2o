@@ -211,4 +211,8 @@ class GiveAway {
   bool isNotBlackListed() {
     return !blackList.isOnBlackList(name);
   }
+
+  bool isEntered() {
+    return this.entered;
+  }
 }

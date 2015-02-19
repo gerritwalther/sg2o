@@ -24,16 +24,15 @@ class Settings {
       ..classes.add(classClose)
       ..innerHtml = 'X';
 
-    Element heading = new Element.tag('h2');
-    heading.innerHtml = 'Modal Box';
-
-    ParagraphElement pEl = new ParagraphElement();
-    pEl.innerHtml = 'This is just a test';
+    DivElement heading = new DivElement();
+    heading
+      ..innerHtml = 'Settings for $pluginName'
+      ..classes.add(classSettingsHeading);
 
     overlayInnerContainer
       ..append(closeLink)
       ..append(heading)
-      ..append(pEl);
+      ..append(createHideGASetting());
 
     overlayContainer.append(overlayInnerContainer);
     return overlayContainer;
@@ -53,5 +52,17 @@ class Settings {
       ..append(navigationButton);
 
     return navigationButtonContainer;
+  }
+
+  Element createHideGASetting() {
+    return createOption(storage.getBool(keyHideGAs), 'Hide entered giveaways?', storeHideValueYes, storeHideValueNo);
+  }
+
+  void storeHideValueYes(Event e) {
+    storage.add(keyHideGAs, 'true');
+  }
+
+  void storeHideValueNo(Event e) {
+    storage.add(keyHideGAs, 'false');
   }
 }

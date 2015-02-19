@@ -7,7 +7,7 @@ class MyStorage {
   Storage storage = window.localStorage;
 
   MyStorage() {
-
+    initDefaults();
   }
 
   void add(String key, String value) {
@@ -17,6 +17,11 @@ class MyStorage {
 
   String get(String key) {
     return storage[keyName + key];
+  }
+
+  bool getBool(String key) {
+    String currentValue = get(key);
+    return currentValue == 'true';
   }
 
   String getForeign(String key) {
@@ -44,4 +49,19 @@ class MyStorage {
     }
   }
 
+  ///
+  bool containsKey(String key) {
+    return storage.containsKey(keyName + key);
+  }
+
+  initDefaults() {
+    if ( ! containsKey(keyHideGAs)) {
+      add(keyHideGAs, 'false');
+    }
+  }
+
+  /// TODO move this somewhere else.
+  bool showEnteredGiveaways() {
+    return !getBool(keyHideGAs);
+  }
 }
