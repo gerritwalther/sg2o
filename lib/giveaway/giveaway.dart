@@ -47,7 +47,7 @@ class GiveAway {
       this.contributorLevel = parseNumber(contributorElement[0].text);
     }
     this.isGroupGA = gaHtml.querySelectorAll('.$classGAGroupIcon').length > 0;
-    this.isWishListGA = false;
+    this.isWishListGA = wishList.isOnWishList(name);
     this.entered = gaHtml.querySelectorAll('.$classGAEntered').length > 0;
   }
 

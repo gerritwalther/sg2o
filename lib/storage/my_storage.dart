@@ -24,6 +24,18 @@ class MyStorage {
     return currentValue == 'true';
   }
 
+  DateTime getLastUpdate(String key) {
+    String keyTimeStamp = keyName + key + keyNameTimestamp;
+    String timeStamp = storage[keyTimeStamp];
+    if (timeStamp != null) {
+      return new DateTime.fromMillisecondsSinceEpoch(num.parse(storage[keyTimeStamp], (String s) {
+        return 0;
+      }));
+    } else {
+      return new DateTime.fromMillisecondsSinceEpoch(0);
+    }
+  }
+
   String getForeign(String key) {
     return storage[key];
   }

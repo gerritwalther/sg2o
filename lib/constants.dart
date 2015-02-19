@@ -47,6 +47,8 @@ const String classPageHeadingBreadCrumbs = 'page__heading__breadcrumbs';
 const String classTableColumnWidthFill = 'table__column--width-fill';
 const String classTableHeading = 'table__heading';
 
+const String classWishListName = 'table__column__heading';
+
 /// elements defined by sg
 
 const String elementNavigation = 'header';
@@ -97,11 +99,13 @@ const String classFA = 'fa';
 const String classFACircle = 'fa-circle';
 const String classFACircleO = 'fa-circle-o';
 const String classFACheckedCircle = 'fa-check-circle';
-const String classFormIsSelected = 'is-selected';
-const String classFormIsDisabled = 'is-disabled';
+
+const String classIsSelected = 'is-selected';
+const String classIsDisabled = 'is-disabled';
 
 /// URLs
 const String urlGiveAwayPage = '/giveaways/search?page=';
+const String urlSteamWishList = '/account/steam/wishlist/search?page=';
 
 /// Storage related constants
 const String keyName = 'sg2o-';
@@ -109,6 +113,7 @@ const String keyNameTimestamp = '-timestamp';
 const num daysForExpiration = 365;
 
 const String keyHideGAs = 'hide-giveaways';
+const String keyWishList = 'wishlist';
 
 const String oldFilterKey = 'lscache-sgpgiveawayFilters';
 
@@ -118,3 +123,6 @@ const String contributorAboveLevelColor = '#B80000';
 const String contributorBelowLevelColor = '#0033CC';
 const String wishListColor = '#9933FF';
 const String fontColor = '#324862';
+
+/// numbers
+const num oneDay = 1000 * 60 * 60 * 24;

@@ -105,14 +105,14 @@ Element createOption(bool yes, String question, fnYes, fnNo) {
     ..append(checkboxNoContainer);
 
   if (yes) {
-    checkboxYesContainer.classes.add(classFormIsSelected);
-    checkboxNoContainer.classes.add(classFormIsDisabled);
+    checkboxYesContainer.classes.add(classIsSelected);
+    checkboxNoContainer.classes.add(classIsDisabled);
   } else {
-    checkboxNoContainer.classes.add(classFormIsSelected);
-    checkboxYesContainer.classes.add(classFormIsDisabled);
+    checkboxNoContainer.classes.add(classIsSelected);
+    checkboxYesContainer.classes.add(classIsDisabled);
   }
 
-  toggleClassesOnClick(checkboxYesContainer, checkboxNoContainer, classFormIsSelected, classFormIsDisabled);
+  toggleClassesOnClick(checkboxYesContainer, checkboxNoContainer, classIsSelected, classIsDisabled);
 
   return booleanContainerOption;
 }
