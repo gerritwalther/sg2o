@@ -38,6 +38,8 @@ const String classGAGroupIcon = 'giveaway__column--group';
 const String classGAEntered = 'is-faded';
 const String classGAImageOuterBorder = 'global__image-outer-wrap';
 const String classGAWhiteListed = 'giveaway__column--whitelist';
+const String classGAHide = 'giveaway__hide';
+const String classEyeSlash = 'fa-eye-slash';
 
 const String classWidgetMarginTop = 'widget-container--margin-top';
 
@@ -65,6 +67,7 @@ const String classFaded = 'faded';
 const String classGridViewInfoContainer = 'gridview-info';
 const String classGridViewAvatar = 'gridview-avatar';
 const String classGridViewGAName = 'ga-name';
+const String classOneClickBlackList = 'sg2o-blacklist-ga';
 
 const String classSg2oTableHeading = 'sg2o-table-heading';
 

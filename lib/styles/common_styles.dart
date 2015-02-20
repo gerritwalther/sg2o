@@ -132,5 +132,13 @@ body {
 }
 ''';
     styleSheet.insertRule(rule, 0);
+
+    rule =
+'''
+.$classOneClickBlackList {
+  cursor: pointer;
+}
+''';
+    styleSheet.insertRule(rule, 0);
   }
 }

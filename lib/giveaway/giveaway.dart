@@ -13,11 +13,14 @@ class GiveAway {
   int copies = 1;
   int comments;
   int contributorLevel = 0;
+  int sgGameId;
   bool isContributorGA;
   bool isGroupGA;
   bool isWishListGA;
   bool entered;
   bool isWhiteListed;
+
+  Element giveAwayContainer;
 
   GiveAway(Element gaHtml) {
     ElementList copiesAndPoints = gaHtml.querySelectorAll('span.$classGAHeadingThin');
@@ -51,10 +54,11 @@ class GiveAway {
     this.isWishListGA = wishList.isOnWishList(name);
     this.entered = gaHtml.querySelectorAll('.$classGAEntered').length > 0;
     this.isWhiteListed = gaHtml.querySelectorAll('.$classGAWhiteListed').length > 0;
+    this.sgGameId = parseNumber(gaHtml.querySelector('.$classGAHide').getAttribute('data-game-id'));
   }
 
   Element wrappedWithStyles() {
-    Element giveAwayContainer = new DivElement();
+    giveAwayContainer = new DivElement();
 
     Element informationContainer = createInformationContainer();
 
@@ -152,6 +156,16 @@ class GiveAway {
       levelContainer.classes.add(classGAContributorNeg);
     }
 
+    DivElement blackListLinkContainer = new DivElement();
+    blackListLinkContainer
+      ..classes.add(classFloatLeft)
+      ..classes.add(classEyeSlash)
+      ..classes.add(classOneClickBlackList)
+      ..onClick.listen((Event e) {
+          addGameToBlackList();
+          giveAwayContainer.classes.add(classHidden);
+        });
+
     if (entered) {
       nameContainer.classes.add(classFaded);
       copiesContainer.classes.add(classFaded);
@@ -162,6 +176,7 @@ class GiveAway {
       chanceToWinContainer.classes.add(classFaded);
       commentsContainer.classes.add(classFaded);
       levelContainer.classes.add(classFaded);
+      blackListLinkContainer.classes.add(classFaded);
     }
 
     informationContainer
@@ -176,7 +191,9 @@ class GiveAway {
       ..append(chanceToWinContainer)
       ..append(createStopStyleParagraph())
       ..append(commentsContainer)
-      ..append(levelContainer);
+      ..append(levelContainer)
+      ..append(createStopStyleParagraph())
+      ..append(blackListLinkContainer);
 
     return informationContainer;
   }
@@ -224,5 +241,13 @@ class GiveAway {
 
   bool isEntered() {
     return this.entered;
+  }
+
+  void addGameToBlackList() {
+    Map<String, String> formData = new Map();
+    formData['xsrf_token'] = querySelectorAll('input[name="xsrf_token"]')[0].getAttribute('value');
+    formData['game_id'] = this.sgGameId.toString();
+    formData['do'] = 'hide_giveaways_by_game_id';
+    HttpRequest.postFormData('/', formData);
   }
 }

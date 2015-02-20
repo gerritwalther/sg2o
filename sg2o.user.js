@@ -408,7 +408,7 @@ z.a=b
 y=b}else y=b
 if(!J.x(y).$iszM)throw H.b(P.u("Arguments to main must be a List: "+H.d(y)))
 y=new H.O2(0,0,1,null,null,null,null,null,null,null,null,null,a)
-y.N8(a)
+y.fS(a)
 init.globalState=y
 if(init.globalState.EF===!0)return
 y=init.globalState.Hg++
@@ -516,7 +516,7 @@ JO:{
 $0:function(){this.c.$2(this.a.a,null)}},
 O2:{
 "^":"a;Hg,oL,Y7,N0,Nr,Xz,Ai,EF,ji,i2,rj,XC,w2",
-N8:function(a){var z,y,x
+fS:function(a){var z,y,x
 z=self.window==null
 y=self.Worker
 x=z&&!!self.postMessage
@@ -534,7 +534,7 @@ self.onmessage=function(b,c){return function(d){b(c,d)}}(H.Mg,z)
 self.dartPrint=self.dartPrint||function(b){return function(c){if(self.console&&self.console.log){self.console.log(c)}else{self.postMessage(b(c))}}}(H.wI)}},
 static:{wI:function(a){return H.t0(P.EF(["command","print","msg",a],null,null))}}},
 aX:{
-"^":"a;jO,Gx,fW,En<,EE<,Qy,PX,xF,RW,C9,lJ,Jp,Jd,P0,pa,x8",
+"^":"a;jO,A4,fW,En<,EE<,Qy,PX,xF,RW,C9,lJ,Jp,Jd,P0,pa,x8",
 V0:function(a,b){if(!this.Qy.n(0,a))return
 if(this.lJ.h(0,b)&&!this.RW)this.RW=!0
 this.CX()},
@@ -609,16 +609,16 @@ if(this===init.globalState.Nr)throw v}}finally{this.P0=!1
 init.globalState.N0=z
 if(z!=null)$=z.gEn()
 if(this.Jd!=null)for(;u=this.Jd,!u.gl0(u);)this.Jd.Ux().$0()}return y},
-Zt:function(a){return this.Gx.t(0,a)},
-ac:function(a,b){var z=this.Gx
+Zt:function(a){return this.A4.t(0,a)},
+ac:function(a,b){var z=this.A4
 if(z.x4(0,a))throw H.b(P.FM("Registry: ports must be registered only once."))
 z.u(0,a,b)},
-CX:function(){if(this.Gx.hr-this.fW.hr>0||this.RW||!this.xF)init.globalState.i2.u(0,this.jO,this)
+CX:function(){if(this.A4.hr-this.fW.hr>0||this.RW||!this.xF)init.globalState.i2.u(0,this.jO,this)
 else this.Dm()},
 Dm:[function(){var z,y
 z=this.Jd
 if(z!=null)z.V1(0)
-for(z=this.Gx,y=z.gUQ(z),y=H.VM(new H.MH(null,J.GP(y.Hb),y.Oh),[H.Kp(y,0),H.Kp(y,1)]);y.G();)y.Ff.EC()
+for(z=this.A4,y=z.gUQ(z),y=H.VM(new H.MH(null,J.GP(y.Hb),y.Oh),[H.Kp(y,0),H.Kp(y,1)]);y.G();)y.Ff.EC()
 z.V1(0)
 this.fW.V1(0)
 init.globalState.i2.Rz(0,this.jO)
@@ -636,7 +636,7 @@ if(z.QN===z.Bq)return
 return z.Ux()},
 xB:function(){var z,y,x
 z=this.Jc()
-if(z==null){if(init.globalState.Nr!=null&&init.globalState.i2.x4(0,init.globalState.Nr.jO)&&init.globalState.Ai===!0&&init.globalState.Nr.Gx.hr===0)H.vh(P.FM("Program exited with open ReceivePorts."))
+if(z==null){if(init.globalState.Nr!=null&&init.globalState.i2.x4(0,init.globalState.Nr.jO)&&init.globalState.Ai===!0&&init.globalState.Nr.A4.hr===0)H.vh(P.FM("Program exited with open ReceivePorts."))
 y=init.globalState
 if(y.EF===!0&&y.i2.hr===0&&y.Xz.yy===0){y=y.rj
 x=H.t0(P.EF(["command","close"],null,null))
@@ -2650,6 +2650,11 @@ if(x==null)z[y]=[this.Oz(a,b)]
 else{w=this.DF(x,a)
 if(w>=0)x[w].scA(b)
 else x.push(this.Oz(a,b))}},
+to:function(a,b,c){var z
+if(this.x4(0,b))return this.t(0,b)
+z=c.$0()
+this.u(0,b,z)
+return z},
 Rz:function(a,b){if(typeof b==="string"&&b!=="__proto__")return this.H4(this.Mb,b)
 else if(typeof b==="number"&&(b&0x3ffffff)===b)return this.H4(this.cG,b)
 else return this.qg(b)},
@@ -3342,9 +3347,85 @@ z0:{
 gZE:function(){return new P.E3()}},
 E3:{
 "^":"zF;",
-WJ:function(a){H.T0(a.gB(a).U(0,3))}},
+WJ:function(a){var z,y,x,w,v
+z=J.U6(a)
+y=z.gB(a)
+if(typeof y!=="number")return y.U()
+y*=3
+x=new Uint8Array(y)
+w=new P.Rw(0,0,x)
+if(w.Gx(a,0,z.gB(a))!==z.gB(a)){v=z.gB(a)
+if(typeof v!=="number")return v.W()
+w.QR(z.j(a,v-1),0)}return new Uint8Array(x.subarray(0,C.NA.i4(x,0,w.V4,y)))}},
 Rw:{
 "^":"a;oK,V4,Zj",
+QR:function(a,b){var z,y,x,w,v
+z=this.Zj
+y=this.V4
+if((b&64512)===56320){x=65536+((a&1023)<<10>>>0)|b&1023
+w=y+1
+this.V4=w
+v=z.length
+if(y>=v)return H.e(z,y)
+z[y]=(240|x>>>18)>>>0
+y=w+1
+this.V4=y
+if(w>=v)return H.e(z,w)
+z[w]=128|x>>>12&63
+w=y+1
+this.V4=w
+if(y>=v)return H.e(z,y)
+z[y]=128|x>>>6&63
+this.V4=w+1
+if(w>=v)return H.e(z,w)
+z[w]=128|x&63
+return!0}else{w=y+1
+this.V4=w
+v=z.length
+if(y>=v)return H.e(z,y)
+z[y]=224|a>>>12
+y=w+1
+this.V4=y
+if(w>=v)return H.e(z,w)
+z[w]=128|a>>>6&63
+this.V4=y+1
+if(y>=v)return H.e(z,y)
+z[y]=128|a&63
+return!1}},
+Gx:function(a,b,c){var z,y,x,w,v,u,t,s
+if(b!==c){if(typeof c!=="number")return c.W()
+z=(J.lE(a,c-1)&64512)===55296}else z=!1
+if(z){if(typeof c!=="number")return c.W();--c}if(typeof c!=="number")return H.s(c)
+z=this.Zj
+y=z.length
+x=J.rY(a)
+w=b
+for(;w<c;++w){v=x.j(a,w)
+if(v<=127){u=this.V4
+if(u>=y)break
+this.V4=u+1
+z[u]=v}else if((v&64512)===55296){if(this.V4+3>=y)break
+t=w+1
+if(this.QR(v,C.xB.j(a,t)))w=t}else if(v<=2047){u=this.V4
+s=u+1
+if(s>=y)break
+this.V4=s
+if(u>=y)return H.e(z,u)
+z[u]=192|v>>>6
+this.V4=s+1
+z[s]=128|v&63}else{u=this.V4
+if(u+2>=y)break
+s=u+1
+this.V4=s
+if(u>=y)return H.e(z,u)
+z[u]=224|v>>>12
+u=s+1
+this.V4=u
+if(s>=y)return H.e(z,s)
+z[s]=128|v>>>6&63
+this.V4=u+1
+if(u>=y)return H.e(z,u)
+z[u]=128|v&63}}return w},
 static:{"^":"Ij"}},
 GY:{
 "^":"zF;Nb",
@@ -4629,16 +4710,25 @@ y=new W.e7(z)
 y=y.ev(y,new W.Cv())
 return y.gr8(y)},
 r3:function(a,b){return document.createElement(a)},
+qv:function(a,b,c,d,e,f){var z,y
+z=[]
+b.ox(0,new W.Rv(z))
+y=C.Nm.zV(z,"&")
+d=P.Fl(P.qU,P.qU)
+d.to(0,"Content-Type",new W.Yl())
+return W.lt(a,"POST",null,c,d,e,y,f)},
 lt:function(a,b,c,d,e,f,g,h){var z,y,x
 z=W.zU
 y=H.VM(new P.Zf(H.VM(new P.vs(0,$.X3,null),[z])),[z])
 x=new XMLHttpRequest()
-C.Dt.eo(x,"GET",a,!0)
+C.Dt.eo(x,b==null?"GET":b,a,!0)
+if(e!=null)e.ox(0,new W.bU(x))
 z=H.VM(new W.RO(x,"load",!1),[null])
-H.VM(new W.xC(0,z.J6,z.fA,W.VF(new W.bU(y,x)),z.el),[H.Kp(z,0)]).DN()
+H.VM(new W.xC(0,z.J6,z.fA,W.VF(new W.hH(y,x)),z.el),[H.Kp(z,0)]).DN()
 z=H.VM(new W.RO(x,"error",!1),[null])
 H.VM(new W.xC(0,z.J6,z.fA,W.VF(y.gYJ()),z.el),[H.Kp(z,0)]).DN()
-x.send()
+if(g!=null)x.send(g)
+else x.send()
 return y.MM},
 C0:function(a,b){a=536870911&a+b
 a=536870911&a+((524287&a)<<10>>>0)
@@ -4722,10 +4812,16 @@ ec:{
 $iszM:true,
 $aszM:function(){return[W.KV]},
 $isqC:true},
-iO:{
+Rv:{
+"^":"Tp:12;a",
+$2:function(a,b){this.a.push(H.d(P.jW(C.F3,a,C.dy,!0))+"="+H.d(P.jW(C.F3,b,C.dy,!0)))}},
+Yl:{
+"^":"Tp:11;",
+$0:function(){return"application/x-www-form-urlencoded; charset=UTF-8"}},
+bU:{
 "^":"Tp:12;a",
 $2:function(a,b){this.a.setRequestHeader(a,b)}},
-bU:{
+hH:{
 "^":"Tp:8;b,c",
 $1:function(a){var z,y,x
 z=this.c
@@ -5125,6 +5221,11 @@ aq:function(a,b,c){var z=J.Wx(b)
 if(z.C(b,0)||z.F(b,c)){if(!!this.$iszM)if(c===a.length)throw H.b(P.Cf(b,a,null,null,null))
 throw H.b(P.TE(b,0,c-1,null,null))}else throw H.b(P.u("Invalid list index "+H.d(b)))},
 bv:function(a,b,c){if(b>>>0!==b||b>=c)this.aq(a,b,c)},
+i4:function(a,b,c,d){var z=d+1
+this.bv(a,b,z)
+this.bv(a,c,z)
+if(b>c)throw H.b(P.TE(b,0,c,null,null))
+return c},
 "%":"DataView;ArrayBufferView;b0|Ob|GV|Dg|fj|Ip|DV"},
 Hg:{
 "^":"Dg;",
@@ -5193,7 +5294,7 @@ $iszM:true,
 $aszM:function(){return[P.KN]},
 $isqC:true,
 "%":"CanvasPixelArray|Uint8ClampedArray"},
-V6:{
+cD:{
 "^":"DV;",
 gB:function(a){return a.length},
 t:function(a,b){var z=a.length
@@ -5203,7 +5304,6 @@ $iszM:true,
 $aszM:function(){return[P.KN]},
 $isqC:true,
 "%":";Uint8Array"},
-T0:function(a){return a},
 b0:{
 "^":"ET;",
 gB:function(a){return a.length},
@@ -5380,6 +5480,7 @@ J.dp(x.YM,".ga-name {\n  font-weight: bold;\n  min-height: 30px;\n  margin-botto
 J.dp(x.YM,".hidden {\n  display: none !important;\n}\n",0)
 J.dp(x.YM,".faded {\n  opacity: 0.5;\n}\n",0)
 J.dp(x.YM,".sg2o-table-heading {\n  margin-bottom: 5px;\n}\n",0)
+J.dp(x.YM,".sg2o-blacklist-ga {\n  cursor: pointer;\n}\n",0)
 x=new Q.Xf(null)
 w=x.qa()
 x.YM=w
@@ -5599,7 +5700,7 @@ oU:function(a,b,c,d,e){var z,y,x,w,v,u
 z=J.RE(d)
 z.shf(d,"")
 if(c!=null)z.gDD(d).h(0,c)
-for(z=e.Wf,y=a;y<z.length;++y){x=new Q.JC(null,null,null,null,null,null,null,null,null,1,null,0,null,null,null,null,null)
+for(z=e.Wf,y=a;y<z.length;++y){x=new Q.JC(null,null,null,null,null,null,null,null,null,1,null,0,null,null,null,null,null,null,null)
 x.Of(e.Zv(e,y))
 w=$.QO()
 v=x.oc
@@ -5694,109 +5795,125 @@ ym:{
 tP:function(){var z=$.G0().pE("lscache-sgpgiveawayFilters")
 this.JB=C.xr.kV(z===""?"{}":z)}},
 JC:{
-"^":"a;oc,tc,Iz,O6,Pj,Ir,dn,cB,Pu,aP,GU,U7,lR,hW,yY,us,Xu",
-pS:function(){var z,y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d
+"^":"a;oc,tc,Iz,O6,Pj,Ir,dn,cB,Pu,aP,GU,U7,tQ,lR,hW,yY,us,Xu,uo",
+pS:function(){var z,y,x,w,v,u,t,s,r,q
+this.uo=document.createElement("div",null)
+z=this.N8()
+y=Q.Rp("a","")
+x=document.createElement("div",null)
+w=J.RE(y)
+w.a7(y,"href",this.Pj)
+w.gDD(y).h(0,"global__image-outer-wrap")
+w.gDD(y).h(0,"global__image-outer-wrap--game-medium")
+v=w.gDD(y)
+u=this.hW?1:0
+t=this.lR&&J.xZ(this.U7,$.xE())?2:0
+s=this.lR&&J.Bl(this.U7,$.xE())?4:0
+r=this.yY===!0?8:0
+q=this.Xu?16:0
+v.h(0,["","group-border","contributor-above-border","group-contributor-above-border","contributor-below-border","group-contributor-below-border","","","wishlist-border","group-wishlist-border","contributor-above-wishlist-border","group-contributor-above-wishlist","contributor-below-wishlist","group-contributor-below-wishlist","","","whitelist","whitelist-group","whitelist-contributor-above","whitelist-group-contributor-above","whitelist-contributor-below","whitelist-group-contributor-below","","","whitelist-wishlist","whitelist-group-wishlist","whitelist-wishlist-contributor-above","whitelist-group-wishlist-contributor-above","whitelist-wishlist-contirbutor-below","whitelist-wishlist-group-contributor-below","",""][u+t+s+r+q])
+y.appendChild(x)
+J.pP(x).h(0,"global__image-inner-wrap")
+x.setAttribute("style",J.iz(this.Ir,"style"))
+q=this.uo
+r=J.RE(q)
+r.gDD(q).h(0,"giveaway-gridview")
+q.appendChild(y)
+q.appendChild(z)
+s=r.gCi(q)
+H.VM(new W.xC(0,s.J6,s.fA,W.VF(new Q.og(z)),s.el),[H.Kp(s,0)]).DN()
+q=r.gcb(q)
+H.VM(new W.xC(0,q.J6,q.fA,W.VF(new Q.c2(z)),q.el),[H.Kp(q,0)]).DN()
+if(this.us)w.gDD(y).h(0,"faded")
+return this.uo},
+N8:function(){var z,y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e
 z=document.createElement("div",null)
-y=document.createElement("div",null)
-x=J.RE(y)
-x.gDD(y).h(0,"hidden")
-x.gDD(y).h(0,"gridview-info")
-y.setAttribute("style","border-top: 1px #FFFFFF;")
+y=J.RE(z)
+y.gDD(z).h(0,"hidden")
+y.gDD(z).h(0,"gridview-info")
+z.setAttribute("style","border-top: 1px #FFFFFF;")
+x=document.createElement("div",null)
+y=J.RE(x)
+y.gDD(x).h(0,"ga-name")
+y.shf(x,this.oc)
 w=document.createElement("div",null)
-x=J.RE(w)
-x.gDD(w).h(0,"ga-name")
-x.shf(w,this.oc)
-v=document.createElement("div",null)
-u=J.RE(v)
-u.gDD(v).h(0,"float-left")
-v.appendChild(Q.Rp("strong",this.aP))
-v.appendChild(Q.Rp("text",J.de(this.aP,1)?" Copy":" Copies"))
-t=document.createElement("div",null)
-s=J.RE(t)
-s.gDD(t).h(0,"float-right")
-t.appendChild(Q.Rp("strong",J.WB(J.AG(this.cB),"P")))
-r=document.createElement("div",null)
-q=J.RE(r)
-q.gDD(r).h(0,"float-left")
-r.setAttribute("style","margin-top: -16px;")
-r.appendChild(Q.Rp("strong",this.O6))
-r.appendChild(Q.Rp("text"," remaining"))
-p=document.createElement("div",null)
-o=J.RE(p)
-o.gDD(p).h(0,"float-right")
-o.gDD(p).h(0,"gridview-avatar")
-p.appendChild(this.dn)
-n=document.createElement("div",null)
-m=J.RE(n)
-m.gDD(n).h(0,"float-left")
-n.appendChild(Q.Rp("strong",this.Pu))
-n.appendChild(Q.Rp("text"," entries"))
-l=document.createElement("div",null)
-k=J.RE(l)
-k.gDD(l).h(0,"float-right")
-j=J.WB(this.Pu,1)
-if(typeof j!=="number")return H.s(j)
-l.appendChild(Q.Rp("strong",C.CD.Sy(100/j,2)))
-l.appendChild(Q.Rp("text"," %"))
+v=J.RE(w)
+v.gDD(w).h(0,"float-left")
+w.appendChild(Q.Rp("strong",this.aP))
+w.appendChild(Q.Rp("text",J.de(this.aP,1)?" Copy":" Copies"))
+u=document.createElement("div",null)
+t=J.RE(u)
+t.gDD(u).h(0,"float-right")
+u.appendChild(Q.Rp("strong",J.WB(J.AG(this.cB),"P")))
+s=document.createElement("div",null)
+r=J.RE(s)
+r.gDD(s).h(0,"float-left")
+s.setAttribute("style","margin-top: -16px;")
+s.appendChild(Q.Rp("strong",this.O6))
+s.appendChild(Q.Rp("text"," remaining"))
+q=document.createElement("div",null)
+p=J.RE(q)
+p.gDD(q).h(0,"float-right")
+p.gDD(q).h(0,"gridview-avatar")
+q.appendChild(this.dn)
+o=document.createElement("div",null)
+n=J.RE(o)
+n.gDD(o).h(0,"float-left")
+o.appendChild(Q.Rp("strong",this.Pu))
+o.appendChild(Q.Rp("text"," entries"))
+m=document.createElement("div",null)
+l=J.RE(m)
+l.gDD(m).h(0,"float-right")
+k=J.WB(this.Pu,1)
+if(typeof k!=="number")return H.s(k)
+m.appendChild(Q.Rp("strong",C.CD.Sy(100/k,2)))
+m.appendChild(Q.Rp("text"," %"))
+j=document.createElement("div",null)
+k=J.RE(j)
+k.gDD(j).h(0,"float-left")
+j.appendChild(Q.Rp("strong",this.GU))
+j.appendChild(Q.Rp("text"," comments"))
 i=document.createElement("div",null)
-j=J.RE(i)
-j.gDD(i).h(0,"float-left")
-i.appendChild(Q.Rp("strong",this.GU))
-i.appendChild(Q.Rp("text"," comments"))
-h=document.createElement("div",null)
-g=J.RE(h)
-g.gDD(h).h(0,"giveaway__column--contributor-level")
-g.gDD(h).h(0,"float-right")
-g.shf(h,H.d(this.U7)+"+")
-if(J.J5($.xE(),this.U7))g.gDD(h).h(0,"giveaway__column--contributor-level--positive")
-else g.gDD(h).h(0,"giveaway__column--contributor-level--negative")
-if(this.us){x.gDD(w).h(0,"faded")
-u.gDD(v).h(0,"faded")
-s.gDD(t).h(0,"faded")
-q.gDD(r).h(0,"faded")
-o.gDD(p).h(0,"faded")
-m.gDD(n).h(0,"faded")
-k.gDD(l).h(0,"faded")
-j.gDD(i).h(0,"faded")
-g.gDD(h).h(0,"faded")}y.appendChild(w)
-y.appendChild(p)
-y.appendChild(v)
-y.appendChild(t)
-y.appendChild(Q.Ws())
-y.appendChild(r)
-y.appendChild(Q.Ws())
-y.appendChild(n)
-y.appendChild(l)
-y.appendChild(Q.Ws())
-y.appendChild(i)
-y.appendChild(h)
-f=Q.Rp("a","")
-e=document.createElement("div",null)
-x=J.RE(f)
-x.a7(f,"href",this.Pj)
-x.gDD(f).h(0,"global__image-outer-wrap")
-x.gDD(f).h(0,"global__image-outer-wrap--game-medium")
-u=x.gDD(f)
-d=this.hW?1:0
-s=this.lR&&J.xZ(this.U7,$.xE())?2:0
-q=this.lR&&J.Bl(this.U7,$.xE())?4:0
-o=this.yY===!0?8:0
-m=this.Xu?16:0
-u.h(0,["","group-border","contributor-above-border","group-contributor-above-border","contributor-below-border","group-contributor-below-border","","","wishlist-border","group-wishlist-border","contributor-above-wishlist-border","group-contributor-above-wishlist","contributor-below-wishlist","group-contributor-below-wishlist","","","whitelist","whitelist-group","whitelist-contributor-above","whitelist-group-contributor-above","whitelist-contributor-below","whitelist-group-contributor-below","","","whitelist-wishlist","whitelist-group-wishlist","whitelist-wishlist-contributor-above","whitelist-group-wishlist-contributor-above","whitelist-wishlist-contirbutor-below","whitelist-wishlist-group-contributor-below","",""][d+s+q+o+m])
-f.appendChild(e)
-J.pP(e).h(0,"global__image-inner-wrap")
-e.setAttribute("style",J.iz(this.Ir,"style"))
-m=J.RE(z)
-m.gDD(z).h(0,"giveaway-gridview")
-z.appendChild(f)
-z.appendChild(y)
-o=m.gCi(z)
-H.VM(new W.xC(0,o.J6,o.fA,W.VF(new Q.og(y)),o.el),[H.Kp(o,0)]).DN()
-m=m.gcb(z)
-H.VM(new W.xC(0,m.J6,m.fA,W.VF(new Q.c2(y)),m.el),[H.Kp(m,0)]).DN()
-if(this.us)x.gDD(f).h(0,"faded")
+h=J.RE(i)
+h.gDD(i).h(0,"giveaway__column--contributor-level")
+h.gDD(i).h(0,"float-right")
+h.shf(i,H.d(this.U7)+"+")
+if(J.J5($.xE(),this.U7))h.gDD(i).h(0,"giveaway__column--contributor-level--positive")
+else h.gDD(i).h(0,"giveaway__column--contributor-level--negative")
+g=document.createElement("div",null)
+f=J.RE(g)
+f.gDD(g).h(0,"float-left")
+f.gDD(g).h(0,"fa-eye-slash")
+f.gDD(g).h(0,"sg2o-blacklist-ga")
+e=f.gVl(g)
+H.VM(new W.xC(0,e.J6,e.fA,W.VF(new Q.V6(this)),e.el),[H.Kp(e,0)]).DN()
+if(this.us){y.gDD(x).h(0,"faded")
+v.gDD(w).h(0,"faded")
+t.gDD(u).h(0,"faded")
+r.gDD(s).h(0,"faded")
+p.gDD(q).h(0,"faded")
+n.gDD(o).h(0,"faded")
+l.gDD(m).h(0,"faded")
+k.gDD(j).h(0,"faded")
+h.gDD(i).h(0,"faded")
+f.gDD(g).h(0,"faded")}z.appendChild(x)
+z.appendChild(q)
+z.appendChild(w)
+z.appendChild(u)
+z.appendChild(Q.Ws())
+z.appendChild(s)
+z.appendChild(Q.Ws())
+z.appendChild(o)
+z.appendChild(m)
+z.appendChild(Q.Ws())
+z.appendChild(j)
+z.appendChild(i)
+z.appendChild(Q.Ws())
+z.appendChild(g)
 return z},
 bu:function(a){return C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g("Giveaway: ",this.oc)+" with ",J.AG(this.cB))+" Points, created by ",this.Iz)+" ",this.tc)+" ago,  still open for: ",this.O6)+", has ",J.AG(this.Pu))+" entries and ",J.AG(this.GU))+" comments, link: ",this.Pj)+" is a group GA: "+String(this.hW)+" and a contributorGA: "+String(this.lR)+" with level ",J.AG(this.U7))},
+Nf:[function(a,b){window
+if(typeof console!="undefined")console.log(b)},"$1","gGZ",2,0,36],
 Of:function(a){var z,y,x,w,v,u
 z=J.RE(a)
 y=z.Md(a,"span.giveaway__heading__thin").Wf
@@ -5828,13 +5945,29 @@ y=$.Mb()
 x=this.oc
 this.yY=J.w4(y.Qh,x)
 this.us=z.Md(a,".is-faded").Wf.length>0
-this.Xu=z.Md(a,".giveaway__column--whitelist").Wf.length>0}},
+this.Xu=z.Md(a,".giveaway__column--whitelist").Wf.length>0
+z=Q.xK(z.Wk(a,".giveaway__hide").getAttribute("data-game-id"))
+this.tQ=z
+window
+if(typeof console!="undefined")console.log(z)}},
 og:{
 "^":"Tp:8;a",
 $1:function(a){return J.pP(this.a).Rz(0,"hidden")}},
 c2:{
 "^":"Tp:8;b",
 $1:function(a){return J.pP(this.b).h(0,"hidden")}},
+V6:{
+"^":"Tp:33;a",
+$1:function(a){var z,y,x
+z=this.a
+y=P.L5(null,null,null,null,null)
+x=W.vD(document.querySelectorAll("input[name=\"xsrf_token\"]"),null).Wf
+if(0>=x.length)return H.e(x,0)
+y.u(0,"xsrf_token",J.iz(x[0],"value"))
+y.u(0,"game_id",J.AG(z.tQ))
+y.u(0,"do","hide_giveaways_by_game_id")
+W.qv("/",y,null,null,null,null).ml(z.gGZ(z))
+J.pP(z.uo).h(0,"hidden")}},
 TR:{
 "^":"a;Qh,Wx",
 LV:function(a){var z,y
@@ -5866,7 +5999,7 @@ w.ox(w,new Q.Qg(z))
 if(!J.pP(J.OG(y.querySelector(".pagination__navigation")).mv(0)).DG().tg(0,"is-selected"))z.LV(++this.a.a)
 else $.G0().Ts(0,"wishlist",J.AG(P.uX(z.Qh,null,null)))}}},
 Qg:{
-"^":"Tp:36;c",
+"^":"Tp:37;c",
 $1:function(a){J.kW(this.c.Qh,J.xR(a),"true")}},
 Nn:{
 "^":"a;",
@@ -5997,8 +6130,8 @@ y.$iscv=z
 y.$isKV=z
 y.$isa=z
 P.Od.$isa=z
-P.a.$isa=z
 P.zM.$isa=z
+P.a.$isa=z
 y=W.zU
 y.$iszU=z
 y.$isa=z
@@ -6172,6 +6305,7 @@ C.jn=J.im.prototype
 C.jN=J.YE.prototype
 C.CD=J.P.prototype
 C.xB=J.O.prototype
+C.NA=H.cD.prototype
 C.t5=W.BH.prototype
 C.ZQ=J.iC.prototype
 C.vB=J.is.prototype
@@ -6399,7 +6533,7 @@ z.U6()
 return z})
 
 
-init.metadata=[{func:"uO",args:[P.qU]},{func:"n9",void:true,args:[{func:"X0",void:true}]},{func:"X0",void:true},{func:"Ib",ret:P.a2,args:[null,null]},{func:"bX",ret:P.KN,args:[null]},{func:"uJ",ret:P.a,args:[null]},{func:"E0",ret:P.a2,args:[P.a,P.a]},{func:"ZY",ret:P.KN,args:[P.a]},{func:"aB",args:[null]},{func:"zs",ret:P.qU,args:[P.qU]},{func:"Vv",ret:P.a2,args:[W.cv,P.qU,P.qU,W.JQ]},{func:"NT"},{func:"bh",args:[null,null]},{func:"TS",args:[null,P.qU]},{func:"xO",args:[{func:"X0",void:true}]},{func:"Ns",void:true,args:[P.a],opt:[P.mE]},,{func:"mQ",void:true,args:[null],opt:[P.mE]},{func:"BG",args:[null],opt:[null]},{func:"Uf",ret:P.a2},{func:"WK",args:[P.a2]},{func:"bb",args:[null,P.mE]},{func:"Za",args:[P.qU,null]},{func:"W4",ret:P.KN,args:[null,P.KN]},{func:"jt",void:true,args:[P.KN,P.KN]},{func:"lv",args:[P.wv,null]},{func:"Pt",ret:P.qU,args:[P.KN]},{func:"N4",ret:P.a2,args:[P.KN]},{func:"Z9",ret:P.KN,args:[null,null]},{func:"xM",void:true,args:[P.qU]},{func:"lu",void:true,args:[P.qU],opt:[null]},{func:"BC",ret:P.KN,args:[P.KN,P.KN]},{func:"qu",void:true,args:[W.KV]},{func:"dG",args:[W.pS]},{func:"c3",args:[W.zU]},{func:"WW",void:true,args:[W.pS]},{func:"Km",args:[W.cv]},];$=null
+init.metadata=[{func:"uO",args:[P.qU]},{func:"n9",void:true,args:[{func:"X0",void:true}]},{func:"X0",void:true},{func:"Ib",ret:P.a2,args:[null,null]},{func:"bX",ret:P.KN,args:[null]},{func:"uJ",ret:P.a,args:[null]},{func:"E0",ret:P.a2,args:[P.a,P.a]},{func:"ZY",ret:P.KN,args:[P.a]},{func:"aB",args:[null]},{func:"zs",ret:P.qU,args:[P.qU]},{func:"Vv",ret:P.a2,args:[W.cv,P.qU,P.qU,W.JQ]},{func:"NT"},{func:"bh",args:[null,null]},{func:"TS",args:[null,P.qU]},{func:"xO",args:[{func:"X0",void:true}]},{func:"Ns",void:true,args:[P.a],opt:[P.mE]},,{func:"mQ",void:true,args:[null],opt:[P.mE]},{func:"BG",args:[null],opt:[null]},{func:"Uf",ret:P.a2},{func:"WK",args:[P.a2]},{func:"bb",args:[null,P.mE]},{func:"Za",args:[P.qU,null]},{func:"W4",ret:P.KN,args:[null,P.KN]},{func:"jt",void:true,args:[P.KN,P.KN]},{func:"lv",args:[P.wv,null]},{func:"Pt",ret:P.qU,args:[P.KN]},{func:"N4",ret:P.a2,args:[P.KN]},{func:"Z9",ret:P.KN,args:[null,null]},{func:"xM",void:true,args:[P.qU]},{func:"lu",void:true,args:[P.qU],opt:[null]},{func:"BC",ret:P.KN,args:[P.KN,P.KN]},{func:"qu",void:true,args:[W.KV]},{func:"dG",args:[W.pS]},{func:"c3",args:[W.zU]},{func:"WW",void:true,args:[W.pS]},{func:"Tz",void:true,args:[W.zU]},{func:"Km",args:[W.cv]},];$=null
 I = I.$finishIsolateConstructor(I)
 $=new I()
 function convertToFastObject(a){function MyClass(){}MyClass.prototype=a
