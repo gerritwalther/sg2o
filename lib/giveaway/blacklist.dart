@@ -5,7 +5,11 @@ class BlackList {
   Map blackList;
 
   BlackList () {
-    blackList = JSON.decode(storage.getForeign(oldFilterKey));
+    String jsonString = storage.getForeign(oldFilterKey);
+    if (jsonString == '') {
+      jsonString = '{}';
+    }
+    blackList = JSON.decode(jsonString);
   }
 
   bool isOnBlackList(String game) {

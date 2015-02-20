@@ -37,7 +37,11 @@ class MyStorage {
   }
 
   String getForeign(String key) {
-    return storage[key];
+    if (storage.containsKey(key)) {
+      return storage[key];
+    } else {
+      return '';
+    }
   }
 
   /**

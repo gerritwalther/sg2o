@@ -275,8 +275,6 @@ giO:function(a){return a&0x1FFFFFFF},
 J:function(a){return-a},
 g:function(a,b){if(typeof b!=="number")throw H.b(P.u(b))
 return a+b},
-W:function(a,b){if(typeof b!=="number")throw H.b(P.u(b))
-return a-b},
 U:function(a,b){return a*b},
 BU:function(a,b){return(a|0)===a?a/b|0:this.yu(a/b)},
 iK:function(a,b){return b>31?0:a<<b>>>0},
@@ -3499,7 +3497,6 @@ s=P.Vx(z?H.o2(this).getUTCMilliseconds()+0:H.o2(this).getMilliseconds()+0)
 if(z)return y+"-"+x+"-"+w+" "+v+":"+u+":"+t+"."+s+"Z"
 else return y+"-"+x+"-"+w+" "+v+":"+u+":"+t+"."+s},
 h:function(a,b){return P.Wu(J.WB(this.rq,b.gVs()),this.aL)},
-E8:function(a){return P.k5(0,0,0,J.xH(this.rq,a.rq),0,0)},
 RM:function(a,b){if(J.xZ(J.dX(a),8640000000000000))throw H.b(P.u(a))},
 $isiP:true,
 static:{"^":"Oj,Vp,A2,p2,ch,QC,G3,DU,kc,Gi,Fz,cR,RM,Ke,Cg,Nr,bm,FI,Kz,ek,yf,Fk",Wu:function(a,b){var z=new P.iP(a,b)
@@ -3520,7 +3517,6 @@ CP:{
 a6:{
 "^":"a;m5<",
 g:function(a,b){return P.k5(0,0,this.m5+b.gm5(),0,0,0)},
-W:function(a,b){return P.k5(0,0,this.m5-b.gm5(),0,0,0)},
 U:function(a,b){return P.k5(0,0,C.CD.yu(C.CD.UD(this.m5*b)),0,0,0)},
 C:function(a,b){return C.CD.C(this.m5,b.gm5())},
 D:function(a,b){return this.m5>b.gm5()},
@@ -5682,7 +5678,9 @@ if(z){this.hA(this.te);++this.te}this.qq=!1},"$1","gxg",2,0,35],
 TD:function(){this.A7=H.BU(J.Vs(C.t5.grZ(W.vD(document.querySelectorAll(".pagination__navigation>a"),null).Wf)).dA.getAttribute("data-page-number"),null,null)
 this.Op=0}},
 ym:{
-"^":"a;JB"},
+"^":"a;JB",
+tP:function(){var z=$.G0().pE("lscache-sgpgiveawayFilters")
+this.JB=C.xr.kV(z===""?"{}":z)}},
 JC:{
 "^":"a;oc,tc,Iz,O6,Ir,dn,cB,Pu,aP,GU,Pj,lR,U7,hW,yY,us",
 pS:function(){var z,y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d
@@ -5834,18 +5832,11 @@ if(typeof console!="undefined")console.log(y)
 W.lt("/account/steam/wishlist/search?page="+z.a,null,null,null,null,null,null,null).ml(new Q.Vn(z,this))},
 U6:function(){var z,y,x
 z=$.G0().MK("wishlist")
-y=new P.iP(Date.now(),!1)
-window
-x="lastUpdated: "+z.bu(0)+" vs. "+y.bu(0)+", and difference says "+H.d(C.CD.BU(y.E8(z).m5,1000))+" vs. 86400000"
-if(typeof console!="undefined")console.log(x)
-if(!(C.CD.BU(y.E8(z).m5,1000)>86400000)){window
-if(typeof console!="undefined")console.log("loading from loacl storage")
-x=C.xr.kV($.G0().Ev.getItem("sg2o-wishlist"))
-this.Qh=x
-window
-if(typeof console!="undefined")console.log(x)}else{window
-if(typeof console!="undefined")console.log("loading from profile")
-this.LV(1)}}},
+y=Date.now()
+x=z.rq
+if(typeof x!=="number")return H.s(x)
+if(!(C.CD.BU(P.k5(0,0,0,y-x,0,0).m5,1000)>86400000))this.Qh=C.xr.kV($.G0().Ev.getItem("sg2o-wishlist"))
+else this.LV(1)}},
 Vn:{
 "^":"Tp:34;a,b",
 $1:function(a){var z,y,x
@@ -5941,6 +5932,9 @@ z="sg2o-"+a+"-timestamp"
 y=this.Ev
 if(y.getItem(z)!=null)return P.Wu(P.C1(y.getItem(z),new Q.lc()),!1)
 else return P.Wu(0,!1)},
+pE:function(a){var z=this.Ev
+if(z.getItem(a)!=null)return z.getItem(a)
+else return""},
 x4:function(a,b){return this.Ev.getItem(C.xB.g("sg2o-",b))!=null},
 OO:function(){if(this.Ev.getItem("sg2o-hide-giveaways")==null)this.Ts(0,"hide-giveaways","false")}},
 lc:{
@@ -6140,8 +6134,6 @@ return J.Qc(a).U(a,b)}
 J.w4=function(a,b){return J.RE(a).x4(a,b)}
 J.w8=function(a){return J.RE(a).gkc(a)}
 J.wT=function(a,b){return J.w1(a).h(a,b)}
-J.xH=function(a,b){if(typeof a=="number"&&typeof b=="number")return a-b
-return J.Wx(a).W(a,b)}
 J.xR=function(a){return J.RE(a).ghf(a)}
 J.xZ=function(a,b){if(typeof a=="number"&&typeof b=="number")return a>b
 return J.Wx(a).D(a,b)}
@@ -6377,7 +6369,7 @@ I.$lazy($,"storage","Ev","G0",function(){var z=new Q.vQ(window.localStorage)
 z.OO()
 return z})
 I.$lazy($,"blackList","JB","QO",function(){var z=new Q.ym(null)
-z.JB=C.xr.kV($.G0().Ev.getItem("lscache-sgpgiveawayFilters"))
+z.tP()
 return z})
 I.$lazy($,"wishList","Qh","Mb",function(){var z=new Q.TR(P.L5(null,null,null,null,null),new DOMParser())
 z.U6()
