@@ -37,6 +37,7 @@ const String classGAContributorNeg = 'giveaway__column--contributor-level--negat
 const String classGAGroupIcon = 'giveaway__column--group';
 const String classGAEntered = 'is-faded';
 const String classGAImageOuterBorder = 'global__image-outer-wrap';
+const String classGAWhiteListed = 'giveaway__column--whitelist';
 
 const String classWidgetMarginTop = 'widget-container--margin-top';
 
@@ -81,6 +82,18 @@ const String classBorderContributorAboveWishList = 'contributor-above-wishlist-b
 const String classBorderGroupContributorAboveWishList = 'group-contributor-above-wishlist';
 const String classBorderContributorBelowWishList = 'contributor-below-wishlist';
 const String classBorderGroupContributorBelowWishList = 'group-contributor-below-wishlist';
+const String classBorderWhiteList = 'whitelist';
+const String classBorderWhiteListGroup = 'whitelist-group';
+const String classBorderWhiteListContributorAbove = 'whitelist-contributor-above';
+const String classBorderWhiteListGroupContributorAbove = 'whitelist-group-contributor-above';
+const String classBorderWhiteListContributorBelow = 'whitelist-contributor-below';
+const String classBorderWhiteListGroupContributorBelow = 'whitelist-group-contributor-below';
+const String classBorderWhiteListWishList = 'whitelist-wishlist';
+const String classBorderWhiteListGroupWishList = 'whitelist-group-wishlist';
+const String classBorderWhiteListWishListContributorAbove = 'whitelist-wishlist-contributor-above';
+const String classBorderWhiteListGroupWishListContributorAbove = 'whitelist-group-wishlist-contributor-above';
+const String classBorderWhiteListWishListContributorBelow = 'whitelist-wishlist-contirbutor-below';
+const String classBorderWhiteListWishListGroupContributorBelow = 'whitelist-wishlist-group-contributor-below';
 
 const String classSettingsOverlay = 'sg2o-overlay-settings';
 const String classClose = 'sg2o-close';
@@ -123,6 +136,7 @@ const String groupColor = '#308430';
 const String contributorAboveLevelColor = '#B80000';
 const String contributorBelowLevelColor = '#0033CC';
 const String wishListColor = '#9933FF';
+const String whiteListColor = '#00EBF7';
 const String fontColor = '#324862';
 
 /// numbers

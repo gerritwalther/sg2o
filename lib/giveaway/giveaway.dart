@@ -5,18 +5,19 @@ class GiveAway {
   String created;
   String creator;
   String remaining;
+  String link;
   Element image;
   Element avatar;
   int points;
   int entries;
   int copies = 1;
   int comments;
-  String link;
-  bool isContributorGA;
   int contributorLevel = 0;
+  bool isContributorGA;
   bool isGroupGA;
   bool isWishListGA;
   bool entered;
+  bool isWhiteListed;
 
   GiveAway(Element gaHtml) {
     ElementList copiesAndPoints = gaHtml.querySelectorAll('span.$classGAHeadingThin');
@@ -49,6 +50,7 @@ class GiveAway {
     this.isGroupGA = gaHtml.querySelectorAll('.$classGAGroupIcon').length > 0;
     this.isWishListGA = wishList.isOnWishList(name);
     this.entered = gaHtml.querySelectorAll('.$classGAEntered').length > 0;
+    this.isWhiteListed = gaHtml.querySelectorAll('.$classGAWhiteListed').length > 0;
   }
 
   Element wrappedWithStyles() {
@@ -195,15 +197,23 @@ class GiveAway {
   }
 
   String getBorderColorClass() {
-    List borderLevels = ['', classBorderGroup, // 0, 1
-                         classBorderContributorAbove, classBorderGroupContributorAbove, classBorderContributorBelow, classBorderGroupContributorBelow, '', '', // 2-7
-                         classBorderWishList, classBorderGroupWishList, classBorderContributorAboveWishList, classBorderGroupContributorAboveWishList, // 8-11
-                         classBorderContributorBelowWishList, classBorderGroupContributorBelowWishList, '', '']; // 12-15
+    List borderLevels = [
+        '', classBorderGroup, // 0, 1
+        classBorderContributorAbove, classBorderGroupContributorAbove, classBorderContributorBelow, classBorderGroupContributorBelow, '', '', // 2-7
+        classBorderWishList, classBorderGroupWishList, classBorderContributorAboveWishList, classBorderGroupContributorAboveWishList, // 8-11
+        classBorderContributorBelowWishList, classBorderGroupContributorBelowWishList, '', '', // 12-15
+        classBorderWhiteList, classBorderWhiteListGroup, classBorderWhiteListContributorAbove, classBorderWhiteListGroupContributorAbove, // 16-19
+        classBorderWhiteListContributorBelow, classBorderWhiteListGroupContributorBelow, '', '', // 20-23
+        classBorderWhiteListWishList, classBorderWhiteListGroupWishList, classBorderWhiteListWishListContributorAbove, classBorderWhiteListGroupWishListContributorAbove, // 24-27
+        classBorderWhiteListWishListContributorBelow, classBorderWhiteListWishListGroupContributorBelow, '', '' // 28-31
+    ];
+
     int borderLevel = 0;
     borderLevel += (isGroupGA) ? 1 : 0;
     borderLevel += (isContributorGA && contributorLevel > myLevel) ? 2 : 0;
     borderLevel += (isContributorGA && contributorLevel <= myLevel) ? 4 : 0;
     borderLevel += (isWishListGA) ? 8 : 0;
+    borderLevel += (isWhiteListed) ? 16 : 0;
 
     return borderLevels[borderLevel];
   }

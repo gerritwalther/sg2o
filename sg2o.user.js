@@ -5332,105 +5332,113 @@ GS:{
 "^":"Tp:8;",
 $1:function(a){return J.Mp(a)}}}],["","",,F,{
 "^":"",
-Iq:[function(){var z,y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g
+Iq:[function(){var z,y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h
 z=document.baseURI
 $.cM().Fr(0,z)
 y=new Q.Ej(null)
 y.YM=y.qa()
-x=new Q.vQ(window.localStorage)
-x.OO()
-window
-w="#"+x.aN("Pterpan")+"#"
-if(typeof console!="undefined")console.log(w)
-w=new Q.XB(null)
-v=w.qa()
-w.YM=v
-J.dp(v,".group-border {\n  background: #308430;\n}\n",0)
-J.dp(w.YM,".contributor-above-border {\n  background: #B80000;\n}\n",0)
-J.dp(w.YM,".contributor-below-border {\n  background: #0033CC;\n}\n",0)
-J.dp(w.YM,".wishlist-border {\n  background: #9933FF;\n}\n",0)
-J.dp(w.YM,".group-contributor-above-border {\n  background-color: #308430;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #B80000 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
-J.dp(w.YM,".group-contributor-below-border {\n  background-color: #308430;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #0033CC 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
-J.dp(w.YM,".group-wishlist-border {\n  background-color: #308430;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
-J.dp(w.YM,".contributor-above-wishlist-border {\n  background-color: #B80000;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
-J.dp(w.YM,".contributor-below-wishlist {\n  background-color: #0033CC;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
-J.dp(w.YM,w.Hx("group-contributor-above-wishlist","#308430","#B80000","#9933FF"),0)
-J.dp(w.YM,w.Hx("group-contributor-below-wishlist","#308430","#0033CC","#9933FF"),0)
-w=new Q.GJ(null)
-v=w.qa()
-w.YM=v
-J.dp(v,"body {\n  margin-top: 39px;\n}\n",0)
-J.dp(w.YM,".fixed-navigation-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 9999;\n  width: 100%;\n}\n",0)
-J.dp(w.YM,".giveaway-gridview {\n  float: left;\n  width: 184px;\n  margin-left: 1%;\n  margin-right: 1%;\n  border-radius: 2px;\n  margin-bottom: 0.5em;\n}\n",0)
-J.dp(w.YM,".pinned-gridview-container {\n  padding-top: 5px;\n}\n",0)
-J.dp(w.YM,".page__heading {\n  margin-bottom: 0.5em;\n}\n",0)
-J.dp(w.YM,".gridview-info {\n  z-index: 100;\n  font-size: 10;\n  border: 1px solid #d2d6e0;\n  width: inherit;\n  margin-top: -5.6px;\n  border-radius: 3px;\n  padding: 5px;\n  background: white;\n  position: absolute;\n}\n",0)
-J.dp(w.YM,".gridview-avatar {\n  width: 25px;\n  height: 25px;\n  padding: 2px;\n  border: 1px solid #d2d6e0;\n  border-radius: 1px;\n}\n",0)
-J.dp(w.YM,".float-left {\n  float: left;\n}\n",0)
-J.dp(w.YM,".float-right {\n  float: right;\n}\n",0)
-J.dp(w.YM,".ga-name {\n  font-weight: bold;\n  min-height: 30px;\n  margin-bottom: 0.5em;\n}\n",0)
-J.dp(w.YM,".hidden {\n  display: none !important;\n}\n",0)
-J.dp(w.YM,".faded {\n  opacity: 0.5;\n}\n",0)
-J.dp(w.YM,".sg2o-table-heading {\n  margin-bottom: 5px;\n}\n",0)
-w=new Q.Xf(null)
-v=w.qa()
-w.YM=v
-J.dp(v,".sg2o-modal-dialog {\n  position: fixed;\n  font-family: Arial, Helvetica, sans-serif;\n  color: #000;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background: rgba(0, 0, 0, 0.8);\n  z-index: 9999;\n  opacity: 0;\n  -webkit-transition: opacity 400ms ease-in;\n  -moz-transition: opacity 400ms ease-in;\n  transition: opacity 400ms ease-in;\n  pointer-events: none;\n}\n",0)
-J.dp(w.YM,".sg2o-modal-dialog:target {\n  opacity: 1;\n  pointer-events: auto;\n}\n",0)
-J.dp(w.YM,".sg2o-modal-dialog > div {\n  width: 1000px;\n  position: relative;\n  margin: 10% auto;\n  padding: 5px 20px 13px 20px;\n  border-radius: 10px;\n  background: #fff;\n  background: -moz-linear-gradient(#fff, #999);\n  background: -webkit-linear-gradient(#fff, #999);\n  background: -o-linear-gradient(#fff, #999);\n}\n",0)
-J.dp(w.YM,".sg2o-close {\n  background: #606061;\n  color: #FFFFFF;\n  line-height: 25px;\n  position: absolute;\n  right: -12px;\n  text-align: center;\n  top: -10px;\n  width: 24px;\n  text-decoration: none;\n  font-weight: bold;\n  -webkit-border-radius: 12px;\n  -moz-border-radius: 12px;\n  border-radius: 12px;\n  -moz-box-shadow: 1px 1px 3px #000;\n  -webkit-box-shadow: 1px 1px 3px #000;\n  box-shadow: 1px 1px 3px #000;\n}\n",0)
-J.dp(w.YM,".sg2o-close:hover {\n  background: #00d9ff;\n}\n",0)
-J.dp(w.YM,".sg2o-settings-head {\n  font: 700 20px \"Open Sans\", sans-serif;\n  color: #324862;\n}\n",0)
+new Q.vQ(window.localStorage).OO()
+x=new Q.XB(null)
+w=x.qa()
+x.YM=w
+J.dp(w,".group-border {\n  background: #308430;\n}\n",0)
+J.dp(x.YM,".contributor-above-border {\n  background: #B80000;\n}\n",0)
+J.dp(x.YM,".contributor-below-border {\n  background: #0033CC;\n}\n",0)
+J.dp(x.YM,".wishlist-border {\n  background: #9933FF;\n}\n",0)
+J.dp(x.YM,".whitelist {\n  background: #00EBF7;\n}\n",0)
+J.dp(x.YM,".group-contributor-above-border {\n  background-color: #308430;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #B80000 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(x.YM,".group-contributor-below-border {\n  background-color: #308430;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #0033CC 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(x.YM,".group-wishlist-border {\n  background-color: #308430;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(x.YM,".contributor-above-wishlist-border {\n  background-color: #B80000;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(x.YM,".contributor-below-wishlist {\n  background-color: #0033CC;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(x.YM,".whitelist-group {\n  background-color: #00EBF7;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #308430 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(x.YM,".whitelist-contributor-above {\n  background-color: #00EBF7;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #B80000 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(x.YM,".whitelist-contributor-below {\n  background-color: #00EBF7;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #0033CC 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(x.YM,".whitelist-wishlist {\n  background-color: #00EBF7;\n  background-image: linear-gradient(\n    to right,\n    transparent 50%,\n    #9933FF 50%\n  );\n  background-size: 90px 90px;\n}\n",0)
+J.dp(x.YM,x.Hx("group-contributor-above-wishlist","#308430","#B80000","#9933FF"),0)
+J.dp(x.YM,x.Hx("group-contributor-below-wishlist","#308430","#0033CC","#9933FF"),0)
+J.dp(x.YM,x.Hx("whitelist-group-contributor-above","#00EBF7","#308430","#B80000"),0)
+J.dp(x.YM,x.Hx("whitelist-group-contributor-below","#00EBF7","#308430","#0033CC"),0)
+J.dp(x.YM,x.Hx("whitelist-group-wishlist","#00EBF7","#308430","#9933FF"),0)
+J.dp(x.YM,x.Hx("whitelist-wishlist-contributor-above","#00EBF7","#9933FF","#B80000"),0)
+J.dp(x.YM,x.Hx("whitelist-wishlist-contirbutor-below","#00EBF7","#9933FF","#0033CC"),0)
+J.dp(x.YM,x.Zy("whitelist-group-wishlist-contributor-above","#00EBF7","#308430","#9933FF","#B80000"),0)
+J.dp(x.YM,x.Zy("whitelist-wishlist-group-contributor-below","#00EBF7","#308430","#9933FF","#0033CC"),0)
+x=new Q.GJ(null)
+w=x.qa()
+x.YM=w
+J.dp(w,"body {\n  margin-top: 39px;\n}\n",0)
+J.dp(x.YM,".fixed-navigation-bar {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index: 9999;\n  width: 100%;\n}\n",0)
+J.dp(x.YM,".giveaway-gridview {\n  float: left;\n  width: 184px;\n  margin-left: 1%;\n  margin-right: 1%;\n  border-radius: 2px;\n  margin-bottom: 0.5em;\n}\n",0)
+J.dp(x.YM,".pinned-gridview-container {\n  padding-top: 5px;\n}\n",0)
+J.dp(x.YM,".page__heading {\n  margin-bottom: 0.5em;\n}\n",0)
+J.dp(x.YM,".gridview-info {\n  z-index: 100;\n  font-size: 10;\n  border: 1px solid #d2d6e0;\n  width: inherit;\n  margin-top: -5.6px;\n  border-radius: 3px;\n  padding: 5px;\n  background: white;\n  position: absolute;\n}\n",0)
+J.dp(x.YM,".gridview-avatar {\n  width: 25px;\n  height: 25px;\n  padding: 2px;\n  border: 1px solid #d2d6e0;\n  border-radius: 1px;\n}\n",0)
+J.dp(x.YM,".float-left {\n  float: left;\n}\n",0)
+J.dp(x.YM,".float-right {\n  float: right;\n}\n",0)
+J.dp(x.YM,".ga-name {\n  font-weight: bold;\n  min-height: 30px;\n  margin-bottom: 0.5em;\n}\n",0)
+J.dp(x.YM,".hidden {\n  display: none !important;\n}\n",0)
+J.dp(x.YM,".faded {\n  opacity: 0.5;\n}\n",0)
+J.dp(x.YM,".sg2o-table-heading {\n  margin-bottom: 5px;\n}\n",0)
+x=new Q.Xf(null)
+w=x.qa()
+x.YM=w
+J.dp(w,".sg2o-modal-dialog {\n  position: fixed;\n  font-family: Arial, Helvetica, sans-serif;\n  color: #000;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background: rgba(0, 0, 0, 0.8);\n  z-index: 9999;\n  opacity: 0;\n  -webkit-transition: opacity 400ms ease-in;\n  -moz-transition: opacity 400ms ease-in;\n  transition: opacity 400ms ease-in;\n  pointer-events: none;\n}\n",0)
+J.dp(x.YM,".sg2o-modal-dialog:target {\n  opacity: 1;\n  pointer-events: auto;\n}\n",0)
+J.dp(x.YM,".sg2o-modal-dialog > div {\n  width: 1000px;\n  position: relative;\n  margin: 10% auto;\n  padding: 5px 20px 13px 20px;\n  border-radius: 10px;\n  background: #fff;\n  background: -moz-linear-gradient(#fff, #999);\n  background: -webkit-linear-gradient(#fff, #999);\n  background: -o-linear-gradient(#fff, #999);\n}\n",0)
+J.dp(x.YM,".sg2o-close {\n  background: #606061;\n  color: #FFFFFF;\n  line-height: 25px;\n  position: absolute;\n  right: -12px;\n  text-align: center;\n  top: -10px;\n  width: 24px;\n  text-decoration: none;\n  font-weight: bold;\n  -webkit-border-radius: 12px;\n  -moz-border-radius: 12px;\n  border-radius: 12px;\n  -moz-box-shadow: 1px 1px 3px #000;\n  -webkit-box-shadow: 1px 1px 3px #000;\n  box-shadow: 1px 1px 3px #000;\n}\n",0)
+J.dp(x.YM,".sg2o-close:hover {\n  background: #00d9ff;\n}\n",0)
+J.dp(x.YM,".sg2o-settings-head {\n  font: 700 20px \"Open Sans\", sans-serif;\n  color: #324862;\n}\n",0)
 J.pP(document.querySelector("header")).h(0,"fixed-navigation-bar")
-if(W.vD(document.querySelectorAll(".featured__outer-wrap--home"),null).Wf.length>0){u=document.querySelector(".featured__container")
-t=W.vD(document.querySelectorAll(".widget-container"),null)
-s=t.Zv(t,t.Wf.length-1)
-r=W.vD(document.querySelectorAll(".pinned-giveaways"),null).Wf.length>0?document.querySelector(".pinned-giveaways"):document.querySelector(".page__heading")
-J.Mp(u)
-r.parentElement.insertBefore(s,r)
-J.pP(s).Rz(0,"widget-container--margin-top")
-J.pP(r).h(0,"widget-container--margin-top")
-q=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null)
-if(q.gor(q)){p=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null)
-w=p.Wf
-if(0>=w.length)return H.e(w,0)
-o=w[0].parentElement
-w=o.parentElement
+if(W.vD(document.querySelectorAll(".featured__outer-wrap--home"),null).Wf.length>0){v=document.querySelector(".featured__container")
+u=W.vD(document.querySelectorAll(".widget-container"),null)
+t=u.Zv(u,u.Wf.length-1)
+s=W.vD(document.querySelectorAll(".pinned-giveaways"),null).Wf.length>0?document.querySelector(".pinned-giveaways"):document.querySelector(".page__heading")
+J.Mp(v)
+s.parentElement.insertBefore(t,s)
+J.pP(t).Rz(0,"widget-container--margin-top")
+J.pP(s).h(0,"widget-container--margin-top")
+r=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null)
+if(r.gor(r)){q=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null)
+x=q.Wf
+if(0>=x.length)return H.e(x,0)
+p=x[0].parentElement
+x=p.parentElement
+o=document.createElement("div",null)
 n=document.createElement("div",null)
-m=document.createElement("div",null)
-J.pP(m).h(0,"page__heading__breadcrumbs")
-l=W.r3("a",null)
-v=J.RE(l)
-v.a7(l,"href","/")
-v.shf(l,"Pinned giveaways")
-m.appendChild(l)
-v=J.RE(n)
-v.gDD(n).h(0,"page__heading")
-v.gDD(n).h(0,"sg2o-table-heading")
+J.pP(n).h(0,"page__heading__breadcrumbs")
+m=W.r3("a",null)
+w=J.RE(m)
+w.a7(m,"href","/")
+w.shf(m,"Pinned giveaways")
 n.appendChild(m)
-w.insertBefore(n,o)
-o.setAttribute("style","margin-top: 0px;")
-Q.oU(0,document,"pinned-gridview-container",o,p)}k=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null).Wf.length
-p=W.vD(document.querySelectorAll(".giveaway__row-outer-wrap"),null)
-w=p.Wf
-if(k>=w.length)return H.e(w,k)
-o=w[k].parentElement
-Q.oU(k,document,"gridview-container",o,p)
+w=J.RE(o)
+w.gDD(o).h(0,"page__heading")
+w.gDD(o).h(0,"sg2o-table-heading")
+o.appendChild(n)
+x.insertBefore(o,p)
+p.setAttribute("style","margin-top: 0px;")
+Q.oU(0,document,"pinned-gridview-container",p,q)}l=W.vD(document.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null).Wf.length
+q=W.vD(document.querySelectorAll(".giveaway__row-outer-wrap"),null)
+x=q.Wf
+if(l>=x.length)return H.e(x,l)
+p=x[l].parentElement
+Q.oU(l,document,"gridview-container",p,q)
 document.querySelector(".page__heading").setAttribute("style","margin-bottom: 0.5em")
-w=W.vD(document.querySelectorAll(".pagination__navigation"),null)
-if(w.gor(w)){j=new Q.x2(1,2,null,null,new DOMParser(),!1,null)
-j.TD()
-j.ZO()
-i=window
-h=document.createEvent("MouseEvent")
-J.zJ(h,"click",!0,!0,i,0,0,0,0,0,!1,!1,!1,!1,0,null)
-j.Ou(h)
-w=H.VM(new W.RO(window,"scroll",!1),[null])
-H.VM(new W.xC(0,w.J6,w.fA,W.VF(j.gxg()),w.el),[H.Kp(w,0)]).DN()}}g=new Q.Qw(null)
-g.hD()
+x=W.vD(document.querySelectorAll(".pagination__navigation"),null)
+if(x.gor(x)){k=new Q.x2(1,2,null,null,new DOMParser(),!1,null)
+k.TD()
+k.ZO()
+j=window
+i=document.createEvent("MouseEvent")
+J.zJ(i,"click",!0,!0,j,0,0,0,0,0,!1,!1,!1,!1,0,null)
+k.Ou(i)
+x=H.VM(new W.RO(window,"scroll",!1),[null])
+H.VM(new W.xC(0,x.J6,x.fA,W.VF(k.gxg()),x.el),[H.Kp(x,0)]).DN()}}h=new Q.Qw(null)
+h.hD()
 if(W.vD(document.querySelectorAll(".sidebar"),null).Wf.length>=1){document.querySelector(".sidebar")
-w=H.VM(new W.RO(window,"scroll",!1),[null])
-H.VM(new W.xC(0,w.J6,w.fA,W.VF(g.gRB()),w.el),[H.Kp(w,0)]).DN()}new Q.Nn().xe()},"$0","f8",0,0,11]},1],["","",,F,{
+x=H.VM(new W.RO(window,"scroll",!1),[null])
+H.VM(new W.xC(0,x.J6,x.fA,W.VF(h.gRB()),x.el),[H.Kp(x,0)]).DN()}new Q.Nn().xe()},"$0","f8",0,0,11]},1],["","",,F,{
 "^":"",
 jX:{
 "^":"a;S,VZ",
@@ -5591,7 +5599,7 @@ oU:function(a,b,c,d,e){var z,y,x,w,v,u
 z=J.RE(d)
 z.shf(d,"")
 if(c!=null)z.gDD(d).h(0,c)
-for(z=e.Wf,y=a;y<z.length;++y){x=new Q.JC(null,null,null,null,null,null,null,null,1,null,null,null,0,null,null,null)
+for(z=e.Wf,y=a;y<z.length;++y){x=new Q.JC(null,null,null,null,null,null,null,null,null,1,null,0,null,null,null,null,null)
 x.Of(e.Zv(e,y))
 w=$.QO()
 v=x.oc
@@ -5686,7 +5694,7 @@ ym:{
 tP:function(){var z=$.G0().pE("lscache-sgpgiveawayFilters")
 this.JB=C.xr.kV(z===""?"{}":z)}},
 JC:{
-"^":"a;oc,tc,Iz,O6,Ir,dn,cB,Pu,aP,GU,Pj,lR,U7,hW,yY,us",
+"^":"a;oc,tc,Iz,O6,Pj,Ir,dn,cB,Pu,aP,GU,U7,lR,hW,yY,us,Xu",
 pS:function(){var z,y,x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d
 z=document.createElement("div",null)
 y=document.createElement("div",null)
@@ -5773,18 +5781,19 @@ d=this.hW?1:0
 s=this.lR&&J.xZ(this.U7,$.xE())?2:0
 q=this.lR&&J.Bl(this.U7,$.xE())?4:0
 o=this.yY===!0?8:0
-u.h(0,["","group-border","contributor-above-border","group-contributor-above-border","contributor-below-border","group-contributor-below-border","","","wishlist-border","group-wishlist-border","contributor-above-wishlist-border","group-contributor-above-wishlist","contributor-below-wishlist","group-contributor-below-wishlist","",""][d+s+q+o])
+m=this.Xu?16:0
+u.h(0,["","group-border","contributor-above-border","group-contributor-above-border","contributor-below-border","group-contributor-below-border","","","wishlist-border","group-wishlist-border","contributor-above-wishlist-border","group-contributor-above-wishlist","contributor-below-wishlist","group-contributor-below-wishlist","","","whitelist","whitelist-group","whitelist-contributor-above","whitelist-group-contributor-above","whitelist-contributor-below","whitelist-group-contributor-below","","","whitelist-wishlist","whitelist-group-wishlist","whitelist-wishlist-contributor-above","whitelist-group-wishlist-contributor-above","whitelist-wishlist-contirbutor-below","whitelist-wishlist-group-contributor-below","",""][d+s+q+o+m])
 f.appendChild(e)
 J.pP(e).h(0,"global__image-inner-wrap")
 e.setAttribute("style",J.iz(this.Ir,"style"))
-o=J.RE(z)
-o.gDD(z).h(0,"giveaway-gridview")
+m=J.RE(z)
+m.gDD(z).h(0,"giveaway-gridview")
 z.appendChild(f)
 z.appendChild(y)
-q=o.gCi(z)
-H.VM(new W.xC(0,q.J6,q.fA,W.VF(new Q.og(y)),q.el),[H.Kp(q,0)]).DN()
-o=o.gcb(z)
-H.VM(new W.xC(0,o.J6,o.fA,W.VF(new Q.c2(y)),o.el),[H.Kp(o,0)]).DN()
+o=m.gCi(z)
+H.VM(new W.xC(0,o.J6,o.fA,W.VF(new Q.og(y)),o.el),[H.Kp(o,0)]).DN()
+m=m.gcb(z)
+H.VM(new W.xC(0,m.J6,m.fA,W.VF(new Q.c2(y)),m.el),[H.Kp(m,0)]).DN()
 if(this.us)x.gDD(f).h(0,"faded")
 return z},
 bu:function(a){return C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g("Giveaway: ",this.oc)+" with ",J.AG(this.cB))+" Points, created by ",this.Iz)+" ",this.tc)+" ago,  still open for: ",this.O6)+", has ",J.AG(this.Pu))+" entries and ",J.AG(this.GU))+" comments, link: ",this.Pj)+" is a group GA: "+String(this.hW)+" and a contributorGA: "+String(this.lR)+" with level ",J.AG(this.U7))},
@@ -5818,7 +5827,8 @@ this.hW=z.Md(a,".giveaway__column--group").Wf.length>0
 y=$.Mb()
 x=this.oc
 this.yY=J.w4(y.Qh,x)
-this.us=z.Md(a,".is-faded").Wf.length>0}},
+this.us=z.Md(a,".is-faded").Wf.length>0
+this.Xu=z.Md(a,".giveaway__column--whitelist").Wf.length>0}},
 og:{
 "^":"Tp:8;a",
 $1:function(a){return J.pP(this.a).Rz(0,"hidden")}},
@@ -5953,7 +5963,8 @@ lc:{
 $1:function(a){return 0}},
 XB:{
 "^":"Ej;YM",
-Hx:function(a,b,c,d){return"."+a+" {\n  background-image:\n    linear-gradient(\n      to right,\n      "+b+" 33.33%,\n      "+c+" 33.33%,\n      "+c+" 66.66%,\n      "+d+" 66.66%\n    );\n  background-size: 90px 90px;\n}\n"}},
+Hx:function(a,b,c,d){return"."+a+" {\n  background-image:\n    linear-gradient(\n      to right,\n      "+b+" 33.33%,\n      "+c+" 33.33%,\n      "+c+" 66.66%,\n      "+d+" 66.66%\n    );\n  background-size: 90px 90px;\n}\n"},
+Zy:function(a,b,c,d,e){return"."+a+" {\n  background-image:\n    linear-gradient(\n      to right,\n      "+b+" 25%,\n      "+c+" 25%,\n      "+c+" 50%,\n      "+d+" 50%,\n      "+d+" 75%,\n      "+e+" 75%\n    );\n  background-size: 90px 90px;\n}\n"}},
 GJ:{
 "^":"Ej;YM"},
 Xf:{
