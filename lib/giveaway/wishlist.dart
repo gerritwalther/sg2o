@@ -17,18 +17,22 @@ class WishList {
   void loadWishListFromProfile(num page) {
     window.console.log('Loading page $page');
     HttpRequest.request('$urlSteamWishList$page').then((HttpRequest resp) {
-      Document nextPageDocument = domParser.parseFromString(resp.responseText, 'text/html');
-      ElementList wishListNames = nextPageDocument.querySelectorAll('.$classWishListName');
+      if (resp.responseUrl != urlSteamGiftsHome) {
+        Document nextPageDocument = domParser.parseFromString(resp.responseText, 'text/html');
+        window.console.log(resp.responseUrl);
+        window.console.log(nextPageDocument);
+        ElementList wishListNames = nextPageDocument.querySelectorAll('.$classWishListName');
 
-      wishListNames.forEach((Element e) {
-        wishList[e.innerHtml] = 'true';
-      });
+        wishListNames.forEach((Element e) {
+          wishList[e.innerHtml] = 'true';
+        });
 
-      Element pagination = nextPageDocument.querySelector('.$classPaginationNavigation');
-      if (!pagination.children.removeLast().classes.contains(classIsSelected)) {
-        loadWishListFromProfile(++page);
-      } else {
-        storage.add(keyWishList, new JsonEncoder().convert(wishList).toString());
+        Element pagination = nextPageDocument.querySelector('.$classPaginationNavigation');
+        if (!pagination.children.removeLast().classes.contains(classIsSelected)) {
+          loadWishListFromProfile(++page);
+        } else {
+          storage.add(keyWishList, new JsonEncoder().convert(wishList).toString());
+        }
       }
     });
   }

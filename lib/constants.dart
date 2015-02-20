@@ -104,6 +104,7 @@ const String classIsSelected = 'is-selected';
 const String classIsDisabled = 'is-disabled';
 
 /// URLs
+const String urlSteamGiftsHome = 'http://www.steamgifts.com/';
 const String urlGiveAwayPage = '/giveaways/search?page=';
 const String urlSteamWishList = '/account/steam/wishlist/search?page=';
 

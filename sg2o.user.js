@@ -4370,7 +4370,7 @@ $isqC:true,
 $isXj:true,
 "%":"HTMLCollection|HTMLFormControlsCollection|HTMLOptionsCollection"},
 zU:{
-"^":"wa;il:responseText=",
+"^":"wa;il:responseText=,f9:responseURL=",
 R3:function(a,b,c,d,e,f){return a.open(b,c,d,f,e)},
 eo:function(a,b,c,d){return a.open(b,c,d)},
 wR:function(a,b){return a.send(b)},
@@ -5839,13 +5839,18 @@ if(!(C.CD.BU(P.k5(0,0,0,y-x,0,0).m5,1000)>86400000))this.Qh=C.xr.kV($.G0().Ev.ge
 else this.LV(1)}},
 Vn:{
 "^":"Tp:34;a,b",
-$1:function(a){var z,y,x
-z=this.b
-y=z.Wx.parseFromString(J.CA(a),"text/html")
-x=W.vD(y.querySelectorAll(".table__column__heading"),null)
-x.aN(x,new Q.Qg(z))
+$1:function(a){var z,y,x,w
+if(J.If(a)!=="http://www.steamgifts.com/"){z=this.b
+y=z.Wx.parseFromString(a.responseText,"text/html")
+window
+x=a.responseURL
+if(typeof console!="undefined")console.log(x)
+window
+if(typeof console!="undefined")console.log(y)
+w=W.vD(y.querySelectorAll(".table__column__heading"),null)
+w.aN(w,new Q.Qg(z))
 if(!J.pP(J.OG(y.querySelector(".pagination__navigation")).mv(0)).DG().tg(0,"is-selected"))z.LV(++this.a.a)
-else $.G0().Ts(0,"wishlist",J.AG(P.uX(z.Qh,null,null)))}},
+else $.G0().Ts(0,"wishlist",J.AG(P.uX(z.Qh,null,null)))}}},
 Qg:{
 "^":"Tp:36;c",
 $1:function(a){J.kW(this.c.Qh,J.xR(a),"true")}},
@@ -6078,6 +6083,7 @@ J.FN=function(a){return J.U6(a).gl0(a)}
 J.GP=function(a){return J.w1(a).gA(a)}
 J.Gw=function(a,b){return J.Wx(a).WZ(a,b)}
 J.IF=function(a,b,c,d){return J.RE(a).Y9(a,b,c,d)}
+J.If=function(a){return J.RE(a).gf9(a)}
 J.Is=function(a,b){return J.rY(a).Tc(a,b)}
 J.J5=function(a,b){if(typeof a=="number"&&typeof b=="number")return a>=b
 return J.Wx(a).F(a,b)}
