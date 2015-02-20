@@ -3356,10 +3356,10 @@ x=new Uint8Array(y)
 w=new P.Rw(0,0,x)
 if(w.Gx(a,0,z.gB(a))!==z.gB(a)){v=z.gB(a)
 if(typeof v!=="number")return v.W()
-w.QR(z.j(a,v-1),0)}return new Uint8Array(x.subarray(0,C.NA.i4(x,0,w.V4,y)))}},
+w.O6(z.j(a,v-1),0)}return new Uint8Array(x.subarray(0,C.NA.i4(x,0,w.V4,y)))}},
 Rw:{
 "^":"a;oK,V4,Zj",
-QR:function(a,b){var z,y,x,w,v
+O6:function(a,b){var z,y,x,w,v
 z=this.Zj
 y=this.V4
 if((b&64512)===56320){x=65536+((a&1023)<<10>>>0)|b&1023
@@ -3406,7 +3406,7 @@ if(u>=y)break
 this.V4=u+1
 z[u]=v}else if((v&64512)===55296){if(this.V4+3>=y)break
 t=w+1
-if(this.QR(v,C.xB.j(a,t)))w=t}else if(v<=2047){u=this.V4
+if(this.O6(v,C.xB.j(a,t)))w=t}else if(v<=2047){u=this.V4
 s=u+1
 if(s>=y)break
 this.V4=s
@@ -4407,7 +4407,7 @@ GE:function(a,b){return a.getAttribute(b)},
 a7:function(a,b,c){return a.setAttribute(b,c)},
 Wk:function(a,b){return a.querySelector(b)},
 gVl:function(a){return H.VM(new W.Cq(a,"click",!1),[null])},
-gCi:function(a){return H.VM(new W.Cq(a,"mouseenter",!1),[null])},
+gek:function(a){return H.VM(new W.Cq(a,"mouseenter",!1),[null])},
 gcb:function(a){return H.VM(new W.Cq(a,"mouseleave",!1),[null])},
 $iscv:true,
 "%":";Element"},
@@ -4423,9 +4423,9 @@ pS:{
 D0:{
 "^":"Gv;",
 On:function(a,b,c,d){if(c!=null)this.v0(a,b,c,d)},
-Y9:function(a,b,c,d){if(c!=null)this.HK(a,b,c,d)},
+Y9:function(a,b,c,d){if(c!=null)this.Ci(a,b,c,d)},
 v0:function(a,b,c,d){return a.addEventListener(b,H.tR(c,1),d)},
-HK:function(a,b,c,d){return a.removeEventListener(b,H.tR(c,1),d)},
+Ci:function(a,b,c,d){return a.removeEventListener(b,H.tR(c,1),d)},
 "%":"DOMWindow|MediaStream|Window;EventTarget"},
 as:{
 "^":"qE;oc:name=",
@@ -5168,7 +5168,7 @@ v=z.gr8(z)
 for(;z=v.firstChild,z!=null;)w.appendChild(z)
 return w},
 gVl:function(a){return H.VM(new W.Cq(a,"click",!1),[null])},
-gCi:function(a){return H.VM(new W.Cq(a,"mouseenter",!1),[null])},
+gek:function(a){return H.VM(new W.Cq(a,"mouseenter",!1),[null])},
 gcb:function(a){return H.VM(new W.Cq(a,"mouseleave",!1),[null])},
 $isd5:true,
 "%":"SVGAElement|SVGAltGlyphDefElement|SVGAltGlyphElement|SVGAltGlyphItemElement|SVGAnimateElement|SVGAnimateMotionElement|SVGAnimateTransformElement|SVGAnimationElement|SVGCircleElement|SVGClipPathElement|SVGComponentTransferFunctionElement|SVGCursorElement|SVGDefsElement|SVGDescElement|SVGDiscardElement|SVGEllipseElement|SVGFEBlendElement|SVGFEColorMatrixElement|SVGFEComponentTransferElement|SVGFECompositeElement|SVGFEConvolveMatrixElement|SVGFEDiffuseLightingElement|SVGFEDisplacementMapElement|SVGFEDistantLightElement|SVGFEDropShadowElement|SVGFEFloodElement|SVGFEFuncAElement|SVGFEFuncBElement|SVGFEFuncGElement|SVGFEFuncRElement|SVGFEGaussianBlurElement|SVGFEImageElement|SVGFEMergeElement|SVGFEMergeNodeElement|SVGFEMorphologyElement|SVGFEOffsetElement|SVGFEPointLightElement|SVGFESpecularLightingElement|SVGFESpotLightElement|SVGFETileElement|SVGFETurbulenceElement|SVGFilterElement|SVGFontElement|SVGFontFaceElement|SVGFontFaceFormatElement|SVGFontFaceNameElement|SVGFontFaceSrcElement|SVGFontFaceUriElement|SVGForeignObjectElement|SVGGElement|SVGGeometryElement|SVGGlyphElement|SVGGlyphRefElement|SVGGradientElement|SVGGraphicsElement|SVGHKernElement|SVGImageElement|SVGLineElement|SVGLinearGradientElement|SVGMPathElement|SVGMarkerElement|SVGMaskElement|SVGMetadataElement|SVGMissingGlyphElement|SVGPathElement|SVGPatternElement|SVGPolygonElement|SVGPolylineElement|SVGRadialGradientElement|SVGRectElement|SVGSVGElement|SVGSetElement|SVGStopElement|SVGSwitchElement|SVGSymbolElement|SVGTSpanElement|SVGTextContentElement|SVGTextElement|SVGTextPathElement|SVGTextPositioningElement|SVGTitleElement|SVGUseElement|SVGVKernElement|SVGViewElement;SVGElement"},
@@ -5704,10 +5704,9 @@ for(z=e.Wf,y=a;y<z.length;++y){x=new Q.JC(null,null,null,null,null,null,null,nul
 x.Of(e.Zv(e,y))
 w=$.QO()
 v=x.oc
-if(J.w4(w.JB,v)!==!0)if(x.us){u=$.G0().Ev.getItem("sg2o-hide-giveaways")
+if(J.w4(w.JB,v)!==!0){if(x.us){u=$.G0().Ev.getItem("sg2o-hide-giveaways")
 w=(u!=null?u:"")!=="true"}else w=!0
-else w=!1
-if(w)d.appendChild(x.pS())}d.appendChild(Q.Ws())
+if(w)d.appendChild(x.pS())}else x.hM()}d.appendChild(Q.Ws())
 return d},
 kS:function(){var z,y
 z=document.querySelector(".nav__points")
@@ -5795,7 +5794,7 @@ ym:{
 tP:function(){var z=$.G0().pE("lscache-sgpgiveawayFilters")
 this.JB=C.xr.kV(z===""?"{}":z)}},
 JC:{
-"^":"a;oc,tc,Iz,O6,Pj,Ir,dn,cB,Pu,aP,GU,U7,tQ,lR,hW,yY,us,Xu,uo",
+"^":"a;oc,tc,Iz,xv,Pj,Ir,dn,cB,Pu,aP,GU,U7,tQ,lR,hW,yY,us,Xu,uo",
 pS:function(){var z,y,x,w,v,u,t,s,r,q
 this.uo=document.createElement("div",null)
 z=this.N8()
@@ -5820,7 +5819,7 @@ r=J.RE(q)
 r.gDD(q).h(0,"giveaway-gridview")
 q.appendChild(y)
 q.appendChild(z)
-s=r.gCi(q)
+s=r.gek(q)
 H.VM(new W.xC(0,s.J6,s.fA,W.VF(new Q.og(z)),s.el),[H.Kp(s,0)]).DN()
 q=r.gcb(q)
 H.VM(new W.xC(0,q.J6,q.fA,W.VF(new Q.c2(z)),q.el),[H.Kp(q,0)]).DN()
@@ -5849,7 +5848,7 @@ s=document.createElement("div",null)
 r=J.RE(s)
 r.gDD(s).h(0,"float-left")
 s.setAttribute("style","margin-top: -16px;")
-s.appendChild(Q.Rp("strong",this.O6))
+s.appendChild(Q.Rp("strong",this.xv))
 s.appendChild(Q.Rp("text"," remaining"))
 q=document.createElement("div",null)
 p=J.RE(q)
@@ -5911,9 +5910,15 @@ z.appendChild(i)
 z.appendChild(Q.Ws())
 z.appendChild(g)
 return z},
-bu:function(a){return C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g("Giveaway: ",this.oc)+" with ",J.AG(this.cB))+" Points, created by ",this.Iz)+" ",this.tc)+" ago,  still open for: ",this.O6)+", has ",J.AG(this.Pu))+" entries and ",J.AG(this.GU))+" comments, link: ",this.Pj)+" is a group GA: "+String(this.hW)+" and a contributorGA: "+String(this.lR)+" with level ",J.AG(this.U7))},
-Nf:[function(a,b){window
-if(typeof console!="undefined")console.log(b)},"$1","gGZ",2,0,36],
+bu:function(a){return C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g(C.xB.g("Giveaway: ",this.oc)+" with ",J.AG(this.cB))+" Points, created by ",this.Iz)+" ",this.tc)+" ago,  still open for: ",this.xv)+", has ",J.AG(this.Pu))+" entries and ",J.AG(this.GU))+" comments, link: ",this.Pj)+" is a group GA: "+String(this.hW)+" and a contributorGA: "+String(this.lR)+" with level ",J.AG(this.U7))},
+hM:function(){var z,y
+z=P.L5(null,null,null,null,null)
+y=W.vD(document.querySelectorAll("input[name=\"xsrf_token\"]"),null).Wf
+if(0>=y.length)return H.e(y,0)
+z.u(0,"xsrf_token",J.iz(y[0],"value"))
+z.u(0,"game_id",J.AG(this.tQ))
+z.u(0,"do","hide_giveaways_by_game_id")
+W.qv("/",z,null,null,null,null)},
 Of:function(a){var z,y,x,w,v,u
 z=J.RE(a)
 y=z.Md(a,"span.giveaway__heading__thin").Wf
@@ -5927,7 +5932,7 @@ w=v}this.cB=Q.xK(J.nJ(w))
 u=z.Wk(a,"a.giveaway__heading__name")
 this.oc=u.textContent
 this.Pj=u.getAttribute("href")
-this.O6=Q.aU(z.Wk(a,"div.giveaway__columns>div>span").textContent)
+this.xv=Q.aU(z.Wk(a,"div.giveaway__columns>div>span").textContent)
 this.tc=Q.aU(z.Wk(a,"div.giveaway__column--width-fill").textContent)
 this.Iz=z.Wk(a,".giveaway__username").textContent
 y=z.Md(a,"div.giveaway__links>a>span").Wf
@@ -5946,10 +5951,7 @@ x=this.oc
 this.yY=J.w4(y.Qh,x)
 this.us=z.Md(a,".is-faded").Wf.length>0
 this.Xu=z.Md(a,".giveaway__column--whitelist").Wf.length>0
-z=Q.xK(z.Wk(a,".giveaway__hide").getAttribute("data-game-id"))
-this.tQ=z
-window
-if(typeof console!="undefined")console.log(z)}},
+this.tQ=Q.xK(z.Wk(a,".giveaway__hide").getAttribute("data-game-id"))}},
 og:{
 "^":"Tp:8;a",
 $1:function(a){return J.pP(this.a).Rz(0,"hidden")}},
@@ -5958,15 +5960,8 @@ c2:{
 $1:function(a){return J.pP(this.b).h(0,"hidden")}},
 V6:{
 "^":"Tp:33;a",
-$1:function(a){var z,y,x
-z=this.a
-y=P.L5(null,null,null,null,null)
-x=W.vD(document.querySelectorAll("input[name=\"xsrf_token\"]"),null).Wf
-if(0>=x.length)return H.e(x,0)
-y.u(0,"xsrf_token",J.iz(x[0],"value"))
-y.u(0,"game_id",J.AG(z.tQ))
-y.u(0,"do","hide_giveaways_by_game_id")
-W.qv("/",y,null,null,null,null).ml(z.gGZ(z))
+$1:function(a){var z=this.a
+z.hM()
 J.pP(z.uo).h(0,"hidden")}},
 TR:{
 "^":"a;Qh,Wx",
@@ -5999,7 +5994,7 @@ w.ox(w,new Q.Qg(z))
 if(!J.pP(J.OG(y.querySelector(".pagination__navigation")).mv(0)).DG().tg(0,"is-selected"))z.LV(++this.a.a)
 else $.G0().Ts(0,"wishlist",J.AG(P.uX(z.Qh,null,null)))}}},
 Qg:{
-"^":"Tp:37;c",
+"^":"Tp:36;c",
 $1:function(a){J.kW(this.c.Qh,J.xR(a),"true")}},
 Nn:{
 "^":"a;",
@@ -6129,8 +6124,8 @@ y=W.cv
 y.$iscv=z
 y.$isKV=z
 y.$isa=z
-P.Od.$isa=z
 P.zM.$isa=z
+P.Od.$isa=z
 P.a.$isa=z
 y=W.zU
 y.$iszU=z
@@ -6533,7 +6528,7 @@ z.U6()
 return z})
 
 
-init.metadata=[{func:"uO",args:[P.qU]},{func:"n9",void:true,args:[{func:"X0",void:true}]},{func:"X0",void:true},{func:"Ib",ret:P.a2,args:[null,null]},{func:"bX",ret:P.KN,args:[null]},{func:"uJ",ret:P.a,args:[null]},{func:"E0",ret:P.a2,args:[P.a,P.a]},{func:"ZY",ret:P.KN,args:[P.a]},{func:"aB",args:[null]},{func:"zs",ret:P.qU,args:[P.qU]},{func:"Vv",ret:P.a2,args:[W.cv,P.qU,P.qU,W.JQ]},{func:"NT"},{func:"bh",args:[null,null]},{func:"TS",args:[null,P.qU]},{func:"xO",args:[{func:"X0",void:true}]},{func:"Ns",void:true,args:[P.a],opt:[P.mE]},,{func:"mQ",void:true,args:[null],opt:[P.mE]},{func:"BG",args:[null],opt:[null]},{func:"Uf",ret:P.a2},{func:"WK",args:[P.a2]},{func:"bb",args:[null,P.mE]},{func:"Za",args:[P.qU,null]},{func:"W4",ret:P.KN,args:[null,P.KN]},{func:"jt",void:true,args:[P.KN,P.KN]},{func:"lv",args:[P.wv,null]},{func:"Pt",ret:P.qU,args:[P.KN]},{func:"N4",ret:P.a2,args:[P.KN]},{func:"Z9",ret:P.KN,args:[null,null]},{func:"xM",void:true,args:[P.qU]},{func:"lu",void:true,args:[P.qU],opt:[null]},{func:"BC",ret:P.KN,args:[P.KN,P.KN]},{func:"qu",void:true,args:[W.KV]},{func:"dG",args:[W.pS]},{func:"c3",args:[W.zU]},{func:"WW",void:true,args:[W.pS]},{func:"Tz",void:true,args:[W.zU]},{func:"Km",args:[W.cv]},];$=null
+init.metadata=[{func:"uO",args:[P.qU]},{func:"n9",void:true,args:[{func:"X0",void:true}]},{func:"X0",void:true},{func:"Ib",ret:P.a2,args:[null,null]},{func:"bX",ret:P.KN,args:[null]},{func:"uJ",ret:P.a,args:[null]},{func:"E0",ret:P.a2,args:[P.a,P.a]},{func:"ZY",ret:P.KN,args:[P.a]},{func:"aB",args:[null]},{func:"zs",ret:P.qU,args:[P.qU]},{func:"Vv",ret:P.a2,args:[W.cv,P.qU,P.qU,W.JQ]},{func:"NT"},{func:"bh",args:[null,null]},{func:"TS",args:[null,P.qU]},{func:"xO",args:[{func:"X0",void:true}]},{func:"Ns",void:true,args:[P.a],opt:[P.mE]},,{func:"mQ",void:true,args:[null],opt:[P.mE]},{func:"BG",args:[null],opt:[null]},{func:"Uf",ret:P.a2},{func:"WK",args:[P.a2]},{func:"bb",args:[null,P.mE]},{func:"Za",args:[P.qU,null]},{func:"W4",ret:P.KN,args:[null,P.KN]},{func:"jt",void:true,args:[P.KN,P.KN]},{func:"lv",args:[P.wv,null]},{func:"Pt",ret:P.qU,args:[P.KN]},{func:"N4",ret:P.a2,args:[P.KN]},{func:"Z9",ret:P.KN,args:[null,null]},{func:"xM",void:true,args:[P.qU]},{func:"lu",void:true,args:[P.qU],opt:[null]},{func:"BC",ret:P.KN,args:[P.KN,P.KN]},{func:"qu",void:true,args:[W.KV]},{func:"dG",args:[W.pS]},{func:"c3",args:[W.zU]},{func:"WW",void:true,args:[W.pS]},{func:"Km",args:[W.cv]},];$=null
 I = I.$finishIsolateConstructor(I)
 $=new I()
 function convertToFastObject(a){function MyClass(){}MyClass.prototype=a

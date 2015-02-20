@@ -34,8 +34,12 @@ Element collapseGAs(int beginWithNo, Document documentToQuery, String classForCo
   for (int i = beginWithNo; i < gaList.length; i++) {
     GiveAway giveAway = new GiveAway(gaList.elementAt(i));
 
-    if (giveAway.isNotBlackListed() && (!giveAway.isEntered() || (giveAway.isEntered() && storage.showEnteredGiveaways()))) {
-      parentElementToInsertGAs.append(giveAway.wrappedWithStyles());
+    if (giveAway.isNotBlackListed()) {
+      if ((!giveAway.isEntered() || (giveAway.isEntered() && storage.showEnteredGiveaways()))) {
+        parentElementToInsertGAs.append(giveAway.wrappedWithStyles());
+      }
+    } else {
+      giveAway.addGameToBlackList();
     }
   }
   addStopStyleParagraph(parentElementToInsertGAs);
