@@ -16,7 +16,8 @@ class MyStorage {
   }
 
   String get(String key) {
-    return storage[keyName + key];
+    String value = storage[keyName + key];
+    return (value != null) ? value : '';
   }
 
   bool getBool(String key) {
