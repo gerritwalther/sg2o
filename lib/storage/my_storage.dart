@@ -25,6 +25,11 @@ class MyStorage {
     return currentValue == 'true';
   }
 
+  String getJson(String key) {
+    String currentValue = get(key);
+    return (currentValue != '') ? currentValue : '{}';
+  }
+
   DateTime getLastUpdate(String key) {
     String keyTimeStamp = keyName + key + keyNameTimestamp;
     String timeStamp = storage[keyTimeStamp];

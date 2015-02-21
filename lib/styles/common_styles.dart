@@ -140,5 +140,30 @@ body {
 }
 ''';
     styleSheet.insertRule(rule, 0);
+
+    rule =
+'''
+.$classCustomWishList {
+  cursor: pointer;
+  padding-left: 5px;
+}
+''';
+    styleSheet.insertRule(rule, 0);
+
+    rule =
+'''
+.$classCustomWishList:before {
+  content: "\\E11F";
+}
+''';
+    styleSheet.insertRule(rule, 0);
+
+    rule =
+'''
+.$classHighLightCustomWishList {
+  color: #F00;
+}
+''';
+    styleSheet.insertRule(rule, 0);
   }
 }

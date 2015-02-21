@@ -17,10 +17,15 @@ class GiveAway {
   bool isContributorGA;
   bool isGroupGA;
   bool isWishListGA;
+  bool isCustomWishListGA;
   bool entered;
   bool isWhiteListed;
 
   Element giveAwayContainer;
+  /// Use this to change border color.
+  Element giveAwayLink;
+
+  String borderClass;
 
   GiveAway(Element gaHtml) {
     ElementList copiesAndPoints = gaHtml.querySelectorAll('span.$classGAHeadingThin');
@@ -52,9 +57,12 @@ class GiveAway {
     }
     this.isGroupGA = gaHtml.querySelectorAll('.$classGAGroupIcon').length > 0;
     this.isWishListGA = wishList.isOnWishList(name);
+    this.isCustomWishListGA = customWishList.isOnWishList(name);
     this.entered = gaHtml.querySelectorAll('.$classGAEntered').length > 0;
     this.isWhiteListed = gaHtml.querySelectorAll('.$classGAWhiteListed').length > 0;
     this.sgGameId = parseNumber(gaHtml.querySelector('.$classGAHide').getAttribute('data-game-id'));
+
+    this.borderClass = getBorderColorClass();
   }
 
   Element wrappedWithStyles() {
@@ -62,13 +70,13 @@ class GiveAway {
 
     Element informationContainer = createInformationContainer();
 
-    Element giveAwayLink = createElementWithName('a', '');
+    giveAwayLink = createElementWithName('a', '');
     Element giveAwayImage = new DivElement();
     giveAwayLink
       ..setAttribute('href', this.link)
       ..classes.add(classGAImageOuterBorder)
       ..classes.add(classGAGameImage)
-      ..classes.add(getBorderColorClass())
+      ..classes.add(borderClass)
       ..append(giveAwayImage);
 
     giveAwayImage
@@ -166,6 +174,15 @@ class GiveAway {
           giveAwayContainer.classes.add(classHidden);
         });
 
+    DivElement customWishListContainer = new DivElement();
+    customWishListContainer
+      ..classes.add(classFloatLeft)
+      ..classes.add(classCustomWishList)
+      ..onClick.listen(toggleGameOnCustomWishList);
+    if (isCustomWishListGA) {
+      customWishListContainer.classes.add(classHighLightCustomWishList);
+    }
+
     if (entered) {
       nameContainer.classes.add(classFaded);
       copiesContainer.classes.add(classFaded);
@@ -177,6 +194,7 @@ class GiveAway {
       commentsContainer.classes.add(classFaded);
       levelContainer.classes.add(classFaded);
       blackListLinkContainer.classes.add(classFaded);
+      customWishListContainer.classes.add(classFaded);
     }
 
     informationContainer
@@ -193,7 +211,8 @@ class GiveAway {
       ..append(commentsContainer)
       ..append(levelContainer)
       ..append(createStopStyleParagraph())
-      ..append(blackListLinkContainer);
+      ..append(blackListLinkContainer)
+      ..append(customWishListContainer);
 
     return informationContainer;
   }
@@ -229,7 +248,7 @@ class GiveAway {
     borderLevel += (isGroupGA) ? 1 : 0;
     borderLevel += (isContributorGA && contributorLevel > myLevel) ? 2 : 0;
     borderLevel += (isContributorGA && contributorLevel <= myLevel) ? 4 : 0;
-    borderLevel += (isWishListGA) ? 8 : 0;
+    borderLevel += (isWishListGA || isCustomWishListGA) ? 8 : 0;
     borderLevel += (isWhiteListed) ? 16 : 0;
 
     return borderLevels[borderLevel];
@@ -249,5 +268,21 @@ class GiveAway {
     formData['game_id'] = this.sgGameId.toString();
     formData['do'] = 'hide_giveaways_by_game_id';
     HttpRequest.postFormData('/', formData);
+  }
+
+  void toggleGameOnCustomWishList(Event e) {
+    Element target = e.target;
+    giveAwayLink.classes.remove(borderClass);
+    if (isCustomWishListGA) {
+      isCustomWishListGA = false;
+      customWishList.removeGameFromWishList(name);
+      target.classes.remove(classHighLightCustomWishList);
+    } else {
+      isCustomWishListGA = true;
+      customWishList.addGameToWishList(name);
+      target.classes.add(classHighLightCustomWishList);
+    }
+    borderClass = getBorderColorClass();
+    giveAwayLink.classes.add(borderClass);
   }
 }

@@ -68,6 +68,8 @@ const String classGridViewInfoContainer = 'gridview-info';
 const String classGridViewAvatar = 'gridview-avatar';
 const String classGridViewGAName = 'ga-name';
 const String classOneClickBlackList = 'sg2o-blacklist-ga';
+const String classCustomWishList = 'sg2o-custom-wishlist';
+const String classHighLightCustomWishList = 'sg2o-custom-wishlist-red';
 
 const String classSg2oTableHeading = 'sg2o-table-heading';
 
@@ -131,6 +133,7 @@ const num daysForExpiration = 365;
 
 const String keyHideGAs = 'hide-giveaways';
 const String keyWishList = 'wishlist';
+const String keyCustomWishList = 'custom-wishlist';
 
 const String oldFilterKey = 'lscache-sgpgiveawayFilters';
 

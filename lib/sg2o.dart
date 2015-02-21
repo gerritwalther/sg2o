@@ -15,6 +15,7 @@ part 'giveaway/blacklist.dart';
 part 'giveaway/giveaway.dart';
 part 'giveaway/wishlist.dart';
 part 'settings/settings.dart';
+part 'storage/custom_wishlist.dart';
 part 'storage/my_storage.dart';
 part 'styles/border_styles.dart';
 part 'styles/common_styles.dart';
@@ -24,6 +25,7 @@ part 'styles/styles.dart';
 MyStorage storage = new MyStorage();
 BlackList blackList = new BlackList();
 WishList wishList = new WishList();
+CustomWishList customWishList = new CustomWishList();
 
 Element collapseGAs(int beginWithNo, Document documentToQuery, String classForContainer, Element parentElementToInsertGAs, ElementList gaList) {
   parentElementToInsertGAs.innerHtml = '';
