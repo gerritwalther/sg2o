@@ -52,6 +52,22 @@ const String classTableHeading = 'table__heading';
 
 const String classWishListName = 'table__column__heading';
 
+const String classFormRow = 'form__row';
+const String classFormHeading = 'form__heading';
+const String classFormHeadingText = 'form__heading__text';
+const String classFormRowIndent = 'form__row__indent';
+const String classFormCheckbox = 'form__checkbox';
+const String classFormCheckboxDefault = 'form__checkbox__default';
+const String classFormCheckboxHover = 'form__checkbox__hover';
+const String classFormCheckboxSelected = 'form__checkbox__selected';
+const String classFA = 'fa';
+const String classFACircle = 'fa-circle';
+const String classFACircleO = 'fa-circle-o';
+const String classFACheckedCircle = 'fa-check-circle';
+
+const String classIsSelected = 'is-selected';
+const String classIsDisabled = 'is-disabled';
+
 /// elements defined by sg
 
 const String elementNavigation = 'header';
@@ -104,22 +120,6 @@ const String classSettingsOverlay = 'sg2o-overlay-settings';
 const String classClose = 'sg2o-close';
 const String classModalDialog = 'sg2o-modal-dialog';
 const String classSettingsHeading = 'sg2o-settings-head';
-
-const String classFormRow = 'form__row';
-const String classFormHeading = 'form__heading';
-const String classFormHeadingText = 'form__heading__text';
-const String classFormRowIndent = 'form__row__indent';
-const String classFormCheckbox = 'form__checkbox';
-const String classFormCheckboxDefault = 'form__checkbox__default';
-const String classFormCheckboxHover = 'form__checkbox__hover';
-const String classFormCheckboxSelected = 'form__checkbox__selected';
-const String classFA = 'fa';
-const String classFACircle = 'fa-circle';
-const String classFACircleO = 'fa-circle-o';
-const String classFACheckedCircle = 'fa-check-circle';
-
-const String classIsSelected = 'is-selected';
-const String classIsDisabled = 'is-disabled';
 
 /// URLs
 const String urlSteamGiftsHome = 'http://www.steamgifts.com/';
