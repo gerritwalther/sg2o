@@ -27,7 +27,7 @@ abstract class EndlessScroll {
       return;
     } else {
       isLoading = true;
-      lastLoading = e.timeStamp;
+      lastLoading = now;
     }
     Element pagination = querySelector('.$classPagination');
     if (isElementCompletelyVisible(pagination) && nextPage <= lastPage) {
