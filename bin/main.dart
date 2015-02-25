@@ -14,9 +14,9 @@ main() {
   if (sg2o.isOnGAPage()) { // We are on the GA page
     sg2o.replaceFeatured();
     if(sg2o.pinnedGAsExist()) {
-      sg2o.collapsePinnedGAs();
+      sg2o.gridView.collapsePinnedGAs();
     }
-    sg2o.collapseGAList();
+    sg2o.gridView.collapseGAList();
     styles.addMarginToHeader();
 
     if (sg2o.paginationAvailable()) {

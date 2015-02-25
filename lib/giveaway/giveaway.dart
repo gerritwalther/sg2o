@@ -171,7 +171,7 @@ class GiveAway {
       ..classes.add(classOneClickBlackList)
       ..onClick.listen((Event e) {
           addGameToBlackList();
-          giveAwayContainer.classes.add(classHidden);
+          gridView.hideTemporarily(this.name);
         });
 
     DivElement customWishListContainer = new DivElement();
@@ -258,6 +258,10 @@ class GiveAway {
     return !blackList.isOnBlackList(name);
   }
 
+  bool isBlackListed() {
+    return !isNotBlackListed();
+  }
+
   bool isEntered() {
     return this.entered;
   }
@@ -284,5 +288,23 @@ class GiveAway {
     }
     borderClass = getBorderColorClass();
     giveAwayLink.classes.add(borderClass);
+    gridView.updateVisibilityAndBorders(name);
+  }
+
+  void updateBorder(String name) {
+    if (name == this.name) {
+      isWishListGA = wishList.isOnWishList(this.name);
+      isCustomWishListGA = customWishList.isOnWishList(this.name);
+
+      giveAwayLink.classes.remove(borderClass);
+      borderClass = getBorderColorClass();
+      giveAwayLink.classes.add(borderClass);
+    }
+  }
+
+  void hideTemporarily(String name) {
+    if (name == this.name) {
+      giveAwayContainer.classes.add(classHidden);
+    }
   }
 }

@@ -9,7 +9,7 @@ class EndlessGiveAway extends EndlessScroll {
   void updatePage(num page) {
     HttpRequest.request('$urlGiveAwayPage$nextPage').then((HttpRequest resp) {
         Document nextPageDocument = domParser.parseFromString(resp.responseText, 'text/html');
-        Element nextPageGiveawayGrid = collapseGAListOnDocument(nextPageDocument);
+        Element nextPageGiveawayGrid = gridView.collapseGAListOnDocument(nextPageDocument);
         itemsContainer
           ..append(this.createHeading(page))
           ..append(nextPageGiveawayGrid);
