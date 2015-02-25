@@ -35,13 +35,16 @@ bool paginationAvailable() {
 }
 
 bool isElementCompletelyVisible(Element el) {
-  int documentViewTop = document.body.scrollTop;
-  int documentViewBottom = window.innerHeight + documentViewTop;
+  /// credits go to: http://stackoverflow.com/a/7557433/1004795
+  /// but without the left/right boundary check.
+  var rect = el.getBoundingClientRect();
 
-  int elementTop = el.offsetTop;
-  int elementBottom = elementTop + el.clientHeight;
-
-  return ((elementBottom <= documentViewBottom) && (elementTop >= documentViewTop));
+  return
+    rect.top >= 0 &&
+//    rect.left >= 0 &&
+    rect.bottom <= window.innerHeight //&&
+//    rect.right <= window.innerWidth
+  ;
 }
 
 Element createHeading(String text, String linkTarget) {
