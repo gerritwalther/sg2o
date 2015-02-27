@@ -17,6 +17,8 @@ abstract class EndlessScroll {
   }
 
   void loadPages() {
+    updatePagination('Scroll to load next Page!');
+    /// Workaround if there is no scrollbar
     loadNextPage(new MouseEvent('click'));
     window.onScroll.listen(loadNextPage);
   }
@@ -30,30 +32,33 @@ abstract class EndlessScroll {
       lastLoading = now;
     }
     Element pagination = querySelector('.$classPagination');
-    if (isElementCompletelyVisible(pagination) && nextPage <= lastPage) {
-      updatePage(nextPage);
-      nextPage += 1;
+    if (nextPage <= lastPage) {
+      if (isElementCompletelyVisible(pagination)) {
+        updatePage(nextPage);
+        nextPage += 1;
+      }
+    } else {
+      updatePagination('All pages loaded!');
     }
     isLoading = false;
   }
 
-  void updatePagination(Element newPaginationInfo, Element newPaginator) {
+  void updatePagination(String content) {
     Element currentPagination = querySelector('.$classPagination');
     currentPagination
       ..children.clear()
-      ..append(newPaginationInfo)
-      ..append(newPaginator);
+      ..append(createHeading(content));
   }
 
   void updatePage(num page);
 
-  Element createHeading (num page) {
+  Element createHeading (String content) {
     DivElement headingContainer = new DivElement();
     DivElement headingText = new DivElement();
 
     headingText
       ..classes.add(classTableColumnWidthFill)
-      ..innerHtml = 'Page $page of $lastPage';
+      ..innerHtml = content;
 
     headingContainer
       ..classes.add(classTableHeading)

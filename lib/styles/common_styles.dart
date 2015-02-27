@@ -129,6 +129,8 @@ body {
 '''
 .$classSg2oTableHeading {
   margin-bottom: 5px;
+  width: 100%;
+  text-align: center;
 }
 ''';
     styleSheet.insertRule(rule, 0);

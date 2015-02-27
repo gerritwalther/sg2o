@@ -4786,9 +4786,13 @@ for(z=J.GP(!!J.x(b).$ise7?P.F(b,!0,null):b),y=this.dA;z.G();)y.appendChild(z.gl(
 YW:function(a,b,c,d,e){throw H.b(P.SY(null))},
 Rz:function(a,b){return!1},
 V1:function(a){J.kz(this.dA)},
-mv:function(a){var z=this.grZ(this)
-this.dA.removeChild(z)
-return z},
+mv:function(a){var z,y,x
+z=this.dA
+y=z.lastElementChild
+x=y==null
+if(x)H.vh(P.w("No elements"))
+if(!x)z.removeChild(y)
+return y},
 gtH:function(a){var z=this.dA.firstElementChild
 if(z==null)throw H.b(P.w("No elements"))
 return z},
@@ -5515,7 +5519,7 @@ J.dp(x.YM,".float-right {\n  float: right;\n}\n",0)
 J.dp(x.YM,".ga-name {\n  font-weight: bold;\n  min-height: 30px;\n  margin-bottom: 0.5em;\n}\n",0)
 J.dp(x.YM,".hidden {\n  display: none !important;\n}\n",0)
 J.dp(x.YM,".faded {\n  opacity: 0.5;\n}\n",0)
-J.dp(x.YM,".sg2o-table-heading {\n  margin-bottom: 5px;\n}\n",0)
+J.dp(x.YM,".sg2o-table-heading {\n  margin-bottom: 5px;\n  width: 100%;\n  text-align: center;\n}\n",0)
 J.dp(x.YM,".sg2o-blacklist-ga {\n  cursor: pointer;\n}\n",0)
 J.dp(x.YM,".sg2o-custom-wishlist {\n  cursor: pointer;\n  padding-left: 5px;\n}\n",0)
 J.dp(x.YM,".sg2o-custom-wishlist:before {\n  content: \"\\E11F\";\n}\n",0)
@@ -5579,6 +5583,7 @@ x=W.vD(document.querySelectorAll(".pagination__navigation"),null)
 if(x.gor(x)){i=new Q.x2(1,2,null,null,new DOMParser(),!1,null)
 i.TD()
 i.ZO()
+i.kr("Scroll to load next Page!")
 h=window
 g=document.createEvent("MouseEvent")
 J.zJ(g,"click",!0,!0,h,0,0,0,0,0,!1,!1,!1,!1,0,null)
@@ -5769,68 +5774,71 @@ y.gDD(z).h(0,x)
 u.gDD(w).h(0,v)}}},
 x2:{
 "^":"Xt;tZ,te,A7,yc,Wx,qq,Op",
-hA:function(a){W.lt("/giveaways/search?page="+this.te,null,null,null,null,null,null,null).ml(new Q.Zz(this,a))},
+hA:function(a){this.kr("Loading next page...")
+W.lt("/giveaways/search?page="+this.te,null,null,null,null,null,null,null).ml(new Q.Zz(this,a))},
 ZO:function(){this.yc=document.querySelector(".gridview-container")}},
 Zz:{
 "^":"Tp:34;a,b",
-$1:function(a){var z,y,x,w,v,u,t,s,r,q,p,o,n
+$1:function(a){var z,y,x,w,v,u,t,s,r,q
 z=this.a
 y=z.Wx.parseFromString(J.CA(a),"text/html")
-x=$.AF()
-x.toString
-w=W.vD(y.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null).Wf.length
-v=W.vD(y.querySelectorAll(".giveaway__row-outer-wrap"),null)
-u=v.Wf
-if(w>=u.length)return H.e(u,w)
-t=u[w].parentElement
-s=new Q.zn(null)
-s.LH=[]
-r=s.cZ(w,y,null,t,v)
-x.Y1.push(s)
-x=z.yc
-q=document.createElement("div",null)
-p=document.createElement("div",null)
-u=J.RE(p)
-u.gDD(p).h(0,"table__column--width-fill")
-u.shf(p,"Page "+this.b+" of "+H.d(z.A7))
-z=J.RE(q)
-z.gDD(q).h(0,"table__heading")
-z.gDD(q).h(0,"sg2o-table-heading")
-q.appendChild(p)
-x.appendChild(q)
-x.appendChild(r)
-o=J.OG(y.querySelector(".pagination"))
-x=o.gtH(o)
-z=o.grZ(o)
-n=document.querySelector(".pagination")
-J.OG(n).V1(0)
-n.appendChild(x)
-n.appendChild(z)}},
+J.OG(y.querySelector(".pagination"))
+x=W.vD(y.querySelectorAll(".pagination__navigation>a"),null)
+w=$.AF()
+w.toString
+v=W.vD(y.querySelectorAll(".pinned-giveaways>.giveaway__row-outer-wrap"),null).Wf.length
+u=W.vD(y.querySelectorAll(".giveaway__row-outer-wrap"),null)
+t=u.Wf
+if(v>=t.length)return H.e(t,v)
+s=t[v].parentElement
+r=new Q.zn(null)
+r.LH=[]
+q=r.cZ(v,y,null,s,u)
+w.Y1.push(r)
+w=z.yc
+w.appendChild(z.BX("Page "+this.b+" of "+H.d(z.A7)))
+w.appendChild(q)
+z.kr("Scroll to load next page!")
+if(J.pP(C.t5.grZ(x.Wf)).DG().tg(0,"is-selected"))z.tZ=z.A7}},
 Xt:{
 "^":"a;",
-Ou:[function(a){var z,y,x
+Ou:[function(a){var z,y,x,w
 z=Date.now()
 if(!this.qq){y=this.Op
 if(typeof y!=="number")return H.s(y)
 y=z-y<700}else y=!0
 if(y)return
 else{this.qq=!0
-this.Op=z}x=document.querySelector(".pagination").getBoundingClientRect()
-z=J.RE(x)
-y=z.gG6(x)
+this.Op=z}x=document.querySelector(".pagination")
+z=this.te
+y=this.A7
+if(typeof y!=="number")return H.s(y)
+if(z<=y){w=x.getBoundingClientRect()
+z=J.RE(w)
+y=z.gG6(w)
 if(typeof y!=="number")return y.F()
-if(y>=0){z=z.gOR(x)
+if(y>=0){z=z.gOR(w)
 y=window.innerHeight
 if(typeof z!=="number")return z.E()
 if(typeof y!=="number")return H.s(y)
 y=z<=y
 z=y}else z=!1
-if(z){z=this.te
-y=this.A7
-if(typeof y!=="number")return H.s(y)
-y=z<=y
-z=y}else z=!1
-if(z){this.hA(this.te);++this.te}this.qq=!1},"$1","gxg",2,0,35],
+if(z){this.hA(this.te);++this.te}}else this.kr("All pages loaded!")
+this.qq=!1},"$1","gxg",2,0,35],
+kr:function(a){var z=document.querySelector(".pagination")
+J.OG(z).V1(0)
+z.appendChild(this.BX(a))},
+BX:function(a){var z,y,x
+z=document.createElement("div",null)
+y=document.createElement("div",null)
+x=J.RE(y)
+x.gDD(y).h(0,"table__column--width-fill")
+x.shf(y,a)
+x=J.RE(z)
+x.gDD(z).h(0,"table__heading")
+x.gDD(z).h(0,"sg2o-table-heading")
+z.appendChild(y)
+return z},
 TD:function(){this.A7=H.BU(J.Vs(C.t5.grZ(W.vD(document.querySelectorAll(".pagination__navigation>a"),null).Wf)).dA.getAttribute("data-page-number"),null,null)
 this.Op=0}},
 ym:{
