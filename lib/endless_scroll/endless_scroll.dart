@@ -17,7 +17,7 @@ abstract class EndlessScroll {
   }
 
   void loadPages() {
-    updatePagination('Scroll to load next Page!');
+    updatePagination('Scroll to load next Page!', false);
     /// Workaround if there is no scrollbar
     loadNextPage(new MouseEvent('click'));
     window.onScroll.listen(loadNextPage);
@@ -38,27 +38,36 @@ abstract class EndlessScroll {
         nextPage += 1;
       }
     } else {
-      updatePagination('All pages loaded!');
+      updatePagination('All pages loaded!', false);
     }
     isLoading = false;
   }
 
-  void updatePagination(String content) {
+  void updatePagination(String content, bool addSpinner) {
     Element currentPagination = querySelector('.$classPagination');
     currentPagination
       ..children.clear()
-      ..append(createHeading(content));
+      ..append(createHeading(content, addSpinner));
   }
 
   void updatePage(num page);
 
-  Element createHeading (String content) {
+  Element createHeading (String content, bool addSpinner) {
     DivElement headingContainer = new DivElement();
     DivElement headingText = new DivElement();
 
     headingText
       ..classes.add(classTableColumnWidthFill)
       ..innerHtml = content;
+
+    if (addSpinner) {
+      Element spinner = new Element.tag('i');
+      spinner
+        ..classes.add(classFASpinner)
+        ..classes.add(classFASpin)
+        ..classes.add(classFontAwesome);
+      headingText.append(spinner);
+    }
 
     headingContainer
       ..classes.add(classTableHeading)

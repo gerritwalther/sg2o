@@ -5574,7 +5574,7 @@ x=W.vD(document.querySelectorAll(".pagination__navigation"),null)
 if(x.gor(x)){m=new Q.x2(1,2,null,null,new DOMParser(),!1,null)
 m.TD()
 m.ZO()
-m.kr("Scroll to load next Page!")
+m.jL("Scroll to load next Page!",!1)
 l=window
 k=document.createEvent("MouseEvent")
 J.zJ(k,"click",!0,!0,l,0,0,0,0,0,!1,!1,!1,!1,0,null)
@@ -5776,7 +5776,7 @@ y.gDD(z).h(0,x)
 u.gDD(w).h(0,v)}}},
 x2:{
 "^":"Xt;tZ,te,A7,yc,Wx,qq,Op",
-hA:function(a){this.kr("Loading next page...")
+hA:function(a){this.jL("Loading next page  ",!0)
 W.lt("/giveaways/search?page="+this.te,null,null,null,null,null,null,null).ml(new Q.Zz(this,a))},
 ZO:function(){this.yc=document.querySelector(".gridview-container")}},
 Zz:{
@@ -5798,9 +5798,9 @@ r.LH=[]
 q=r.cZ(v,y,null,s,u)
 w.Y1.push(r)
 w=z.yc
-w.appendChild(z.BX("Page "+this.b+" of "+H.d(z.A7)))
+w.appendChild(z.Wg("Page "+this.b+" of "+H.d(z.A7),!1))
 w.appendChild(q)
-z.kr("Scroll to load next page!")
+z.jL("Scroll to load next page!",!1)
 if(J.pP(C.t5.grZ(x.Wf)).DG().tg(0,"is-selected"))z.tZ=z.A7}},
 Xt:{
 "^":"a;",
@@ -5825,18 +5825,23 @@ if(typeof z!=="number")return z.E()
 if(typeof y!=="number")return H.s(y)
 y=z<=y
 z=y}else z=!1
-if(z){this.hA(this.te);++this.te}}else this.kr("All pages loaded!")
+if(z){this.hA(this.te);++this.te}}else this.jL("All pages loaded!",!1)
 this.qq=!1},"$1","gxg",2,0,35],
-kr:function(a){var z=document.querySelector(".pagination")
+jL:function(a,b){var z=document.querySelector(".pagination")
 J.OG(z).V1(0)
-z.appendChild(this.BX(a))},
-BX:function(a){var z,y,x
+z.appendChild(this.Wg(a,b))},
+Wg:function(a,b){var z,y,x,w
 z=document.createElement("div",null)
 y=document.createElement("div",null)
 x=J.RE(y)
 x.gDD(y).h(0,"table__column--width-fill")
 x.shf(y,a)
-x=J.RE(z)
+if(b){w=W.r3("i",null)
+x=J.RE(w)
+x.gDD(w).h(0,"fa-spinner")
+x.gDD(w).h(0,"fa-spin")
+x.gDD(w).h(0,"fa")
+y.appendChild(w)}x=J.RE(z)
 x.gDD(z).h(0,"table__heading")
 x.gDD(z).h(0,"sg2o-table-heading")
 z.appendChild(y)

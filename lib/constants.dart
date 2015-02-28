@@ -67,6 +67,8 @@ const String classFA = 'fa';
 const String classFACircle = 'fa-circle';
 const String classFACircleO = 'fa-circle-o';
 const String classFACheckedCircle = 'fa-check-circle';
+const String classFASpinner = 'fa-spinner';
+const String classFASpin = 'fa-spin';
 
 const String classIsSelected = 'is-selected';
 const String classIsDisabled = 'is-disabled';
