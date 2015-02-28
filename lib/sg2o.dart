@@ -47,7 +47,14 @@ void replaceFeatured() {
   ElementList widgetContainers = querySelectorAll('.$classWidgetContainers');
   Element placeBeforeThis;
 //  Element voteContainer = widgetContainers.elementAt(1); //TODO find a better way to select this, as the community vote does not always exist.
-  Element forumContainer = widgetContainers.elementAt(widgetContainers.length - 1);
+  Element forumContainer;
+
+  /// Find the appropriate widget container.
+  widgetContainers.forEach((Element e) {
+    if (e.innerHtml.contains('Active Discussions')) {
+      forumContainer = e;
+    }
+  });
 
   if (querySelectorAll('.$classPinnedGiveaways').length > 0) {
     placeBeforeThis = querySelector('.$classPinnedGiveaways');
