@@ -167,6 +167,7 @@ class GiveAway {
     DivElement blackListLinkContainer = new DivElement();
     blackListLinkContainer
       ..classes.add(classFloatLeft)
+      ..classes.add(classFontAwesome)
       ..classes.add(classEyeSlash)
       ..classes.add(classOneClickBlackList)
       ..onClick.listen((Event e) {

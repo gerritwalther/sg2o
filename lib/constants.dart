@@ -40,6 +40,7 @@ const String classGAImageOuterBorder = 'global__image-outer-wrap';
 const String classGAWhiteListed = 'giveaway__column--whitelist';
 const String classGAHide = 'giveaway__hide';
 const String classEyeSlash = 'fa-eye-slash';
+const String classFontAwesome = 'fa';
 
 const String classWidgetMarginTop = 'widget-container--margin-top';
 
