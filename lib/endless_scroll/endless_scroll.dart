@@ -25,7 +25,7 @@ abstract class EndlessScroll {
 
   void loadNextPage(Event e) {
     num now = new DateTime.now().millisecondsSinceEpoch;
-    if (isLoading || now - lastLoading < 700) {
+    if (isLoading || now - lastLoading < 600) {
       return;
     } else {
       isLoading = true;
