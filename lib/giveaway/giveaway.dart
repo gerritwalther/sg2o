@@ -178,10 +178,13 @@ class GiveAway {
     DivElement customWishListContainer = new DivElement();
     customWishListContainer
       ..classes.add(classFloatLeft)
+      ..classes.add(classFontAwesome)
       ..classes.add(classCustomWishList)
       ..onClick.listen(toggleGameOnCustomWishList);
     if (isCustomWishListGA) {
-      customWishListContainer.classes.add(classHighLightCustomWishList);
+      customWishListContainer.classes.add(classFAFullHeart);
+    } else {
+      customWishListContainer.classes.add(classFAEmptyHeart);
     }
 
     if (entered) {
@@ -281,11 +284,13 @@ class GiveAway {
     if (isCustomWishListGA) {
       isCustomWishListGA = false;
       customWishList.removeGameFromWishList(name);
-      target.classes.remove(classHighLightCustomWishList);
+      target.classes.remove(classFAFullHeart);
+      target.classes.add(classFAEmptyHeart);
     } else {
       isCustomWishListGA = true;
       customWishList.addGameToWishList(name);
-      target.classes.add(classHighLightCustomWishList);
+      target.classes.remove(classFAEmptyHeart);
+      target.classes.add(classFAFullHeart);
     }
     borderClass = getBorderColorClass();
     giveAwayLink.classes.add(borderClass);

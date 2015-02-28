@@ -39,8 +39,10 @@ const String classGAEntered = 'is-faded';
 const String classGAImageOuterBorder = 'global__image-outer-wrap';
 const String classGAWhiteListed = 'giveaway__column--whitelist';
 const String classGAHide = 'giveaway__hide';
-const String classEyeSlash = 'fa-eye-slash';
 const String classFontAwesome = 'fa';
+const String classFAFullHeart = 'fa-heart';
+const String classFAEmptyHeart = 'fa-heart-o';
+const String classEyeSlash = 'fa-eye-slash';
 
 const String classWidgetMarginTop = 'widget-container--margin-top';
 
