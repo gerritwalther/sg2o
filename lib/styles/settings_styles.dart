@@ -2,11 +2,11 @@ part of sg2o;
 
 class SettingsStyles extends Styles {
 
-  SettingsStyles () : super();
+    SettingsStyles() : super();
 
-  void addStyles() {
-    String rule =
-    '''
+    void addStyles() {
+        String rule =
+        '''
 .$classModalDialog {
   position: fixed;
   font-family: Arial, Helvetica, sans-serif;
@@ -24,19 +24,19 @@ class SettingsStyles extends Styles {
   pointer-events: none;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-    '''
+        rule =
+        '''
 .$classModalDialog:target {
   opacity: 1;
   pointer-events: auto;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-    '''
+        rule =
+        '''
 .$classModalDialog > div {
   width: 1000px;
   position: relative;
@@ -49,10 +49,10 @@ class SettingsStyles extends Styles {
   background: -o-linear-gradient(#fff, #999);
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-    '''
+        rule =
+        '''
 .$classClose {
   background: #606061;
   color: #FFFFFF;
@@ -72,23 +72,23 @@ class SettingsStyles extends Styles {
   box-shadow: 1px 1px 3px #000;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-    '''
+        rule =
+        '''
 .$classClose:hover {
   background: #00d9ff;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-    '''
+        rule =
+        '''
 .$classSettingsHeading {
   font: 700 20px "Open Sans", sans-serif;
   color: $fontColor;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
-  }
+        styleSheet.insertRule(rule, 0);
+    }
 }

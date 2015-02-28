@@ -2,29 +2,29 @@ part of sg2o;
 
 class Styles {
 
-  CssStyleSheet styleSheet;
+    CssStyleSheet styleSheet;
 
-  Styles () {
-    styleSheet = createStyleSheetElement();
-  }
+    Styles() {
+        styleSheet = createStyleSheetElement();
+    }
 
-  void addStyles() {
-    new BorderStyles().addBorderStyles();
-    new CommonStyles().addStyles();
-    new SettingsStyles().addStyles();
-  }
+    void addStyles() {
+        new BorderStyles().addBorderStyles();
+        new CommonStyles().addStyles();
+        new SettingsStyles().addStyles();
+    }
 
-  CssStyleSheet createStyleSheetElement() {
-    StyleElement styles = new StyleElement();
-    document.head.append(styles);
+    CssStyleSheet createStyleSheetElement() {
+        StyleElement styles = new StyleElement();
+        document.head.append(styles);
 
-    return styles.sheet;
-  }
+        return styles.sheet;
+    }
 
-  void addMarginToHeader() {
-    Element headerElement = querySelector('.$classSectionHeading');
+    void addMarginToHeader() {
+        Element headerElement = querySelector('.$classSectionHeading');
 
-    headerElement.setAttribute('style', 'margin-bottom: 0.5em');
-  }
+        headerElement.setAttribute('style', 'margin-bottom: 0.5em');
+    }
 
 }

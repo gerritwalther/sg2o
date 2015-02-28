@@ -31,43 +31,43 @@ CustomWishList customWishList = new CustomWishList();
 GridView gridView = new GridView();
 
 bool pinnedGAsExist() {
-  ElementList pinnedGAs = querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow');
+    ElementList pinnedGAs = querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow');
 
-  return pinnedGAs.isNotEmpty;
+    return pinnedGAs.isNotEmpty;
 }
 
 void fixNavigation() {
-  Element navigationHeaderElement = querySelector(elementNavigation);
+    Element navigationHeaderElement = querySelector(elementNavigation);
 
-  navigationHeaderElement.classes.add(classFixedNavigation);
+    navigationHeaderElement.classes.add(classFixedNavigation);
 }
 
 void replaceFeatured() {
-  Element featuredContainer = querySelector('.$classFeaturedContainer');
-  ElementList widgetContainers = querySelectorAll('.$classWidgetContainers');
-  Element placeBeforeThis;
+    Element featuredContainer = querySelector('.$classFeaturedContainer');
+    ElementList widgetContainers = querySelectorAll('.$classWidgetContainers');
+    Element placeBeforeThis;
 //  Element voteContainer = widgetContainers.elementAt(1); //TODO find a better way to select this, as the community vote does not always exist.
-  Element forumContainer;
+    Element forumContainer;
 
-  /// Find the appropriate widget container.
-  widgetContainers.forEach((Element e) {
-    if (e.innerHtml.contains('Active Discussions')) {
-      forumContainer = e;
+    /// Find the appropriate widget container.
+    widgetContainers.forEach((Element e) {
+        if (e.innerHtml.contains('Active Discussions')) {
+            forumContainer = e;
+        }
+    });
+
+    if (querySelectorAll('.$classPinnedGiveaways').length > 0) {
+        placeBeforeThis = querySelector('.$classPinnedGiveaways');
+    } else {
+        placeBeforeThis = querySelector('.$classSectionHeading');
     }
-  });
 
-  if (querySelectorAll('.$classPinnedGiveaways').length > 0) {
-    placeBeforeThis = querySelector('.$classPinnedGiveaways');
-  } else {
-    placeBeforeThis = querySelector('.$classSectionHeading');
-  }
-
-  featuredContainer.remove();
-  placeBeforeThis.parent
-    ..insertBefore(forumContainer, placeBeforeThis);
+    featuredContainer.remove();
+    placeBeforeThis.parent
+        ..insertBefore(forumContainer, placeBeforeThis);
 //    ..insertBefore(voteContainer, placeBeforeThis);
 
-  forumContainer.classes.remove(classWidgetMarginTop);
-  // TODO: Might not need to add a margin top here (at least not for pinned GAs, extra removal of margin-top for pinnedGAs can be removed if this is removed).
-  placeBeforeThis.classes.add(classWidgetMarginTop);
+    forumContainer.classes.remove(classWidgetMarginTop);
+    // TODO: Might not need to add a margin top here (at least not for pinned GAs, extra removal of margin-top for pinnedGAs can be removed if this is removed).
+    placeBeforeThis.classes.add(classWidgetMarginTop);
 }
