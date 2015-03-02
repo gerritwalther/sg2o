@@ -1,4 +1,4 @@
-/// The sg2o library.
+/// The sg2o library. containing all the required imports and parts for this plugin.
 library sg2o;
 
 import 'dart:html';
@@ -24,43 +24,54 @@ part 'styles/common_styles.dart';
 part 'styles/settings_styles.dart';
 part 'styles/styles.dart';
 
+/// These classes should only be instantiated once and used everywhere.
 MyStorage storage = new MyStorage();
 BlackList blackList = new BlackList();
 WishList wishList = new WishList();
 CustomWishList customWishList = new CustomWishList();
 GridView gridView = new GridView();
 
+/// Returns [true] if there are pinned giveaways.
 bool pinnedGAsExist() {
-  ElementList pinnedGAs = querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow');
+    ElementList pinnedGAs = querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow');
 
-  return pinnedGAs.isNotEmpty;
+    return pinnedGAs.isNotEmpty;
 }
 
+/// Adds a class to the navigation to fix it at the top.
 void fixNavigation() {
-  Element navigationHeaderElement = querySelector(elementNavigation);
+    Element navigationHeaderElement = querySelector(elementNavigation);
 
-  navigationHeaderElement.classes.add(classFixedNavigation);
+    navigationHeaderElement.classes.add(classFixedNavigation);
 }
 
+/// Replaces the featured giveaways on top with the recent forum posts.
 void replaceFeatured() {
-  Element featuredContainer = querySelector('.$classFeaturedContainer');
-  ElementList widgetContainers = querySelectorAll('.$classWidgetContainers');
-  Element placeBeforeThis;
+    Element featuredContainer = querySelector('.$classFeaturedContainer');
+    ElementList widgetContainers = querySelectorAll('.$classWidgetContainers');
+    Element placeBeforeThis;
 //  Element voteContainer = widgetContainers.elementAt(1); //TODO find a better way to select this, as the community vote does not always exist.
-  Element forumContainer = widgetContainers.elementAt(widgetContainers.length - 1);
+    Element forumContainer;
 
-  if (querySelectorAll('.$classPinnedGiveaways').length > 0) {
-    placeBeforeThis = querySelector('.$classPinnedGiveaways');
-  } else {
-    placeBeforeThis = querySelector('.$classSectionHeading');
-  }
+    /// Find the appropriate widget container.
+    widgetContainers.forEach((Element e) {
+        if (e.innerHtml.contains('Active Discussions')) {
+            forumContainer = e;
+        }
+    });
 
-  featuredContainer.remove();
-  placeBeforeThis.parent
-    ..insertBefore(forumContainer, placeBeforeThis);
+    if (querySelectorAll('.$classPinnedGiveaways').length > 0) {
+        placeBeforeThis = querySelector('.$classPinnedGiveaways');
+    } else {
+        placeBeforeThis = querySelector('.$classSectionHeading');
+    }
+
+    featuredContainer.remove();
+    placeBeforeThis.parent
+        ..insertBefore(forumContainer, placeBeforeThis);
 //    ..insertBefore(voteContainer, placeBeforeThis);
 
-  forumContainer.classes.remove(classWidgetMarginTop);
-  // TODO: Might not need to add a margin top here (at least not for pinned GAs, extra removal of margin-top for pinnedGAs can be removed if this is removed).
-  placeBeforeThis.classes.add(classWidgetMarginTop);
+    forumContainer.classes.remove(classWidgetMarginTop);
+    // TODO: Might not need to add a margin top here (at least not for pinned GAs, extra removal of margin-top for pinnedGAs can be removed if this is removed).
+    placeBeforeThis.classes.add(classWidgetMarginTop);
 }

@@ -1,30 +1,34 @@
 part of sg2o;
 
+/// Main class for adding all the styles required for the plugin.
 class Styles {
 
-  CssStyleSheet styleSheet;
+    CssStyleSheet styleSheet;
 
-  Styles () {
-    styleSheet = createStyleSheetElement();
-  }
+    Styles() {
+        styleSheet = createStyleSheetElement();
+    }
 
-  void addStyles() {
-    new BorderStyles().addBorderStyles();
-    new CommonStyles().addStyles();
-    new SettingsStyles().addStyles();
-  }
+    /// Adds all styles. Add more here.
+    void addStyles() {
+        new BorderStyles().addBorderStyles();
+        new CommonStyles().addStyles();
+        new SettingsStyles().addStyles();
+    }
 
-  CssStyleSheet createStyleSheetElement() {
-    StyleElement styles = new StyleElement();
-    document.head.append(styles);
+    /// Creates a [StyleElement] and adds it to the DOM.
+    CssStyleSheet createStyleSheetElement() {
+        StyleElement styles = new StyleElement();
+        document.head.append(styles);
 
-    return styles.sheet;
-  }
+        return styles.sheet;
+    }
 
-  void addMarginToHeader() {
-    Element headerElement = querySelector('.$classSectionHeading');
+    /// Adds a margin to the header.
+    void addMarginToHeader() {
+        Element headerElement = querySelector('.$classSectionHeading');
 
-    headerElement.setAttribute('style', 'margin-bottom: 0.5em');
-  }
+        headerElement.setAttribute('style', 'margin-bottom: 0.5em');
+    }
 
 }

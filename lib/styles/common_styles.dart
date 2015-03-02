@@ -1,20 +1,23 @@
 part of sg2o;
 
+/// Class for common styles that are added to the DOM.
 class CommonStyles extends Styles {
 
-  CommonStyles() : super ();
+    CommonStyles() : super ();
 
-  void addStyles() {
-    String rule =
-  '''
+    /// Adds a set of common styles to the DOM.
+    /// TODO: Maybe move some of the rules to other classes.
+    void addStyles() {
+        String rule =
+        '''
 body {
   margin-top: 39px;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-  '''
+        rule =
+        '''
 .$classFixedNavigation {
   position: fixed;
   top: 0;
@@ -24,10 +27,10 @@ body {
   width: 100%;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-  '''
+        rule =
+        '''
 .$classGridView {
   float: left;
   width: 184px;
@@ -37,26 +40,26 @@ body {
   margin-bottom: 0.5em;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-  '''
+        rule =
+        '''
 .$classPinnedGAContainer {
   padding-top: 5px;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-  '''
+        rule =
+        '''
 .$classSectionHeading {
   margin-bottom: 0.5em;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-  '''
+        rule =
+        '''
 .$classGridViewInfoContainer {
   z-index: 100;
   font-size: 10;
@@ -69,10 +72,10 @@ body {
   position: absolute;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-  '''
+        rule =
+        '''
 .$classGridViewAvatar {
   width: 25px;
   height: 25px;
@@ -81,91 +84,75 @@ body {
   border-radius: 1px;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-  '''
+        rule =
+        '''
 .$classFloatLeft {
   float: left;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-  '''
+        rule =
+        '''
 .$classFloatRight {
   float: right;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-  '''
+        rule =
+        '''
 .$classGridViewGAName {
   font-weight: bold;
   min-height: 30px;
   margin-bottom: 0.5em;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-  '''
+        rule =
+        '''
 .$classHidden {
   display: none !important;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-  '''
+        rule =
+        '''
 .$classFaded {
   opacity: 0.5;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-'''
+        rule =
+        '''
 .$classSg2oTableHeading {
   margin-bottom: 5px;
   width: 100%;
   text-align: center;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-'''
+        rule =
+        '''
 .$classOneClickBlackList {
   cursor: pointer;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
+        styleSheet.insertRule(rule, 0);
 
-    rule =
-'''
+        rule =
+        '''
 .$classCustomWishList {
   cursor: pointer;
   padding-left: 5px;
 }
 ''';
-    styleSheet.insertRule(rule, 0);
-
-    rule =
-'''
-.$classCustomWishList:before {
-  content: "\\E11F";
-}
-''';
-    styleSheet.insertRule(rule, 0);
-
-    rule =
-'''
-.$classHighLightCustomWishList {
-  color: #F00;
-}
-''';
-    styleSheet.insertRule(rule, 0);
-  }
+        styleSheet.insertRule(rule, 0);
+    }
 }

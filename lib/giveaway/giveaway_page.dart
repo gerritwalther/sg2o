@@ -1,44 +1,49 @@
 part of sg2o;
 
+/// This contains one page of giveaways. Used to propagate update events to all giveaways.
 class GiveAwayPage {
 
-  List<GiveAway> giveAways;
+    List<GiveAway> giveAways;
 
-  GiveAwayPage() {
-    giveAways = new List();
-  }
-
-  Element collapseGAs(int beginWithNo, Document documentToQuery, String classForContainer, Element parentElementToInsertGAs, ElementList gaList) {
-    parentElementToInsertGAs.innerHtml = '';
-    if (classForContainer != null) {
-      parentElementToInsertGAs.classes.add(classForContainer);
+    GiveAwayPage() {
+        giveAways = new List();
     }
 
-    for (int i = beginWithNo; i < gaList.length; i++) {
-      GiveAway giveAway = new GiveAway(gaList.elementAt(i));
-
-      if (giveAway.isNotBlackListed()) {
-        if ((!giveAway.isEntered() || (giveAway.isEntered() && storage.showEnteredGiveaways()))) {
-          parentElementToInsertGAs.append(giveAway.wrappedWithStyles());
+    /// Returns an [Element] containing all collapsed giveaway containers for one page. Also adds the giveaways to a list to be later updated.
+    Element collapseGAs(int beginWithNo, Document documentToQuery, String classForContainer, Element parentElementToInsertGAs, ElementList gaList) {
+        parentElementToInsertGAs.innerHtml = '';
+        if (classForContainer != null) {
+            parentElementToInsertGAs.classes.add(classForContainer);
         }
-      } else {
-        giveAway.addGameToBlackList();
-      }
-      giveAways.add(giveAway);
+
+        for (int i = beginWithNo; i < gaList.length; i++) {
+            GiveAway giveAway = new GiveAway(gaList.elementAt(i));
+
+            if (giveAway.isNotBlackListed()) {
+                // Add giveaway only if its not entered, or its entered and option to hide entered GAs is deactivated.
+                if ((!giveAway.isEntered() || (giveAway.isEntered() && storage.showEnteredGiveaways()))) {
+                    parentElementToInsertGAs.append(giveAway.wrappedWithStyles());
+                }
+            } else {
+                giveAway.addGameToBlackList();
+            }
+            giveAways.add(giveAway);
+        }
+        addStopStyleParagraph(parentElementToInsertGAs);
+        return parentElementToInsertGAs;
     }
-    addStopStyleParagraph(parentElementToInsertGAs);
-    return parentElementToInsertGAs;
-  }
 
-  void updateBorders(String name) {
-    giveAways.forEach((GiveAway ga) {
-      ga.updateBorder(name);
-    });
-  }
+    /// Propagation function to update all borders of the containing giveAways in this page matching the [name].
+    void updateBorders(String name) {
+        giveAways.forEach((GiveAway ga) {
+            ga.updateBorder(name);
+        });
+    }
 
-  void hideTemporarily(String name) {
-    giveAways.forEach((GiveAway ga) {
-      ga.hideTemporarily(name);
-    });
-  }
+    /// Propagation function to hide all containing giveAways in this page matching the [name].
+    void hideTemporarily(String name) {
+        giveAways.forEach((GiveAway ga) {
+            ga.hideTemporarily(name);
+        });
+    }
 }

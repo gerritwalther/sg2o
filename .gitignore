@@ -18,3 +18,6 @@ pubspec.lock
 .buildlog
 .DS_Store
 .idea
+
+# project specific files
+sg2o.user.js

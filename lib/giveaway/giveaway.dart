@@ -1,228 +1,246 @@
 part of sg2o;
 
+/// Class for one giveaway. Parses the whole information from the DOM. Also creates a collapsed element with the information.
 class GiveAway {
-  String name;
-  String created;
-  String creator;
-  String remaining;
-  String link;
-  Element image;
-  Element avatar;
-  int points;
-  int entries;
-  int copies = 1;
-  int comments;
-  int contributorLevel = 0;
-  int sgGameId;
-  bool isContributorGA;
-  bool isGroupGA;
-  bool isWishListGA;
-  bool isCustomWishListGA;
-  bool entered;
-  bool isWhiteListed;
+    String name;
+    String created;
+    String creator;
+    String remaining;
+    String link;
+    Element image;
+    Element avatar;
+    int points;
+    int entries;
+    int copies = 1;
+    int comments;
+    int contributorLevel = 0;
+    int sgGameId;
+    bool isContributorGA;
+    bool isGroupGA;
+    bool isWishListGA;
+    bool isCustomWishListGA;
+    bool entered;
+    bool isWhiteListed;
 
-  Element giveAwayContainer;
-  /// Use this to change border color.
-  Element giveAwayLink;
+    /// Container for this game. Used for hiding it after moving it to the blacklist.
+    Element giveAwayContainer;
 
-  String borderClass;
+    /// Use this to change border color.
+    Element giveAwayLink;
 
-  GiveAway(Element gaHtml) {
-    ElementList copiesAndPoints = gaHtml.querySelectorAll('span.$classGAHeadingThin');
-    Element copies;
-    Element points;
-    if (copiesAndPoints.length == 1) {
-      points = copiesAndPoints[0];
-    } else {
-      copies = copiesAndPoints[0];
-      points = copiesAndPoints[1];
-      this.copies = parseNumber(copies.text);
-    }
-    this.points = parseNumber(points.text);
-    Element nameAndLink = gaHtml.querySelector('a.$classGAName');
-    this.name = nameAndLink.text;
-    this.link = nameAndLink.getAttribute('href');
-    this.remaining = parseTime(gaHtml.querySelector('div.$classGAColumns>div>span').text);
-    this.created = parseTime(gaHtml.querySelector('div.$classGAColumnWidthFill').text);
-    this.creator = gaHtml.querySelector('.$classGAUserName').text;
-    ElementList entriesAndComments = gaHtml.querySelectorAll('div.$classGALinks>a>span');
-    this.entries = parseNumber(entriesAndComments.first.text);
-    this.comments = parseNumber(entriesAndComments.last.text);
-    this.image = gaHtml.querySelector('a.$classGAGameImage').children.first;
-    this.avatar = gaHtml.querySelector('.$classGAAvatar>.$classGAAvatarImage');
-    ElementList contributorElement = gaHtml.querySelectorAll('.$classGAContributorLvl');
-    this.isContributorGA = contributorElement.length > 0;
-    if (this.isContributorGA) {
-      this.contributorLevel = parseNumber(contributorElement[0].text);
-    }
-    this.isGroupGA = gaHtml.querySelectorAll('.$classGAGroupIcon').length > 0;
-    this.isWishListGA = wishList.isOnWishList(name);
-    this.isCustomWishListGA = customWishList.isOnWishList(name);
-    this.entered = gaHtml.querySelectorAll('.$classGAEntered').length > 0;
-    this.isWhiteListed = gaHtml.querySelectorAll('.$classGAWhiteListed').length > 0;
-    this.sgGameId = parseNumber(gaHtml.querySelector('.$classGAHide').getAttribute('data-game-id'));
+    /// Current border class which is updated when adding to the custom wishlist.
+    String borderClass;
 
-    this.borderClass = getBorderColorClass();
-  }
+    /// Constructor that parses the giveaway from [gaHtml]. The passed html has to contain a number of different elements.
+    GiveAway(Element gaHtml) {
+        ElementList copiesAndPoints = gaHtml.querySelectorAll('span.$classGAHeadingThin');
+        Element copies;
+        Element points;
+        if (copiesAndPoints.length == 1) {
+            points = copiesAndPoints[0];
+        } else {
+            copies = copiesAndPoints[0];
+            points = copiesAndPoints[1];
+            this.copies = parseNumber(copies.text);
+        }
+        this.points = parseNumber(points.text);
+        Element nameAndLink = gaHtml.querySelector('a.$classGAName');
+        this.name = nameAndLink.text;
+        this.link = nameAndLink.getAttribute('href');
+        this.remaining = parseTime(gaHtml.querySelector('div.$classGAColumns>div>span').text);
+        this.created = parseTime(gaHtml.querySelector('div.$classGAColumnWidthFill').text);
+        this.creator = gaHtml.querySelector('.$classGAUserName').text;
+        ElementList entriesAndComments = gaHtml.querySelectorAll('div.$classGALinks>a>span');
+        this.entries = parseNumber(entriesAndComments.first.text);
+        this.comments = parseNumber(entriesAndComments.last.text);
+        this.image = gaHtml.querySelector('a.$classGAGameImage').children.first;
+        this.avatar = gaHtml.querySelector('.$classGAAvatar>.$classGAAvatarImage');
+        ElementList contributorElement = gaHtml.querySelectorAll('.$classGAContributorLvl');
+        this.isContributorGA = contributorElement.length > 0;
+        if (this.isContributorGA) {
+            this.contributorLevel = parseNumber(contributorElement[0].text);
+        }
+        this.isGroupGA = gaHtml.querySelectorAll('.$classGAGroupIcon').length > 0;
+        this.isWishListGA = wishList.isOnWishList(name);
+        this.isCustomWishListGA = customWishList.isOnWishList(name);
+        this.entered = gaHtml.querySelectorAll('.$classGAEntered').length > 0;
+        this.isWhiteListed = gaHtml.querySelectorAll('.$classGAWhiteListed').length > 0;
+        this.sgGameId = parseNumber(gaHtml.querySelector('.$classGAHide').getAttribute('data-game-id'));
 
-  Element wrappedWithStyles() {
-    giveAwayContainer = new DivElement();
-
-    Element informationContainer = createInformationContainer();
-
-    giveAwayLink = createElementWithName('a', '');
-    Element giveAwayImage = new DivElement();
-    giveAwayLink
-      ..setAttribute('href', this.link)
-      ..classes.add(classGAImageOuterBorder)
-      ..classes.add(classGAGameImage)
-      ..classes.add(borderClass)
-      ..append(giveAwayImage);
-
-    giveAwayImage
-      ..classes.add(classGAAvatarImage)
-      ..setAttribute('style', this.image.getAttribute('style'));
-
-    giveAwayContainer
-      ..classes.add(classGridView)
-      ..append(giveAwayLink)
-      ..append(informationContainer)
-      ..onMouseEnter.listen((e) => informationContainer.classes.remove(classHidden))
-      ..onMouseLeave.listen((e) => informationContainer.classes.add(classHidden));
-
-    if (entered) {
-      giveAwayLink.classes.add(classFaded);
+        this.borderClass = getBorderColorClass();
     }
 
-    return giveAwayContainer;
-  }
+    /// Return this giveaway as small gridview compatible [Element].
+    Element wrappedWithStyles() {
+        giveAwayContainer = new DivElement();
 
-  Element createInformationContainer() {
-    DivElement informationContainer = new DivElement();
+        Element informationContainer = createInformationContainer();
 
-    informationContainer
-      ..classes.add(classHidden)
-      ..classes.add(classGridViewInfoContainer)
-      ..setAttribute('style', 'border-top: 1px #FFFFFF;');
+        giveAwayLink = createElementWithName('a', '');
+        Element giveAwayImage = new DivElement();
+        giveAwayLink
+            ..setAttribute('href', this.link)
+            ..classes.add(classGAImageOuterBorder)
+            ..classes.add(classGAGameImage)
+            ..classes.add(borderClass)
+            ..append(giveAwayImage);
 
-    DivElement nameContainer = new DivElement();
-    nameContainer
-      ..classes.add(classGridViewGAName)
-      ..innerHtml = name;
+        giveAwayImage
+            ..classes.add(classGAAvatarImage)
+            ..setAttribute('style', this.image.getAttribute('style'));
 
-    DivElement copiesContainer = new DivElement();
-    copiesContainer
-      ..classes.add(classFloatLeft)
-      ..append(createStrongElement(this.copies))
-      ..append(createTextElement((this.copies == 1) ? ' Copy': ' Copies'));
+        giveAwayContainer
+            ..classes.add(classGridView)
+            ..append(giveAwayLink)
+            ..append(informationContainer)
+            ..onMouseEnter.listen((e) => informationContainer.classes.remove(classHidden))
+            ..onMouseLeave.listen((e) => informationContainer.classes.add(classHidden));
 
-    DivElement pointsContainer = new DivElement();
-    pointsContainer
-      ..classes.add(classFloatRight)
-      ..append(createStrongElement(this.points.toString() + 'P'));
+        if (entered) {
+            giveAwayLink.classes.add(classFaded);
+        }
 
-    DivElement timeRemainingContainer = new DivElement();
-    timeRemainingContainer
-      ..classes.add(classFloatLeft)
-      ..setAttribute('style', 'margin-top: -16px;')
-      ..append(createStrongElement(this.remaining))
-      ..append(createTextElement(' remaining'));
-
-    DivElement avatarContainer = new DivElement();
-    avatarContainer
-      ..classes.add(classFloatRight)
-      ..classes.add(classGridViewAvatar)
-      ..append(this.avatar);
-
-    DivElement entriesContainer = new DivElement();
-    entriesContainer
-      ..classes.add(classFloatLeft)
-      ..append(createStrongElement(this.entries))
-      ..append(createTextElement(' entries'));
-
-    DivElement chanceToWinContainer = new DivElement();
-    chanceToWinContainer
-      ..classes.add(classFloatRight)
-      ..append(createStrongElement((100 / (this.entries + 1)).toStringAsFixed(2)))
-      ..append(createTextElement(' %'));
-
-    DivElement commentsContainer = new DivElement();
-    commentsContainer
-      ..classes.add(classFloatLeft)
-      ..append(createStrongElement(this.comments))
-      ..append(createTextElement(' comments'));
-
-    DivElement levelContainer = new DivElement();
-    levelContainer
-      ..classes.add(classGAContributorLvl)
-      ..classes.add(classFloatRight)
-      ..innerHtml = '$contributorLevel+';
-
-    if (myLevel >= contributorLevel) {
-      levelContainer.classes.add(classGAContributorPos);
-    } else {
-      levelContainer.classes.add(classGAContributorNeg);
+        return giveAwayContainer;
     }
 
-    DivElement blackListLinkContainer = new DivElement();
-    blackListLinkContainer
-      ..classes.add(classFloatLeft)
-      ..classes.add(classEyeSlash)
-      ..classes.add(classOneClickBlackList)
-      ..onClick.listen((Event e) {
-          addGameToBlackList();
-          gridView.hideTemporarily(this.name);
+    /// Creates the information container [Element].
+    Element createInformationContainer() {
+        DivElement informationContainer = new DivElement();
+
+        informationContainer
+            ..classes.add(classHidden)
+            ..classes.add(classGridViewInfoContainer)
+            ..setAttribute('style', 'border-top: 1px #FFFFFF;');
+
+        DivElement nameContainer = new DivElement();
+        nameContainer
+            ..classes.add(classGridViewGAName)
+            ..innerHtml = name;
+
+        DivElement copiesContainer = new DivElement();
+        copiesContainer
+            ..classes.add(classFloatLeft)
+            ..append(createStrongElement(this.copies))
+            ..append(createTextElement((this.copies == 1) ? ' Copy' : ' Copies'));
+
+        DivElement pointsContainer = new DivElement();
+        pointsContainer
+            ..classes.add(classFloatRight)
+            ..append(createStrongElement(this.points.toString() + 'P'));
+
+        DivElement timeRemainingContainer = new DivElement();
+        timeRemainingContainer
+            ..classes.add(classFloatLeft)
+            ..setAttribute('style', 'margin-top: -16px;')
+            ..append(createStrongElement(this.remaining))
+            ..append(createTextElement(' remaining'));
+
+        DivElement avatarContainer = new DivElement();
+        avatarContainer
+            ..classes.add(classFloatRight)
+            ..classes.add(classGridViewAvatar)
+            ..append(this.avatar);
+
+        DivElement entriesContainer = new DivElement();
+        entriesContainer
+            ..classes.add(classFloatLeft)
+            ..append(createStrongElement(this.entries))
+            ..append(createTextElement(' entries'));
+
+        // Chance is calculated by entries. Only add 1 entry, when not yet entered.
+        DivElement chanceToWinContainer = new DivElement();
+        chanceToWinContainer
+            ..classes.add(classFloatRight)
+            ..append(createStrongElement((100 / (this.entries + ((entered) ? 0 : 1))).toStringAsFixed(2)))
+            ..append(createTextElement(' %'));
+
+        DivElement commentsContainer = new DivElement();
+        commentsContainer
+            ..classes.add(classFloatLeft)
+            ..append(createStrongElement(this.comments))
+            ..append(createTextElement(' comments'));
+
+        DivElement levelContainer = new DivElement();
+        levelContainer
+            ..classes.add(classGAContributorLvl)
+            ..classes.add(classFloatRight)
+            ..innerHtml = '$contributorLevel+';
+
+        if (myLevel >= contributorLevel) {
+            levelContainer.classes.add(classGAContributorPos);
+        } else {
+            levelContainer.classes.add(classGAContributorNeg);
+        }
+
+        // Add [DivElement] to add game directly to blackList.
+        DivElement blackListLinkContainer = new DivElement();
+        blackListLinkContainer
+            ..classes.add(classFloatLeft)
+            ..classes.add(classFontAwesome)
+            ..classes.add(classEyeSlash)
+            ..classes.add(classOneClickBlackList)
+            ..onClick.listen((Event e) {
+            addGameToBlackList();
+            gridView.hideTemporarily(this.name);
         });
 
-    DivElement customWishListContainer = new DivElement();
-    customWishListContainer
-      ..classes.add(classFloatLeft)
-      ..classes.add(classCustomWishList)
-      ..onClick.listen(toggleGameOnCustomWishList);
-    if (isCustomWishListGA) {
-      customWishListContainer.classes.add(classHighLightCustomWishList);
+        // Add [DivElement] to add game directly to custom wishlist.
+        DivElement customWishListContainer = new DivElement();
+        customWishListContainer
+            ..classes.add(classFloatLeft)
+            ..classes.add(classFontAwesome)
+            ..classes.add(classCustomWishList)
+            ..onClick.listen(toggleGameOnCustomWishList);
+
+        if (isCustomWishListGA) {
+            customWishListContainer.classes.add(classFAFullHeart);
+        } else {
+            customWishListContainer.classes.add(classFAEmptyHeart);
+        }
+
+        // Add a lowered opacity if game is entered.
+        if (entered) {
+            nameContainer.classes.add(classFaded);
+            copiesContainer.classes.add(classFaded);
+            pointsContainer.classes.add(classFaded);
+            timeRemainingContainer.classes.add(classFaded);
+            avatarContainer.classes.add(classFaded);
+            entriesContainer.classes.add(classFaded);
+            chanceToWinContainer.classes.add(classFaded);
+            commentsContainer.classes.add(classFaded);
+            levelContainer.classes.add(classFaded);
+            blackListLinkContainer.classes.add(classFaded);
+            customWishListContainer.classes.add(classFaded);
+        }
+
+        informationContainer
+            ..append(nameContainer)
+            ..append(avatarContainer)
+            ..append(copiesContainer)
+            ..append(pointsContainer)
+            ..append(createStopStyleParagraph())
+            ..append(timeRemainingContainer)
+            ..append(createStopStyleParagraph())
+            ..append(entriesContainer)
+            ..append(chanceToWinContainer)
+            ..append(createStopStyleParagraph())
+            ..append(commentsContainer)
+            ..append(levelContainer)
+            ..append(createStopStyleParagraph())
+            ..append(blackListLinkContainer)
+            ..append(customWishListContainer);
+
+        return informationContainer;
     }
 
-    if (entered) {
-      nameContainer.classes.add(classFaded);
-      copiesContainer.classes.add(classFaded);
-      pointsContainer.classes.add(classFaded);
-      timeRemainingContainer.classes.add(classFaded);
-      avatarContainer.classes.add(classFaded);
-      entriesContainer.classes.add(classFaded);
-      chanceToWinContainer.classes.add(classFaded);
-      commentsContainer.classes.add(classFaded);
-      levelContainer.classes.add(classFaded);
-      blackListLinkContainer.classes.add(classFaded);
-      customWishListContainer.classes.add(classFaded);
+    /// Print this giveaway to console.
+    void print() {
+        window.console.info(toString());
     }
 
-    informationContainer
-      ..append(nameContainer)
-      ..append(avatarContainer)
-      ..append(copiesContainer)
-      ..append(pointsContainer)
-      ..append(createStopStyleParagraph())
-      ..append(timeRemainingContainer)
-      ..append(createStopStyleParagraph())
-      ..append(entriesContainer)
-      ..append(chanceToWinContainer)
-      ..append(createStopStyleParagraph())
-      ..append(commentsContainer)
-      ..append(levelContainer)
-      ..append(createStopStyleParagraph())
-      ..append(blackListLinkContainer)
-      ..append(customWishListContainer);
-
-    return informationContainer;
-  }
-
-  void print() {
-    window.console.info(toString());
-  }
-
-  String toString() {
-    return "Giveaway: " + name
+    /// Returns a [String]-representation of this giveaway.
+    String toString() {
+        return "Giveaway: " + name
         + " with " + points.toString() + " Points, created by " + creator
         + " " + created + " ago,  still open for: " + remaining
         + ", has " + entries.toString() + " entries and "
@@ -230,81 +248,91 @@ class GiveAway {
         + " is a group GA: " + isGroupGA.toString()
         + " and a contributorGA: " + isContributorGA.toString()
         + " with level " + contributorLevel.toString();
-  }
-
-  String getBorderColorClass() {
-    List borderLevels = [
-        '', classBorderGroup, // 0, 1
-        classBorderContributorAbove, classBorderGroupContributorAbove, classBorderContributorBelow, classBorderGroupContributorBelow, '', '', // 2-7
-        classBorderWishList, classBorderGroupWishList, classBorderContributorAboveWishList, classBorderGroupContributorAboveWishList, // 8-11
-        classBorderContributorBelowWishList, classBorderGroupContributorBelowWishList, '', '', // 12-15
-        classBorderWhiteList, classBorderWhiteListGroup, classBorderWhiteListContributorAbove, classBorderWhiteListGroupContributorAbove, // 16-19
-        classBorderWhiteListContributorBelow, classBorderWhiteListGroupContributorBelow, '', '', // 20-23
-        classBorderWhiteListWishList, classBorderWhiteListGroupWishList, classBorderWhiteListWishListContributorAbove, classBorderWhiteListGroupWishListContributorAbove, // 24-27
-        classBorderWhiteListWishListContributorBelow, classBorderWhiteListWishListGroupContributorBelow, '', '' // 28-31
-    ];
-
-    int borderLevel = 0;
-    borderLevel += (isGroupGA) ? 1 : 0;
-    borderLevel += (isContributorGA && contributorLevel > myLevel) ? 2 : 0;
-    borderLevel += (isContributorGA && contributorLevel <= myLevel) ? 4 : 0;
-    borderLevel += (isWishListGA || isCustomWishListGA) ? 8 : 0;
-    borderLevel += (isWhiteListed) ? 16 : 0;
-
-    return borderLevels[borderLevel];
-  }
-
-  bool isNotBlackListed() {
-    return !blackList.isOnBlackList(name);
-  }
-
-  bool isBlackListed() {
-    return !isNotBlackListed();
-  }
-
-  bool isEntered() {
-    return this.entered;
-  }
-
-  void addGameToBlackList() {
-    Map<String, String> formData = new Map();
-    formData['xsrf_token'] = querySelectorAll('input[name="xsrf_token"]')[0].getAttribute('value');
-    formData['game_id'] = this.sgGameId.toString();
-    formData['do'] = 'hide_giveaways_by_game_id';
-    HttpRequest.postFormData('/', formData);
-  }
-
-  void toggleGameOnCustomWishList(Event e) {
-    Element target = e.target;
-    giveAwayLink.classes.remove(borderClass);
-    if (isCustomWishListGA) {
-      isCustomWishListGA = false;
-      customWishList.removeGameFromWishList(name);
-      target.classes.remove(classHighLightCustomWishList);
-    } else {
-      isCustomWishListGA = true;
-      customWishList.addGameToWishList(name);
-      target.classes.add(classHighLightCustomWishList);
     }
-    borderClass = getBorderColorClass();
-    giveAwayLink.classes.add(borderClass);
-    gridView.updateVisibilityAndBorders(name);
-  }
 
-  void updateBorder(String name) {
-    if (name == this.name) {
-      isWishListGA = wishList.isOnWishList(this.name);
-      isCustomWishListGA = customWishList.isOnWishList(this.name);
+    /// Returns the correct border class for this giveaway.
+    String getBorderColorClass() {
+        List borderLevels = [
+            '', classBorderGroup, // 0, 1
+            classBorderContributorAbove, classBorderGroupContributorAbove, classBorderContributorBelow, classBorderGroupContributorBelow, '', '', // 2-7
+            classBorderWishList, classBorderGroupWishList, classBorderContributorAboveWishList, classBorderGroupContributorAboveWishList, // 8-11
+            classBorderContributorBelowWishList, classBorderGroupContributorBelowWishList, '', '', // 12-15
+            classBorderWhiteList, classBorderWhiteListGroup, classBorderWhiteListContributorAbove, classBorderWhiteListGroupContributorAbove, // 16-19
+            classBorderWhiteListContributorBelow, classBorderWhiteListGroupContributorBelow, '', '', // 20-23
+            classBorderWhiteListWishList, classBorderWhiteListGroupWishList, classBorderWhiteListWishListContributorAbove, classBorderWhiteListGroupWishListContributorAbove, // 24-27
+            classBorderWhiteListWishListContributorBelow, classBorderWhiteListWishListGroupContributorBelow, '', '' // 28-31
+        ];
 
-      giveAwayLink.classes.remove(borderClass);
-      borderClass = getBorderColorClass();
-      giveAwayLink.classes.add(borderClass);
+        int borderLevel = 0;
+        borderLevel += (isGroupGA) ? 1 : 0;
+        borderLevel += (isContributorGA && contributorLevel > myLevel) ? 2 : 0;
+        borderLevel += (isContributorGA && contributorLevel <= myLevel) ? 4 : 0;
+        borderLevel += (isWishListGA || isCustomWishListGA) ? 8 : 0;
+        borderLevel += (isWhiteListed) ? 16 : 0;
+
+        return borderLevels[borderLevel];
     }
-  }
 
-  void hideTemporarily(String name) {
-    if (name == this.name) {
-      giveAwayContainer.classes.add(classHidden);
+    /// Returns [true] if game is NOT on the SG+ blacklist.
+    bool isNotBlackListed() {
+        return !blackList.isOnBlackList(name);
     }
-  }
+
+    /// Returns [true] if game IS on the SG+ blacklist.
+    bool isBlackListed() {
+        return !isNotBlackListed();
+    }
+
+    /// Returns [true] if giveaway is entered.
+    bool isEntered() {
+        return this.entered;
+    }
+
+    /// Sends a post request to directly add the game on SGs blacklist.
+    void addGameToBlackList() {
+        Map<String, String> formData = new Map();
+        formData['xsrf_token'] = querySelectorAll('input[name="xsrf_token"]')[0].getAttribute('value');
+        formData['game_id'] = this.sgGameId.toString();
+        formData['do'] = 'hide_giveaways_by_game_id';
+        HttpRequest.postFormData('/', formData);
+    }
+
+    /// Adds/removes this game to the custom sg2o wishlist.
+    void toggleGameOnCustomWishList(Event e) {
+        Element target = e.target;
+        giveAwayLink.classes.remove(borderClass);
+        if (isCustomWishListGA) {
+            isCustomWishListGA = false;
+            customWishList.removeGameFromWishList(name);
+            target.classes.remove(classFAFullHeart);
+            target.classes.add(classFAEmptyHeart);
+        } else {
+            isCustomWishListGA = true;
+            customWishList.addGameToWishList(name);
+            target.classes.remove(classFAEmptyHeart);
+            target.classes.add(classFAFullHeart);
+        }
+        borderClass = getBorderColorClass();
+        giveAwayLink.classes.add(borderClass);
+        gridView.updateVisibilityAndBorders(name);
+    }
+
+    /// Updates the border color. This will be called by the gridview when custom wishlisting a game.
+    void updateBorder(String name) {
+        if (name == this.name) {
+            isWishListGA = wishList.isOnWishList(this.name);
+            isCustomWishListGA = customWishList.isOnWishList(this.name);
+
+            giveAwayLink.classes.remove(borderClass);
+            borderClass = getBorderColorClass();
+            giveAwayLink.classes.add(borderClass);
+        }
+    }
+
+    /// Hides a game by [name]. This will be used for blacklisting games or for expiring games.
+    void hideTemporarily(String name) {
+        if (name == this.name) {
+            giveAwayContainer.classes.add(classHidden);
+        }
+    }
 }

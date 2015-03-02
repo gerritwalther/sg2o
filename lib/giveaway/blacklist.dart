@@ -1,18 +1,21 @@
 part of sg2o;
 
+/// This class is used for the old blacklist entries from SG+.
 class BlackList {
 
-  Map blackList;
+    Map blackList;
 
-  BlackList () {
-    String jsonString = storage.getForeign(oldFilterKey);
-    if (jsonString == '') {
-      jsonString = '{}';
+    /// Constructor that reads the list from local storage and parses the json element to a map.
+    BlackList() {
+        String jsonString = storage.getForeign(oldFilterKey);
+        if (jsonString == '') {
+            jsonString = '{}';
+        }
+        blackList = JSON.decode(jsonString);
     }
-    blackList = JSON.decode(jsonString);
-  }
 
-  bool isOnBlackList(String game) {
-    return blackList.containsKey(game);
-  }
+    /// Returns [true] if [game] is on the blacklist.
+    bool isOnBlackList(String game) {
+        return blackList.containsKey(game);
+    }
 }

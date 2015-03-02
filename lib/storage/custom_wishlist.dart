@@ -1,32 +1,38 @@
 part of sg2o;
 
+/// Class for custom wishlist games.
 class CustomWishList {
 
-  Map currentWishList = new Map();
+    Map currentWishList = new Map();
 
-  CustomWishList() {
-    loadWishList();
-  }
+    CustomWishList() {
+        loadWishList();
+    }
 
-  void loadWishList() {
-    currentWishList = JSON.decode(storage.getJson(keyCustomWishList));
-  }
+    /// Loads the wishlist from local storage.
+    void loadWishList() {
+        currentWishList = JSON.decode(storage.getJson(keyCustomWishList));
+    }
 
-  void storeWishList() {
-    storage.add(keyCustomWishList, new JsonEncoder().convert(currentWishList).toString());
-  }
+    /// Stores the current wishlist to the local storage.
+    void storeWishList() {
+        storage.add(keyCustomWishList, new JsonEncoder().convert(currentWishList).toString());
+    }
 
-  bool isOnWishList(String game) {
-    return currentWishList.containsKey(game);
-  }
+    /// Returns [true] if [game] is on the custom wishlist.
+    bool isOnWishList(String game) {
+        return currentWishList.containsKey(game);
+    }
 
-  void addGameToWishList(String game) {
-    currentWishList[game] = 'true';
-    storeWishList();
-  }
+    /// Adds the [game] to the current wishlist and stores it.
+    void addGameToWishList(String game) {
+        currentWishList[game] = 'true';
+        storeWishList();
+    }
 
-  void removeGameFromWishList(String game) {
-    currentWishList.remove(game);
-    storeWishList();
-  }
+    /// Removes the [game] from the current wishlist and stores it.
+    void removeGameFromWishList(String game) {
+        currentWishList.remove(game);
+        storeWishList();
+    }
 }

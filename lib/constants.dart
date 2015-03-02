@@ -4,14 +4,14 @@ part of sg2o;
 
 int myLevel = getUserLevel();
 
-///
+/// Plugin name and other plugin variables.
 
 const String pluginName = 'SG₂O';
 
 /// classes defined by sg
 
 const String classPinnedGiveaways = 'pinned-giveaways';
-const String classGiveawayRow =  'giveaway__row-outer-wrap';
+const String classGiveawayRow = 'giveaway__row-outer-wrap';
 const String classFeaturedContainer = 'featured__container';
 const String classFeaturedOuterWrap = 'featured__outer-wrap--home';
 const String classWidgetContainers = 'widget-container';
@@ -39,6 +39,9 @@ const String classGAEntered = 'is-faded';
 const String classGAImageOuterBorder = 'global__image-outer-wrap';
 const String classGAWhiteListed = 'giveaway__column--whitelist';
 const String classGAHide = 'giveaway__hide';
+const String classFontAwesome = 'fa';
+const String classFAFullHeart = 'fa-heart';
+const String classFAEmptyHeart = 'fa-heart-o';
 const String classEyeSlash = 'fa-eye-slash';
 
 const String classWidgetMarginTop = 'widget-container--margin-top';
@@ -64,6 +67,8 @@ const String classFA = 'fa';
 const String classFACircle = 'fa-circle';
 const String classFACircleO = 'fa-circle-o';
 const String classFACheckedCircle = 'fa-check-circle';
+const String classFASpinner = 'fa-spinner';
+const String classFASpin = 'fa-spin';
 
 const String classIsSelected = 'is-selected';
 const String classIsDisabled = 'is-disabled';
