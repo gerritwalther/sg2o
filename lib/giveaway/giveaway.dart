@@ -151,7 +151,7 @@ class GiveAway {
         DivElement chanceToWinContainer = new DivElement();
         chanceToWinContainer
             ..classes.add(classFloatRight)
-            ..append(createStrongElement((100 / (this.entries + 1)).toStringAsFixed(2)))
+            ..append(createStrongElement((100 / (this.entries + ((entered) ? 0 : 1))).toStringAsFixed(2)))
             ..append(createTextElement(' %'));
 
         DivElement commentsContainer = new DivElement();
