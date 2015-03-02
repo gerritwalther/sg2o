@@ -7,6 +7,7 @@
 - One-click blacklisting of games.
 - Automatic blacklisting of games that were on the blacklist in SG+.
 - Endless-scroll for giveaway page.
+- Loads wishlist from profile once a day.
 - Custom wishlist for games that can not be wished for on Steam.
 - Setting to hide entered game.
 - Fixed navbar (all pages).
