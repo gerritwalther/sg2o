@@ -4,7 +4,7 @@ BIN 						= bin
 BUILD 					= build
 
 # File variables
-SCRIPT_HEAD			= userscript-Header.js
+SCRIPT_HEAD			= sg2o.meta.js
 BUILD_PROJECT 	= $(BUILD)/bin/main.dart.js
 RELEASE_TARGET	= sg2o.user.js
 
