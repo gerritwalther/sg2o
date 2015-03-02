@@ -1,6 +1,6 @@
 part of sg2o;
 
-
+/// Class for accessing local storage, which also adds a key with a timestamp when last updated.
 class MyStorage {
 
     Storage storage = window.localStorage;
@@ -9,26 +9,31 @@ class MyStorage {
         initDefaults();
     }
 
+    /// Adds two keys to the localstorage, both prepended by a plugin-string and one with appended timestamp-String. Second gets the current time.
     void add(String key, String value) {
         storage[keyName + key] = value;
         storage[keyName + key + keyNameTimestamp] = new DateTime.now().millisecondsSinceEpoch.toString();
     }
 
+    /// Gets the value for [key].
     String get(String key) {
         String value = storage[keyName + key];
         return (value != null) ? value : '';
     }
 
+    /// Gets [true] or [false] for the specified key. Also works on keys different then 'true' or 'false'.
     bool getBool(String key) {
         String currentValue = get(key);
         return currentValue == 'true';
     }
 
+    /// Returns only the value for [key] if not empty, otherwise an empty JSON object '{}'.
     String getJson(String key) {
         String currentValue = get(key);
         return (currentValue != '') ? currentValue : '{}';
     }
 
+    /// Returns a [DateTime] object representing the last update for [key].
     DateTime getLastUpdate(String key) {
         String keyTimeStamp = keyName + key + keyNameTimestamp;
         String timeStamp = storage[keyTimeStamp];
@@ -41,6 +46,7 @@ class MyStorage {
         }
     }
 
+    /// Returns the value for a foreign (not by sg2o) key.
     String getForeign(String key) {
         if (storage.containsKey(key)) {
             return storage[key];
@@ -70,17 +76,19 @@ class MyStorage {
         }
     }
 
-    ///
+    /// Returns [true] if key is in local storage.
     bool containsKey(String key) {
         return storage.containsKey(keyName + key);
     }
 
+    /// Initializes default values for own keys.
     initDefaults() {
         if (!containsKey(keyHideGAs)) {
             add(keyHideGAs, 'false');
         }
     }
 
+    /// Returns [true] if entered giveaways should be shown.
     /// TODO move this somewhere else.
     bool showEnteredGiveaways() {
         return !getBool(keyHideGAs);

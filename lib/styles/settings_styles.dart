@@ -1,5 +1,6 @@
 part of sg2o;
 
+/// Class for CSS-Styles for the settings.
 class SettingsStyles extends Styles {
 
     SettingsStyles() : super();

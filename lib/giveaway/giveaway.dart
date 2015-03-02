@@ -1,5 +1,6 @@
 part of sg2o;
 
+/// Class for one giveaway. Parses the whole information from the DOM. Also creates a collapsed element with the information.
 class GiveAway {
     String name;
     String created;
@@ -21,13 +22,16 @@ class GiveAway {
     bool entered;
     bool isWhiteListed;
 
+    /// Container for this game. Used for hiding it after moving it to the blacklist.
     Element giveAwayContainer;
 
     /// Use this to change border color.
     Element giveAwayLink;
 
+    /// Current border class which is updated when adding to the custom wishlist.
     String borderClass;
 
+    /// Constructor that parses the giveaway from [gaHtml]. The passed html has to contain a number of different elements.
     GiveAway(Element gaHtml) {
         ElementList copiesAndPoints = gaHtml.querySelectorAll('span.$classGAHeadingThin');
         Element copies;
@@ -66,6 +70,7 @@ class GiveAway {
         this.borderClass = getBorderColorClass();
     }
 
+    /// Return this giveaway as small gridview compatible [Element].
     Element wrappedWithStyles() {
         giveAwayContainer = new DivElement();
 
@@ -98,6 +103,7 @@ class GiveAway {
         return giveAwayContainer;
     }
 
+    /// Creates the information container [Element].
     Element createInformationContainer() {
         DivElement informationContainer = new DivElement();
 
@@ -141,6 +147,7 @@ class GiveAway {
             ..append(createStrongElement(this.entries))
             ..append(createTextElement(' entries'));
 
+        // Chance is calculated by entries. Only add 1 entry, when not yet entered.
         DivElement chanceToWinContainer = new DivElement();
         chanceToWinContainer
             ..classes.add(classFloatRight)
@@ -165,6 +172,7 @@ class GiveAway {
             levelContainer.classes.add(classGAContributorNeg);
         }
 
+        // Add [DivElement] to add game directly to blackList.
         DivElement blackListLinkContainer = new DivElement();
         blackListLinkContainer
             ..classes.add(classFloatLeft)
@@ -176,6 +184,7 @@ class GiveAway {
             gridView.hideTemporarily(this.name);
         });
 
+        // Add [DivElement] to add game directly to custom wishlist.
         DivElement customWishListContainer = new DivElement();
         customWishListContainer
             ..classes.add(classFloatLeft)
@@ -189,6 +198,7 @@ class GiveAway {
             customWishListContainer.classes.add(classFAEmptyHeart);
         }
 
+        // Add a lowered opacity if game is entered.
         if (entered) {
             nameContainer.classes.add(classFaded);
             copiesContainer.classes.add(classFaded);
@@ -223,10 +233,12 @@ class GiveAway {
         return informationContainer;
     }
 
+    /// Print this giveaway to console.
     void print() {
         window.console.info(toString());
     }
 
+    /// Returns a [String]-representation of this giveaway.
     String toString() {
         return "Giveaway: " + name
         + " with " + points.toString() + " Points, created by " + creator
@@ -238,6 +250,7 @@ class GiveAway {
         + " with level " + contributorLevel.toString();
     }
 
+    /// Returns the correct border class for this giveaway.
     String getBorderColorClass() {
         List borderLevels = [
             '', classBorderGroup, // 0, 1
@@ -260,18 +273,22 @@ class GiveAway {
         return borderLevels[borderLevel];
     }
 
+    /// Returns [true] if game is NOT on the SG+ blacklist.
     bool isNotBlackListed() {
         return !blackList.isOnBlackList(name);
     }
 
+    /// Returns [true] if game IS on the SG+ blacklist.
     bool isBlackListed() {
         return !isNotBlackListed();
     }
 
+    /// Returns [true] if giveaway is entered.
     bool isEntered() {
         return this.entered;
     }
 
+    /// Sends a post request to directly add the game on SGs blacklist.
     void addGameToBlackList() {
         Map<String, String> formData = new Map();
         formData['xsrf_token'] = querySelectorAll('input[name="xsrf_token"]')[0].getAttribute('value');
@@ -280,6 +297,7 @@ class GiveAway {
         HttpRequest.postFormData('/', formData);
     }
 
+    /// Adds/removes this game to the custom sg2o wishlist.
     void toggleGameOnCustomWishList(Event e) {
         Element target = e.target;
         giveAwayLink.classes.remove(borderClass);
@@ -299,6 +317,7 @@ class GiveAway {
         gridView.updateVisibilityAndBorders(name);
     }
 
+    /// Updates the border color. This will be called by the gridview when custom wishlisting a game.
     void updateBorder(String name) {
         if (name == this.name) {
             isWishListGA = wishList.isOnWishList(this.name);
@@ -310,6 +329,7 @@ class GiveAway {
         }
     }
 
+    /// Hides a game by [name]. This will be used for blacklisting games or for expiring games.
     void hideTemporarily(String name) {
         if (name == this.name) {
             giveAwayContainer.classes.add(classHidden);

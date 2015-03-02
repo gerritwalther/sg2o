@@ -1,9 +1,11 @@
 part of sg2o;
 
+/// Class for border styles of the giveaways.
 class BorderStyles extends Styles {
 
     BorderStyles() : super();
 
+    /// Adds all border styles to the DOM.
     void addBorderStyles() {
         styleSheet.insertRule(createSimpleBorderRule(classBorderGroup, groupColor), 0);
         styleSheet.insertRule(createSimpleBorderRule(classBorderContributorAbove, contributorAboveLevelColor), 0);
@@ -33,6 +35,7 @@ class BorderStyles extends Styles {
         styleSheet.insertRule(createFourColorStripedBorderRule(classBorderWhiteListWishListGroupContributorBelow, whiteListColor, groupColor, wishListColor, contributorBelowLevelColor), 0);
     }
 
+    /// Returns a simple rule for borders with one color.
     String createSimpleBorderRule(String className, String color) {
         String rule =
         '''
@@ -43,6 +46,7 @@ class BorderStyles extends Styles {
         return rule;
     }
 
+    /// Returns a rule for borders with two colors.
     String createTwoColorStripedBorderRule(String className, String color1, String color2) {
         String rule =
         '''
@@ -59,6 +63,7 @@ class BorderStyles extends Styles {
         return rule;
     }
 
+    /// Returns a rule for borders with three colors.
     String createThreeColorStripedBorderRule(String className, String color1, String color2, String color3) {
         String rule =
         '''
@@ -77,6 +82,7 @@ class BorderStyles extends Styles {
         return rule;
     }
 
+    /// Returns a rule for borders with four colors.
     String createFourColorStripedBorderRule(String className, String color1, String color2, String color3, String color4) {
         String rule =
         '''

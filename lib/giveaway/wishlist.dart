@@ -1,5 +1,6 @@
 part of sg2o;
 
+/// Class that loads the wishlist from profile once a day.
 class WishList {
 
     Map wishList = new Map();
@@ -13,7 +14,7 @@ class WishList {
         }
     }
 
-
+    /// Sends a request to load all wishlisted games.
     void loadWishListFromProfile(num page) {
         window.console.log('Loading page $page');
         HttpRequest.request('$urlSteamWishList$page').then((HttpRequest resp) {
@@ -37,6 +38,7 @@ class WishList {
         });
     }
 
+    /// Returns [true] if wishlist was loaded in the last 24 hours.
     bool isWishListCurrent() {
         DateTime lastUpdated = storage.getLastUpdate(keyWishList);
         DateTime now = new DateTime.now();
@@ -44,6 +46,7 @@ class WishList {
         return now.difference(lastUpdated).inMilliseconds > oneDay;
     }
 
+    /// Returns [true] if [game] is on wishlist.
     bool isOnWishList(String game) {
         return wishList.containsKey(game);
     }

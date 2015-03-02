@@ -4,7 +4,7 @@ part of sg2o;
 
 int myLevel = getUserLevel();
 
-///
+/// Plugin name and other plugin variables.
 
 const String pluginName = 'SG₂O';
 

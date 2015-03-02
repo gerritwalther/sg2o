@@ -1,9 +1,12 @@
 part of sg2o;
 
+/// Class for common styles that are added to the DOM.
 class CommonStyles extends Styles {
 
     CommonStyles() : super ();
 
+    /// Adds a set of common styles to the DOM.
+    /// TODO: Maybe move some of the rules to other classes.
     void addStyles() {
         String rule =
         '''

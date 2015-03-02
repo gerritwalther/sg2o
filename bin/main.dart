@@ -2,6 +2,7 @@ import 'package:sg2o/sg2o.dart' as sg2o;
 import 'package:path/path.dart' as path;
 import 'dart:html';
 
+/// Main function that is always called.
 main() {
     String currentUrl = document.baseUri;
     List<String> urlParts = path.split(currentUrl);

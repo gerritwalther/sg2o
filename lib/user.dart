@@ -1,5 +1,8 @@
 part of sg2o;
 
+/// Add user relating stuff here.
+
+/// Returns the users contribution level.
 int getUserLevel() {
     Element navigationPointsElement = querySelector('.$classPoints');
     if (navigationPointsElement != null) {

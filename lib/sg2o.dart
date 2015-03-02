@@ -1,4 +1,4 @@
-/// The sg2o library.
+/// The sg2o library. containing all the required imports and parts for this plugin.
 library sg2o;
 
 import 'dart:html';
@@ -24,24 +24,28 @@ part 'styles/common_styles.dart';
 part 'styles/settings_styles.dart';
 part 'styles/styles.dart';
 
+/// These classes should only be instantiated once and used everywhere.
 MyStorage storage = new MyStorage();
 BlackList blackList = new BlackList();
 WishList wishList = new WishList();
 CustomWishList customWishList = new CustomWishList();
 GridView gridView = new GridView();
 
+/// Returns [true] if there are pinned giveaways.
 bool pinnedGAsExist() {
     ElementList pinnedGAs = querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow');
 
     return pinnedGAs.isNotEmpty;
 }
 
+/// Adds a class to the navigation to fix it at the top.
 void fixNavigation() {
     Element navigationHeaderElement = querySelector(elementNavigation);
 
     navigationHeaderElement.classes.add(classFixedNavigation);
 }
 
+/// Replaces the featured giveaways on top with the recent forum posts.
 void replaceFeatured() {
     Element featuredContainer = querySelector('.$classFeaturedContainer');
     ElementList widgetContainers = querySelectorAll('.$classWidgetContainers');

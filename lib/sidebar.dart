@@ -1,5 +1,6 @@
 part of sg2o;
 
+/// Class for the sidebar which is present on most (or all) of the pages
 class SideBar {
     int offsetTop;
 
@@ -8,16 +9,19 @@ class SideBar {
         this.offsetTop = sidebarElement.offset.top;
     }
 
+    /// Returns [true] if the sidebar is present.
     bool isSidebarPresent() {
         return querySelectorAll('.$classSidebar').length >= 1;
     }
 
+    /// Adds a class to the [SideBar] to fix it.
     void fixSidebar() {
         Element sidebarElement = querySelector('.$classSidebar');
 
         window.onScroll.listen(moveSidebar);
     }
 
+    /// Moves the sidebar to be always visible and at the same position.
     void moveSidebar(Event e) {
         Element sidebarElement = querySelector('.$classSidebar');
 

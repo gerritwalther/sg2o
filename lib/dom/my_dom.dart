@@ -4,10 +4,12 @@ class MyDom {
 
 }
 
+/// Appends a paragraph [Element] with a style that clears every beforementioned styles to the passed parent [Element].
 void addStopStyleParagraph(Element parentElement) {
     parentElement.append(createStopStyleParagraph());
 }
 
+/// Creates a [ParagraphElement] and adds a style to clear all current style settings.
 Element createStopStyleParagraph() {
     ParagraphElement stopStyles = new ParagraphElement();
 
@@ -16,24 +18,29 @@ Element createStopStyleParagraph() {
     return stopStyles;
 }
 
+/// Returns a strong [Element] with specified [content].
 Element createStrongElement(content) {
     return createElementWithName('strong', content);
 }
 
+/// Returns a text [Element] with specified [content].
 Element createTextElement(content) {
     return createElementWithName('text', content);
 }
 
+/// Creates an [Element] with a specified tag [name] and a dynamic [content].
 Element createElementWithName(String name, content) {
     Element element = new Element.tag(name);
     element.innerHtml = content;
     return element;
 }
 
+/// Checks if a pagination is present on the current page.
 bool paginationAvailable() {
     return querySelectorAll('.$classPaginationNavigation').isNotEmpty;
 }
 
+/// Checks whether is completely visible (vertically) on the current page.
 bool isElementCompletelyVisible(Element el) {
     /// credits go to: http://stackoverflow.com/a/7557433/1004795
     /// but without the left/right boundary check.
@@ -47,6 +54,9 @@ bool isElementCompletelyVisible(Element el) {
     ;
 }
 
+/// Returns an [Element] that looks similar to the Giveaways heading.
+///
+/// The link target is specified with [linkTarget] and its name by [text].
 Element createHeading(String text, String linkTarget) {
     DivElement headingContainer = new DivElement();
     DivElement headingText = new DivElement();
@@ -73,10 +83,14 @@ Element createHeading(String text, String linkTarget) {
     return headingContainer;
 }
 
+/// Returns [true] if on a page with giveaways. Else returns [false].
 bool isOnGAPage() {
     return querySelectorAll('.$classFeaturedOuterWrap').length > 0;
 }
 
+/// Returns a simple Option with yes/no choice and functions to execute if clicked on the yes/no buttons.
+///
+/// * If [yes] is true, the 'yes' option is selected.
 Element createOption(bool yes, String question, fnYes, fnNo) {
     DivElement booleanContainerOption = new DivElement();
 
@@ -120,12 +134,14 @@ Element createOption(bool yes, String question, fnYes, fnNo) {
     return booleanContainerOption;
 }
 
+/// Adds listeners to the two specified elements to switch their classes.
 void toggleClassesOnClick(DivElement yesCheckbox, DivElement noCheckBox, String oneClass, String otherClass) {
     addToggleListener(yesCheckbox, noCheckBox, oneClass, otherClass);
     addToggleListener(noCheckBox, yesCheckbox, oneClass, otherClass);
 }
 
-addToggleListener(DivElement oneElement, DivElement otherElement, String oneClass, String otherClass) {
+/// Switches the two specified classes on the two specified elements if clicked on the first element.
+void addToggleListener(DivElement oneElement, DivElement otherElement, String oneClass, String otherClass) {
     oneElement.onClick.listen((Event e) {
         if (oneElement.classes.contains(oneClass)) {
             oneElement.classes.remove(oneClass);
@@ -143,6 +159,7 @@ addToggleListener(DivElement oneElement, DivElement otherElement, String oneClas
     });
 }
 
+/// Returns a container which looks like a checkbox with hover functionality and a listener attached.
 Element createCheckboxContainer(String optionText, onclickFn) {
     DivElement checkboxContainer = new DivElement();
     Element iElementDefault = new Element.tag('i');

@@ -1,5 +1,6 @@
 part of sg2o;
 
+/// Class for settings to this plugin.
 class Settings {
 
     Settings() {
@@ -9,6 +10,7 @@ class Settings {
         navigationContainer.append(addSettingsLink());
     }
 
+    /// Adds a modal layer page.
     Element addSettingsPage() {
         DivElement overlayContainer = new DivElement();
         overlayContainer
@@ -38,6 +40,7 @@ class Settings {
         return overlayContainer;
     }
 
+    /// Adds a link to the navbar on SG.
     Element addSettingsLink() {
         String name = pluginName;
         Element navigationButton = new Element.a();
@@ -54,14 +57,17 @@ class Settings {
         return navigationButtonContainer;
     }
 
+    /// Returns an option element for activating/deactivating hiding of entered giveaways.
     Element createHideGASetting() {
         return createOption(storage.getBool(keyHideGAs), 'Hide entered giveaways?', storeHideValueYes, storeHideValueNo);
     }
 
+    /// Function is called when clicking on element to hide entered giveaways.
     void storeHideValueYes(Event e) {
         storage.add(keyHideGAs, 'true');
     }
 
+    /// Function is called when clicking on element to show entered giveaways.
     void storeHideValueNo(Event e) {
         storage.add(keyHideGAs, 'false');
     }
