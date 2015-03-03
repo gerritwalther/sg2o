@@ -31,9 +31,21 @@ class Settings {
             ..innerHtml = 'Settings for $pluginName'
             ..classes.add(classSettingsHeading);
 
+        DivElement formHeading = new DivElement();
+        DivElement formHeadingText = new DivElement();
+
+        formHeading
+            ..classes.add(classFormHeading)
+            ..append(formHeadingText);
+
+        formHeadingText
+            ..classes.add(classFormHeadingText)
+            ..innerHtml = 'Gridview settings';
+
         overlayInnerContainer
             ..append(closeLink)
             ..append(heading)
+            ..append(formHeading)
             ..append(createHideGASetting());
 
         overlayContainer.append(overlayInnerContainer);
@@ -59,16 +71,16 @@ class Settings {
 
     /// Returns an option element for activating/deactivating hiding of entered giveaways.
     Element createHideGASetting() {
-        return createOption(storage.getBool(keyHideGAs), 'Hide entered giveaways?', storeHideValueYes, storeHideValueNo);
+        return createOption(storage.getBool(keyHideGAs), 'Hide entered giveaways?', storeHideValueToggle);
     }
 
-    /// Function is called when clicking on element to hide entered giveaways.
-    void storeHideValueYes(Event e) {
-        storage.add(keyHideGAs, 'true');
-    }
-
-    /// Function is called when clicking on element to show entered giveaways.
-    void storeHideValueNo(Event e) {
-        storage.add(keyHideGAs, 'false');
+    /// Function is called when clicking on element to hide/show entered giveaways.
+    void storeHideValueToggle(Event e) {
+        Element target = e.target;
+        if (target.classes.contains(classIsSelected)) {
+            storage.add(keyHideGAs, 'false');
+        } else {
+            storage.add(keyHideGAs, 'true');
+        }
     }
 }

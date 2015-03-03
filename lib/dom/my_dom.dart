@@ -88,73 +88,43 @@ bool isOnGAPage() {
     return querySelectorAll('.$classFeaturedOuterWrap').length > 0;
 }
 
-/// Returns a simple Option with yes/no choice and functions to execute if clicked on the yes/no buttons.
+/// Returns a simple Option with a checkbox and a function to execute if clicked on.
 ///
-/// * If [yes] is true, the 'yes' option is selected.
-Element createOption(bool yes, String question, fnYes, fnNo) {
-    DivElement booleanContainerOption = new DivElement();
-
-    DivElement formHeading = new DivElement();
-    DivElement formHeadingText = new DivElement();
-
+/// * If [yes] is true, the checkbox is checked option is selected.
+Element createOption(bool yes, String question, fnCheckboxClick) {
     DivElement formRowIndent = new DivElement();
 
-    DivElement checkboxYesContainer = createCheckboxContainer(' Yes', fnYes);
-
-    DivElement checkboxNoContainer = createCheckboxContainer(' No', fnNo);
-
-    booleanContainerOption
-        ..classes.add(classFormRow)
-        ..append(formHeading)
-        ..append(formRowIndent);
-
-    formHeading
-        ..classes.add(classFormHeading)
-        ..append(formHeadingText);
-
-    formHeadingText
-        ..classes.add(classFormHeadingText)
-        ..innerHtml = question;
+    DivElement checkboxContainer = createCheckboxContainer('  $question', fnCheckboxClick);
 
     formRowIndent
         ..classes.add(classFormRowIndent)
-        ..append(checkboxYesContainer)
-        ..append(checkboxNoContainer);
+        ..append(checkboxContainer);
 
     if (yes) {
-        checkboxYesContainer.classes.add(classIsSelected);
-        checkboxNoContainer.classes.add(classIsDisabled);
+        checkboxContainer.classes.add(classIsSelected);
     } else {
-        checkboxNoContainer.classes.add(classIsSelected);
-        checkboxYesContainer.classes.add(classIsDisabled);
+        checkboxContainer.classes.add(classIsDisabled);
     }
 
-    toggleClassesOnClick(checkboxYesContainer, checkboxNoContainer, classIsSelected, classIsDisabled);
+    toggleClassOnClick(checkboxContainer, classIsSelected, classIsDisabled);
 
-    return booleanContainerOption;
+    return formRowIndent;
 }
 
 /// Adds listeners to the two specified elements to switch their classes.
-void toggleClassesOnClick(DivElement yesCheckbox, DivElement noCheckBox, String oneClass, String otherClass) {
-    addToggleListener(yesCheckbox, noCheckBox, oneClass, otherClass);
-    addToggleListener(noCheckBox, yesCheckbox, oneClass, otherClass);
+void toggleClassOnClick(DivElement element, String oneClass, String otherClass) {
+    addToggleListener(element, oneClass, otherClass);
 }
 
-/// Switches the two specified classes on the two specified elements if clicked on the first element.
-void addToggleListener(DivElement oneElement, DivElement otherElement, String oneClass, String otherClass) {
-    oneElement.onClick.listen((Event e) {
-        if (oneElement.classes.contains(oneClass)) {
-            oneElement.classes.remove(oneClass);
-            otherElement.classes.remove(otherClass);
-
-            oneElement.classes.add(otherClass);
-            otherElement.classes.add(oneClass);
+/// Switches the two specified classes on the specified element if clicked on.
+void addToggleListener(DivElement element, String oneClass, String otherClass) {
+    element.onClick.listen((Event e) {
+        if (element.classes.contains(oneClass)) {
+            element.classes.remove(oneClass);
+            element.classes.add(otherClass);
         } else {
-            oneElement.classes.remove(otherClass);
-            otherElement.classes.remove(oneClass);
-
-            oneElement.classes.add(oneClass);
-            otherElement.classes.add(otherClass);
+            element.classes.remove(otherClass);
+            element.classes.add(oneClass);
         }
     });
 }
