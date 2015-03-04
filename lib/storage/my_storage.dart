@@ -87,10 +87,4 @@ class MyStorage {
             add(keyHideGAs, 'false');
         }
     }
-
-    /// Returns [true] if entered giveaways should be shown.
-    /// TODO move this somewhere else.
-    bool showEnteredGiveaways() {
-        return !getBool(keyHideGAs);
-    }
 }

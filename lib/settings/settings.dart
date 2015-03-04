@@ -46,7 +46,8 @@ class Settings {
             ..append(closeLink)
             ..append(heading)
             ..append(formHeading)
-            ..append(createHideGASetting());
+            ..append(createHideGASetting())
+            ..append(createAutomaticBlackListSetting());
 
         overlayContainer.append(overlayInnerContainer);
         return overlayContainer;
@@ -71,16 +72,40 @@ class Settings {
 
     /// Returns an option element for activating/deactivating hiding of entered giveaways.
     Element createHideGASetting() {
-        return createOption(storage.getBool(keyHideGAs), 'Hide entered giveaways?', storeHideValueToggle);
+        return createOption(storage.getBool(keyHideGAs), 'Hide entered giveaways.', storeHideValueToggle);
+    }
+
+    /// Returns an option element for automatically adding games to the blacklist.
+    Element createAutomaticBlackListSetting() {
+        return createOption(storage.getBool(keyAutomaticBlackList), 'Automatically add games from SG+ filter list to SG blacklist.', storeAutomaticBlackListToggle);
     }
 
     /// Function is called when clicking on element to hide/show entered giveaways.
     void storeHideValueToggle(Event e) {
-        Element target = e.target;
-        if (target.classes.contains(classIsSelected)) {
-            storage.add(keyHideGAs, 'false');
+        storeSettingToggle(e.target, keyHideGAs);
+    }
+
+    /// Function is called when clicking on element to automatically add games to blacklist or not.
+    void storeAutomaticBlackListToggle(Event e) {
+        storeSettingToggle(e.target, keyAutomaticBlackList);
+    }
+
+    /// Toggles the status of the setting.
+    void storeSettingToggle(Element optionElement, String storageKey) {
+        if (optionElement.classes.contains(classIsSelected)) {
+            storage.add(storageKey, 'false');
         } else {
-            storage.add(keyHideGAs, 'true');
+            storage.add(storageKey, 'true');
         }
+    }
+
+    /// Returns [true] if entered games should be hidden.
+    bool hideEnteredGames() {
+        return storage.getBool(keyHideGAs);
+    }
+
+    /// Returns [true] if games should be automatically blacklisted.
+    bool isAutomaticBlackListingOn() {
+        return storage.getBool(keyAutomaticBlackList);
     }
 }

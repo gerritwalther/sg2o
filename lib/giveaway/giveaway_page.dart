@@ -21,11 +21,14 @@ class GiveAwayPage {
 
             if (giveAway.isNotBlackListed()) {
                 // Add giveaway only if its not entered, or its entered and option to hide entered GAs is deactivated.
-                if ((!giveAway.isEntered() || (giveAway.isEntered() && storage.showEnteredGiveaways()))) {
+                if ((!giveAway.isEntered() || (giveAway.isEntered() && !settings.hideEnteredGames()))) {
                     parentElementToInsertGAs.append(giveAway.wrappedWithStyles());
                 }
             } else {
-                giveAway.addGameToBlackList();
+                if (settings.isAutomaticBlackListingOn()) {
+                    window.console.log('Automatically adding ${giveAway.name} to the blacklist.');
+                    giveAway.addGameToBlackList();
+                }
             }
             giveAways.add(giveAway);
         }
