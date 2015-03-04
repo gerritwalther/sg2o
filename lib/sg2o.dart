@@ -26,6 +26,7 @@ part 'styles/styles.dart';
 
 /// These classes should only be instantiated once and used everywhere.
 MyStorage storage = new MyStorage();
+Settings settings;
 BlackList blackList = new BlackList();
 WishList wishList = new WishList();
 CustomWishList customWishList = new CustomWishList();
@@ -74,4 +75,8 @@ void replaceFeatured() {
     forumContainer.classes.remove(classWidgetMarginTop);
     // TODO: Might not need to add a margin top here (at least not for pinned GAs, extra removal of margin-top for pinnedGAs can be removed if this is removed).
     placeBeforeThis.classes.add(classWidgetMarginTop);
+}
+
+void activateSettings() {
+    settings = new Settings();
 }

@@ -137,6 +137,8 @@ const String keyNameTimestamp = '-timestamp';
 const num daysForExpiration = 365;
 
 const String keyHideGAs = 'hide-giveaways';
+const String keyAutomaticBlackList = 'automatic-blacklist';
+
 const String keyWishList = 'wishlist';
 const String keyCustomWishList = 'custom-wishlist';
 

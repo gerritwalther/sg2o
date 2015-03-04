@@ -31,10 +31,23 @@ class Settings {
             ..innerHtml = 'Settings for $pluginName'
             ..classes.add(classSettingsHeading);
 
+        DivElement formHeading = new DivElement();
+        DivElement formHeadingText = new DivElement();
+
+        formHeading
+            ..classes.add(classFormHeading)
+            ..append(formHeadingText);
+
+        formHeadingText
+            ..classes.add(classFormHeadingText)
+            ..innerHtml = 'Gridview settings';
+
         overlayInnerContainer
             ..append(closeLink)
             ..append(heading)
-            ..append(createHideGASetting());
+            ..append(formHeading)
+            ..append(createHideGASetting())
+            ..append(createAutomaticBlackListSetting());
 
         overlayContainer.append(overlayInnerContainer);
         return overlayContainer;
@@ -59,16 +72,40 @@ class Settings {
 
     /// Returns an option element for activating/deactivating hiding of entered giveaways.
     Element createHideGASetting() {
-        return createOption(storage.getBool(keyHideGAs), 'Hide entered giveaways?', storeHideValueYes, storeHideValueNo);
+        return createOption(storage.getBool(keyHideGAs), 'Hide entered giveaways.', storeHideValueToggle);
     }
 
-    /// Function is called when clicking on element to hide entered giveaways.
-    void storeHideValueYes(Event e) {
-        storage.add(keyHideGAs, 'true');
+    /// Returns an option element for automatically adding games to the blacklist.
+    Element createAutomaticBlackListSetting() {
+        return createOption(storage.getBool(keyAutomaticBlackList), 'Automatically add games from SG+ filter list to SG blacklist.', storeAutomaticBlackListToggle);
     }
 
-    /// Function is called when clicking on element to show entered giveaways.
-    void storeHideValueNo(Event e) {
-        storage.add(keyHideGAs, 'false');
+    /// Function is called when clicking on element to hide/show entered giveaways.
+    void storeHideValueToggle(Event e) {
+        storeSettingToggle(e.target, keyHideGAs);
+    }
+
+    /// Function is called when clicking on element to automatically add games to blacklist or not.
+    void storeAutomaticBlackListToggle(Event e) {
+        storeSettingToggle(e.target, keyAutomaticBlackList);
+    }
+
+    /// Toggles the status of the setting.
+    void storeSettingToggle(Element optionElement, String storageKey) {
+        if (optionElement.classes.contains(classIsSelected)) {
+            storage.add(storageKey, 'false');
+        } else {
+            storage.add(storageKey, 'true');
+        }
+    }
+
+    /// Returns [true] if entered games should be hidden.
+    bool hideEnteredGames() {
+        return storage.getBool(keyHideGAs);
+    }
+
+    /// Returns [true] if games should be automatically blacklisted.
+    bool isAutomaticBlackListingOn() {
+        return storage.getBool(keyAutomaticBlackList);
     }
 }

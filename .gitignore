@@ -15,7 +15,6 @@ packages/
 pubspec.lock
 
 # others
-.buildlog
 .DS_Store
 .idea
 
