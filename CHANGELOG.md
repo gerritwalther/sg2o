@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+- Only one checkbox for hiding giveaways setting.
+- Added option for automatic blacklisting of games.
+
 ## 0.1
 
 - Gridview.
