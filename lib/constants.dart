@@ -125,6 +125,10 @@ const String classSettingsOverlay = 'sg2o-overlay-settings';
 const String classClose = 'sg2o-close';
 const String classModalDialog = 'sg2o-modal-dialog';
 const String classSettingsHeading = 'sg2o-settings-head';
+const String classSettingsTabs = 'sg2o-settings-tabs';
+const String classSettingsTabMenu = 'sg2o-settings-tabs-navigation';
+const String classSettingsTabContent = 'sg2o-settings-tabs-content';
+const String classSettingsTabSelected = 'sg2o-settings-tab-selected';
 
 /// URLs
 const String urlSteamGiftsHome = 'http://www.steamgifts.com/';
@@ -151,6 +155,8 @@ const String contributorBelowLevelColor = '#0033CC';
 const String wishListColor = '#9933FF';
 const String whiteListColor = '#00EBF7';
 const String fontColor = '#324862';
+
+const String settingsTabMenuBackgroundColor = 'transparent';
 
 /// numbers
 const num oneDay = 1000 * 60 * 60 * 24;
