@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.3
+
+- Fixed endless scroll for wishlist/group/new giveaways.
+
+## 0.1.2
+
+- Enabling SSL for the script.
+
 ## 0.1.1
 
 - Only one checkbox for hiding giveaways setting.
