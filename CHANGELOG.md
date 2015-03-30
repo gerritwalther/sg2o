@@ -16,7 +16,7 @@
 ## 0.1
 
 - Gridview.
-- Colored borders. Blue (meets own contributor level), red (above own contributor level), green (group), purple (wishlist), turquoise (whiteliste).
+- Colored borders. Blue (meets own contributor level), red (above own contributor level), green (group), purple (wishlist), turquoise (whitelist).
 - One-click blacklisting of games.
 - Automatic blacklisting of games that were on the blacklist in SG+.
 - Endless-scroll for giveaway page.
