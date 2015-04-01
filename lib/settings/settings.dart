@@ -33,7 +33,11 @@ class Settings {
             ..title = 'Close'
             ..classes.add(classClose)
             ..innerHtml = 'X'
-            ..onClick.listen((e) => window.location.reload())
+            ..onClick.listen((e) {
+                if (storage.getBool(keyAutomaticPageReload)) {
+                    window.location.reload();
+                }
+            })
         ;
 
         // Header for the settings.
