@@ -21,6 +21,7 @@ part 'giveaway/gridview.dart';
 part 'giveaway/wishlist.dart';
 part 'settings/settings.dart';
 part 'settings/settings_color.dart';
+part 'settings/settings_common.dart';
 part 'settings/settings_gridview.dart';
 part 'settings/settings_tab.dart';
 part 'settings/settings_tabs.dart';

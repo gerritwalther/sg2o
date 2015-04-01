@@ -3,11 +3,14 @@ part of sg2o;
 class SettingsTabs {
 
     DivElement tabs;
+
     SettingsColor colorSettings;
+    SettingsCommon commonSettings;
     SettingsGridView gridViewSettings;
 
-    SettingsTabs(SettingsColor colorSettings, SettingsGridView gridViewSettings) {
+    SettingsTabs(SettingsColor colorSettings, SettingsCommon commonSettings, SettingsGridView gridViewSettings) {
         this.colorSettings = colorSettings;
+        this.commonSettings = commonSettings;
         this.gridViewSettings = gridViewSettings;
         tabs = new DivElement();
         tabs.classes.add(classSettingsTabs);
@@ -26,30 +29,28 @@ class SettingsTabs {
 
         navigation.append(navigationTabs);
 
-        LIElement gridViewSettingsListElement = new LIElement();
         LIElement colorSettingsListElement = new LIElement();
+        LIElement commonSettingsListElement = new LIElement();
+        LIElement gridViewSettingsListElement = new LIElement();
 
-        Element gridViewSettingsLink = new Element.a();
         Element colorSettingsLink = new Element.a();
+        Element commonSettingsLink = new Element.a();
+        Element gridViewSettingsLink = new Element.a();
 
-        gridViewSettingsLink
-            ..setAttribute('data-content', 'gridview')
-            ..classes.add(classSettingsTabSelected)
-            ..innerHtml = 'GridView'
-        ;
         colorSettingsLink
             ..setAttribute('data-content', 'colors')
             ..innerHtml = 'Colors'
         ;
-
-        gridViewSettingsListElement
-            ..append(gridViewSettingsLink)
-            ..onClick.listen((Event e) {
-                deselectAll();
-                gridViewSettings.select();
-                gridViewSettingsLink.classes.add(classSettingsTabSelected);
-            })
+        commonSettingsLink
+            ..setAttribute('data-content', 'common')
+            ..classes.add(classSettingsTabSelected)
+            ..innerHtml = 'Common'
         ;
+        gridViewSettingsLink
+            ..setAttribute('data-content', 'gridview')
+            ..innerHtml = 'GridView'
+        ;
+
         colorSettingsListElement
             ..append(colorSettingsLink)
             ..onClick.listen((Event e) {
@@ -58,10 +59,28 @@ class SettingsTabs {
                 colorSettingsLink.classes.add(classSettingsTabSelected);
             })
         ;
+        commonSettingsListElement
+            ..append(commonSettingsLink)
+            ..onClick.listen((Event e) {
+            deselectAll();
+                commonSettings.select();
+                commonSettingsLink.classes.add(classSettingsTabSelected);
+            })
+        ;
+        gridViewSettingsListElement
+            ..append(gridViewSettingsLink)
+            ..onClick.listen((Event e) {
+                deselectAll();
+                gridViewSettings.select();
+                gridViewSettingsLink.classes.add(classSettingsTabSelected);
+            })
+        ;
 
         navigationTabs
+            ..append(commonSettingsListElement)
             ..append(gridViewSettingsListElement)
-            ..append(colorSettingsListElement);
+            ..append(colorSettingsListElement)
+        ;
     }
 
     Element getTabsPage() {
@@ -72,12 +91,17 @@ class SettingsTabs {
         UListElement navigationContent = new UListElement();
         navigationContent.classes.add(classSettingsTabContent);
 
+        LIElement commonSettingsContentListElement = new LIElement();
         LIElement gridViewSettingsContentListElement = new LIElement();
         LIElement colorSettingsContentListElement = new LIElement();
 
+        commonSettingsContentListElement
+            ..append(commonSettings.createPage())
+            ..classes.add(classSettingsTabSelected)
+            ..setAttribute('data-content', 'common')
+        ;
         gridViewSettingsContentListElement
             ..append(gridViewSettings.createPage())
-            ..classes.add(classSettingsTabSelected)
             ..setAttribute('data-content', 'gridview')
         ;
         colorSettingsContentListElement
@@ -86,6 +110,7 @@ class SettingsTabs {
         ;
 
         navigationContent
+            ..append(commonSettingsContentListElement)
             ..append(gridViewSettingsContentListElement)
             ..append(colorSettingsContentListElement)
         ;

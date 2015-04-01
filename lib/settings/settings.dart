@@ -3,12 +3,13 @@ part of sg2o;
 /// Class for settings to this plugin.
 class Settings {
 
-    SettingsColor colorSettings = new SettingsColor();
+    SettingsCommon commonSettings = new SettingsCommon();
     SettingsGridView gridViewSettings = new SettingsGridView();
+    SettingsColor colorSettings = new SettingsColor();
     SettingsTabs tabSettings;
 
     Settings() {
-        tabSettings = new SettingsTabs(colorSettings, gridViewSettings);
+        tabSettings = new SettingsTabs(colorSettings, commonSettings, gridViewSettings);
         Element body = querySelector('body');
         body.append(addSettingsPage());
         Element navigationContainer = querySelector('.$classLeftNavigation');
