@@ -31,7 +31,9 @@ class Settings {
             ..setAttribute('href', '#close')
             ..title = 'Close'
             ..classes.add(classClose)
-            ..innerHtml = 'X';
+            ..innerHtml = 'X'
+            ..onClick.listen((e) => window.location.reload())
+        ;
 
         // Header for the settings.
         DivElement heading = new DivElement();
