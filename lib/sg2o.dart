@@ -12,6 +12,7 @@ part 'user.dart';
 part 'dom/color_setting.dart';
 part 'dom/info_element.dart';
 part 'dom/my_dom.dart';
+part 'dom/sg_button.dart';
 part 'endless_scroll/endless_scroll.dart';
 part 'endless_scroll/endless_giveaway.dart';
 part 'giveaway/blacklist.dart';

@@ -11,28 +11,13 @@ class SettingsColor implements SettingsTab {
     ColorSetting contributorBelowLevelColorSetting = new ColorSetting('Contributor (below own level) border color: ', contributorBelowLevelColorKey);
 
     Element createPage() {
-        DivElement saveButton = new DivElement();
+        SGButton saveButton = new SGButton('fa-arrow-circle-right', 'Save colors!', this.storeColors);
 
         saveButton
-            ..classes.add('fa')
-            ..classes.add('fa-arrow-circle-right')
-            ..classes.add('form__submit-button')
             ..style.setProperty('margin-right', '5px')
-            ..style.setProperty('margin-top', '10px')
-            ..text = ' Save colors'
-            ..onClick.listen(storeColors)
         ;
 
-        DivElement restoreDefaultsButton = new DivElement();
-
-        restoreDefaultsButton
-            ..classes.add('fa')
-            ..classes.add('fa-trash')
-            ..classes.add('form__submit-button')
-            ..style.setProperty('margin-top', '10px')
-            ..text = ' Restore defaults'
-            ..onClick.listen(restoreDefaultColors)
-        ;
+        SGButton restoreDefaultsButton = new SGButton('fa-trash', 'Restore defaults', this.restoreDefaultColors);
 
         pageContainer = new ParagraphElement();
 
