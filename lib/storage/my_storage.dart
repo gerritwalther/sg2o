@@ -86,6 +86,7 @@ class MyStorage {
         initDefault(keyHideGAs, 'false');
         initDefault(keyAutomaticBlackList, 'false');
         initDefault(keyAutomaticPageReload, 'true');
+        initDefault(keyRemoveFeatured, 'true');
 
         initDefault(groupColorKey, groupColor);
         initDefault(contributorAboveLevelColorKey, contributorAboveLevelColor);

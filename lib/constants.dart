@@ -142,6 +142,7 @@ const String keyNameTimestamp = '-timestamp';
 const num daysForExpiration = 365;
 
 const String keyAutomaticPageReload = 'automatic-page-reload';
+const String keyRemoveFeatured = 'remove-featured';
 const String keyHideGAs = 'hide-giveaways';
 const String keyAutomaticBlackList = 'automatic-blacklist';
 

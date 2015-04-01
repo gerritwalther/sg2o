@@ -15,7 +15,7 @@ main() {
 
     if (sg2o.isOnGAPage()) {
         // We are on the GA page
-        sg2o.replaceFeatured();
+        sg2o.replaceFeaturedAndMoveRecentPosts();
         if (sg2o.pinnedGAsExist()) {
             sg2o.gridView.collapsePinnedGAs();
         }

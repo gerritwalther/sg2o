@@ -55,7 +55,7 @@ void fixNavigation() {
 }
 
 /// Replaces the featured giveaways on top with the recent forum posts.
-void replaceFeatured() {
+void replaceFeaturedAndMoveRecentPosts() {
     Element featuredContainer = querySelector('.$classFeaturedContainer');
     ElementList widgetContainers = querySelectorAll('.$classWidgetContainers');
     Element placeBeforeThis;
@@ -75,7 +75,9 @@ void replaceFeatured() {
         placeBeforeThis = querySelector('.$classSectionHeading');
     }
 
-    featuredContainer.remove();
+    if (storage.getBool(keyRemoveFeatured)) {
+        featuredContainer.remove();
+    }
     placeBeforeThis.parent
         ..insertBefore(forumContainer, placeBeforeThis);
 //    ..insertBefore(voteContainer, placeBeforeThis);
