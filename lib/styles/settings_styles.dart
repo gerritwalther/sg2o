@@ -264,5 +264,22 @@ class SettingsStyles extends Styles {
 }
 ''';
         styleSheet.insertRule(rule, 0);
+
+        rule =
+        '''
+.$classSettingsColorInput input {
+    width: 50px;
+    padding: 0px 3px;
+}
+''';
+        styleSheet.insertRule(rule, 0);
+
+        rule =
+        '''
+.$classSettingsColorInput {
+    color: $fontColor;
+}
+''';
+        styleSheet.insertRule(rule, 0);
     }
 }

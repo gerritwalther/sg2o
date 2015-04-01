@@ -3,11 +3,14 @@ library sg2o;
 
 import 'dart:html';
 import 'dart:convert';
+import 'dart:async';
 
 part 'constants.dart';
 part 'my_string.dart';
 part 'sidebar.dart';
 part 'user.dart';
+part 'dom/color_setting.dart';
+part 'dom/info_element.dart';
 part 'dom/my_dom.dart';
 part 'endless_scroll/endless_scroll.dart';
 part 'endless_scroll/endless_giveaway.dart';

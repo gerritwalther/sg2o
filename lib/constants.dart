@@ -129,6 +129,7 @@ const String classSettingsTabs = 'sg2o-settings-tabs';
 const String classSettingsTabMenu = 'sg2o-settings-tabs-navigation';
 const String classSettingsTabContent = 'sg2o-settings-tabs-content';
 const String classSettingsTabSelected = 'sg2o-settings-tab-selected';
+const String classSettingsColorInput = 'sg2o-settings-color-input';
 
 /// URLs
 const String urlSteamGiftsHome = 'http://www.steamgifts.com/';
@@ -147,6 +148,12 @@ const String keyWishList = 'wishlist';
 const String keyCustomWishList = 'custom-wishlist';
 
 const String oldFilterKey = 'lscache-sgpgiveawayFilters';
+
+const String groupColorKey = 'group-border-color';
+const String contributorAboveLevelColorKey = 'contributor-above-level-border-color';
+const String contributorBelowLevelColorKey = 'contributor-below-level-border-color';
+const String wishListColorKey = 'wishlist-border-color';
+const String whiteListColorKey = 'whitelist-border-color';
 
 /// Colors
 const String groupColor = '#308430';
