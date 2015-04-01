@@ -78,13 +78,16 @@ void replaceFeaturedAndMoveRecentPosts() {
     if (storage.getBool(keyRemoveFeatured)) {
         featuredContainer.remove();
     }
-    placeBeforeThis.parent
-        ..insertBefore(forumContainer, placeBeforeThis);
+
+    if (storage.getBool(keyMoveRecentDiscussions)) {
+        placeBeforeThis.parent
+            ..insertBefore(forumContainer, placeBeforeThis);
 //    ..insertBefore(voteContainer, placeBeforeThis);
 
-    forumContainer.classes.remove(classWidgetMarginTop);
-    // TODO: Might not need to add a margin top here (at least not for pinned GAs, extra removal of margin-top for pinnedGAs can be removed if this is removed).
-    placeBeforeThis.classes.add(classWidgetMarginTop);
+        forumContainer.classes.remove(classWidgetMarginTop);
+        // TODO: Might not need to add a margin top here (at least not for pinned GAs, extra removal of margin-top for pinnedGAs can be removed if this is removed).
+        placeBeforeThis.classes.add(classWidgetMarginTop);
+    }
 }
 
 void activateSettings() {

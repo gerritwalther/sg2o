@@ -9,6 +9,7 @@ class SettingsCommon implements SettingsTab {
         pageContainer
             ..append(createAutomaticPageReloadSetting())
             ..append(createRemoveFeaturedSetting())
+            ..append(createMoveRecentDiscussionsSetting())
         ;
 
         return pageContainer;
@@ -24,6 +25,11 @@ class SettingsCommon implements SettingsTab {
         return createOption(storage.getBool(keyRemoveFeatured), 'Remove featured giveaway.', storeRemoveFeaturedValueToggle);
     }
 
+    /// Returns an option element for moving the recent discussions element.
+    Element createMoveRecentDiscussionsSetting() {
+        return createOption(storage.getBool(keyMoveRecentDiscussions), 'Move recent discussions to top.', storeMoveRecentDiscussionsValueToggle);
+    }
+
     /// Function is called when clicking on element to automatically reload page when closing the settings.
     void storeAutomaticPageReloadValueToggle(Event e) {
         settings.storeSettingToggle(e.target, keyAutomaticPageReload);
@@ -32,6 +38,11 @@ class SettingsCommon implements SettingsTab {
     /// Function is called when clicking on element for removing featured GA.
     void storeRemoveFeaturedValueToggle(Event e) {
         settings.storeSettingToggle(e.target, keyRemoveFeatured);
+    }
+
+    /// Function is called when clicking on element for moving the recent discussions.
+    void storeMoveRecentDiscussionsValueToggle(Event e) {
+        settings.storeSettingToggle(e.target, keyMoveRecentDiscussions);
     }
 
     void select() {

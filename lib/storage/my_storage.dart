@@ -87,6 +87,7 @@ class MyStorage {
         initDefault(keyAutomaticBlackList, 'false');
         initDefault(keyAutomaticPageReload, 'true');
         initDefault(keyRemoveFeatured, 'true');
+        initDefault(keyMoveRecentDiscussions, 'true');
 
         initDefault(groupColorKey, groupColor);
         initDefault(contributorAboveLevelColorKey, contributorAboveLevelColor);
