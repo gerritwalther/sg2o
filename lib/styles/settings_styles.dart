@@ -100,7 +100,6 @@ class SettingsStyles extends Styles {
     width: 100%;
     max-width: 1000px;
     margin: 2em auto;
-    cursor: pointer;
 }
 ''';
         styleSheet.insertRule(rule, 0);
@@ -122,6 +121,14 @@ class SettingsStyles extends Styles {
     overflow: auto;
     background: $settingsTabMenuBackgroundColor;
     box-shadow: rgba(203, 196, 130, 0.1288235) 0px -4px 0px inset;
+}
+''';
+        styleSheet.insertRule(rule, 0);
+
+        rule =
+        '''
+.$classSettingsTabs nav ul {
+    cursor: pointer;
 }
 ''';
         styleSheet.insertRule(rule, 0);
