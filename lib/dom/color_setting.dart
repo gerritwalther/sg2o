@@ -11,28 +11,28 @@ class ColorSetting {
         this.title = title;
         this.storageKey = storageKey;
 
-        inputContainer = createColorSetting(this.title, this.storageKey);
+        inputContainer = createColorSetting();
     }
 
-    Element createColorSetting(String name, String colorKey) {
+    Element createColorSetting() {
         DivElement colorSetting = new DivElement();
         inputColor = new InputElement();
 
         inputColor.type = 'color';
-        inputColor.value = loadColor(colorKey);
+        inputColor.value = loadColor();
 
-        colorSetting.text = name;
+        colorSetting.text = title;
         colorSetting.classes.add(classSettingsColorInput);
         colorSetting.append(inputColor);
 
         return colorSetting;
     }
 
-    String loadColor(String key) {
-        if (storage.containsKey(key)) {
-            return storage.get(key);
+    String loadColor() {
+        if (storage.containsKey(storageKey)) {
+            return storage.get(storageKey);
         } else {
-            return getDefaultColor(key);
+            return getDefaultColor(storageKey);
         }
     }
 

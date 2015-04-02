@@ -59,4 +59,27 @@ class SettingsColor implements SettingsTab {
         pageContainer.parent.classes.add(classSettingsTabSelected);
     }
 
+    String getColor(String key) {
+        String result = '';
+        switch (key) {
+            case wishListColorKey:
+                result = wishlistColorSetting.loadColor();
+                break;
+            case whiteListColorKey:
+                result = whitelistColorSetting.loadColor();
+                break;
+            case groupColorKey:
+                result = groupColorSetting.loadColor();
+                break;
+            case contributorAboveLevelColorKey:
+                result = contributorAboveLevelColorSetting.loadColor();
+                break;
+            case contributorBelowLevelColorKey:
+                result = contributorBelowLevelColorSetting.loadColor();
+                break;
+            default:
+                break;
+        }
+        return result;
+    }
 }

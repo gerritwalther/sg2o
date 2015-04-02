@@ -107,4 +107,24 @@ class Settings {
     bool isRecentDiscussionsContainerToBeMoved() {
         return storage.getBool(keyMoveRecentDiscussions);
     }
+
+    String getWishListColor() {
+        return colorSettings.getColor(wishListColorKey);
+    }
+
+    String getWhiteListColor() {
+        return colorSettings.getColor(whiteListColorKey);
+    }
+
+    String getGroupColor() {
+        return colorSettings.getColor(groupColorKey);
+    }
+
+    String getContributorAboveColor() {
+        return colorSettings.getColor(contributorAboveLevelColorKey);
+    }
+
+    String getContributorBelowColor() {
+        return colorSettings.getColor(contributorBelowLevelColorKey);
+    }
 }
