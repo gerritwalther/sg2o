@@ -6,10 +6,11 @@ class Settings {
     SettingsCommon commonSettings = new SettingsCommon();
     SettingsGridView gridViewSettings = new SettingsGridView();
     SettingsColor colorSettings = new SettingsColor();
+    SettingsWishList wishListSettings = new SettingsWishList();
     SettingsTabs tabSettings;
 
     Settings() {
-        tabSettings = new SettingsTabs(colorSettings, commonSettings, gridViewSettings);
+        tabSettings = new SettingsTabs(colorSettings, commonSettings, gridViewSettings, wishListSettings);
         Element body = querySelector('body');
         body.append(addSettingsPage());
         Element navigationContainer = querySelector('.$classLeftNavigation');

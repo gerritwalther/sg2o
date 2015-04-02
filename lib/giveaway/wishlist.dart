@@ -16,12 +16,10 @@ class WishList {
 
     /// Sends a request to load all wishlisted games.
     void loadWishListFromProfile(num page) {
-        window.console.log('Loading page $page');
+        window.console.log('Loading page $page from wishlist.');
         HttpRequest.request('$urlSteamWishList$page').then((HttpRequest resp) {
             if (resp.responseUrl != urlSteamGiftsHome) {
                 Document nextPageDocument = domParser.parseFromString(resp.responseText, 'text/html');
-                window.console.log(resp.responseUrl);
-                window.console.log(nextPageDocument);
                 ElementList wishListNames = nextPageDocument.querySelectorAll('.$classWishListName');
 
                 wishListNames.forEach((Element e) {

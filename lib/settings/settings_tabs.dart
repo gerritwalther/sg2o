@@ -7,11 +7,13 @@ class SettingsTabs {
     SettingsColor colorSettings;
     SettingsCommon commonSettings;
     SettingsGridView gridViewSettings;
+    SettingsWishList wishListSettings;
 
-    SettingsTabs(SettingsColor colorSettings, SettingsCommon commonSettings, SettingsGridView gridViewSettings) {
+    SettingsTabs(SettingsColor colorSettings, SettingsCommon commonSettings, SettingsGridView gridViewSettings, SettingsWishList wishListSettings) {
         this.colorSettings = colorSettings;
         this.commonSettings = commonSettings;
         this.gridViewSettings = gridViewSettings;
+        this.wishListSettings = wishListSettings;
         tabs = new DivElement();
         tabs.classes.add(classSettingsTabs);
         addTabMenu();
@@ -32,10 +34,12 @@ class SettingsTabs {
         LIElement colorSettingsListElement = new LIElement();
         LIElement commonSettingsListElement = new LIElement();
         LIElement gridViewSettingsListElement = new LIElement();
+        LIElement wishListSettingsListElement = new LIElement();
 
         Element colorSettingsLink = new Element.a();
         Element commonSettingsLink = new Element.a();
         Element gridViewSettingsLink = new Element.a();
+        Element wishListSettingsLink = new Element.a();
 
         colorSettingsLink
             ..setAttribute('data-content', 'colors')
@@ -50,6 +54,10 @@ class SettingsTabs {
             ..setAttribute('data-content', 'gridview')
             ..innerHtml = 'GridView'
         ;
+        wishListSettingsLink
+            ..setAttribute('data-content', 'wishlist')
+            ..innerHtml = 'WishList'
+        ;
 
         colorSettingsListElement
             ..append(colorSettingsLink)
@@ -62,7 +70,7 @@ class SettingsTabs {
         commonSettingsListElement
             ..append(commonSettingsLink)
             ..onClick.listen((Event e) {
-            deselectAll();
+                deselectAll();
                 commonSettings.select();
                 commonSettingsLink.classes.add(classSettingsTabSelected);
             })
@@ -75,11 +83,20 @@ class SettingsTabs {
                 gridViewSettingsLink.classes.add(classSettingsTabSelected);
             })
         ;
+        wishListSettingsListElement
+            ..append(wishListSettingsLink)
+            ..onClick.listen((Event e) {
+                deselectAll();
+                wishListSettings.select();
+                wishListSettingsLink.classes.add(classSettingsTabSelected);
+            })
+        ;
 
         navigationTabs
             ..append(commonSettingsListElement)
             ..append(gridViewSettingsListElement)
             ..append(colorSettingsListElement)
+            ..append(wishListSettingsListElement)
         ;
     }
 
@@ -94,6 +111,7 @@ class SettingsTabs {
         LIElement commonSettingsContentListElement = new LIElement();
         LIElement gridViewSettingsContentListElement = new LIElement();
         LIElement colorSettingsContentListElement = new LIElement();
+        LIElement wishListSettingsContentListElement = new LIElement();
 
         commonSettingsContentListElement
             ..append(commonSettings.createPage())
@@ -108,11 +126,16 @@ class SettingsTabs {
             ..append(colorSettings.createPage())
             ..setAttribute('data-content', 'colors')
         ;
+        wishListSettingsContentListElement
+            ..append(wishListSettings.createPage())
+            ..setAttribute('data-content', 'wishlist')
+        ;
 
         navigationContent
             ..append(commonSettingsContentListElement)
             ..append(gridViewSettingsContentListElement)
             ..append(colorSettingsContentListElement)
+            ..append(wishListSettingsContentListElement)
         ;
 
         tabs.append(navigationContent);

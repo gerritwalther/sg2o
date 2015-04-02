@@ -26,6 +26,7 @@ part 'settings/settings_common.dart';
 part 'settings/settings_gridview.dart';
 part 'settings/settings_tab.dart';
 part 'settings/settings_tabs.dart';
+part 'settings/settings_wishlist.dart';
 part 'storage/custom_wishlist.dart';
 part 'storage/my_storage.dart';
 part 'styles/border_styles.dart';
