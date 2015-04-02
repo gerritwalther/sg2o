@@ -81,7 +81,7 @@ void replaceFeaturedAndMoveRecentPosts() {
         featuredContainer.remove();
     }
 
-    if (storage.getBool(keyMoveRecentDiscussions)) {
+    if (settings.isRecentDiscussionsContainerToBeMoved()) {
         placeBeforeThis.parent
             ..insertBefore(forumContainer, placeBeforeThis);
 //    ..insertBefore(voteContainer, placeBeforeThis);

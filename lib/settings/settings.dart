@@ -102,4 +102,9 @@ class Settings {
     bool isFeaturedGAToBeRemoved() {
         return storage.getBool(keyRemoveFeatured);
     }
+
+    /// Returns [true] if the recent discussions should be moved to the top.
+    bool isRecentDiscussionsContainerToBeMoved() {
+        return storage.getBool(keyMoveRecentDiscussions);
+    }
 }
