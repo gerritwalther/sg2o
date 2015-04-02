@@ -35,7 +35,7 @@ class Settings {
             ..classes.add(classClose)
             ..innerHtml = 'X'
             ..onClick.listen((e) {
-                if (storage.getBool(keyAutomaticPageReload)) {
+                if (isAutomaticReloadActivated()) {
                     window.location.reload();
                 }
             })
@@ -91,5 +91,10 @@ class Settings {
     /// Returns [true] if games should be automatically blacklisted.
     bool isAutomaticBlackListingOn() {
         return storage.getBool(keyAutomaticBlackList);
+    }
+
+    /// Returns [true] if page should be automatically reloaded after closing the settings.
+    bool isAutomaticReloadActivated() {
+        return storage.getBool(keyAutomaticPageReload);
     }
 }
