@@ -97,4 +97,9 @@ class Settings {
     bool isAutomaticReloadActivated() {
         return storage.getBool(keyAutomaticPageReload);
     }
+
+    /// Returns [true] if the featured giveaway should be removed.
+    bool isFeaturedGAToBeRemoved() {
+        return storage.getBool(keyRemoveFeatured);
+    }
 }

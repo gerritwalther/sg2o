@@ -77,7 +77,7 @@ void replaceFeaturedAndMoveRecentPosts() {
         placeBeforeThis = querySelector('.$classSectionHeading');
     }
 
-    if (storage.getBool(keyRemoveFeatured)) {
+    if (settings.isFeaturedGAToBeRemoved()) {
         featuredContainer.remove();
     }
 
