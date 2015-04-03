@@ -43,6 +43,7 @@ const String classFontAwesome = 'fa';
 const String classFAFullHeart = 'fa-heart';
 const String classFAEmptyHeart = 'fa-heart-o';
 const String classEyeSlash = 'fa-eye-slash';
+const String classFrown = 'fa-frown-o';
 
 const String classWidgetMarginTop = 'widget-container--margin-top';
 
@@ -90,6 +91,7 @@ const String classGridViewAvatar = 'gridview-avatar';
 const String classGridViewGAName = 'ga-name';
 const String classOneClickBlackList = 'sg2o-blacklist-ga';
 const String classCustomWishList = 'sg2o-custom-wishlist';
+const String classGiveAwayBlackList = 'sg2o-giveaway-blacklist';
 const String classHighLightCustomWishList = 'sg2o-custom-wishlist-red';
 
 const String classSg2oTableHeading = 'sg2o-table-heading';
@@ -149,6 +151,7 @@ const String keyAutomaticBlackList = 'automatic-blacklist';
 
 const String keyWishList = 'wishlist';
 const String keyCustomWishList = 'custom-wishlist';
+const String keyGiveAwayBlackList = 'giveaway-blacklist';
 
 const String oldFilterKey = 'lscache-sgpgiveawayFilters';
 

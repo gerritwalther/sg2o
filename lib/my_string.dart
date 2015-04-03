@@ -13,3 +13,9 @@ String parseTime(String stringWithTime) {
     int amount = parseNumber(stringWithTime);
     return amount.toString() + ' ' + stringWithTime.split(' ').elementAt(1);
 }
+
+/// Parses the giveaway ID from the [link]. ("http://www.steamgifts.com/giveaway/o7BRU/deus-ex-game-of-the-year-edition" -> "o7BRU")
+String parseIdFromLink(String link) {
+    var urlParts = link.split('/');
+    return urlParts[2];
+}

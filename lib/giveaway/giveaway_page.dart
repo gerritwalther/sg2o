@@ -19,15 +19,17 @@ class GiveAwayPage {
         for (int i = beginWithNo; i < gaList.length; i++) {
             GiveAway giveAway = new GiveAway(gaList.elementAt(i));
 
-            if (giveAway.isNotBlackListed()) {
-                // Add giveaway only if its not entered, or its entered and option to hide entered GAs is deactivated.
-                if ((!giveAway.isEntered() || (giveAway.isEntered() && !settings.hideEnteredGames()))) {
-                    parentElementToInsertGAs.append(giveAway.wrappedWithStyles());
-                }
-            } else {
-                if (settings.isAutomaticBlackListingOn()) {
-                    window.console.log('Automatically adding ${giveAway.name} to the blacklist.');
-                    giveAway.addGameToBlackList();
+            if (!giveAway.isGiveAwayIdBlackListed()) {
+                if (giveAway.isNotBlackListed()) {
+                    // Add giveaway only if its not entered, or its entered and option to hide entered GAs is deactivated.
+                    if ((!giveAway.isEntered() || (giveAway.isEntered() && !settings.hideEnteredGames()))) {
+                        parentElementToInsertGAs.append(giveAway.wrappedWithStyles());
+                    }
+                } else {
+                    if (settings.isAutomaticBlackListingOn()) {
+                        window.console.log('Automatically adding ${giveAway.name} to the blacklist.');
+                        giveAway.addGameToBlackList();
+                    }
                 }
             }
             giveAways.add(giveAway);
@@ -46,7 +48,7 @@ class GiveAwayPage {
     /// Propagation function to hide all containing giveAways in this page matching the [name].
     void hideTemporarily(String name) {
         giveAways.forEach((GiveAway ga) {
-            ga.hideTemporarily(name);
+            ga.hideTemporarily(name, null);
         });
     }
 }

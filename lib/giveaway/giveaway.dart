@@ -7,6 +7,7 @@ class GiveAway {
     String creator;
     String remaining;
     String link;
+    String giveAwayId;
     Element image;
     Element avatar;
     int points;
@@ -47,6 +48,7 @@ class GiveAway {
         Element nameAndLink = gaHtml.querySelector('a.$classGAName');
         this.name = nameAndLink.text;
         this.link = nameAndLink.getAttribute('href');
+        this.giveAwayId = parseIdFromLink(this.link);
         this.remaining = parseTime(gaHtml.querySelector('div.$classGAColumns>div>span').text);
         this.created = parseTime(gaHtml.querySelector('div.$classGAColumnWidthFill').text);
         this.creator = gaHtml.querySelector('.$classGAUserName').text;
@@ -180,9 +182,10 @@ class GiveAway {
             ..classes.add(classEyeSlash)
             ..classes.add(classOneClickBlackList)
             ..onClick.listen((Event e) {
-            addGameToBlackList();
-            gridView.hideTemporarily(this.name);
-        });
+                addGameToBlackList();
+                gridView.hideTemporarily(this.name);
+            })
+        ;
 
         // Add [DivElement] to add game directly to custom wishlist.
         DivElement customWishListContainer = new DivElement();
@@ -190,7 +193,21 @@ class GiveAway {
             ..classes.add(classFloatLeft)
             ..classes.add(classFontAwesome)
             ..classes.add(classCustomWishList)
-            ..onClick.listen(toggleGameOnCustomWishList);
+            ..onClick.listen(toggleGameOnCustomWishList)
+        ;
+
+        // Add [DivElement] to add giveaway directly to the [GiveAwayBlackList].
+        DivElement giveAwayBlackListContainer = new DivElement();
+        giveAwayBlackListContainer
+            ..classes.add(classFloatLeft)
+            ..classes.add(classFontAwesome)
+            ..classes.add(classFrown)
+            ..classes.add(classGiveAwayBlackList)
+            ..onClick.listen((Event e) {
+                giveAwayBlackList.addGameToBlackList(this.giveAwayId);
+                hideTemporarily(null, this.giveAwayId);
+            })
+        ;
 
         if (isCustomWishListGA) {
             customWishListContainer.classes.add(classFAFullHeart);
@@ -211,6 +228,7 @@ class GiveAway {
             levelContainer.classes.add(classFaded);
             blackListLinkContainer.classes.add(classFaded);
             customWishListContainer.classes.add(classFaded);
+            giveAwayBlackListContainer.classes.add(classFaded);
         }
 
         informationContainer
@@ -228,7 +246,9 @@ class GiveAway {
             ..append(levelContainer)
             ..append(createStopStyleParagraph())
             ..append(blackListLinkContainer)
-            ..append(customWishListContainer);
+            ..append(customWishListContainer)
+            ..append(giveAwayBlackListContainer)
+        ;
 
         return informationContainer;
     }
@@ -283,6 +303,11 @@ class GiveAway {
         return !isNotBlackListed();
     }
 
+    /// Returns [true] if giveaway id is blacklisted.
+    bool isGiveAwayIdBlackListed() {
+        return giveAwayBlackList.isOnBlackList(this.giveAwayId);
+    }
+
     /// Returns [true] if giveaway is entered.
     bool isEntered() {
         return this.entered;
@@ -329,9 +354,9 @@ class GiveAway {
         }
     }
 
-    /// Hides a game by [name]. This will be used for blacklisting games or for expiring games.
-    void hideTemporarily(String name) {
-        if (name == this.name) {
+    /// Hides a game by [name] or [giveAwayId]. This will be used for blacklisting games or for expiring games.
+    void hideTemporarily(String name, String giveAwayId) {
+        if (name == this.name || giveAwayId == this.giveAwayId) {
             giveAwayContainer.classes.add(classHidden);
         }
     }

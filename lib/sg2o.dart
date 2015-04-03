@@ -28,6 +28,7 @@ part 'settings/settings_tab.dart';
 part 'settings/settings_tabs.dart';
 part 'settings/settings_wishlist.dart';
 part 'storage/custom_wishlist.dart';
+part 'storage/giveaway_blacklist.dart';
 part 'storage/my_storage.dart';
 part 'styles/border_styles.dart';
 part 'styles/common_styles.dart';
@@ -40,6 +41,7 @@ Settings settings;
 BlackList blackList = new BlackList();
 WishList wishList = new WishList();
 CustomWishList customWishList = new CustomWishList();
+GiveawayBlackList giveAwayBlackList = new GiveawayBlackList();
 GridView gridView = new GridView();
 
 /// Returns [true] if there are pinned giveaways.
