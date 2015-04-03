@@ -15,6 +15,7 @@ class SettingsWishList implements SettingsTab {
 
     void reSyncWishList(Event e) {
         wishList.loadWishListFromProfile(1);
+        pageContainer.append(new InfoElement('Resynced wishlist!'));
     }
 
     void select() {
