@@ -175,12 +175,13 @@ class GiveAway {
         }
 
         // Add [DivElement] to add game directly to blackList.
-        DivElement blackListLinkContainer = new DivElement();
-        blackListLinkContainer
+        DivElement blackListLinkContainer = new DivElement()
             ..classes.add(classFloatLeft)
             ..classes.add(classFontAwesome)
             ..classes.add(classEyeSlash)
             ..classes.add(classOneClickBlackList)
+            ..classes.add(classTooltip)
+            ..append(new SpanElement()..innerHtml = '<b></b>Add ${this.name} to the blacklist.')
             ..onClick.listen((Event e) {
                 addGameToBlackList();
                 gridView.hideTemporarily(this.name);
@@ -188,21 +189,23 @@ class GiveAway {
         ;
 
         // Add [DivElement] to add game directly to custom wishlist.
-        DivElement customWishListContainer = new DivElement();
-        customWishListContainer
+        DivElement customWishListContainer = new DivElement()
             ..classes.add(classFloatLeft)
             ..classes.add(classFontAwesome)
             ..classes.add(classCustomWishList)
+            ..classes.add(classTooltip)
+            ..append(new SpanElement()..innerHtml = '<b></b>Add ${this.name} to a custom wishlist')
             ..onClick.listen(toggleGameOnCustomWishList)
         ;
 
         // Add [DivElement] to add giveaway directly to the [GiveAwayBlackList].
-        DivElement giveAwayBlackListContainer = new DivElement();
-        giveAwayBlackListContainer
+        DivElement giveAwayBlackListContainer = new DivElement()
             ..classes.add(classFloatLeft)
             ..classes.add(classFontAwesome)
             ..classes.add(classFrown)
             ..classes.add(classGiveAwayBlackList)
+            ..classes.add(classTooltip)
+            ..append(new SpanElement()..innerHtml = '<b></b>Hide this giveaway with ID <em>${this.giveAwayId}</em> until it is finished.')
             ..onClick.listen((Event e) {
                 giveAwayBlackList.addGameToBlackList(this.giveAwayId);
                 hideTemporarily(null, this.giveAwayId);

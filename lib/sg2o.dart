@@ -34,6 +34,7 @@ part 'styles/border_styles.dart';
 part 'styles/common_styles.dart';
 part 'styles/settings_styles.dart';
 part 'styles/styles.dart';
+part 'styles/tooltip.dart';
 
 /// These classes should only be instantiated once and used everywhere.
 MyStorage storage = new MyStorage();

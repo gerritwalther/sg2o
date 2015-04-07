@@ -14,6 +14,7 @@ class Styles {
         new BorderStyles().addBorderStyles();
         new CommonStyles().addStyles();
         new SettingsStyles().addStyles();
+        new Tooltip().addStyles();
     }
 
     /// Creates a [StyleElement] and adds it to the DOM.
