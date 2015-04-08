@@ -16,6 +16,7 @@ class GiveAway {
     int comments;
     int contributorLevel = 0;
     int sgGameId;
+    num chanceOfWin;
     bool isContributorGA;
     bool isGroupGA;
     bool isWishListGA;
@@ -68,6 +69,8 @@ class GiveAway {
         this.entered = gaHtml.querySelectorAll('.$classGAEntered').length > 0;
         this.isWhiteListed = gaHtml.querySelectorAll('.$classGAWhiteListed').length > 0;
         this.sgGameId = parseNumber(gaHtml.querySelector('.$classGAHide').getAttribute('data-game-id'));
+
+        this.chanceOfWin = (100 / (this.entries + ((entered) ? 0 : 1)));
 
         this.borderClass = getBorderColorClass();
     }
@@ -150,10 +153,9 @@ class GiveAway {
             ..append(createTextElement(' entries'));
 
         // Chance is calculated by entries. Only add 1 entry, when not yet entered.
-        DivElement chanceToWinContainer = new DivElement();
-        chanceToWinContainer
+        DivElement chanceToWinContainer = new DivElement()
             ..classes.add(classFloatRight)
-            ..append(createStrongElement((100 / (this.entries + ((entered) ? 0 : 1))).toStringAsFixed(2)))
+            ..append(createStrongElement(this.chanceOfWin.toStringAsFixed(2)))
             ..append(createTextElement(' %'));
 
         DivElement commentsContainer = new DivElement();
@@ -184,7 +186,7 @@ class GiveAway {
             ..append(new SpanElement()..innerHtml = '<b></b>Add ${this.name} to the blacklist.')
             ..onClick.listen((Event e) {
                 addGameToBlackList();
-                gridView.hideTemporarily(this.name);
+                gridView.hideTemporarilyByName(this.name);
             })
         ;
 
@@ -208,7 +210,10 @@ class GiveAway {
             ..append(new SpanElement()..innerHtml = '<b></b>Hide this giveaway with ID <em>${this.giveAwayId}</em> until it is finished.')
             ..onClick.listen((Event e) {
                 giveAwayBlackList.addGameToBlackList(this.giveAwayId);
-                hideTemporarily(null, this.giveAwayId);
+                // remove giveaway from gridview so it is not added back again
+                gridView.remove(this);
+                // remove the container from the dom
+                giveAwayContainer.remove();
             })
         ;
 
@@ -357,10 +362,27 @@ class GiveAway {
         }
     }
 
-    /// Hides a game by [name] or [giveAwayId]. This will be used for blacklisting games or for expiring games.
-    void hideTemporarily(String name, String giveAwayId) {
-        if (name == this.name || giveAwayId == this.giveAwayId) {
+    /// Toggles visibility of this game when [hide] is [true].
+    void hideTemporarily(bool hide) {
+        if (hide) {
             giveAwayContainer.classes.add(classHidden);
+        } else {
+            giveAwayContainer.classes.remove(classHidden);
         }
+    }
+
+    /// Returns [true] if [this.contributorLevel] is in range of [levelFrom] and [levelTo].
+    bool isInContributorRange(num levelFrom, num levelTo) {
+        return levelFrom <= this.contributorLevel && this.contributorLevel <= levelTo;
+    }
+
+    /// Returns [true] if [this.points] is in range of [pointsFrom] and [pointsTo].
+    bool isInPointsRange(num pointsFrom, num pointsTo) {
+        return pointsFrom <= this.points && this.points <= pointsTo;
+    }
+
+    /// Returns [true] if [this.chanceOfWin] is in range of [chanceFrom] and [chanceTo].
+    bool isInChanceRange(num chanceFrom, num chanceTo) {
+        return chanceFrom <= this.chanceOfWin && this.chanceOfWin <= chanceTo;
     }
 }

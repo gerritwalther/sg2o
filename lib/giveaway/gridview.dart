@@ -4,6 +4,12 @@ part of sg2o;
 class GridView {
 
     List<GiveAwayPage> giveAwayPages;
+    num contributorLevelFrom = 0;
+    num contributorLevelTo = 10;
+    num pointsFrom = 0;
+    num pointsTo = 300;
+    num chanceFrom = 0;
+    num chanceTo = 100;
 
     GridView() {
         giveAwayPages = new List();
@@ -18,7 +24,7 @@ class GridView {
             ..parent.insertBefore(createHeading('Pinned giveaways', '/'), parentElement)
             ..setAttribute('style', 'margin-top: 0px;');
 
-        GiveAwayPage giveAwayPage = new GiveAwayPage();
+        GiveAwayPage giveAwayPage = new GiveAwayPage(contributorLevelFrom, contributorLevelTo, pointsFrom, pointsTo, chanceFrom, chanceTo);
 
         giveAwayPage.collapseGAs(0, document, classPinnedGAContainer, parentElement, giveAwayElements);
 
@@ -31,7 +37,7 @@ class GridView {
         ElementList giveAwayElements = document.querySelectorAll('.$classGiveawayRow');
         Element parentElement = giveAwayElements[numberPinnedGAs].parent;
 
-        GiveAwayPage giveAwayPage = new GiveAwayPage();
+        GiveAwayPage giveAwayPage = new GiveAwayPage(contributorLevelFrom, contributorLevelTo, pointsFrom, pointsTo, chanceFrom, chanceTo);
 
         giveAwayPage.collapseGAs(numberPinnedGAs, document, classGridViewContainer, parentElement, giveAwayElements);
 
@@ -44,7 +50,7 @@ class GridView {
         ElementList giveAwayElements = documentToQuery.querySelectorAll('.$classGiveawayRow');
         Element parentElement = giveAwayElements[numberPinnedGAs].parent;
 
-        GiveAwayPage giveAwayPage = new GiveAwayPage();
+        GiveAwayPage giveAwayPage = new GiveAwayPage(contributorLevelFrom, contributorLevelTo, pointsFrom, pointsTo, chanceFrom, chanceTo);
 
         Element collapsedGAList = giveAwayPage.collapseGAs(numberPinnedGAs, documentToQuery, null, parentElement, giveAwayElements);
 
@@ -61,9 +67,29 @@ class GridView {
     }
 
     /// Call this function to hide all visible giveaways matching [name].
-    void hideTemporarily(String name) {
+    void hideTemporarilyByName(String name) {
         giveAwayPages.forEach((GiveAwayPage gap) {
-            gap.hideTemporarily(name);
+            gap.hideTemporarilyByName(name);
+        });
+    }
+
+    /// Call this function to hide all visible giveaways matching the defined ranges.
+    void hideTemporarilyByRanges(num levelFrom, num levelTo, num pointsFrom, num pointsTo, num chanceFrom, num chanceTo) {
+        this.contributorLevelFrom = levelFrom;
+        this.contributorLevelTo = levelTo;
+        this.pointsFrom = pointsFrom;
+        this.pointsTo = pointsTo;
+        this.chanceFrom = chanceFrom;
+        this.chanceTo = chanceTo;
+        giveAwayPages.forEach((GiveAwayPage gap) {
+            gap.hideTemporarilyByRanges(levelFrom, levelTo, pointsFrom, pointsTo, chanceFrom, chanceTo);
+        });
+    }
+
+    /// Removes the giveaway from the gridView and giveawayPage.
+    void remove(GiveAway giveaway) {
+        giveAwayPages.forEach((GiveAwayPage gap) {
+            gap.remove(giveaway);
         });
     }
 }

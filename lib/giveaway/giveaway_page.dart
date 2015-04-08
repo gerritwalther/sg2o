@@ -4,9 +4,21 @@ part of sg2o;
 class GiveAwayPage {
 
     List<GiveAway> giveAways;
+    num contributorLevelFrom;
+    num contributorLevelTo;
+    num pointsFrom;
+    num pointsTo;
+    num chanceFrom;
+    num chanceTo;
 
-    GiveAwayPage() {
-        giveAways = new List();
+    GiveAwayPage(num levelFrom, num levelTo, num pointsFrom, num pointsTo, num chanceFrom, num chanceTo) {
+        this.giveAways = new List();
+        this.contributorLevelFrom = levelFrom;
+        this.contributorLevelTo = levelTo;
+        this.pointsFrom = pointsFrom;
+        this.pointsTo = pointsTo;
+        this.chanceFrom = chanceFrom;
+        this.chanceTo = chanceTo;
     }
 
     /// Returns an [Element] containing all collapsed giveaway containers for one page. Also adds the giveaways to a list to be later updated.
@@ -31,8 +43,15 @@ class GiveAwayPage {
                         giveAway.addGameToBlackList();
                     }
                 }
+
+                if (!giveAway.isInContributorRange(contributorLevelFrom, contributorLevelTo) ||
+                        !giveAway.isInPointsRange(pointsFrom, pointsTo) ||
+                        !giveAway.isInChanceRange(chanceFrom, chanceTo)) {
+                    giveAway.hideTemporarily(true);
+                }
+
+                giveAways.add(giveAway);
             }
-            giveAways.add(giveAway);
         }
         addStopStyleParagraph(parentElementToInsertGAs);
         return parentElementToInsertGAs;
@@ -46,9 +65,29 @@ class GiveAwayPage {
     }
 
     /// Propagation function to hide all containing giveAways in this page matching the [name].
-    void hideTemporarily(String name) {
+    void hideTemporarilyByName(String name) {
         giveAways.forEach((GiveAway ga) {
-            ga.hideTemporarily(name, null);
+            ga.hideTemporarily(name == ga.name);
         });
+    }
+
+    /// Propagation function to hide all containing giveAways in this page matching the ranges.
+    void hideTemporarilyByRanges(num levelFrom, num levelTo, num pointsFrom, num pointsTo, num chanceFrom, num chanceTo) {
+        this.contributorLevelFrom = levelFrom;
+        this.contributorLevelTo = levelTo;
+        this.pointsFrom = pointsFrom;
+        this.pointsTo = pointsTo;
+        this.chanceFrom = chanceFrom;
+        this.chanceTo = chanceTo;
+        giveAways.forEach((GiveAway ga) {
+            ga.hideTemporarily((!ga.isInContributorRange(levelFrom, levelTo) ||
+                                !ga.isInPointsRange(pointsFrom, pointsTo) ||
+                                !ga.isInChanceRange(chanceFrom, chanceTo)));
+        });
+    }
+
+    /// Removes a giveaway from this giveawayPage.
+    void remove(GiveAway giveaway) {
+        giveAways.remove(giveaway);
     }
 }

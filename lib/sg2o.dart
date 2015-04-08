@@ -4,6 +4,7 @@ library sg2o;
 import 'dart:html';
 import 'dart:convert';
 import 'dart:async';
+import 'dart:js' as js;
 
 part 'constants.dart';
 part 'my_string.dart';
@@ -13,6 +14,7 @@ part 'dom/color_setting.dart';
 part 'dom/info_element.dart';
 part 'dom/my_dom.dart';
 part 'dom/sg_button.dart';
+part 'dom/sidebar_heading.dart';
 part 'endless_scroll/endless_scroll.dart';
 part 'endless_scroll/endless_giveaway.dart';
 part 'giveaway/blacklist.dart';

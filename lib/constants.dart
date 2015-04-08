@@ -21,6 +21,7 @@ const String classLeftNavigation = 'nav__left-container';
 const String classNavigationButtonContainer = 'nav__button-container';
 const String classNavigationButton = 'nav__button';
 const String classSidebar = 'sidebar';
+const String classSidebarHeading = 'sidebar__heading';
 
 const String classGAHeadingThin = 'giveaway__heading__thin';
 const String classGAName = 'giveaway__heading__name';

@@ -8,6 +8,7 @@ main() {
     List<String> urlParts = path.split(currentUrl);
     sg2o.Styles styles = new sg2o.Styles();
     sg2o.MyStorage storage = new sg2o.MyStorage();
+    sg2o.SideBar sidebar = new sg2o.SideBar();
 
     sg2o.activateSettings();
     styles.addStyles();
@@ -26,9 +27,9 @@ main() {
             sg2o.EndlessGiveAway endlessGiveAwayScroll = new sg2o.EndlessGiveAway();
             endlessGiveAwayScroll.loadPages();
         }
-    }
 
-    sg2o.SideBar sidebar = new sg2o.SideBar();
+        sidebar.addFilter();
+    }
 
     if (sidebar.isSidebarPresent()) {
         sidebar.fixSidebar();
