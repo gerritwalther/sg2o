@@ -10,6 +10,7 @@
 //
 // @downloadURL https://sg2o.clerius.de/sg2o.user.js
 // @updateURL https://sg2o.clerius.de/sg2o.meta.js
+// @supportURL https://github.com/gerritwalther/sg2o/issues
 //
 // @require https://code.jquery.com/jquery-2.1.3.min.js
 // @require https://code.jquery.com/ui/1.11.4/jquery-ui.min.js
