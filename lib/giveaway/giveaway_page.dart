@@ -67,7 +67,11 @@ class GiveAwayPage {
     /// Propagation function to hide all containing giveAways in this page matching the [name].
     void hideTemporarilyByName(String name) {
         giveAways.forEach((GiveAway ga) {
-            ga.hideTemporarily(name == ga.name);
+            ga.hideTemporarily(name == ga.name ||
+                                !ga.isInContributorRange(contributorLevelFrom, contributorLevelTo) ||
+                                !ga.isInPointsRange(pointsFrom, pointsTo) ||
+                                !ga.isInChanceRange(chanceFrom, chanceTo)
+            );
         });
     }
 
