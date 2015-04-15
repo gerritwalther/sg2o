@@ -32,7 +32,7 @@ class GiveAwayPage {
             GiveAway giveAway = new GiveAway(gaList.elementAt(i));
 
             if (!giveAway.isGiveAwayIdBlackListed()) {
-                if (giveAway.isNotBlackListed()) {
+                if (giveAway.isNotSGPBlackListed()) {
                     // Add giveaway only if its not entered, or its entered and option to hide entered GAs is deactivated.
                     if ((!giveAway.isEntered() || (giveAway.isEntered() && !settings.hideEnteredGames()))) {
                         parentElementToInsertGAs.append(giveAway.wrappedWithStyles());
@@ -72,6 +72,13 @@ class GiveAwayPage {
                                 !ga.isInPointsRange(pointsFrom, pointsTo) ||
                                 !ga.isInChanceRange(chanceFrom, chanceTo)
             );
+        });
+    }
+
+    /// Propagation function to remove all containing giveAways in this page matching the [name].
+    void removeByName(String name) {
+        giveAways.forEach((GiveAway ga) {
+            ga.removeGiveAwayContainer(name);
         });
     }
 

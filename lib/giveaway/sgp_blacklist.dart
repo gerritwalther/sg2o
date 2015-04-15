@@ -1,12 +1,12 @@
 part of sg2o;
 
 /// This class is used for the old blacklist entries from SG+.
-class BlackList {
+class SGPBlackList {
 
     Map blackList;
 
     /// Constructor that reads the list from local storage and parses the json element to a map.
-    BlackList() {
+    SGPBlackList() {
         String jsonString = storage.getForeign(oldFilterKey);
         if (jsonString == '') {
             jsonString = '{}';

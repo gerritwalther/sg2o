@@ -73,6 +73,13 @@ class GridView {
         });
     }
 
+    /// Call this function to remove all visible giveaways matching [name].
+    void removeByName(String name) {
+        giveAwayPages.forEach((GiveAwayPage gap) {
+            gap.removeByName(name);
+        });
+    }
+
     /// Call this function to hide all visible giveaways matching the defined ranges.
     void hideTemporarilyByRanges(num levelFrom, num levelTo, num pointsFrom, num pointsTo, num chanceFrom, num chanceTo) {
         this.contributorLevelFrom = levelFrom;

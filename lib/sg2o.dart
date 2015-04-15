@@ -17,7 +17,7 @@ part 'dom/sg_button.dart';
 part 'dom/sidebar_heading.dart';
 part 'endless_scroll/endless_scroll.dart';
 part 'endless_scroll/endless_giveaway.dart';
-part 'giveaway/blacklist.dart';
+part 'giveaway/sgp_blacklist.dart';
 part 'giveaway/giveaway.dart';
 part 'giveaway/giveaway_page.dart';
 part 'giveaway/gridview.dart';
@@ -41,7 +41,7 @@ part 'styles/tooltip.dart';
 /// These classes should only be instantiated once and used everywhere.
 MyStorage storage = new MyStorage();
 Settings settings;
-BlackList blackList = new BlackList();
+SGPBlackList sgpBlackList = new SGPBlackList();
 WishList wishList = new WishList();
 CustomWishList customWishList = new CustomWishList();
 GiveawayBlackList giveAwayBlackList = new GiveawayBlackList();

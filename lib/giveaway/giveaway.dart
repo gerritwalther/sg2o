@@ -23,6 +23,7 @@ class GiveAway {
     bool isCustomWishListGA;
     bool entered;
     bool isWhiteListed;
+    bool isBlackListed = false;
 
     /// Container for this game. Used for hiding it after moving it to the blacklist.
     Element giveAwayContainer;
@@ -186,7 +187,7 @@ class GiveAway {
             ..append(new SpanElement()..innerHtml = '<b></b>Add ${this.name} to the blacklist.')
             ..onClick.listen((Event e) {
                 addGameToBlackList();
-                gridView.hideTemporarilyByName(this.name);
+                gridView.removeByName(this.name);
             })
         ;
 
@@ -261,6 +262,15 @@ class GiveAway {
         return informationContainer;
     }
 
+    /// Removes this container from all containers and marks it as blacklisted when matching [name].
+    void removeGiveAwayContainer(String name) {
+        if (this.name == name) {
+            window.console.info('Adding to blacklist.');
+            giveAwayContainer.remove();
+            this.isBlackListed = true;
+        }
+    }
+
     /// Print this giveaway to console.
     void print() {
         window.console.info(toString());
@@ -302,13 +312,13 @@ class GiveAway {
     }
 
     /// Returns [true] if game is NOT on the SG+ blacklist.
-    bool isNotBlackListed() {
-        return !blackList.isOnBlackList(name);
+    bool isNotSGPBlackListed() {
+        return !sgpBlackList.isOnBlackList(name);
     }
 
     /// Returns [true] if game IS on the SG+ blacklist.
-    bool isBlackListed() {
-        return !isNotBlackListed();
+    bool isSGPBlackListed() {
+        return !isNotSGPBlackListed();
     }
 
     /// Returns [true] if giveaway id is blacklisted.
@@ -364,10 +374,12 @@ class GiveAway {
 
     /// Toggles visibility of this game when [hide] is [true].
     void hideTemporarily(bool hide) {
-        if (hide) {
-            giveAwayContainer.classes.add(classHidden);
-        } else {
-            giveAwayContainer.classes.remove(classHidden);
+        if (!this.isBlackListed) {
+            if (hide) {
+                giveAwayContainer.classes.add(classHidden);
+            } else {
+                giveAwayContainer.classes.remove(classHidden);
+            }
         }
     }
 
