@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4
+
+- Fixed gridview.
+
 ## 0.1.3
 
 - Fixed endless scroll for wishlist/group/new giveaways.
