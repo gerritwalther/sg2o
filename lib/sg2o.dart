@@ -3,38 +3,53 @@ library sg2o;
 
 import 'dart:html';
 import 'dart:convert';
+import 'dart:async';
+import 'dart:js' as js;
 
 part 'constants.dart';
 part 'my_string.dart';
 part 'sidebar.dart';
 part 'user.dart';
+part 'dom/color_setting.dart';
+part 'dom/info_element.dart';
 part 'dom/my_dom.dart';
+part 'dom/sg_button.dart';
+part 'dom/sidebar_heading.dart';
 part 'endless_scroll/endless_scroll.dart';
 part 'endless_scroll/endless_giveaway.dart';
-part 'giveaway/blacklist.dart';
+part 'giveaway/sgp_blacklist.dart';
 part 'giveaway/giveaway.dart';
 part 'giveaway/giveaway_page.dart';
 part 'giveaway/gridview.dart';
 part 'giveaway/wishlist.dart';
 part 'settings/settings.dart';
+part 'settings/settings_color.dart';
+part 'settings/settings_common.dart';
+part 'settings/settings_gridview.dart';
+part 'settings/settings_tab.dart';
+part 'settings/settings_tabs.dart';
+part 'settings/settings_wishlist.dart';
 part 'storage/custom_wishlist.dart';
+part 'storage/giveaway_blacklist.dart';
 part 'storage/my_storage.dart';
 part 'styles/border_styles.dart';
 part 'styles/common_styles.dart';
 part 'styles/settings_styles.dart';
 part 'styles/styles.dart';
+part 'styles/tooltip.dart';
 
 /// These classes should only be instantiated once and used everywhere.
 MyStorage storage = new MyStorage();
 Settings settings;
-BlackList blackList = new BlackList();
+SGPBlackList sgpBlackList = new SGPBlackList();
 WishList wishList = new WishList();
 CustomWishList customWishList = new CustomWishList();
+GiveawayBlackList giveAwayBlackList = new GiveawayBlackList();
 GridView gridView = new GridView();
 
 /// Returns [true] if there are pinned giveaways.
 bool pinnedGAsExist() {
-    ElementList pinnedGAs = querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow');
+    ElementList pinnedGAs = querySelectorAll('.$classPinnedGiveawaysInner>.$classGiveawayRow');
 
     return pinnedGAs.isNotEmpty;
 }
@@ -47,7 +62,7 @@ void fixNavigation() {
 }
 
 /// Replaces the featured giveaways on top with the recent forum posts.
-void replaceFeatured() {
+void replaceFeaturedAndMoveRecentPosts() {
     Element featuredContainer = querySelector('.$classFeaturedContainer');
     ElementList widgetContainers = querySelectorAll('.$classWidgetContainers');
     Element placeBeforeThis;
@@ -61,20 +76,25 @@ void replaceFeatured() {
         }
     });
 
-    if (querySelectorAll('.$classPinnedGiveaways').length > 0) {
-        placeBeforeThis = querySelector('.$classPinnedGiveaways');
+    if (querySelectorAll('.$classPinnedGiveawaysOuter').length > 0) {
+        placeBeforeThis = querySelector('.$classPinnedGiveawaysOuter');
     } else {
         placeBeforeThis = querySelector('.$classSectionHeading');
     }
 
-    featuredContainer.remove();
-    placeBeforeThis.parent
-        ..insertBefore(forumContainer, placeBeforeThis);
+    if (settings.isFeaturedGAToBeRemoved()) {
+        featuredContainer.remove();
+    }
+
+    if (settings.isRecentDiscussionsContainerToBeMoved()) {
+        placeBeforeThis.parent
+            ..insertBefore(forumContainer, placeBeforeThis);
 //    ..insertBefore(voteContainer, placeBeforeThis);
 
-    forumContainer.classes.remove(classWidgetMarginTop);
-    // TODO: Might not need to add a margin top here (at least not for pinned GAs, extra removal of margin-top for pinnedGAs can be removed if this is removed).
-    placeBeforeThis.classes.add(classWidgetMarginTop);
+        forumContainer.classes.remove(classWidgetMarginTop);
+        // TODO: Might not need to add a margin top here (at least not for pinned GAs, extra removal of margin-top for pinnedGAs can be removed if this is removed).
+        placeBeforeThis.classes.add(classWidgetMarginTop);
+    }
 }
 
 void activateSettings() {

@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.2.0
+
+- Temporary filter for giveaways -> Hides giveaways by ID. A new button is added to the gridview (sad smiley).
+- Filter for gridview: filter gridview by contributor level, points or chance.
+- Reload page when closing settings.
+- Added tooltips to the buttons in the gridview dropdowns.
+- New Settings:
+-- Change color of border colors.
+-- Resync button for the local wishlist.
+-- Do/Don't move discussions to top.
+-- Enable/Disable removal of featured giveaways.
+-- Enable/Disable reload of page when closing settings.
+
 ## 0.1.4
 
 - Fixed gridview.
@@ -20,7 +33,7 @@
 ## 0.1
 
 - Gridview.
-- Colored borders. Blue (meets own contributor level), red (above own contributor level), green (group), purple (wishlist), turquoise (whiteliste).
+- Colored borders. Blue (meets own contributor level), red (above own contributor level), green (group), purple (wishlist), turquoise (whitelist).
 - One-click blacklisting of games.
 - Automatic blacklisting of games that were on the blacklist in SG+.
 - Endless-scroll for giveaway page.

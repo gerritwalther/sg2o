@@ -10,7 +10,10 @@ const String pluginName = 'SG₂O';
 
 /// classes defined by sg
 
-const String classPinnedGiveaways = 'pinned-giveaways__inner-wrap';
+const String classPinnedGiveawaysOuter = 'pinned-giveaways__outer-wrap';
+const String classPinnedGiveawaysInner = 'pinned-giveaways__inner-wrap';
+const String classPinnedGiveawaysMinimized = 'pinned-giveaways__inner-wrap--minimized';
+const String classPinnedGiveawaysButton = 'pinned-giveaways__button';
 const String classGiveawayRow = 'giveaway__row-outer-wrap';
 const String classFeaturedContainer = 'featured__container';
 const String classFeaturedOuterWrap = 'featured__outer-wrap--home';
@@ -21,6 +24,7 @@ const String classLeftNavigation = 'nav__left-container';
 const String classNavigationButtonContainer = 'nav__button-container';
 const String classNavigationButton = 'nav__button';
 const String classSidebar = 'sidebar';
+const String classSidebarHeading = 'sidebar__heading';
 
 const String classGAHeadingThin = 'giveaway__heading__thin';
 const String classGAName = 'giveaway__heading__name';
@@ -43,6 +47,7 @@ const String classFontAwesome = 'fa';
 const String classFAFullHeart = 'fa-heart';
 const String classFAEmptyHeart = 'fa-heart-o';
 const String classEyeSlash = 'fa-eye-slash';
+const String classFrown = 'fa-frown-o';
 
 const String classWidgetMarginTop = 'widget-container--margin-top';
 
@@ -90,7 +95,9 @@ const String classGridViewAvatar = 'gridview-avatar';
 const String classGridViewGAName = 'ga-name';
 const String classOneClickBlackList = 'sg2o-blacklist-ga';
 const String classCustomWishList = 'sg2o-custom-wishlist';
+const String classGiveAwayBlackList = 'sg2o-giveaway-blacklist';
 const String classHighLightCustomWishList = 'sg2o-custom-wishlist-red';
+const String classTooltip = 'sg2o-tooltip';
 
 const String classSg2oTableHeading = 'sg2o-table-heading';
 
@@ -125,6 +132,11 @@ const String classSettingsOverlay = 'sg2o-overlay-settings';
 const String classClose = 'sg2o-close';
 const String classModalDialog = 'sg2o-modal-dialog';
 const String classSettingsHeading = 'sg2o-settings-head';
+const String classSettingsTabs = 'sg2o-settings-tabs';
+const String classSettingsTabMenu = 'sg2o-settings-tabs-navigation';
+const String classSettingsTabContent = 'sg2o-settings-tabs-content';
+const String classSettingsTabSelected = 'sg2o-settings-tab-selected';
+const String classSettingsColorInput = 'sg2o-settings-color-input';
 
 /// URLs
 const String urlSteamGiftsHome = 'http://www.steamgifts.com/';
@@ -136,13 +148,23 @@ const String keyName = 'sg2o-';
 const String keyNameTimestamp = '-timestamp';
 const num daysForExpiration = 365;
 
+const String keyAutomaticPageReload = 'automatic-page-reload';
+const String keyRemoveFeatured = 'remove-featured';
+const String keyMoveRecentDiscussions = 'move-recent-discussions';
 const String keyHideGAs = 'hide-giveaways';
 const String keyAutomaticBlackList = 'automatic-blacklist';
 
 const String keyWishList = 'wishlist';
 const String keyCustomWishList = 'custom-wishlist';
+const String keyGiveAwayBlackList = 'giveaway-blacklist';
 
 const String oldFilterKey = 'lscache-sgpgiveawayFilters';
+
+const String groupColorKey = 'group-border-color';
+const String contributorAboveLevelColorKey = 'contributor-above-level-border-color';
+const String contributorBelowLevelColorKey = 'contributor-below-level-border-color';
+const String wishListColorKey = 'wishlist-border-color';
+const String whiteListColorKey = 'whitelist-border-color';
 
 /// Colors
 const String groupColor = '#308430';
@@ -151,6 +173,8 @@ const String contributorBelowLevelColor = '#0033CC';
 const String wishListColor = '#9933FF';
 const String whiteListColor = '#00EBF7';
 const String fontColor = '#324862';
+
+const String settingsTabMenuBackgroundColor = 'transparent';
 
 /// numbers
 const num oneDay = 1000 * 60 * 60 * 24;

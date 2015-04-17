@@ -7,6 +7,7 @@ class GiveAway {
     String creator;
     String remaining;
     String link;
+    String giveAwayId;
     Element image;
     Element avatar;
     int points;
@@ -15,12 +16,14 @@ class GiveAway {
     int comments;
     int contributorLevel = 0;
     int sgGameId;
+    num chanceOfWin;
     bool isContributorGA;
     bool isGroupGA;
     bool isWishListGA;
     bool isCustomWishListGA;
     bool entered;
     bool isWhiteListed;
+    bool isBlackListed = false;
 
     /// Container for this game. Used for hiding it after moving it to the blacklist.
     Element giveAwayContainer;
@@ -47,6 +50,7 @@ class GiveAway {
         Element nameAndLink = gaHtml.querySelector('a.$classGAName');
         this.name = nameAndLink.text;
         this.link = nameAndLink.getAttribute('href');
+        this.giveAwayId = parseIdFromLink(this.link);
         this.remaining = parseTime(gaHtml.querySelector('div.$classGAColumns>div>span').text);
         this.created = parseTime(gaHtml.querySelector('div.$classGAColumnWidthFill').text);
         this.creator = gaHtml.querySelector('.$classGAUserName').text;
@@ -66,6 +70,8 @@ class GiveAway {
         this.entered = gaHtml.querySelectorAll('.$classGAEntered').length > 0;
         this.isWhiteListed = gaHtml.querySelectorAll('.$classGAWhiteListed').length > 0;
         this.sgGameId = parseNumber(gaHtml.querySelector('.$classGAHide').getAttribute('data-game-id'));
+
+        this.chanceOfWin = (100 / (this.entries + ((entered) ? 0 : 1)));
 
         this.borderClass = getBorderColorClass();
     }
@@ -148,10 +154,9 @@ class GiveAway {
             ..append(createTextElement(' entries'));
 
         // Chance is calculated by entries. Only add 1 entry, when not yet entered.
-        DivElement chanceToWinContainer = new DivElement();
-        chanceToWinContainer
+        DivElement chanceToWinContainer = new DivElement()
             ..classes.add(classFloatRight)
-            ..append(createStrongElement((100 / (this.entries + ((entered) ? 0 : 1))).toStringAsFixed(2)))
+            ..append(createStrongElement(this.chanceOfWin.toStringAsFixed(2)))
             ..append(createTextElement(' %'));
 
         DivElement commentsContainer = new DivElement();
@@ -173,24 +178,45 @@ class GiveAway {
         }
 
         // Add [DivElement] to add game directly to blackList.
-        DivElement blackListLinkContainer = new DivElement();
-        blackListLinkContainer
+        DivElement blackListLinkContainer = new DivElement()
             ..classes.add(classFloatLeft)
             ..classes.add(classFontAwesome)
             ..classes.add(classEyeSlash)
             ..classes.add(classOneClickBlackList)
+            ..classes.add(classTooltip)
+            ..append(new SpanElement()..innerHtml = '<b></b>Add ${this.name} to the blacklist.')
             ..onClick.listen((Event e) {
-            addGameToBlackList();
-            gridView.hideTemporarily(this.name);
-        });
+                addGameToBlackList();
+                gridView.removeByName(this.name);
+            })
+        ;
 
         // Add [DivElement] to add game directly to custom wishlist.
-        DivElement customWishListContainer = new DivElement();
-        customWishListContainer
+        DivElement customWishListContainer = new DivElement()
             ..classes.add(classFloatLeft)
             ..classes.add(classFontAwesome)
             ..classes.add(classCustomWishList)
-            ..onClick.listen(toggleGameOnCustomWishList);
+            ..classes.add(classTooltip)
+            ..append(new SpanElement()..innerHtml = '<b></b>Add ${this.name} to a custom wishlist')
+            ..onClick.listen(toggleGameOnCustomWishList)
+        ;
+
+        // Add [DivElement] to add giveaway directly to the [GiveAwayBlackList].
+        DivElement giveAwayBlackListContainer = new DivElement()
+            ..classes.add(classFloatLeft)
+            ..classes.add(classFontAwesome)
+            ..classes.add(classFrown)
+            ..classes.add(classGiveAwayBlackList)
+            ..classes.add(classTooltip)
+            ..append(new SpanElement()..innerHtml = '<b></b>Hide this giveaway with ID <em>${this.giveAwayId}</em> until it is finished.')
+            ..onClick.listen((Event e) {
+                giveAwayBlackList.addGameToBlackList(this.giveAwayId);
+                // remove giveaway from gridview so it is not added back again
+                gridView.remove(this);
+                // remove the container from the dom
+                giveAwayContainer.remove();
+            })
+        ;
 
         if (isCustomWishListGA) {
             customWishListContainer.classes.add(classFAFullHeart);
@@ -211,6 +237,7 @@ class GiveAway {
             levelContainer.classes.add(classFaded);
             blackListLinkContainer.classes.add(classFaded);
             customWishListContainer.classes.add(classFaded);
+            giveAwayBlackListContainer.classes.add(classFaded);
         }
 
         informationContainer
@@ -228,9 +255,20 @@ class GiveAway {
             ..append(levelContainer)
             ..append(createStopStyleParagraph())
             ..append(blackListLinkContainer)
-            ..append(customWishListContainer);
+            ..append(customWishListContainer)
+            ..append(giveAwayBlackListContainer)
+        ;
 
         return informationContainer;
+    }
+
+    /// Removes this container from all containers and marks it as blacklisted when matching [name].
+    void removeGiveAwayContainer(String name) {
+        if (this.name == name) {
+            window.console.info('Adding to blacklist.');
+            giveAwayContainer.remove();
+            this.isBlackListed = true;
+        }
     }
 
     /// Print this giveaway to console.
@@ -274,13 +312,18 @@ class GiveAway {
     }
 
     /// Returns [true] if game is NOT on the SG+ blacklist.
-    bool isNotBlackListed() {
-        return !blackList.isOnBlackList(name);
+    bool isNotSGPBlackListed() {
+        return !sgpBlackList.isOnBlackList(name);
     }
 
     /// Returns [true] if game IS on the SG+ blacklist.
-    bool isBlackListed() {
-        return !isNotBlackListed();
+    bool isSGPBlackListed() {
+        return !isNotSGPBlackListed();
+    }
+
+    /// Returns [true] if giveaway id is blacklisted.
+    bool isGiveAwayIdBlackListed() {
+        return giveAwayBlackList.isOnBlackList(this.giveAwayId);
     }
 
     /// Returns [true] if giveaway is entered.
@@ -329,10 +372,29 @@ class GiveAway {
         }
     }
 
-    /// Hides a game by [name]. This will be used for blacklisting games or for expiring games.
-    void hideTemporarily(String name) {
-        if (name == this.name) {
-            giveAwayContainer.classes.add(classHidden);
+    /// Toggles visibility of this game when [hide] is [true].
+    void hideTemporarily(bool hide) {
+        if (!this.isBlackListed) {
+            if (hide) {
+                giveAwayContainer.classes.add(classHidden);
+            } else {
+                giveAwayContainer.classes.remove(classHidden);
+            }
         }
+    }
+
+    /// Returns [true] if [this.contributorLevel] is in range of [levelFrom] and [levelTo].
+    bool isInContributorRange(num levelFrom, num levelTo) {
+        return levelFrom <= this.contributorLevel && this.contributorLevel <= levelTo;
+    }
+
+    /// Returns [true] if [this.points] is in range of [pointsFrom] and [pointsTo].
+    bool isInPointsRange(num pointsFrom, num pointsTo) {
+        return pointsFrom <= this.points && this.points <= pointsTo;
+    }
+
+    /// Returns [true] if [this.chanceOfWin] is in range of [chanceFrom] and [chanceTo].
+    bool isInChanceRange(num chanceFrom, num chanceTo) {
+        return chanceFrom <= this.chanceOfWin && this.chanceOfWin <= chanceTo;
     }
 }

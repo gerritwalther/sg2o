@@ -83,8 +83,23 @@ class MyStorage {
 
     /// Initializes default values for own keys.
     initDefaults() {
-        if (!containsKey(keyHideGAs)) {
-            add(keyHideGAs, 'false');
+        initDefault(keyHideGAs, 'false');
+        initDefault(keyAutomaticBlackList, 'false');
+        initDefault(keyAutomaticPageReload, 'true');
+        initDefault(keyRemoveFeatured, 'true');
+        initDefault(keyMoveRecentDiscussions, 'true');
+
+        initDefault(groupColorKey, groupColor);
+        initDefault(contributorAboveLevelColorKey, contributorAboveLevelColor);
+        initDefault(contributorBelowLevelColorKey, contributorBelowLevelColor);
+        initDefault(wishListColorKey, wishListColor);
+        initDefault(whiteListColorKey, whiteListColor);
+    }
+
+    /// Helper function to have only one line per initialization.
+    initDefault(String key, String defaultValue) {
+        if (!containsKey(key)) {
+            add(key, defaultValue);
         }
     }
 }

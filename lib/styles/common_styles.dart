@@ -150,7 +150,16 @@ body {
         '''
 .$classCustomWishList {
   cursor: pointer;
-  padding-left: 5px;
+  margin-left: 15px;
+}
+''';
+        styleSheet.insertRule(rule, 0);
+
+        rule =
+        '''
+.$classGiveAwayBlackList {
+    cursor: pointer;
+    margin-left: 15px;
 }
 ''';
         styleSheet.insertRule(rule, 0);

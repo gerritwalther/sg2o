@@ -7,6 +7,12 @@ class BorderStyles extends Styles {
 
     /// Adds all border styles to the DOM.
     void addBorderStyles() {
+        String groupColor = settings.getGroupColor();
+        String contributorAboveLevelColor = settings.getContributorAboveColor();
+        String contributorBelowLevelColor = settings.getContributorBelowColor();
+        String wishListColor = settings.getWishListColor();
+        String whiteListColor = settings.getWhiteListColor();
+
         styleSheet.insertRule(createSimpleBorderRule(classBorderGroup, groupColor), 0);
         styleSheet.insertRule(createSimpleBorderRule(classBorderContributorAbove, contributorAboveLevelColor), 0);
         styleSheet.insertRule(createSimpleBorderRule(classBorderContributorBelow, contributorBelowLevelColor), 0);
