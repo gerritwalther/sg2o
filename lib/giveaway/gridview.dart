@@ -17,8 +17,10 @@ class GridView {
 
     /// Creates a [GiveAwayPage] for the pinned giveaways.
     void collapsePinnedGAs() {
-        ElementList giveAwayElements = document.querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow');
-        Element parentElement = giveAwayElements[0].parent;
+        // Removes the dropdown button.
+        document.querySelector('.$classPinnedGiveawaysButton').click();
+        ElementList giveAwayElements = document.querySelectorAll('.$classPinnedGiveawaysInner>.$classGiveawayRow');
+        Element parentElement = giveAwayElements[0].parent.parent;
 
         parentElement
             ..parent.insertBefore(createHeading('Pinned giveaways', '/'), parentElement)
@@ -33,7 +35,7 @@ class GridView {
 
     /// Used for the first giveawayPage. Collapses all giveaways on the first page (except pinned GAs).
     void collapseGAList() {
-        int numberPinnedGAs = querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow').length;
+        int numberPinnedGAs = querySelectorAll('.$classPinnedGiveawaysInner>.$classGiveawayRow').length;
         ElementList giveAwayElements = document.querySelectorAll('.$classGiveawayRow');
         Element parentElement = giveAwayElements[numberPinnedGAs].parent;
 
@@ -46,7 +48,7 @@ class GridView {
 
     /// Collapses all giveaways on [documentToQuery]. Used for each successive page after the first.
     Element collapseGAListOnDocument(Document documentToQuery) {
-        int numberPinnedGAs = documentToQuery.querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow').length;
+        int numberPinnedGAs = documentToQuery.querySelectorAll('.$classPinnedGiveawaysInner>.$classGiveawayRow').length;
         ElementList giveAwayElements = documentToQuery.querySelectorAll('.$classGiveawayRow');
         Element parentElement = giveAwayElements[numberPinnedGAs].parent;
 

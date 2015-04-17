@@ -49,7 +49,7 @@ GridView gridView = new GridView();
 
 /// Returns [true] if there are pinned giveaways.
 bool pinnedGAsExist() {
-    ElementList pinnedGAs = querySelectorAll('.$classPinnedGiveaways>.$classGiveawayRow');
+    ElementList pinnedGAs = querySelectorAll('.$classPinnedGiveawaysInner>.$classGiveawayRow');
 
     return pinnedGAs.isNotEmpty;
 }
@@ -76,8 +76,8 @@ void replaceFeaturedAndMoveRecentPosts() {
         }
     });
 
-    if (querySelectorAll('.$classPinnedGiveaways').length > 0) {
-        placeBeforeThis = querySelector('.$classPinnedGiveaways');
+    if (querySelectorAll('.$classPinnedGiveawaysOuter').length > 0) {
+        placeBeforeThis = querySelector('.$classPinnedGiveawaysOuter');
     } else {
         placeBeforeThis = querySelector('.$classSectionHeading');
     }
