@@ -5,7 +5,7 @@
 // @description   Bring old functions from sg+ back to SGv2.
 // @copyright     2014+, Clerius (https://sg2o.clerius.de)
 // @license       GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
-// @version       0.2.0
+// @version       0.2.1
 //
 // @include   http://www.steamgifts.com/*
 //
@@ -13,10 +13,9 @@
 // @updateURL https://sg2o.clerius.de/sg2o.meta.js
 // @supportURL https://github.com/gerritwalther/sg2o/issues
 //
+// @require https://sg2o.clerius.de/jquery/jquery-ui-slider-pips.min.js
 // @require https://code.jquery.com/jquery-2.1.3.min.js
 // @require https://code.jquery.com/ui/1.11.4/jquery-ui.min.js
-// @require https://sg2o.clerius.de/jquery/jquery-ui-slider-pips.js
-// @require https://sg2o.clerius.de/jquery/jquery-ui-slider-pips.css
 //
 // @run-at    document-end
 //
