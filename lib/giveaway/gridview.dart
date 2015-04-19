@@ -18,7 +18,9 @@ class GridView {
     /// Creates a [GiveAwayPage] for the pinned giveaways.
     void collapsePinnedGAs() {
         // Removes the dropdown button.
-        document.querySelector('.$classPinnedGiveawaysButton').click();
+        if (document.querySelectorAll('.$classPinnedGiveawaysButton').length > 0) {
+            document.querySelector('.$classPinnedGiveawaysButton').click();
+        }
         ElementList giveAwayElements = document.querySelectorAll('.$classPinnedGiveawaysInner>.$classGiveawayRow');
         Element parentElement = giveAwayElements[0].parent.parent;
 
