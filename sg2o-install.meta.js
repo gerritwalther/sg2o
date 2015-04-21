@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name          SG2O
 // @namespace     sg2o
-// @homepage      http://sg2o.clerius.de
+// @homepage      https://sg2o.clerius.de
 // @description   Bring old functions from sg+ back to SGv2.
 // @copyright     2014+, Clerius (https://sg2o.clerius.de)
 // @license       GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
-// @version       0.2.3
+// @version       0.2.4
 //
 // @include   http://www.steamgifts.com/*
 //

@@ -1,7 +1,19 @@
 # Changelog
 
-## 0.2.0
+## 0.2.4
+- Fixed loading of JS files for Firefox.
+- Lowered steps for chance slider to 0.1% and range to 0 to 3 % instead of 0 to 100 %.
 
+## 0.2.3
+- Update URLs fixed.
+
+## 0.2.2
+- Fixed removal of dropdown button.
+
+## 0.2.1
+- Fixed loading of pips.
+
+## 0.2.0
 - Temporary filter for giveaways -> Hides giveaways by ID. A new button is added to the gridview (sad smiley).
 - Filter for gridview: filter gridview by contributor level, points or chance.
 - Reload page when closing settings.
@@ -14,24 +26,19 @@
 -- Enable/Disable reload of page when closing settings.
 
 ## 0.1.4
-
 - Fixed gridview.
 
 ## 0.1.3
-
 - Fixed endless scroll for wishlist/group/new giveaways.
 
 ## 0.1.2
-
 - Enabling SSL for the script.
 
 ## 0.1.1
-
 - Only one checkbox for hiding giveaways setting.
 - Added option for automatic blacklisting of games.
 
-## 0.1
-
+## 0.1.0
 - Gridview.
 - Colored borders. Blue (meets own contributor level), red (above own contributor level), green (group), purple (wishlist), turquoise (whitelist).
 - One-click blacklisting of games.
