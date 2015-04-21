@@ -56,8 +56,8 @@ class SideBar {
         sidebarElement.append(filterContainer);
 
         levelSliderObject = addSliderJQueryToSlider('sg2o-level-slider', 0, 10, 1, 1, '', _onChange);
-        pointsSliderObject = addSliderJQueryToSlider('sg2o-points-slider', 0, 300, 5, 6, '', _onChange);
-        chanceSliderObject = addSliderJQueryToSlider('sg2o-chance-slider', 0, 100, 1, 10, '%', _onChange);
+        pointsSliderObject = addSliderJQueryToSlider('sg2o-points-slider', 0, 100, 5, 2, '', _onChange);
+        chanceSliderObject = addSliderJQueryToSlider('sg2o-chance-slider', 0, 3, 0.1, 5, '%', _onChange);
     }
 
     /// Creates a [DivElement] containing another [DivElement] used as slider Object with corresponding [label].
