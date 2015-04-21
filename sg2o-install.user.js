@@ -28,6 +28,11 @@
   pipsCss.media = 'all';
   document.head.appendChild(pipsCss);
 
+  var pips = document.createElement('script');
+  pips.type = 'text/javascript';
+  pips.src = 'http://sg2o.clerius.de/jquery/jquery-ui-slider-pips.min.js';
+  document.head.appendChild(pips);
+
   var sg2o = document.createElement('script');
   sg2o.type = 'text/javascript';
   sg2o.src = 'http://sg2o.clerius.de/sg2o.user.js';
