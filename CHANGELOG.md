@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.5
+- Fixed a bug where slider was on 2.9000004 instead of 3.0.
+- Making SG2O more compatible with Dark Theme.
+
 ## 0.2.4
 - Fixed loading of JS files for Firefox.
 - Lowered steps for chance slider to 0.1% and range to 0 to 3 % instead of 0 to 100 %.

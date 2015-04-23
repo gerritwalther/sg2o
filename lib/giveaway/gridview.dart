@@ -92,7 +92,7 @@ class GridView {
         this.pointsTo = pointsTo;
         this.chanceFrom = chanceFrom;
         // Replace the value with 100 to get all giveaways and not only those with at maximum 3%
-        if(chanceTo == 3) {
+        if(chanceTo > 2.9) {
             chanceTo = 100;
         }
         this.chanceTo = chanceTo;

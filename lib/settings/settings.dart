@@ -36,6 +36,7 @@ class Settings {
             ..innerHtml = 'X'
             ..onClick.listen((e) {
                 if (isAutomaticReloadActivated()) {
+                    window.location.hash = '#close';
                     window.location.reload();
                 }
             })
