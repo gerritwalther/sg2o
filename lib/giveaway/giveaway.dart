@@ -7,6 +7,7 @@ class GiveAway {
     String creator;
     String remaining;
     String link;
+    String profileLink;
     String giveAwayId;
     Element image;
     Element avatar;
@@ -59,6 +60,7 @@ class GiveAway {
         this.comments = parseNumber(entriesAndComments.last.text);
         this.image = gaHtml.querySelector('a.$classGAGameImage').children.first;
         this.avatar = gaHtml.querySelector('.$classGAAvatar>.$classGAAvatarImage');
+        this.profileLink = gaHtml.querySelector('.$classGAAvatar').getAttribute('href');
         ElementList contributorElement = gaHtml.querySelectorAll('.$classGAContributorLvl');
         this.isContributorGA = contributorElement.length > 0;
         if (this.isContributorGA) {
@@ -145,7 +147,11 @@ class GiveAway {
         avatarContainer
             ..classes.add(classFloatRight)
             ..classes.add(classGridViewAvatar)
-            ..append(this.avatar);
+            ..append(this.avatar)
+            ..onClick.listen((Event e) {
+                window.open(this.profileLink, '_blank');
+            })
+        ;
 
         DivElement entriesContainer = new DivElement();
         entriesContainer
