@@ -88,6 +88,7 @@ class GiveAway {
         Element giveAwayImage = new DivElement();
         giveAwayLink
             ..setAttribute('href', this.link)
+            ..setAttribute('target', '_blank')
             ..classes.add(classGAImageOuterBorder)
             ..classes.add(classGAGameImage)
             ..classes.add(borderClass)
