@@ -22,9 +22,17 @@ abstract class EndlessScroll {
     /// Call this function once to start loading pages.
     void loadPages() {
         updatePagination('Scroll to load next Page!', false);
-        /// Workaround if there is no scrollbar
-        loadNextPage(new MouseEvent('click'));
+        // Periodically load next page. E.g. if filter is active and does not show any giveaways.
+        new Timer.periodic(const Duration(seconds: 1), (loadNextPageWithTimer));
         window.onScroll.listen(loadNextPage);
+    }
+
+    /// Wrapper function to use with the timer.
+    void loadNextPageWithTimer(Timer t) {
+        loadNextPage(new Event(''));
+        if (nextPage > lastPage) {
+            t.cancel();
+        }
     }
 
     /// This function loads the nextPage and calls updatePage, which has to be implemented for each site.
