@@ -82,6 +82,7 @@ body {
   padding: 2px;
   border: 1px solid #d2d6e0;
   border-radius: 1px;
+  cursor: pointer;
 }
 ''';
         styleSheet.insertRule(rule, 0);

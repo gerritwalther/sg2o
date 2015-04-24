@@ -7,6 +7,7 @@ class GiveAway {
     String creator;
     String remaining;
     String link;
+    String profileLink;
     String giveAwayId;
     Element image;
     Element avatar;
@@ -59,6 +60,7 @@ class GiveAway {
         this.comments = parseNumber(entriesAndComments.last.text);
         this.image = gaHtml.querySelector('a.$classGAGameImage').children.first;
         this.avatar = gaHtml.querySelector('.$classGAAvatar>.$classGAAvatarImage');
+        this.profileLink = gaHtml.querySelector('.$classGAAvatar').getAttribute('href');
         ElementList contributorElement = gaHtml.querySelectorAll('.$classGAContributorLvl');
         this.isContributorGA = contributorElement.length > 0;
         if (this.isContributorGA) {
@@ -86,6 +88,7 @@ class GiveAway {
         Element giveAwayImage = new DivElement();
         giveAwayLink
             ..setAttribute('href', this.link)
+            ..setAttribute('target', '_blank')
             ..classes.add(classGAImageOuterBorder)
             ..classes.add(classGAGameImage)
             ..classes.add(borderClass)
@@ -145,7 +148,11 @@ class GiveAway {
         avatarContainer
             ..classes.add(classFloatRight)
             ..classes.add(classGridViewAvatar)
-            ..append(this.avatar);
+            ..append(this.avatar)
+            ..onClick.listen((Event e) {
+                window.open(this.profileLink, '_blank');
+            })
+        ;
 
         DivElement entriesContainer = new DivElement();
         entriesContainer
@@ -374,7 +381,7 @@ class GiveAway {
 
     /// Toggles visibility of this game when [hide] is [true].
     void hideTemporarily(bool hide) {
-        if (!this.isBlackListed) {
+        if (!this.isBlackListed && !(this.entered && settings.hideEnteredGames())) {
             if (hide) {
                 giveAwayContainer.classes.add(classHidden);
             } else {

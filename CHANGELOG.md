@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.2.6
+
 ## 0.2.5
 - Fixed a bug where slider was on 2.9000004 instead of 3.0.
 - Making SG2O more compatible with Dark Theme.
