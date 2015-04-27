@@ -1,6 +1,13 @@
 # Changelog
 
+## 0.2.7
+- Fixed a bug where the sliders to select the time for new giveaways were missing.
+
 ## 0.2.6
+- Fixed a bug where filter did not work with hidden, entered giveaways.
+- Regular check for loading further pages.
+- Open creator profile on leftclick on avatar.
+- Open giveaway page on leftclick on avatar.
 
 ## 0.2.5
 - Fixed a bug where slider was on 2.9000004 instead of 3.0.
