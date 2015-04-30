@@ -29,6 +29,18 @@
   pips.src = 'http://sg2o.clerius.de/jquery/jquery-ui-slider-pips.min.js';
   document.head.appendChild(pips);
 
+  var powertipCss = document.createElement('link');
+  powertipCss.type = 'text/css';
+  powertipCss.rel = 'stylesheet';
+  powertipCss.href = 'https://sg2o.clerius.de/jquery/jquery-powertip-1.2.0/jquery.powertip-dark.min.css';
+  powertipCss.media = 'all';
+  document.head.appendChild(powertipCss);
+
+  var powertipJs = document.createElement('script');
+  powertipJs.type = 'text/javascript';
+  powertipJs.src = 'http://sg2o.clerius.de/jquery/jquery-powertip-1.2.0/jquery.powertip.min.js';
+  document.head.appendChild(powertipJs);
+
   var sg2o = document.createElement('script');
   sg2o.type = 'text/javascript';
   sg2o.src = 'http://sg2o.clerius.de/sg2o.user.js';

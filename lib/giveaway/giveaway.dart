@@ -144,13 +144,29 @@ class GiveAway {
             ..append(createStrongElement(this.remaining))
             ..append(createTextElement(' remaining'));
 
-        DivElement avatarContainer = new DivElement();
-        avatarContainer
+        DivElement avatarContainer = new DivElement()
             ..classes.add(classFloatRight)
             ..classes.add(classGridViewAvatar)
+            ..id = 'sg2o-$creator-$giveAwayId'
             ..append(this.avatar)
             ..onClick.listen((Event e) {
                 window.open(this.profileLink, '_blank');
+            })
+        ;
+        // Add the tooltip when the mouse hovers the giveAwayContainer, otherwise it will not be added
+        ProfileTooltip profileTooltip = null;
+        giveAwayContainer
+            ..onMouseEnter.listen((Event e) {
+                if (profileTooltip == null) {
+                    window.console.log('Creating profile tooltip with spinner');
+                    profileTooltip = new ProfileTooltip('sg2o-$creator-$giveAwayId', creator, avatarContainer);
+                }
+            });
+        // Only load the profile info when hovering over the avatar to reduce load on SG
+        avatarContainer
+            ..onMouseEnter.listen((Event e) {
+                window.console.log('Adding user content');
+                profileTooltip.addUserContent();
             })
         ;
 

@@ -5,9 +5,12 @@
         "include_globs":    [ "*" ],
         "js":               [ "sg2o.user.js",
                               "jquery/jquery-2.1.3.min.js",
-                              "jquery/jquery-ui-slider-pips.min.js"
+                              "jquery/jquery-ui-1.11.4/jquery-ui.min.js",
+                              "jquery/jquery-ui-slider-pips.min.js",
+                              "jquery/jquery-powertip-1.2.0/jquery.powertip.min.js"
                             ],
-        "css":              [ "jquery/jquery-ui-slider-pips.css"
+        "css":              [ "jquery/jquery-ui-slider-pips.css",
+                              "jquery/jquery-powertip-1.2.0/jquery.powertip-dark.min.css"
                             ],
         "matches":          [   "http://www.steamgifts.com/*"
                             ],
