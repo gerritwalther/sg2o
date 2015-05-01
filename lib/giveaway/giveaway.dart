@@ -73,7 +73,7 @@ class GiveAway {
         this.isWhiteListed = gaHtml.querySelectorAll('.$classGAWhiteListed').length > 0;
         this.sgGameId = parseNumber(gaHtml.querySelector('.$classGAHide').getAttribute('data-game-id'));
 
-        this.chanceOfWin = ((100 * this.copies) / (this.entries + ((entered) ? 0 : 1)));
+        this.chanceOfWin = ((100 * this.copies) / (this.entries + ((entered) ? 0 : 1))).clamp(0, 100);
 
         this.borderClass = getBorderColorClass();
     }
@@ -314,7 +314,7 @@ class GiveAway {
     /// Returns the correct border class for this giveaway.
     String getBorderColorClass() {
         List borderLevels = [
-            '', classBorderGroup, // 0, 1
+            classBorderNone, classBorderGroup, // 0, 1
             classBorderContributorAbove, classBorderGroupContributorAbove, classBorderContributorBelow, classBorderGroupContributorBelow, '', '', // 2-7
             classBorderWishList, classBorderGroupWishList, classBorderContributorAboveWishList, classBorderGroupContributorAboveWishList, // 8-11
             classBorderContributorBelowWishList, classBorderGroupContributorBelowWishList, '', '', // 12-15
