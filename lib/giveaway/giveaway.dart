@@ -73,7 +73,7 @@ class GiveAway {
         this.isWhiteListed = gaHtml.querySelectorAll('.$classGAWhiteListed').length > 0;
         this.sgGameId = parseNumber(gaHtml.querySelector('.$classGAHide').getAttribute('data-game-id'));
 
-        this.chanceOfWin = ((100 * this.copies) / (this.entries + ((entered) ? 0 : 1)));
+        this.chanceOfWin = ((100 * this.copies) / (this.entries + ((entered) ? 0 : 1))).clamp(0, 100);
 
         this.borderClass = getBorderColorClass();
     }
