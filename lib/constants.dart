@@ -104,6 +104,7 @@ const String classSg2oTableHeading = 'sg2o-table-heading';
 const String classFloatLeft = 'float-left';
 const String classFloatRight = 'float-right';
 
+const String classBorderNone = 'sg2o-none-border';
 const String classBorderGroup = 'group-border';
 const String classBorderContributorAbove = 'contributor-above-border';
 const String classBorderGroupContributorAbove = 'group-contributor-above-border';

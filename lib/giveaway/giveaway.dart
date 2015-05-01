@@ -298,7 +298,7 @@ class GiveAway {
     /// Returns the correct border class for this giveaway.
     String getBorderColorClass() {
         List borderLevels = [
-            '', classBorderGroup, // 0, 1
+            classBorderNone, classBorderGroup, // 0, 1
             classBorderContributorAbove, classBorderGroupContributorAbove, classBorderContributorBelow, classBorderGroupContributorBelow, '', '', // 2-7
             classBorderWishList, classBorderGroupWishList, classBorderContributorAboveWishList, classBorderGroupContributorAboveWishList, // 8-11
             classBorderContributorBelowWishList, classBorderGroupContributorBelowWishList, '', '', // 12-15
