@@ -14,7 +14,6 @@ class Tooltip extends Styles {
             .$classProfileTooltip {
                 width: 550px;
                 padding: 5px;
-                background-image: url("assets/img/bg.png");
             }
             ''', 0);
 
