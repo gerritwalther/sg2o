@@ -158,14 +158,12 @@ class GiveAway {
         giveAwayContainer
             ..onMouseEnter.listen((Event e) {
                 if (profileTooltip == null) {
-                    window.console.log('Creating profile tooltip with spinner');
                     profileTooltip = new ProfileTooltip('sg2o-$creator-$giveAwayId', creator, avatarContainer);
                 }
             });
         // Only load the profile info when hovering over the avatar to reduce load on SG
         avatarContainer
             ..onMouseEnter.listen((Event e) {
-                window.console.log('Adding user content');
                 profileTooltip.addUserContent();
             })
         ;
@@ -288,7 +286,7 @@ class GiveAway {
     /// Removes this container from all containers and marks it as blacklisted when matching [name].
     void removeGiveAwayContainer(String name) {
         if (this.name == name) {
-            window.console.info('Adding to blacklist.');
+            window.console.info('Adding ${name} to blacklist.');
             giveAwayContainer.remove();
             this.isBlackListed = true;
         }
