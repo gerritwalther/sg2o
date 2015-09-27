@@ -16,7 +16,8 @@ class ProfileTooltip {
         tooltip.callMethod('powerTip', [new js.JsObject.jsify({
             'placement': 'e',
             'smartPlacement': true,
-            'mouseOnToPopup':true
+            'mouseOnToPopup': true,
+            'popupId': classProfileTooltipContainer
         })]);
     }
 
@@ -39,7 +40,7 @@ class ProfileTooltip {
 
                 return container.outerHtml;
             }).then((String result) {
-                querySelector('#powerTip').setInnerHtml(result);
+                querySelector('#$classProfileTooltipContainer').setInnerHtml(result);
                 tooltip.callMethod('data', ['powertip', result]);
             });
         }

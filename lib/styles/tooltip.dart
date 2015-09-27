@@ -17,6 +17,17 @@ class Tooltip extends Styles {
             }
             ''', 0);
 
+        styleSheet.insertRule(
+            '''
+            #$classProfileTooltipContainer {
+                width: 560px;
+                height: 195px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            ''', 0);
+
         // ###############################################
         // Following the stylesheet for the tooltips for icons on a giveaway.
         styleSheet.insertRule(
