@@ -5,9 +5,10 @@ class Spinner extends HtmlElement {
 
     factory Spinner() {
         Element spinner = new Element.tag('i')
+            ..classes.add(classFontAwesome)
             ..classes.add(classFASpinner)
             ..classes.add(classFASpin)
-            ..classes.add(classFontAwesome);
+        ;
         return spinner;
     }
 }

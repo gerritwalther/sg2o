@@ -23,7 +23,7 @@ abstract class EndlessScroll {
     void loadPages() {
         updatePagination('Scroll to load next Page!', false);
         // Periodically load next page. E.g. if filter is active and does not show any giveaways.
-        new Timer.periodic(const Duration(seconds: 1), (loadNextPageWithTimer));
+//        new Timer.periodic(const Duration(seconds: 1), (loadNextPageWithTimer));
         window.onScroll.listen(loadNextPage);
     }
 
