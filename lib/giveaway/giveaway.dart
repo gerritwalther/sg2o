@@ -395,7 +395,7 @@ class GiveAway {
 
     /// Toggles visibility of this game when [hide] is [true].
     void hideTemporarily(bool hide) {
-        if (!this.isBlackListed && !(this.entered && settings.hideEnteredGames())) {
+        if (!this.isBlackListed && !(this.entered && settings.hideEnteredGames()) && giveAwayContainer != null) {
             if (hide) {
                 giveAwayContainer.classes.add(classHidden);
             } else {
