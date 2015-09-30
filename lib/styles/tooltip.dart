@@ -25,6 +25,7 @@ class Tooltip extends Styles {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                display:none;
             }
             ''', 0);
 
