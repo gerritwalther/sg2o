@@ -46,6 +46,6 @@ class WishList {
 
     /// Returns [true] if [game] is on wishlist.
     bool isOnWishList(String game) {
-        return wishList.containsKey(game);
+        return wishList.containsKey(const HtmlEscape().convert(game));
     }
 }
