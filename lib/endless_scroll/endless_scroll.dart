@@ -11,11 +11,10 @@ abstract class EndlessScroll {
     DomParser domParser = new DomParser();
     bool isLoading = false;
     num lastLoading;
+    bool isLastPage = false;
 
     /// Use this constructor to initialize the class with the correct pagination element and pages count.
     EndlessScroll() {
-        Element lastPageLink = querySelectorAll('.$classPaginationNavigation>a').last;
-        lastPage = int.parse(lastPageLink.attributes['data-page-number']);
         lastLoading = 0;
     }
 
@@ -30,7 +29,7 @@ abstract class EndlessScroll {
     /// Wrapper function to use with the timer.
     void loadNextPageWithTimer(Timer t) {
         loadNextPage(new Event(''));
-        if (nextPage > lastPage) {
+        if (isLastPage) {
             t.cancel();
         }
     }
@@ -46,13 +45,13 @@ abstract class EndlessScroll {
             lastLoading = now;
         }
         Element pagination = querySelector('.$classPagination');
-        if (nextPage <= lastPage) {
+        if (isLastPage) {
+            updatePagination('All pages loaded!', false);
+        } else {
             if (isElementCompletelyVisible(pagination)) {
                 updatePage(nextPage);
                 nextPage += 1;
             }
-        } else {
-            updatePagination('All pages loaded!', false);
         }
         isLoading = false;
     }
