@@ -24,13 +24,14 @@ class EndlessGiveAway extends EndlessScroll {
             // Create gridView of new page and append it to the container.
             Element nextPageGiveawayGrid = gridView.collapseGAListOnDocument(nextPageDocument);
             itemsContainer
-                ..append(this.createHeading('Page $page of $lastPage', false))
+                ..append(this.createHeading('Page $page', false))
                 ..append(nextPageGiveawayGrid);
 
             updatePagination('Scroll to load next page!', false);
 
             if (paginator.last.classes.contains(classIsSelected)) {
-                currentPage = lastPage;
+                isLastPage = nextPageDocument.querySelectorAll('.$classPaginationNavigation>a>span').last != 'Next';
+//                currentPage = lastPage;
             }
         });
     }
