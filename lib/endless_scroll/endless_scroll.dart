@@ -5,7 +5,6 @@ abstract class EndlessScroll {
 
     int currentPage = 1;
     int nextPage = 2;
-    int lastPage;
     /// This is the container where the new content should be appended. Has to be specified by each constructor.
     Element itemsContainer;
     DomParser domParser = new DomParser();
@@ -16,6 +15,13 @@ abstract class EndlessScroll {
     /// Use this constructor to initialize the class with the correct pagination element and pages count.
     EndlessScroll() {
         lastLoading = 0;
+        isLastPage = isLastPageReached(document);
+    }
+
+    /// Returns [true] if the last element in the paginator is 'selected'.
+    bool isLastPageReached(Document document) {
+        ElementList paginator = document.querySelectorAll('.$classPaginationNavigation>a');
+        return paginator.last.classes.contains(classIsSelected);
     }
 
     /// Call this function once to start loading pages.
