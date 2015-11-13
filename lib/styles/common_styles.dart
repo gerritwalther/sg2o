@@ -164,5 +164,24 @@ body {
 }
 ''';
         styleSheet.insertRule(rule, 0);
+
+        rule =
+        '''
+.$classGAisSGPBlacklisted>i {
+    transform: scale(4);
+    color: red;
+    text-shadow: 0px 0px;
+    padding-top: 10px
+}
+''';
+        styleSheet.insertRule(rule, 0);
+
+        rule =
+        '''
+.$classGAisSGPBlacklisted {
+    text-align: center;
+}
+''';
+        styleSheet.insertRule(rule, 0);
     }
 }

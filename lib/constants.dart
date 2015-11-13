@@ -101,6 +101,8 @@ const String classTooltip = 'sg2o-tooltip';
 const String classProfileTooltip = 'sg2o-profile-tooltip';
 const String classProfileTooltipContainer = 'powerTip';//'sg2o-profile-tooltip-container';
 
+const String classGAisSGPBlacklisted = 'sg2o-ga-is-sgp-blacklisted';
+
 const String classSg2oTableHeading = 'sg2o-table-heading';
 
 const String classFloatLeft = 'float-left';

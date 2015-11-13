@@ -25,6 +25,7 @@ class GiveAway {
     bool entered;
     bool isWhiteListed;
     bool isBlackListed = false;
+    bool isSGPBlacklisted = false;
 
     /// Container for this game. Used for hiding it after moving it to the blacklist.
     Element giveAwayContainer;
@@ -34,6 +35,7 @@ class GiveAway {
 
     /// Current border class which is updated when adding to the custom wishlist.
     String borderClass;
+
 
     /// Constructor that parses the giveaway from [gaHtml]. The passed html has to contain a number of different elements.
     GiveAway(Element gaHtml) {
@@ -97,6 +99,13 @@ class GiveAway {
         giveAwayImage
             ..classes.add(classGAAvatarImage)
             ..setAttribute('style', this.image.getAttribute('style'));
+
+        if (isSGPBlacklisted) {
+            FAElement faBan = new FAElement();
+            faBan.classes.add('fa-ban');
+            giveAwayImage.append(faBan);
+            giveAwayImage.classes.add(classGAisSGPBlacklisted);
+        }
 
         giveAwayContainer
             ..classes.add(classGridView)
@@ -417,5 +426,9 @@ class GiveAway {
     /// Returns [true] if [this.chanceOfWin] is in range of [chanceFrom] and [chanceTo].
     bool isInChanceRange(num chanceFrom, num chanceTo) {
         return chanceFrom <= this.chanceOfWin && this.chanceOfWin <= chanceTo;
+    }
+
+    void setSGPBlacklisted(bool sgpBlacklisted) {
+        this.isSGPBlacklisted = sgpBlacklisted;
     }
 }

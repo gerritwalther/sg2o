@@ -11,6 +11,7 @@ part 'my_string.dart';
 part 'sidebar.dart';
 part 'user.dart';
 part 'dom/color_setting.dart';
+part 'dom/fa_element.dart';
 part 'dom/info_element.dart';
 part 'dom/my_dom.dart';
 part 'dom/sg_button.dart';
