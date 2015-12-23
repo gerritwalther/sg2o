@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.11
+- Fixed a bug to also consider querying for a game.
+
 ## 0.2.7
 - Fixed a bug where the sliders to select the time for new giveaways were missing.
 
