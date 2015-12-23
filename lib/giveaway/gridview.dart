@@ -39,13 +39,15 @@ class GridView {
     void collapseGAList() {
         int numberPinnedGAs = querySelectorAll('.$classPinnedGiveawaysInner>.$classGiveawayRow').length;
         ElementList giveAwayElements = document.querySelectorAll('.$classGiveawayRow');
-        Element parentElement = giveAwayElements[numberPinnedGAs].parent;
+        if (giveAwayElements.length > numberPinnedGAs) {
+            Element parentElement = giveAwayElements[numberPinnedGAs].parent;
 
-        GiveAwayPage giveAwayPage = new GiveAwayPage(contributorLevelFrom, contributorLevelTo, pointsFrom, pointsTo, chanceFrom, chanceTo);
+            GiveAwayPage giveAwayPage = new GiveAwayPage(contributorLevelFrom, contributorLevelTo, pointsFrom, pointsTo, chanceFrom, chanceTo);
 
-        giveAwayPage.collapseGAs(numberPinnedGAs, document, classGridViewContainer, parentElement, giveAwayElements);
+            giveAwayPage.collapseGAs(numberPinnedGAs, document, classGridViewContainer, parentElement, giveAwayElements);
 
-        giveAwayPages.add(giveAwayPage);
+            giveAwayPages.add(giveAwayPage);
+        }
     }
 
     /// Collapses all giveaways on [documentToQuery]. Used for each successive page after the first.
