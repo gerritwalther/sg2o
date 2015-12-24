@@ -31,10 +31,14 @@ class ProfileTooltip {
         if (!userContentAdded) {
             userContentAdded = true;
             HttpRequest.request('/user/$userName').then((HttpRequest resp) {
-                Document nextPageDocument = domParser.parseFromString(resp.responseText, 'text/html');
+                Document profilePageDocument = domParser.parseFromString(resp.responseText, 'text/html');
+
+                String profileHtml = profilePageDocument.querySelector('.featured__outer-wrap--user>.featured__inner-wrap>.featured__summary').outerHtml;
+
+                profileHtml = removeDisallowedStyleAttributes(profileHtml);
 
                 DivElement container = new DivElement()
-                    ..setInnerHtml(nextPageDocument.querySelector('.featured__outer-wrap--user>.featured__inner-wrap>.featured__summary').outerHtml)
+                    ..setInnerHtml(profileHtml)
                     ..classes.add('$classProfileTooltip')
                 ;
 
@@ -44,5 +48,12 @@ class ProfileTooltip {
                 tooltip.callMethod('data', ['powertip', result]);
             });
         }
+    }
+
+    /// Removes the disallowed style attribute from link elements. These seem to be not allowed when using 'new DivElement()'.
+    String removeDisallowedStyleAttributes(String profileHtml) {
+        RegExp styleAttributeRegExp = new RegExp("style=\\\"color: rgb\\\(\\d+,\\d+,\\d+\\\);\\\"");
+        profileHtml = profileHtml.replaceAll(styleAttributeRegExp, '');
+        return profileHtml;
     }
 }
