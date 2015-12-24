@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.12
+- Added tooltips to the avatar on each giveaway.
+- Instead of hiding games from the SG+ Blacklist they get a red ban icon on top of the image.
+- Bugfix: Filtering didn't work with deactivated automatic adding of SG+ blacklisted games and if there were games that are on that list.
+- Bugfix: Games with some special characters were not highlighted if they are on the wishlist.
+- Bugfix: Getting an empty search result caused the script to not work anymore.
+- Bugfix: Removed warnings from JS console that were produced by the profile tooltip.
+
 ## 0.2.11
 - Fixed a bug to also consider querying for a game.
 

@@ -41,6 +41,9 @@ class GiveAwayPage {
                     if (settings.isAutomaticBlackListingOn()) {
                         window.console.log('Automatically adding ${giveAway.name} to the blacklist.');
                         giveAway.addGameToBlackList();
+                    } else {
+                        giveAway.setSGPBlacklisted(true);
+                        parentElementToInsertGAs.append(giveAway.wrappedWithStyles());
                     }
                 }
 

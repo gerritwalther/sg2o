@@ -4,8 +4,14 @@
 library sg2o_test;
 
 //import 'package:sg2o/sg2o.dart';
+//import 'package:unittest/unittest.dart';
 
 void main() => defineTests();
 
 void defineTests() {
+//  group('main tests', () {
+//    test('calculate', () {
+//      expect(calculate(), 42);
+//    });
+//  });
 }

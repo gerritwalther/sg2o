@@ -98,6 +98,10 @@ const String classCustomWishList = 'sg2o-custom-wishlist';
 const String classGiveAwayBlackList = 'sg2o-giveaway-blacklist';
 const String classHighLightCustomWishList = 'sg2o-custom-wishlist-red';
 const String classTooltip = 'sg2o-tooltip';
+const String classProfileTooltip = 'sg2o-profile-tooltip';
+const String classProfileTooltipContainer = 'powerTip';//'sg2o-profile-tooltip-container';
+
+const String classGAisSGPBlacklisted = 'sg2o-ga-is-sgp-blacklisted';
 
 const String classSg2oTableHeading = 'sg2o-table-heading';
 

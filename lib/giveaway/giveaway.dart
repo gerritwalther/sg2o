@@ -25,6 +25,7 @@ class GiveAway {
     bool entered;
     bool isWhiteListed;
     bool isBlackListed = false;
+    bool isSGPBlacklisted = false;
 
     /// Container for this game. Used for hiding it after moving it to the blacklist.
     Element giveAwayContainer;
@@ -34,6 +35,7 @@ class GiveAway {
 
     /// Current border class which is updated when adding to the custom wishlist.
     String borderClass;
+
 
     /// Constructor that parses the giveaway from [gaHtml]. The passed html has to contain a number of different elements.
     GiveAway(Element gaHtml) {
@@ -98,6 +100,13 @@ class GiveAway {
             ..classes.add(classGAAvatarImage)
             ..setAttribute('style', this.image.getAttribute('style'));
 
+        if (isSGPBlacklisted) {
+            FAElement faBan = new FAElement();
+            faBan.classes.add('fa-ban');
+            giveAwayImage.append(faBan);
+            giveAwayImage.classes.add(classGAisSGPBlacklisted);
+        }
+
         giveAwayContainer
             ..classes.add(classGridView)
             ..append(giveAwayLink)
@@ -144,13 +153,27 @@ class GiveAway {
             ..append(createStrongElement(this.remaining))
             ..append(createTextElement(' remaining'));
 
-        DivElement avatarContainer = new DivElement();
-        avatarContainer
+        DivElement avatarContainer = new DivElement()
             ..classes.add(classFloatRight)
             ..classes.add(classGridViewAvatar)
+            ..id = 'sg2o-$creator-$giveAwayId'
             ..append(this.avatar)
             ..onClick.listen((Event e) {
                 window.open(this.profileLink, '_blank');
+            })
+        ;
+        // Add the tooltip when the mouse hovers the giveAwayContainer, otherwise it will not be added
+        ProfileTooltip profileTooltip = null;
+        giveAwayContainer
+            ..onMouseEnter.listen((Event e) {
+                if (profileTooltip == null) {
+                    profileTooltip = new ProfileTooltip('sg2o-$creator-$giveAwayId', creator, avatarContainer);
+                }
+            });
+        // Only load the profile info when hovering over the avatar to reduce load on SG
+        avatarContainer
+            ..onMouseEnter.listen((Event e) {
+                profileTooltip.addUserContent();
             })
         ;
 
@@ -272,7 +295,7 @@ class GiveAway {
     /// Removes this container from all containers and marks it as blacklisted when matching [name].
     void removeGiveAwayContainer(String name) {
         if (this.name == name) {
-            window.console.info('Adding to blacklist.');
+            window.console.info('Adding ${name} to blacklist.');
             giveAwayContainer.remove();
             this.isBlackListed = true;
         }
@@ -381,7 +404,7 @@ class GiveAway {
 
     /// Toggles visibility of this game when [hide] is [true].
     void hideTemporarily(bool hide) {
-        if (!this.isBlackListed && !(this.entered && settings.hideEnteredGames())) {
+        if (!this.isBlackListed && !(this.entered && settings.hideEnteredGames()) && giveAwayContainer != null) {
             if (hide) {
                 giveAwayContainer.classes.add(classHidden);
             } else {
@@ -403,5 +426,9 @@ class GiveAway {
     /// Returns [true] if [this.chanceOfWin] is in range of [chanceFrom] and [chanceTo].
     bool isInChanceRange(num chanceFrom, num chanceTo) {
         return chanceFrom <= this.chanceOfWin && this.chanceOfWin <= chanceTo;
+    }
+
+    void setSGPBlacklisted(bool sgpBlacklisted) {
+        this.isSGPBlacklisted = sgpBlacklisted;
     }
 }

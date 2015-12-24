@@ -5,7 +5,7 @@
 // @description   Bring old functions from sg+ back to SGv2.
 // @copyright     2014+, Clerius (https://sg2o.clerius.de)
 // @license       GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
-// @version       0.2.11
+// @version       0.2.12
 //
 // @include   http://www.steamgifts.com/*
 //
@@ -28,6 +28,18 @@
   pips.type = 'text/javascript';
   pips.src = 'http://sg2o.clerius.de/jquery/jquery-ui-slider-pips.min.js';
   document.head.appendChild(pips);
+
+  var powertipCss = document.createElement('link');
+  powertipCss.type = 'text/css';
+  powertipCss.rel = 'stylesheet';
+  powertipCss.href = 'https://sg2o.clerius.de/jquery/jquery-powertip-1.2.0/jquery.powertip-dark.min.css';
+  powertipCss.media = 'all';
+  document.head.appendChild(powertipCss);
+
+  var powertipJs = document.createElement('script');
+  powertipJs.type = 'text/javascript';
+  powertipJs.src = 'http://sg2o.clerius.de/jquery/jquery-powertip-1.2.0/jquery.powertip.min.js';
+  document.head.appendChild(powertipJs);
 
   var sg2o = document.createElement('script');
   sg2o.type = 'text/javascript';
