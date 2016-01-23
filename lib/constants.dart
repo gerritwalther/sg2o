@@ -163,6 +163,8 @@ const String keyWishList = 'wishlist';
 const String keyCustomWishList = 'custom-wishlist';
 const String keyGiveAwayBlackList = 'giveaway-blacklist';
 
+const String keyRecentlyBlacklistedGiveaways = 'giveaway-blacklist-recently';
+
 const String oldFilterKey = 'lscache-sgpgiveawayFilters';
 
 const String groupColorKey = 'group-border-color';

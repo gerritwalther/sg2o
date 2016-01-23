@@ -364,9 +364,11 @@ class GiveAway {
     /// Sends a post request to directly add the game on SGs blacklist.
     void addGameToBlackList() {
         Map<String, String> formData = new Map();
-        formData['xsrf_token'] = querySelectorAll('input[name="xsrf_token"]')[0].getAttribute('value');
+        String xsrfToken = querySelectorAll('input[name="xsrf_token"]')[0].getAttribute('value');
+        formData['xsrf_token'] = xsrfToken;
         formData['game_id'] = this.sgGameId.toString();
         formData['do'] = 'hide_giveaways_by_game_id';
+        giveAwayBlackListHistory.addToBlackList(this.name, this.sgGameId.toString());
         HttpRequest.postFormData('/', formData);
     }
 

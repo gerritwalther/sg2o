@@ -34,6 +34,7 @@ part 'settings/settings_tabs.dart';
 part 'settings/settings_wishlist.dart';
 part 'storage/custom_wishlist.dart';
 part 'storage/giveaway_blacklist.dart';
+part 'storage/game_blacklist_history.dart';
 part 'storage/my_storage.dart';
 part 'styles/border_styles.dart';
 part 'styles/common_styles.dart';
@@ -48,6 +49,7 @@ SGPBlackList sgpBlackList = new SGPBlackList();
 WishList wishList = new WishList();
 CustomWishList customWishList = new CustomWishList();
 GiveawayBlackList giveAwayBlackList = new GiveawayBlackList();
+GameBlackListHistory giveAwayBlackListHistory = new GameBlackListHistory();
 GridView gridView = new GridView();
 
 /// Returns [true] if there are pinned giveaways.
