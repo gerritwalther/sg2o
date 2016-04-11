@@ -1,7 +1,7 @@
 # Changelog
 
 ## 0.2.13
-- 
+- Bugfix for broken gridview: cg moved the game id.
 
 ## 0.2.12
 - Added tooltips to the avatar on each giveaway.
