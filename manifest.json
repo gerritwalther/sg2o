@@ -19,7 +19,7 @@
     "converted_from_user_script": true,
     "description":  "Bring old functions from sg+ to SGv2.",
     "name":         "sg2o",
-    "version":      "0.2.13",
+    "version":      "0.2.14",
     "web_accessible_resources": [ "sg2o.user.js.map",
                                   "lib/*.dart",
                                   "bin/*.dart"
