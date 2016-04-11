@@ -369,7 +369,7 @@ class GiveAway {
         formData['game_id'] = this.sgGameId.toString();
         formData['do'] = 'hide_giveaways_by_game_id';
         giveAwayBlackListHistory.addToBlackList(this.name, this.sgGameId.toString());
-        HttpRequest.postFormData('/', formData);
+        HttpRequest.postFormData('/ajax.php', formData);
     }
 
     /// Adds/removes this game to the custom sg2o wishlist.
