@@ -367,7 +367,7 @@ class GiveAway {
         formData['xsrf_token'] = querySelectorAll('input[name="xsrf_token"]')[0].getAttribute('value');
         formData['game_id'] = this.sgGameId.toString();
         formData['do'] = 'hide_giveaways_by_game_id';
-        HttpRequest.postFormData('/', formData);
+        HttpRequest.postFormData('/ajax.php', formData);
     }
 
     /// Adds/removes this game to the custom sg2o wishlist.
