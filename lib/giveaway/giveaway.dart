@@ -73,7 +73,7 @@ class GiveAway {
         this.isCustomWishListGA = customWishList.isOnWishList(name);
         this.entered = gaHtml.querySelectorAll('.$classGAEntered').length > 0;
         this.isWhiteListed = gaHtml.querySelectorAll('.$classGAWhiteListed').length > 0;
-        this.sgGameId = parseNumber(gaHtml.querySelector('.$classGAHide').getAttribute('data-game-id'));
+        this.sgGameId = parseNumber(gaHtml.getAttribute('data-game-id'));
 
         this.chanceOfWin = ((100 * this.copies) / (this.entries + ((entered) ? 0 : 1))).clamp(0, 100);
 
