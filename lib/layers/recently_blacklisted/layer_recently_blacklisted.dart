@@ -206,7 +206,7 @@ class LayerRecentlyBlacklisted extends Layer {
             new DivElement()
                 ..classes.add(classTableColumnWidthSmall)
                 ..classes.add(classTextCenter)
-                ..innerHtml = 'Remove'
+                ..innerHtml = 'Remove from blacklist'
         );
 
         return tableHeading;
