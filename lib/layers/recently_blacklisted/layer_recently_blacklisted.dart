@@ -112,8 +112,6 @@ class LayerRecentlyBlacklisted extends Layer {
             ..append(linkElement)
         ;
 
-        print(blackListedGame.name);
-        print(blackListedGame.sgGameId);
         removeLink.onClick.listen((e) {
             gameBlackListHistory.removeFromBlackList(blackListedGame.name, blackListedGame.sgGameId);
         });
