@@ -54,6 +54,7 @@ class LayerRecentlyBlacklisted extends Layer {
     void appendRecentlyBlacklistedGames(DivElement innerContainer) {
         DivElement tableRows = new DivElement();
         tableRows.classes.add(classTableRows);
+        tableRows.setAttribute('style', 'max-height: 500px; overflow: auto;');
 
         List<BlackListedGame> blacklistedGiveaways = gameBlackListHistory.getAll();
 
