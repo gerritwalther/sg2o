@@ -15,6 +15,7 @@ class Styles {
         new CommonStyles().addStyles();
         new SettingsStyles().addStyles();
         new Tooltip().addStyles();
+        new StylesNavigation().addStyles();
     }
 
     /// Creates a [StyleElement] and adds it to the DOM.
@@ -32,4 +33,8 @@ class Styles {
         headerElement.setAttribute('style', 'margin-bottom: 0.5em');
     }
 
+    /// Creates a rule and adds it to the given stylesheet element.
+    void addStyleRule(String rule) {
+        styleSheet.insertRule(rule, 0);
+    }
 }

@@ -25,6 +25,9 @@ part 'giveaway/giveaway_page.dart';
 part 'giveaway/gridview.dart';
 part 'giveaway/profile_tooltip.dart';
 part 'giveaway/wishlist.dart';
+part 'layers/layer.dart';
+part 'layers/navigation_menu.dart';
+part 'layers/recently_blacklisted/layer_recently_blacklisted.dart';
 part 'layers/settings/settings.dart';
 part 'layers/settings/settings_color.dart';
 part 'layers/settings/settings_common.dart';
@@ -40,7 +43,9 @@ part 'styles/border_styles.dart';
 part 'styles/common_styles.dart';
 part 'styles/settings_styles.dart';
 part 'styles/styles.dart';
+part 'styles/styles_navigation.dart';
 part 'styles/tooltip.dart';
+part 'util/timeUtil.dart';
 
 /// These classes should only be instantiated once and used everywhere.
 MyStorage storage = new MyStorage();
@@ -49,7 +54,7 @@ SGPBlackList sgpBlackList = new SGPBlackList();
 WishList wishList = new WishList();
 CustomWishList customWishList = new CustomWishList();
 GiveawayBlackList giveAwayBlackList = new GiveawayBlackList();
-GameBlackListHistory giveAwayBlackListHistory = new GameBlackListHistory();
+GameBlackListHistory gameBlackListHistory = new GameBlackListHistory();
 GridView gridView = new GridView();
 
 /// Returns [true] if there are pinned giveaways.
@@ -104,4 +109,6 @@ void replaceFeaturedAndMoveRecentPosts() {
 
 void activateSettings() {
     settings = new Settings();
+    NavigationMenu navigationMenu = new NavigationMenu();
+    LayerRecentlyBlacklisted layerRecentlyBlacklisted = new LayerRecentlyBlacklisted();
 }

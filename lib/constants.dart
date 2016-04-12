@@ -22,7 +22,16 @@ const String classSectionHeading = 'page__heading';
 const String classPoints = 'nav__points';
 const String classLeftNavigation = 'nav__left-container';
 const String classNavigationButtonContainer = 'nav__button-container';
+const String classNavigationRelativeDropDown = 'nav__relative-dropdown';
+const String classNavigationAbsoluteDropDown = 'nav__absolute-dropdown';
 const String classNavigationButton = 'nav__button';
+const String classNavigationButtonIsDropDown = 'nav__button--is-dropdown';
+const String classNavigationButtonIsDropDownArrow = 'nav__button--is-dropdown-arrow';
+const String classNavigationRow = 'nav__row';
+const String classNavigationRowSummary = 'nav__row__summary';
+const String classNavigationRowSummaryName = 'nav__row__summary__name';
+const String classNavigationRowSummaryDescription = 'nav__row__summary__description';
+const String classFAAngleDown = 'fa-angle-down';
 const String classSidebar = 'sidebar';
 const String classSidebarHeading = 'sidebar__heading';
 
@@ -41,8 +50,11 @@ const String classGAContributorNeg = 'giveaway__column--contributor-level--negat
 const String classGAGroupIcon = 'giveaway__column--group';
 const String classGAEntered = 'is-faded';
 const String classGAImageOuterBorder = 'global__image-outer-wrap';
+const String classGAImageOuterBorderGameSmall = 'global__image-outer-wrap--game-small';
+const String classGAImageInnerWrap = 'global__image-inner-wrap';
 const String classGAWhiteListed = 'giveaway__column--whitelist';
 const String classGAHide = 'giveaway__hide';
+const String classGAIcon = 'giveaway__icon';
 const String classFontAwesome = 'fa';
 const String classFAFullHeart = 'fa-heart';
 const String classFAEmptyHeart = 'fa-heart-o';
@@ -56,9 +68,18 @@ const String classPaginationNavigation = 'pagination__navigation';
 const String classPageHeadingBreadCrumbs = 'page__heading__breadcrumbs';
 
 const String classTableColumnWidthFill = 'table__column--width-fill';
+const String classTableColumnWidthSmall = 'table__column--width-small';
 const String classTableHeading = 'table__heading';
+const String classTableRemoveDefault = 'table__remove-default';
+const String classTableColumnSecondaryLink = 'table__column__secondary-link';
+const String classTableColumnHeading = 'table__column__heading';
+const String classTableRows = 'table__rows';
+const String classTableRowOuterWrap = 'table__row-outer-wrap';
+const String classTableRowInnerWrap = 'table__row-inner-wrap';
 
 const String classWishListName = 'table__column__heading';
+
+const String classTextCenter = 'text-center';
 
 const String classFormRow = 'form__row';
 const String classFormHeading = 'form__heading';
@@ -77,6 +98,8 @@ const String classFASpin = 'fa-spin';
 
 const String classIsSelected = 'is-selected';
 const String classIsDisabled = 'is-disabled';
+const String classIsHidden = 'is-hidden';
+const String classIsClickable = 'is-clickable';
 
 /// elements defined by sg
 
@@ -142,6 +165,8 @@ const String classSettingsTabMenu = 'sg2o-settings-tabs-navigation';
 const String classSettingsTabContent = 'sg2o-settings-tabs-content';
 const String classSettingsTabSelected = 'sg2o-settings-tab-selected';
 const String classSettingsColorInput = 'sg2o-settings-color-input';
+
+const String classSG2ORecentlyBlackListedLink = 'sg2o-overlay-recently-blacklisted';
 
 /// URLs
 const String urlSteamGiftsHome = 'http://www.steamgifts.com/';

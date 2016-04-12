@@ -17,6 +17,7 @@ class GiveAway {
     int comments;
     int contributorLevel = 0;
     int sgGameId;
+    int steamId;
     num chanceOfWin;
     bool isContributorGA;
     bool isGroupGA;
@@ -74,6 +75,7 @@ class GiveAway {
         this.entered = gaHtml.querySelectorAll('.$classGAEntered').length > 0;
         this.isWhiteListed = gaHtml.querySelectorAll('.$classGAWhiteListed').length > 0;
         this.sgGameId = parseNumber(gaHtml.getAttribute('data-game-id'));
+        this.steamId = parseNumber(gaHtml.querySelector('.$classGAIcon').getAttribute('href'));
 
         this.chanceOfWin = ((100 * this.copies) / (this.entries + ((entered) ? 0 : 1))).clamp(0, 100);
 
@@ -368,7 +370,7 @@ class GiveAway {
         formData['xsrf_token'] = xsrfToken;
         formData['game_id'] = this.sgGameId.toString();
         formData['do'] = 'hide_giveaways_by_game_id';
-        giveAwayBlackListHistory.addToBlackList(this.name, this.sgGameId.toString());
+        gameBlackListHistory.addToBlackList(this.name, this.sgGameId.toString(), this.steamId.toString());
         HttpRequest.postFormData('/ajax.php', formData);
     }
 
