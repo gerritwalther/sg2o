@@ -1,7 +1,10 @@
 # Changelog
 
-## 0.2.13
-- Bugifx for broken one-click hiding.
+## 0.2.15
+- SG is now using HTTPS, adapted the script for it.
+
+## 0.2.14
+- Bugfix for broken one-click hiding.
 
 ## 0.2.13
 - Bugfix for broken gridview: cg moved the game id.
