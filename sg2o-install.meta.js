@@ -5,9 +5,9 @@
 // @description   Bring old functions from sg+ back to SGv2.
 // @copyright     2014+, Clerius (https://sg2o.clerius.de)
 // @license       GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
-// @version       0.2.14
+// @version       0.2.15
 //
-// @include   http://www.steamgifts.com/*
+// @include   *://www.steamgifts.com/*
 //
 // @downloadURL https://sg2o.clerius.de/sg2o-install.user.js
 // @updateURL https://sg2o.clerius.de/sg2o-install.meta.js
