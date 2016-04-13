@@ -7,7 +7,7 @@
 // @license       GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
 // @version       0.2.15
 //
-// @include   http://www.steamgifts.com/*
+// @include   *://www.steamgifts.com/*
 //
 // @downloadURL https://sg2o.clerius.de/sg2o.user.js
 // @updateURL https://sg2o.clerius.de/sg2o.meta.js
