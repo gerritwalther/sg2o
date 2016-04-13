@@ -26,7 +26,7 @@
 
   var pips = document.createElement('script');
   pips.type = 'text/javascript';
-  pips.src = 'http://sg2o.clerius.de/jquery/jquery-ui-slider-pips.min.js';
+  pips.src = 'https://sg2o.clerius.de/jquery/jquery-ui-slider-pips.min.js';
   document.head.appendChild(pips);
 
   var powertipCss = document.createElement('link');
@@ -38,11 +38,11 @@
 
   var powertipJs = document.createElement('script');
   powertipJs.type = 'text/javascript';
-  powertipJs.src = 'http://sg2o.clerius.de/jquery/jquery-powertip-1.2.0/jquery.powertip.min.js';
+  powertipJs.src = 'https://sg2o.clerius.de/jquery/jquery-powertip-1.2.0/jquery.powertip.min.js';
   document.head.appendChild(powertipJs);
 
   var sg2o = document.createElement('script');
   sg2o.type = 'text/javascript';
-  sg2o.src = 'http://sg2o.clerius.de/sg2o.user.js';
+  sg2o.src = 'https://sg2o.clerius.de/sg2o.user.js';
   document.body.appendChild(sg2o);
 })();
