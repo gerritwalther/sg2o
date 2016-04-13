@@ -12,7 +12,7 @@
         "css":              [ "jquery/jquery-ui-slider-pips.css",
                               "jquery/jquery-powertip-1.2.0/jquery.powertip-dark.min.css"
                             ],
-        "matches":          [   "http://www.steamgifts.com/*"
+        "matches":          [   "*://www.steamgifts.com/*"
                             ],
         "run_at": "document_end"
     } ],
