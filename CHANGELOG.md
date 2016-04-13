@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.16
+- Fixed the requests for my scripts to use HTTPS as well.
+
 ## 0.2.15
 - SG is now using HTTPS, adapted the script for it.
 
