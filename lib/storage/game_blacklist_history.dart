@@ -65,6 +65,7 @@ class GameBlackListHistory {
         formData['game_id'] = sgGameId;
         formData['do'] = 'remove_filter';
         recentlyBlacklisted.remove(sgGameId);
+        storeList();
         HttpRequest.postFormData('/ajax.php', formData);
     }
 
