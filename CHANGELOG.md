@@ -1,7 +1,7 @@
 # Changelog
 
 ## 0.2.17
-- Refactored CSS to get 5 instead of 4 games per row in the gridview.
+- Refactored CSS to get 5 instead of 4 games per row in the gridview (now using percentages).
 
 ## 0.2.16
 - Fixed the requests for my scripts to use HTTPS as well.
