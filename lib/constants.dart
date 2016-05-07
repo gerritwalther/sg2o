@@ -85,7 +85,7 @@ const String elementNavigation = 'header';
 /// classes added by sg2o
 
 const String classPinnedGAContainer = 'pinned-gridview-container';
-const String classGridViewContainer = 'gridview-container';
+const String classGridViewContainer = 'sg2o-gridview-container';
 const String classGridView = 'giveaway-gridview';
 const String classFixedNavigation = 'fixed-navigation-bar';
 const String classHidden = 'hidden';
