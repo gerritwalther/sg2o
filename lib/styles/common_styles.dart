@@ -33,14 +33,21 @@ body {
         '''
 .$classGridView {
   float: left;
-  width: 184px;
-  margin-left: 1%;
-  margin-right: 1%;
+  width: 19.5%;
+  margin-left: .25%;
+  margin-right: .25%;
   border-radius: 2px;
   margin-bottom: 0.5em;
 }
 ''';
         styleSheet.insertRule(rule, 0);
+
+        styleSheet.insertRule(
+            '''
+            .$classBorderNone {
+                width: auto;
+            }
+            ''', 0);
 
         rule =
         '''
@@ -64,7 +71,8 @@ body {
   z-index: 100;
   font-size: 10;
   border: 1px solid #d2d6e0;
-  width: inherit;
+  width: 17.75%;
+  display: block;
   margin-top: -5.6px;
   border-radius: 3px;
   padding: 5px;
