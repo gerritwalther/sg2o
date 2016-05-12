@@ -58,6 +58,8 @@ class LayerRecentlyBlacklisted extends Layer {
 
         List<BlackListedGame> blacklistedGiveaways = gameBlackListHistory.getAll();
 
+        blacklistedGiveaways.sort((BlackListedGame a, BlackListedGame b) => b.added.compareTo(a.added));
+
         blacklistedGiveaways.forEach((BlackListedGame blg) {
             tableRows.append(createTableRow(blg));
         });
