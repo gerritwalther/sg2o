@@ -154,7 +154,7 @@ class LayerRecentlyBlacklisted extends Layer {
         DivElement image = new DivElement();
         image.classes.add(classGAImageInnerWrap);
         image.setAttribute('style',
-            'background-image:url(http://cdn.akamai.steamstatic.com/steam/apps/${blackListedGame.steamId}/capsule_184x69.jpg);');
+            'background-image:url(https://steamcdn-a.akamaihd.net/steam/apps/${blackListedGame.steamId}/capsule_184x69.jpg);');
 
         imageLink.append(image);
 
