@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.18
+- Partially reverted the changes from 0.2.17 and now use fixed width again.
+
 ## 0.2.17
 - Refactored CSS to get 5 instead of 4 games per row in the gridview (now using percentages).
 
