@@ -212,3 +212,5 @@ const String settingsTabMenuBackgroundColor = 'transparent';
 const num oneDay = 1000 * 60 * 60 * 24;
 
 const num gridViewEntryWidth = 205;
+
+const num zIndexLayer = 100000; //needs to be 99.999+1 because of the filter widget.

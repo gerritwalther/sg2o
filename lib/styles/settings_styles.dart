@@ -17,7 +17,7 @@ class SettingsStyles extends Styles {
   bottom: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.8);
-  z-index: 9999;
+  z-index: ${zIndexLayer};
   opacity: 0;
   -webkit-transition: opacity 400ms ease-in;
   -moz-transition: opacity 400ms ease-in;
