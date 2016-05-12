@@ -25,7 +25,7 @@ class GameBlackListHistory {
     /// Adds the [sgGameId] to the list of recently blacklisted games and stores it.
     void addToBlackList(String name, String sgGameId, String steamId) {
         loadBlackList();
-        while (recentlyBlacklisted.length >= 15) {
+        while (recentlyBlacklisted.length >= 50) {
             removeOldest();
         }
         recentlyBlacklisted[sgGameId] = new BlackListedGame.create(name, sgGameId, steamId);
