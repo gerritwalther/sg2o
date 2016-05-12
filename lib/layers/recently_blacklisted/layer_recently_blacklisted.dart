@@ -68,6 +68,7 @@ class LayerRecentlyBlacklisted extends Layer {
     DivElement createTableRow(BlackListedGame blg) {
         DivElement tableRowOuter = new DivElement();
         tableRowOuter.classes.add(classTableRowOuterWrap);
+        tableRowOuter.setAttribute('id', idBlacklistHistoryRow + StringUtil.gameNameToIdCompatibleString(blg.name));
 
         DivElement tableRowInner = new DivElement();
         tableRowInner.classes.add(classTableRowInnerWrap);
@@ -114,6 +115,8 @@ class LayerRecentlyBlacklisted extends Layer {
 
         removeLink.onClick.listen((e) {
             gameBlackListHistory.removeFromBlackList(blackListedGame.name, blackListedGame.sgGameId);
+            // remove entry from the html
+            body.querySelector('#${idBlacklistHistoryRow + StringUtil.gameNameToIdCompatibleString(blackListedGame.name)}').remove();
         });
 
         removeLinkContainer.append(removeLink);

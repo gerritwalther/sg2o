@@ -45,6 +45,7 @@ part 'styles/settings_styles.dart';
 part 'styles/styles.dart';
 part 'styles/styles_navigation.dart';
 part 'styles/tooltip.dart';
+part 'util/string_util.dart';
 part 'util/timeUtil.dart';
 
 /// These classes should only be instantiated once and used everywhere.

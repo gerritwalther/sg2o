@@ -168,6 +168,10 @@ const String classSettingsColorInput = 'sg2o-settings-color-input';
 
 const String classSG2ORecentlyBlackListedLink = 'sg2o-overlay-recently-blacklisted';
 
+/// IDs
+// Add game name to this id.
+const String idBlacklistHistoryRow = 'sg2o-recently-blacklisted-entry-';
+
 /// URLs
 const String urlSteamGiftsHome = 'http://www.steamgifts.com/';
 const String urlGiveAwayPage = '/giveaways/search?page=';
