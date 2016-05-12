@@ -33,15 +33,9 @@ body {
         '''
 .$classGridView {
   float: left;
-<<<<<<< HEAD
-  width: 19.5%;
-  margin-left: .25%;
-  margin-right: .25%;
-=======
   width: ${gridViewEntryWidth}px;
   margin-left: 2.625px;
   margin-right: 2.625px;
->>>>>>> hotfix-0.2.18
   border-radius: 2px;
   margin-bottom: 0.5em;
 }
