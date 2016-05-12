@@ -33,9 +33,9 @@ body {
         '''
 .$classGridView {
   float: left;
-  width: 19.5%;
-  margin-left: .25%;
-  margin-right: .25%;
+  width: ${gridViewEntryWidth}px;
+  margin-left: 2.625px;
+  margin-right: 2.625px;
   border-radius: 2px;
   margin-bottom: 0.5em;
 }
@@ -65,13 +65,14 @@ body {
 ''';
         styleSheet.insertRule(rule, 0);
 
+        // subtract 12px for border and padding from the width
         rule =
         '''
 .$classGridViewInfoContainer {
   z-index: 100;
   font-size: 10;
   border: 1px solid #d2d6e0;
-  width: 17.75%;
+  width: calc(${gridViewEntryWidth}px - 12px);
   display: block;
   margin-top: -5.6px;
   border-radius: 3px;

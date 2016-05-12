@@ -183,3 +183,5 @@ const String settingsTabMenuBackgroundColor = 'transparent';
 
 /// numbers
 const num oneDay = 1000 * 60 * 60 * 24;
+
+const num gridViewEntryWidth = 205;
