@@ -50,13 +50,15 @@ part 'util/timeUtil.dart';
 
 /// These classes should only be instantiated once and used everywhere.
 MyStorage storage = new MyStorage();
-Settings settings;
 SGPBlackList sgpBlackList = new SGPBlackList();
 WishList wishList = new WishList();
 CustomWishList customWishList = new CustomWishList();
 GiveawayBlackList giveAwayBlackList = new GiveawayBlackList();
 GameBlackListHistory gameBlackListHistory = new GameBlackListHistory();
 GridView gridView = new GridView();
+Settings settings;
+NavigationMenu navigationMenu;
+LayerRecentlyBlacklisted layerRecentlyBlacklisted;
 
 /// Returns [true] if there are pinned giveaways.
 bool pinnedGAsExist() {
@@ -110,6 +112,6 @@ void replaceFeaturedAndMoveRecentPosts() {
 
 void activateSettings() {
     settings = new Settings();
-    NavigationMenu navigationMenu = new NavigationMenu();
-    LayerRecentlyBlacklisted layerRecentlyBlacklisted = new LayerRecentlyBlacklisted();
+    navigationMenu = new NavigationMenu();
+    layerRecentlyBlacklisted = new LayerRecentlyBlacklisted();
 }

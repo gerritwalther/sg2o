@@ -5,6 +5,12 @@ class LayerRecentlyBlacklisted extends Layer {
 
     LayerRecentlyBlacklisted() : super();
 
+    /// Whenever a game has been added to the recently blacklisted giveaways, refresh this list
+    void refreshList() {
+        body.querySelector('#$classSG2ORecentlyBlackListedLink').remove();
+        instantiateLayer();
+    }
+
     @override
     Element createLayer(String layerId) {
         // Fullscreen overlay

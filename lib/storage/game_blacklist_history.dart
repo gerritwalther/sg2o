@@ -31,6 +31,7 @@ class GameBlackListHistory {
         recentlyBlacklisted[sgGameId] = new BlackListedGame.create(name, sgGameId, steamId);
         print('Adding "$name" to recently blacklisted games.');
         storeList();
+        layerRecentlyBlacklisted.refreshList();
     }
 
     bool isOnList(String gameId) {
