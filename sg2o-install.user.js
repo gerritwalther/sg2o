@@ -2,7 +2,7 @@
 // @name          SG2O
 // @namespace     sg2o
 // @homepage      https://sg2o.clerius.de
-// @description   Bring old functions from sg+ back to SGv2.
+// @description   Add the old functionality of sg+ to Steamgifts (v2).
 // @copyright     2014+, Clerius (https://sg2o.clerius.de)
 // @license       GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
 // @version       0.2.18
