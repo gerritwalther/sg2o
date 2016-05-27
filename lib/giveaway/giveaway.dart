@@ -18,6 +18,7 @@ class GiveAway {
     int contributorLevel = 0;
     int sgGameId;
     int steamId;
+    String steamLink;
     num chanceOfWin;
     bool isContributorGA;
     bool isGroupGA;
@@ -76,6 +77,7 @@ class GiveAway {
         this.isWhiteListed = gaHtml.querySelectorAll('.$classGAWhiteListed').length > 0;
         this.sgGameId = parseNumber(gaHtml.getAttribute('data-game-id'));
         this.steamId = parseNumber(gaHtml.querySelector('.$classGAIcon').getAttribute('href'));
+        this.steamLink = gaHtml.querySelector('.$classGAIcon').getAttribute('href');
 
         this.chanceOfWin = ((100 * this.copies) / (this.entries + ((entered) ? 0 : 1))).clamp(0, 100);
 
@@ -250,6 +252,19 @@ class GiveAway {
             })
         ;
 
+        // Add [DivElement] to open the Steam store page.
+        DivElement steamLinkContainer = new DivElement()
+            ..classes.add(classFloatLeft)
+            ..classes.add(classFontAwesome)
+            ..classes.add(classSteamLink)
+            ..classes.add(classFASteam)
+            ..classes.add(classTooltip)
+            ..append(new SpanElement()..innerHtml = '<b></b>Open Steam store page in new window.')
+            ..onClick.listen((Event e) {
+                window.open(this.steamLink, '_blank');
+            })
+        ;
+
         if (isCustomWishListGA) {
             customWishListContainer.classes.add(classFAFullHeart);
         } else {
@@ -270,6 +285,7 @@ class GiveAway {
             blackListLinkContainer.classes.add(classFaded);
             customWishListContainer.classes.add(classFaded);
             giveAwayBlackListContainer.classes.add(classFaded);
+            steamLinkContainer.classes.add(classFaded);
         }
 
         informationContainer
@@ -289,6 +305,7 @@ class GiveAway {
             ..append(blackListLinkContainer)
             ..append(customWishListContainer)
             ..append(giveAwayBlackListContainer)
+            ..append(steamLinkContainer)
         ;
 
         return informationContainer;

@@ -176,6 +176,15 @@ body {
 
         rule =
         '''
+.$classSteamLink {
+    cursor: pointer;
+    margin-left: 15px;
+}
+''';
+        styleSheet.insertRule(rule, 0);
+
+        rule =
+        '''
 .$classGAisSGPBlacklisted>i {
     transform: scale(4);
     color: red;
