@@ -320,11 +320,6 @@ class GiveAway {
         }
     }
 
-    /// Print this giveaway to console.
-    void print() {
-        window.console.info(toString());
-    }
-
     /// Returns a [String]-representation of this giveaway.
     String toString() {
         return "Giveaway: " + name
