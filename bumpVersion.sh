@@ -37,9 +37,17 @@ bump_patch () {
 
 write_new_version () {
   echo "... manifest.json"
-  ## TODO: Only replace in row with 'version'
-echo $OLD_VERSION $NEW_VERSION
-  sed -r 's/$\(OLD_VERSION\)/0.2.19/' manifest.json
+  sed -i s/\"$OLD_VERSION\"/\"$NEW_VERSION\"/ manifest.json
+  echo "... VERSION"
+  sed -i s/$OLD_VERSION/$NEW_VERSION/ VERSION
+  echo "... pubspec.yaml"
+  sed -i s/version\:\ $OLD_VERSION/version\:\ $NEW_VERSION/ pubspec.yaml
+  echo "... sg2o.meta.js"
+  sed -ri s,\(//\ @version[\ ]*\)$OLD_VERSION,\\1$NEW_VERSION, sg2o.meta.js
+  echo "... sg2o.meta.js"
+  sed -ri s,\(//\ @version[\ ]*\)$OLD_VERSION,\\1$NEW_VERSION, sg2o-install.meta.js
+  echo "... sg2o.meta.js"
+  sed -ri s,\(//\ @version[\ ]*\)$OLD_VERSION,\\1$NEW_VERSION, sg2o-install.user.js
 }
 
 OLD_VERSION=`grep -oP '\d+.\d+.\d+' VERSION`
