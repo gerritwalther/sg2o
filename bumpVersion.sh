@@ -82,4 +82,4 @@ echo Writing new version $NEW_VERSION to...
 
 write_new_version
 
-exit 1
+exit 0
