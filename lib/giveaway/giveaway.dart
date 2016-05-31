@@ -160,7 +160,7 @@ class GiveAway {
         DivElement avatarContainer = new DivElement()
             ..classes.add(classFloatRight)
             ..classes.add(classGridViewAvatar)
-            ..id = 'sg2o-$creator-$giveAwayId'
+            ..id = 'sg2o-$creator-$giveAwayId-avatar'
             ..append(this.avatar)
             ..onClick.listen((Event e) {
                 window.open(this.profileLink, '_blank');
@@ -171,7 +171,7 @@ class GiveAway {
         giveAwayContainer
             ..onMouseEnter.listen((Event e) {
                 if (profileTooltip == null) {
-                    profileTooltip = new ProfileTooltip('sg2o-$creator-$giveAwayId', creator, avatarContainer);
+                    profileTooltip = new ProfileTooltip('sg2o-$creator-$giveAwayId-avatar', creator, avatarContainer);
                 }
             });
         // Only load the profile info when hovering over the avatar to reduce load on SG
@@ -217,23 +217,23 @@ class GiveAway {
             ..classes.add(classFontAwesome)
             ..classes.add(classEyeSlash)
             ..classes.add(classOneClickBlackList)
-            ..classes.add(classTooltip)
-            ..append(new SpanElement()..innerHtml = '<b></b>Add ${this.name} to the blacklist.')
+            ..id = 'sg2o-$creator-$giveAwayId-blacklist'
             ..onClick.listen((Event e) {
                 addGameToBlackList();
                 gridView.removeByName(this.name);
             })
         ;
+        new SimpleTooltip('sg2o-$creator-$giveAwayId-blacklist', 'Add "${this.name}" to the blacklist.', blackListLinkContainer);
 
         // Add [DivElement] to add game directly to custom wishlist.
         DivElement customWishListContainer = new DivElement()
             ..classes.add(classFloatLeft)
             ..classes.add(classFontAwesome)
             ..classes.add(classCustomWishList)
-            ..classes.add(classTooltip)
-            ..append(new SpanElement()..innerHtml = '<b></b>Add ${this.name} to a custom wishlist')
+            ..id = 'sg2o-$creator-$giveAwayId-custom-wishlist'
             ..onClick.listen(toggleGameOnCustomWishList)
         ;
+        new SimpleTooltip('sg2o-$creator-$giveAwayId-custom-wishlist', 'Add "${this.name}" to a custom wishlist', customWishListContainer);
 
         // Add [DivElement] to add giveaway directly to the [GiveAwayBlackList].
         DivElement giveAwayBlackListContainer = new DivElement()
@@ -241,8 +241,7 @@ class GiveAway {
             ..classes.add(classFontAwesome)
             ..classes.add(classFrown)
             ..classes.add(classGiveAwayBlackList)
-            ..classes.add(classTooltip)
-            ..append(new SpanElement()..innerHtml = '<b></b>Hide this giveaway with ID <em>${this.giveAwayId}</em> until it is finished.')
+            ..id = 'sg2o-$creator-$giveAwayId-id-blacklist'
             ..onClick.listen((Event e) {
                 giveAwayBlackList.addGameToBlackList(this.giveAwayId);
                 // remove giveaway from gridview so it is not added back again
@@ -251,6 +250,7 @@ class GiveAway {
                 giveAwayContainer.remove();
             })
         ;
+        new SimpleTooltip('sg2o-$creator-$giveAwayId-id-blacklist', 'Hide this giveaway with ID "${this.giveAwayId}" until it is finished.', giveAwayBlackListContainer);
 
         // Add [DivElement] to open the Steam store page.
         DivElement steamLinkContainer = new DivElement()
@@ -258,12 +258,12 @@ class GiveAway {
             ..classes.add(classFontAwesome)
             ..classes.add(classSteamLink)
             ..classes.add(classFASteam)
-            ..classes.add(classTooltip)
-            ..append(new SpanElement()..innerHtml = '<b></b>Open Steam store page in new window.')
+            ..id = 'sg2o-$creator-$giveAwayId-steam'
             ..onClick.listen((Event e) {
                 window.open(this.steamLink, '_blank');
             })
         ;
+        new SimpleTooltip('sg2o-$creator-$giveAwayId-steam', 'Open Steam page for this game.', steamLinkContainer);
 
         if (isCustomWishListGA) {
             customWishListContainer.classes.add(classFAFullHeart);

@@ -24,6 +24,7 @@ part 'giveaway/giveaway.dart';
 part 'giveaway/giveaway_page.dart';
 part 'giveaway/gridview.dart';
 part 'giveaway/profile_tooltip.dart';
+part 'giveaway/simple_tooltip.dart';
 part 'giveaway/wishlist.dart';
 part 'layers/layer.dart';
 part 'layers/navigation_menu.dart';
