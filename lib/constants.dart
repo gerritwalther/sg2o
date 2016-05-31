@@ -19,6 +19,8 @@ const String classFeaturedContainer = 'featured__container';
 const String classFeaturedOuterWrap = 'featured__outer-wrap--home';
 const String classWidgetContainers = 'widget-container';
 const String classSectionHeading = 'page__heading';
+const String classSectionDescription = 'page__description';
+const String classPageOuterWrap = 'page__outer-wrap';
 const String classPoints = 'nav__points';
 const String classLeftNavigation = 'nav__left-container';
 const String classNavigationButtonContainer = 'nav__button-container';
@@ -169,6 +171,7 @@ const String classSettingsTabSelected = 'sg2o-settings-tab-selected';
 const String classSettingsColorInput = 'sg2o-settings-color-input';
 
 const String classSG2ORecentlyBlackListedLink = 'sg2o-overlay-recently-blacklisted';
+const String classSG2OAboutLink = 'sg2o-overlay-about';
 
 /// IDs
 // Add game name to this id.

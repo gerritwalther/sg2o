@@ -16,6 +16,7 @@ class NavigationMenu {
         _navigationTopBar.querySelectorAll('.$classNavigationButtonContainer').last.insertAdjacentElement('beforebegin', _createMenuEntry());
         addDropDownEntry(createDropDownEntry(classSettingsOverlay, 'fa-cog', 'Settings', 'Change settings for SG2O', 'icon-green'));
         addDropDownEntry(createDropDownEntry(classSG2ORecentlyBlackListedLink, 'fa-eye-slash', 'Recently Blacklisted', 'Games recently added to your blacklist.', 'icon-red'));
+        addDropDownEntry(createDropDownEntry(classSG2OAboutLink, 'fa-info-circle', 'About the plugin', 'Information about the plugin.', 'icon-blue'));
     }
 
     /// Creates a menu entry to the navigation bar of SG with a dropdown arrow.

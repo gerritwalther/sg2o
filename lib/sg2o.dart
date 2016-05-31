@@ -28,6 +28,7 @@ part 'giveaway/simple_tooltip.dart';
 part 'giveaway/wishlist.dart';
 part 'layers/layer.dart';
 part 'layers/navigation_menu.dart';
+part 'layers/about/layer_about.dart';
 part 'layers/recently_blacklisted/layer_recently_blacklisted.dart';
 part 'layers/settings/settings.dart';
 part 'layers/settings/settings_color.dart';
@@ -60,6 +61,7 @@ GridView gridView = new GridView();
 Settings settings;
 NavigationMenu navigationMenu;
 LayerRecentlyBlacklisted layerRecentlyBlacklisted;
+LayerAbout layerAbout;
 
 /// Returns [true] if there are pinned giveaways.
 bool pinnedGAsExist() {
@@ -115,4 +117,5 @@ void activateSettings() {
     settings = new Settings();
     navigationMenu = new NavigationMenu();
     layerRecentlyBlacklisted = new LayerRecentlyBlacklisted();
+    layerAbout = new LayerAbout();
 }
