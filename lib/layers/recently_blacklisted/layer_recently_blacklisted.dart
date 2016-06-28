@@ -157,12 +157,22 @@ class LayerRecentlyBlacklisted extends Layer {
             ..add(classGAImageOuterBorderGameSmall)
         ;
 
-        DivElement image = new DivElement();
-        image.classes.add(classGAImageInnerWrap);
-        image.setAttribute('style',
-            'background-image:url(https://steamcdn-a.akamaihd.net/steam/apps/${blackListedGame.steamId}/capsule_184x69.jpg);');
+        if (blackListedGame.steamId != 'null') {
+            DivElement image = new DivElement();
+            image.classes.add(classGAImageInnerWrap);
 
-        imageLink.append(image);
+            image.setAttribute('style',
+                'background-image:url(https://steamcdn-a.akamaihd.net/steam/apps/${blackListedGame.steamId}/capsule_184x69.jpg);');
+            imageLink.append(image);
+        } else {
+            FAElement noPicture = new FAElement();
+            noPicture.classes.add('fa-picture-o');
+
+            imageLink.setAttribute('style', 'display: flex; justify-content: center; /* align horizontal */ align-items: center;');
+
+            imageLink.append(noPicture);
+        }
+
 
         imageContainer.append(imageLink);
 
