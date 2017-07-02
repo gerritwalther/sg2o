@@ -34,6 +34,7 @@ body {
 .$classGridView {
   float: left;
   width: ${gridViewEntryWidth}px;
+  height: ${gridViewEntryHeight}px;
   margin-left: 2.625px;
   margin-right: 2.625px;
   border-radius: 2px;
@@ -46,6 +47,7 @@ body {
             '''
             .$classBorderNone {
                 width: auto;
+                height: auto;
             }
             ''', 0);
 
@@ -95,6 +97,14 @@ body {
 }
 ''';
         styleSheet.insertRule(rule, 0);
+
+        styleSheet.insertRule(
+            '''
+.$classGridViewGAImage {
+  height: 100%;
+}
+''',
+        0);
 
         rule =
         '''

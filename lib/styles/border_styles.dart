@@ -47,6 +47,7 @@ class BorderStyles extends Styles {
         '''
 .$className {
   width: auto;
+  height: auto;
   background: $color;
 }
 ''';
@@ -59,6 +60,7 @@ class BorderStyles extends Styles {
         '''
 .$className {
   width: auto;
+  height: auto;
   background-color: $color1;
   background-image: linear-gradient(
     to right,
@@ -77,6 +79,7 @@ class BorderStyles extends Styles {
         '''
 .$className {
   width: auto;
+  height: auto;
   background-image:
     linear-gradient(
       to right,
@@ -97,6 +100,7 @@ class BorderStyles extends Styles {
         '''
 .$className {
   width: auto;
+  height: auto;
   background-image:
     linear-gradient(
       to right,
