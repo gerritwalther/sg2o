@@ -1,5 +1,5 @@
 name: sg2o
-version: 0.2.19
+version: 0.2.20
 description: An optimization script for SteamGifts v2.
 environment:
   sdk: '>=1.0.0 <2.0.0'
