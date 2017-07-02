@@ -108,15 +108,20 @@ class GiveAway {
             giveAwayImage.classes.add(classGAisSGPBlacklisted);
         }
 
+        Element giveAwayLinkContainer = new DivElement();
+        giveAwayLinkContainer
+            ..append(giveAwayLink)
+        ;
+
         giveAwayContainer
             ..classes.add(classGridView)
-            ..append(giveAwayLink)
+            ..append(giveAwayLinkContainer)
             ..append(informationContainer)
             ..onMouseEnter.listen((e) => informationContainer.classes.remove(classHidden))
             ..onMouseLeave.listen((e) => informationContainer.classes.add(classHidden));
 
         if (entered) {
-            giveAwayLink.classes.add(classFaded);
+            giveAwayLinkContainer.classes.add(classFaded);
         }
 
         return giveAwayContainer;
