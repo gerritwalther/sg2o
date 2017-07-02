@@ -26,6 +26,7 @@ class GiveAway {
     bool isWhiteListed;
     bool isBlackListed = false;
     bool isSGPBlacklisted = false;
+    bool isImageAvailable = false;
 
     /// Container for this game. Used for hiding it after moving it to the blacklist.
     Element giveAwayContainer;
@@ -60,7 +61,10 @@ class GiveAway {
         ElementList entriesAndComments = gaHtml.querySelectorAll('div.$classGALinks>a>span');
         this.entries = parseNumber(entriesAndComments.first.text);
         this.comments = parseNumber(entriesAndComments.last.text);
-        this.imageStyle = gaHtml.querySelector('a.$classGAGameImage').style.cssText;
+        this.isImageAvailable = gaHtml.querySelector('a.$classGAGameImageMissing') == null;
+        if (this.isImageAvailable) {
+            this.imageStyle = gaHtml.querySelector('a.$classGAGameImage').style.cssText;
+        }
         this.avatar = gaHtml.querySelector('.$classGAAvatar').style.backgroundImage;
         this.profileLink = gaHtml.querySelector('.$classGAAvatar').getAttribute('href');
         ElementList contributorElement = gaHtml.querySelectorAll('.$classGAContributorLvl');
@@ -96,10 +100,17 @@ class GiveAway {
             ..classes.add(borderClass)
             ..append(giveAwayImage);
 
-        giveAwayImage
-            ..classes.add(classGAGameImage)
-            ..setAttribute('style', this.imageStyle)
-        ;
+        if (this.isImageAvailable) {
+            giveAwayImage
+                ..setAttribute('style', this.imageStyle)
+                ..classes.add(classGAGameImage)
+            ;
+        } else {
+            giveAwayImage
+                ..append(new FAElement()..classes.add('fa-picture-o'))
+                ..classes.add(classGAGameImageMissing)
+            ;
+        }
 
         if (isSGPBlacklisted) {
             FAElement faBan = new FAElement();

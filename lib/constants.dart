@@ -33,6 +33,7 @@ const String classGAColumnWidthFill = 'giveaway__column--width-fill';
 const String classGAUserName = 'giveaway__username';
 const String classGALinks = 'giveaway__links';
 const String classGAGameImage = 'giveaway_image_thumbnail';
+const String classGAGameImageMissing = 'giveaway_image_thumbnail_missing';
 const String classGAAvatar = 'giveaway_image_avatar';
 const String classGAContributorLvl = 'giveaway__column--contributor-level';
 const String classGAContributorPos = 'giveaway__column--contributor-level--positive';
