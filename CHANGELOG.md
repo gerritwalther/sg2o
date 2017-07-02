@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.19
+- Fixing bugs
+
 ## 0.2.18
 - Partially reverted the changes from 0.2.17 and now use fixed width again.
 
