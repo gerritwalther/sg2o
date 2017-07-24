@@ -77,6 +77,7 @@ void replaceFeaturedAndMoveRecentPosts() {
         if (e.innerHtml.contains('Discussions') && e.innerHtml.contains('Deals')) {
             forumContainer = e;
         }
+        // TODO find widgetContaier with 'Community Poll' or div with 'poll'-class. Also add an option to move or not to move the container to the top.
     });
 
     if (querySelectorAll('.$classPinnedGiveawaysOuter').length > 0) {
