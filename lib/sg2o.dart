@@ -74,7 +74,7 @@ void replaceFeaturedAndMoveRecentPosts() {
 
     /// Find the appropriate widget container.
     widgetContainers.forEach((Element e) {
-        if (e.innerHtml.contains('Active Discussions')) {
+        if (e.innerHtml.contains('Discussions') && e.innerHtml.contains('Deals')) {
             forumContainer = e;
         }
     });
@@ -89,7 +89,7 @@ void replaceFeaturedAndMoveRecentPosts() {
         featuredContainer.remove();
     }
 
-    if (settings.isRecentDiscussionsContainerToBeMoved()) {
+    if (settings.isRecentDiscussionsContainerToBeMoved() && forumContainer != null) {
         placeBeforeThis.parent
             ..insertBefore(forumContainer, placeBeforeThis);
 //    ..insertBefore(voteContainer, placeBeforeThis);
