@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.21
+- Fix gridview after some restyling of cg.
+- Show colored borders correctly
+- Increase opacity of entered GAs when hovering over them.
+
 ## 0.2.20
 - Fix games not shown as entered (faded).
 - Fix games without error to create an error when parsing its image url.
