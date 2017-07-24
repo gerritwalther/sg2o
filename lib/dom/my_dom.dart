@@ -76,6 +76,7 @@ Element createHeading(String text, String linkTarget) {
     }
 
     headingContainer
+        ..classes.add(classWidgetMarginTop)
         ..classes.add(classSectionHeading)
         ..classes.add(classSg2oTableHeading)
         ..append(headingText);
