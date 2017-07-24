@@ -44,6 +44,14 @@ body {
         styleSheet.insertRule(rule, 0);
 
         styleSheet.insertRule(
+'''
+.$classGridView:hover .$classFaded {
+  opacity: 1;
+}
+'''
+        );
+
+        styleSheet.insertRule(
             '''
             .$classBorderNone {
                 width: auto;
