@@ -49,6 +49,7 @@ body {
   opacity: 1;
 }
 '''
+            , 0
         );
 
         styleSheet.insertRule(
