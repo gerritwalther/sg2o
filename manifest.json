@@ -21,7 +21,7 @@
     "name":         "sg2o",
     "version":      "0.2.21",
     "web_accessible_resources": [ "sg2o.user.js.map",
-                                  "lib/*.dart",
-                                  "bin/*.dart"
+                                  "lib/**.dart",
+                                  "bin/**.dart"
                                 ]
 }

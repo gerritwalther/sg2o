@@ -11,7 +11,7 @@ class SGPBlackList {
         if (jsonString == '') {
             jsonString = '{}';
         }
-        blackList = JSON.decode(jsonString);
+        blackList = jsonDecode(jsonString);
     }
 
     /// Returns [true] if [game] is on the blacklist.
