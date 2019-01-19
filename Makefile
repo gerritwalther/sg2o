@@ -13,7 +13,7 @@ DART_TOOL			= .dart-tool
 WEBDEV					= webdev
 CAT						= cat
 BUMP					= ./bumpVersion.sh
-RM						= rm -r
+RM						= rm -rf
 CP						= cp
 
 # Program variables
