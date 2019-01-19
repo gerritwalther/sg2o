@@ -1,13 +1,13 @@
 # Path variables
-SRC 						= lib
-BIN 						= bin
+SRC 					= lib
+BIN 					= bin
 BUILD 					= build
 
 # File variables
-SCRIPT_HEAD			= sg2o.meta.js
-BUILD_PROJECT 	= $(BUILD)/main.dart.js
-RELEASE_TARGET	= sg2o.user.js
-DART_TOOL			= .dart-tool
+SCRIPT_HEAD				= sg2o.meta.js
+BUILD_PROJECT 			= $(BUILD)/main.dart.js
+RELEASE_TARGET			= sg2o.user.js
+DART_TOOL				= .dart-tool
 
 # Executables
 WEBDEV					= webdev
