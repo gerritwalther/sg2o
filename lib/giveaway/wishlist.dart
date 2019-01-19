@@ -8,7 +8,7 @@ class WishList {
 
     WishList() {
         if (!isWishListCurrent()) {
-            wishList = JSON.decode(storage.get(keyWishList));
+            wishList = jsonDecode(storage.get(keyWishList));
         } else {
             loadWishListFromProfile(1);
         }

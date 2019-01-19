@@ -13,7 +13,7 @@ class GiveawayBlackList {
 
     /// Loads the blacklist from local storage.
     void loadBlackList() {
-        currentBlackList = JSON.decode(storage.getJson(keyGiveAwayBlackList));
+        currentBlackList = jsonDecode(storage.getJson(keyGiveAwayBlackList));
     }
 
     /// Stores the current blacklist to the local storage.

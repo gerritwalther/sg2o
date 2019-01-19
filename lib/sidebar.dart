@@ -31,9 +31,9 @@ class SideBar {
     void moveSidebar(Event e) {
         Element sidebarElement = querySelector('.$classSidebar');
 
-        if (document.body.scrollTop + 39 > offsetTop) {
+        if (window.scrollY + 39 > offsetTop) {
             /* 25px for the inner page container, 39px for the nav-bar. */
-            sidebarElement.setAttribute('style', 'margin-top:' + (25 + 39 + document.body.scrollTop - offsetTop).toString() + 'px;');
+            sidebarElement.setAttribute('style', 'margin-top:' + (25 + 39 + window.scrollY - offsetTop).toString() + 'px;');
         } else {
             sidebarElement.setAttribute('style', 'margin-top: 0px;');
         }
