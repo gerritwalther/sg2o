@@ -11,6 +11,7 @@ DART_TOOL				= .dart-tool
 
 # Executables
 WEBDEV					= webdev
+PUB						= pub
 CAT						= cat
 BUMP					= ./bumpVersion.sh
 RM						= rm -rf
@@ -30,6 +31,7 @@ make-user-js:
 	@$(CP) .dart_tool/build/generated/sg2o/bin/main.dart.js.map sg2o.user.js.map
 
 build:
+	@$(PUB) get
 	@$(WEBDEV) build -o $(BIN):$(BUILD)
 
 major:
