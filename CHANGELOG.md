@@ -7,6 +7,8 @@
   - in the dropdown there are links to settings and a simple about page (#123)
 - Using PowerTip (jQuery) instead of custom tooltip (#109)
 - Fixed an issue with games not having a steam link (#149)
+- Fixed settings can't be deactivated (#155)
+- Move left side ads below filters
 
 ## 0.2.21
 - Fix gridview after some restyling of cg.
