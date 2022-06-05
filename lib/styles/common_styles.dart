@@ -179,7 +179,7 @@ body {
         '''
 .$classCustomWishList {
   cursor: pointer;
-  margin-left: 15px;
+  margin-left: 30px;
 }
 ''';
         styleSheet.insertRule(rule, 0);
@@ -188,7 +188,16 @@ body {
         '''
 .$classGiveAwayBlackList {
     cursor: pointer;
-    margin-left: 15px;
+    margin-left: 30px;
+}
+''';
+        styleSheet.insertRule(rule, 0);
+
+        rule =
+        '''
+.$classSteamLink {
+    cursor: pointer;
+    margin-left: 30px;
 }
 ''';
         styleSheet.insertRule(rule, 0);

@@ -13,8 +13,6 @@ class Settings {
         tabSettings = new SettingsTabs(colorSettings, commonSettings, gridViewSettings, wishListSettings);
         Element body = querySelector('body');
         body.append(addSettingsPage());
-        Element navigationContainer = querySelector('.$classLeftNavigation');
-        navigationContainer.append(addSettingsLink());
     }
 
     /// Adds a modal layer page.
@@ -56,23 +54,6 @@ class Settings {
 
         overlayContainer.append(overlayInnerContainer);
         return overlayContainer;
-    }
-
-    /// Adds a link to the navbar on SG.
-    Element addSettingsLink() {
-        String name = pluginName;
-        Element navigationButton = new Element.a();
-        navigationButton
-            ..classes.add(classNavigationButton)
-            ..setAttribute('href', '#$classSettingsOverlay')
-            ..text = name;
-
-        DivElement navigationButtonContainer = new DivElement();
-        navigationButtonContainer
-            ..classes.add(classNavigationButtonContainer)
-            ..append(navigationButton);
-
-        return navigationButtonContainer;
     }
 
     /// Toggles the status of the setting.

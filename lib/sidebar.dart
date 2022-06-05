@@ -60,6 +60,12 @@ class SideBar {
         chanceSliderObject = addSliderJQueryToSlider('sg2o-chance-slider', 0, 3, 0.1, 5, '%', _onChange);
     }
 
+    /// Moves the ads to the end of all elements in the sidebar. Preferably call after `addFilter`.
+    void moveAdsToTheEnd() {
+        Node adsElement = sidebarElement.querySelector('.sidebar__mpu');
+        sidebarElement.append(adsElement);
+    }
+
     /// Creates a [DivElement] containing another [DivElement] used as slider Object with corresponding [label].
     DivElement createSlider(String id, String label) {
         DivElement slider = new DivElement()

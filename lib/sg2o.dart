@@ -24,14 +24,18 @@ part 'giveaway/giveaway.dart';
 part 'giveaway/giveaway_page.dart';
 part 'giveaway/gridview.dart';
 part 'giveaway/profile_tooltip.dart';
+part 'giveaway/simple_tooltip.dart';
 part 'giveaway/wishlist.dart';
-part 'settings/settings.dart';
-part 'settings/settings_color.dart';
-part 'settings/settings_common.dart';
-part 'settings/settings_gridview.dart';
-part 'settings/settings_tab.dart';
-part 'settings/settings_tabs.dart';
-part 'settings/settings_wishlist.dart';
+part 'layers/layer.dart';
+part 'layers/navigation_menu.dart';
+part 'layers/about/layer_about.dart';
+part 'layers/settings/settings.dart';
+part 'layers/settings/settings_color.dart';
+part 'layers/settings/settings_common.dart';
+part 'layers/settings/settings_gridview.dart';
+part 'layers/settings/settings_tab.dart';
+part 'layers/settings/settings_tabs.dart';
+part 'layers/settings/settings_wishlist.dart';
 part 'storage/custom_wishlist.dart';
 part 'storage/giveaway_blacklist.dart';
 part 'storage/my_storage.dart';
@@ -39,16 +43,21 @@ part 'styles/border_styles.dart';
 part 'styles/common_styles.dart';
 part 'styles/settings_styles.dart';
 part 'styles/styles.dart';
+part 'styles/styles_navigation.dart';
 part 'styles/tooltip.dart';
+part 'util/string_util.dart';
+part 'util/timeUtil.dart';
 
 /// These classes should only be instantiated once and used everywhere.
 MyStorage storage = new MyStorage();
-Settings settings;
 SGPBlackList sgpBlackList = new SGPBlackList();
 WishList wishList = new WishList();
 CustomWishList customWishList = new CustomWishList();
 GiveawayBlackList giveAwayBlackList = new GiveawayBlackList();
 GridView gridView = new GridView();
+Settings settings;
+NavigationMenu navigationMenu;
+LayerAbout layerAbout;
 
 /// Returns [true] if there are pinned giveaways.
 bool pinnedGAsExist() {
@@ -103,4 +112,6 @@ void replaceFeaturedAndMoveRecentPosts() {
 
 void activateSettings() {
     settings = new Settings();
+    navigationMenu = new NavigationMenu();
+    layerAbout = new LayerAbout();
 }
