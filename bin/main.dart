@@ -28,6 +28,7 @@ main() {
         }
 
         sidebar.addFilter();
+        sidebar.moveAdsToTheEnd();
     }
 
     if (sidebar.isSidebarPresent()) {
