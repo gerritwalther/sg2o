@@ -407,7 +407,6 @@ class GiveAway {
         formData['xsrf_token'] = xsrfToken;
         formData['game_id'] = this.sgGameId.toString();
         formData['do'] = 'hide_giveaways_by_game_id';
-        gameBlackListHistory.addToBlackList(this.name, this.sgGameId.toString(), this.steamId.toString());
         HttpRequest.postFormData('/ajax.php', formData);
     }
 

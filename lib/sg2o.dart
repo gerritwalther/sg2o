@@ -29,7 +29,6 @@ part 'giveaway/wishlist.dart';
 part 'layers/layer.dart';
 part 'layers/navigation_menu.dart';
 part 'layers/about/layer_about.dart';
-part 'layers/recently_blacklisted/layer_recently_blacklisted.dart';
 part 'layers/settings/settings.dart';
 part 'layers/settings/settings_color.dart';
 part 'layers/settings/settings_common.dart';
@@ -39,7 +38,6 @@ part 'layers/settings/settings_tabs.dart';
 part 'layers/settings/settings_wishlist.dart';
 part 'storage/custom_wishlist.dart';
 part 'storage/giveaway_blacklist.dart';
-part 'storage/game_blacklist_history.dart';
 part 'storage/my_storage.dart';
 part 'styles/border_styles.dart';
 part 'styles/common_styles.dart';
@@ -56,11 +54,9 @@ SGPBlackList sgpBlackList = new SGPBlackList();
 WishList wishList = new WishList();
 CustomWishList customWishList = new CustomWishList();
 GiveawayBlackList giveAwayBlackList = new GiveawayBlackList();
-GameBlackListHistory gameBlackListHistory = new GameBlackListHistory();
 GridView gridView = new GridView();
 Settings settings;
 NavigationMenu navigationMenu;
-LayerRecentlyBlacklisted layerRecentlyBlacklisted;
 LayerAbout layerAbout;
 
 /// Returns [true] if there are pinned giveaways.
@@ -117,6 +113,5 @@ void replaceFeaturedAndMoveRecentPosts() {
 void activateSettings() {
     settings = new Settings();
     navigationMenu = new NavigationMenu();
-    layerRecentlyBlacklisted = new LayerRecentlyBlacklisted();
     layerAbout = new LayerAbout();
 }
