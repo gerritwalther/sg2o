@@ -15,7 +15,6 @@ class NavigationMenu {
     NavigationMenu._internal() {
         _navigationTopBar.querySelectorAll('.$classNavigationButtonContainer').last.insertAdjacentElement('beforebegin', _createMenuEntry());
         addDropDownEntry(createDropDownEntry(classSettingsOverlay, 'fa-cog', 'Settings', 'Change settings for SG2O', 'icon-green'));
-        addDropDownEntry(createDropDownEntry(classSG2ORecentlyBlackListedLink, 'fa-eye-slash', 'Recently Blacklisted', 'Games recently added to your blacklist.', 'icon-red'));
         addDropDownEntry(createDropDownEntry(classSG2OAboutLink, 'fa-info-circle', 'About the plugin', 'Information about the plugin.', 'icon-blue'));
     }
 
@@ -97,15 +96,11 @@ class NavigationMenu {
             ..add(classNavigationButton)
             ..add(classNavigationButtonIsDropDownArrow)
         ;
+
         dropDownArrow.onClick.listen((e) {
-            if (dropDownArrow.classes.contains(classIsSelected)) {
-                dropDownArrow.classes.remove(classIsSelected);
-                _relativeDropDown.classes.add(classIsHidden);
-            } else {
-                dropDownArrow.classes.add(classIsSelected);
-                _relativeDropDown.classes.remove(classIsHidden);
-            }
-            e.stopPropagation();
+            dropDownArrow.classes.toggle(classIsSelected);
+            _relativeDropDown.classes.toggle(classIsHidden);
+            e.stopImmediatePropagation();
         });
 
         FAElement faElement = new FAElement();
