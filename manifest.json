@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "content_scripts": [ {
         "exclude_globs":    [  ],
         "include_globs":    [ "*" ],
@@ -20,8 +20,15 @@
     "description":  "Bring old functions from sg+ to SGv2.",
     "name":         "sg2o",
     "version":      "0.3.0",
-    "web_accessible_resources": [ "sg2o.user.js.map",
-                                  "lib/**.dart",
-                                  "bin/**.dart"
-                                ]
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "sg2o.user.js.map",
+          "lib/**.dart",
+          "bin/**.dart"
+        ],
+        "matches": [
+          "*://www.steamgifts.com/*"
+        ]
+      }]
 }
