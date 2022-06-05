@@ -14,7 +14,7 @@ packages/
 *.js.map
 
 # Include when developing application packages.
-pubspec.lock
+#pubspec.lock
 
 # others
 .DS_Store
