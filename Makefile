@@ -6,11 +6,12 @@ BUILD 					= build
 # File variables
 SCRIPT_HEAD			= sg2o.meta.js
 BUILD_PROJECT		= $(BUILD)/main.dart.js
-RELEASE_TARGET		= sg2o.user.jsDART_TOOL				= .dart-tool
+RELEASE_TARGET		= sg2o.user.js
+DART_TOOL				= .dart-tool
 
 # Executables
 WEBDEV					= webdev
-PUB						= pub
+PUB						= dart pub
 CAT						= cat
 BUMP					= ./bumpVersion.sh
 RM						= rm -rf
@@ -32,15 +33,6 @@ make-user-js:
 build:
 	@$(PUB) get
 	@$(WEBDEV) build -o $(BIN):$(BUILD)
-
-major:
-	@$(BUMP) --major
-
-minor:
-	@$(BUMP) --minor
-
-patch:
-	@$(BUMP) --patch
 
 major:
 	@$(BUMP) --major
