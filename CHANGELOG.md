@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.2.21
+- Fix gridview after some restyling of cg.
+- Show colored borders correctly
+- Increase opacity of entered GAs when hovering over them.
+
+## 0.2.20
+- Fix games not shown as entered (faded).
+- Fix games without error to create an error when parsing its image url.
+
+## 0.2.19
+- Fixed gridview after restyling of game images and user avatar on the giveaway page.
+- Fixed width on the gridview page.
+
 ## 0.2.18
 - Partially reverted the changes from 0.2.17 and now use fixed width again.
 

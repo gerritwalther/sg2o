@@ -47,6 +47,7 @@ class BorderStyles extends Styles {
         '''
 .$className {
   width: auto;
+  height: auto;
   background: $color;
 }
 ''';
@@ -59,13 +60,12 @@ class BorderStyles extends Styles {
         '''
 .$className {
   width: auto;
-  background-color: $color1;
-  background-image: linear-gradient(
+  height: auto;
+  background: linear-gradient(
     to right,
-    transparent 50%,
+    $color1 50%,
     $color2 50%
   );
-  background-size: 90px 90px;
 }
 ''';
         return rule;
@@ -77,7 +77,8 @@ class BorderStyles extends Styles {
         '''
 .$className {
   width: auto;
-  background-image:
+  height: auto;
+  background:
     linear-gradient(
       to right,
       $color1 33.33%,
@@ -85,7 +86,6 @@ class BorderStyles extends Styles {
       $color2 66.66%,
       $color3 66.66%
     );
-  background-size: 90px 90px;
 }
 ''';
         return rule;
@@ -97,7 +97,8 @@ class BorderStyles extends Styles {
         '''
 .$className {
   width: auto;
-  background-image:
+  height: auto;
+  background:
     linear-gradient(
       to right,
       $color1 25%,
@@ -107,7 +108,6 @@ class BorderStyles extends Styles {
       $color3 75%,
       $color4 75%
     );
-  background-size: 90px 90px;
 }
 ''';
         return rule;

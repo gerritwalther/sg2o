@@ -9,8 +9,8 @@ class GiveAway {
     String link;
     String profileLink;
     String giveAwayId;
-    Element image;
-    Element avatar;
+    String imageStyle;
+    String avatar;
     int points;
     int entries;
     int copies = 1;
@@ -28,6 +28,7 @@ class GiveAway {
     bool isWhiteListed;
     bool isBlackListed = false;
     bool isSGPBlacklisted = false;
+    bool isImageAvailable = false;
 
     /// Container for this game. Used for hiding it after moving it to the blacklist.
     Element giveAwayContainer;
@@ -62,8 +63,11 @@ class GiveAway {
         ElementList entriesAndComments = gaHtml.querySelectorAll('div.$classGALinks>a>span');
         this.entries = parseNumber(entriesAndComments.first.text);
         this.comments = parseNumber(entriesAndComments.last.text);
-        this.image = gaHtml.querySelector('a.$classGAGameImage').children.first;
-        this.avatar = gaHtml.querySelector('.$classGAAvatar>.$classGAAvatarImage');
+        this.isImageAvailable = gaHtml.querySelector('a.$classGAGameImageMissing') == null;
+        if (this.isImageAvailable) {
+            this.imageStyle = gaHtml.querySelector('a.$classGAGameImage').style.cssText;
+        }
+        this.avatar = gaHtml.querySelector('.$classGAAvatar').style.backgroundImage;
         this.profileLink = gaHtml.querySelector('.$classGAAvatar').getAttribute('href');
         ElementList contributorElement = gaHtml.querySelectorAll('.$classGAContributorLvl');
         this.isContributorGA = contributorElement.length > 0;
@@ -108,9 +112,17 @@ class GiveAway {
             ..classes.add(borderClass)
             ..append(giveAwayImage);
 
-        giveAwayImage
-            ..classes.add(classGAAvatarImage)
-            ..setAttribute('style', this.image.getAttribute('style'));
+        if (this.isImageAvailable) {
+            giveAwayImage
+                ..setAttribute('style', this.imageStyle)
+                ..classes.add(classGAGameImage)
+            ;
+        } else {
+            giveAwayImage
+                ..append(new FAElement()..classes.add('fa-picture-o'))
+                ..classes.add(classGAGameImageMissing)
+            ;
+        }
 
         if (isSGPBlacklisted) {
             FAElement faBan = new FAElement();
@@ -119,15 +131,20 @@ class GiveAway {
             giveAwayImage.classes.add(classGAisSGPBlacklisted);
         }
 
+        Element giveAwayLinkContainer = new DivElement();
+        giveAwayLinkContainer
+            ..append(giveAwayLink)
+        ;
+
         giveAwayContainer
             ..classes.add(classGridView)
-            ..append(giveAwayLink)
+            ..append(giveAwayLinkContainer)
             ..append(informationContainer)
             ..onMouseEnter.listen((e) => informationContainer.classes.remove(classHidden))
             ..onMouseLeave.listen((e) => informationContainer.classes.add(classHidden));
 
         if (entered) {
-            giveAwayLink.classes.add(classFaded);
+            giveAwayLinkContainer.classes.add(classFaded);
         }
 
         return giveAwayContainer;
@@ -169,7 +186,7 @@ class GiveAway {
             ..classes.add(classFloatRight)
             ..classes.add(classGridViewAvatar)
             ..id = 'sg2o-$creator-$giveAwayId-avatar'
-            ..append(this.avatar)
+            ..attributes.putIfAbsent('style', () => 'background-image: ${this.avatar};')
             ..onClick.listen((Event e) {
                 window.open(this.profileLink, '_blank');
             })

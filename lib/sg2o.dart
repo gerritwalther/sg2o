@@ -87,9 +87,10 @@ void replaceFeaturedAndMoveRecentPosts() {
 
     /// Find the appropriate widget container.
     widgetContainers.forEach((Element e) {
-        if (e.innerHtml.contains('Active Discussions')) {
+        if (e.innerHtml.contains('Discussions') && e.innerHtml.contains('Deals')) {
             forumContainer = e;
         }
+        // TODO find widgetContaier with 'Community Poll' or div with 'poll'-class. Also add an option to move or not to move the container to the top.
     });
 
     if (querySelectorAll('.$classPinnedGiveawaysOuter').length > 0) {
@@ -102,7 +103,7 @@ void replaceFeaturedAndMoveRecentPosts() {
         featuredContainer.remove();
     }
 
-    if (settings.isRecentDiscussionsContainerToBeMoved()) {
+    if (settings.isRecentDiscussionsContainerToBeMoved() && forumContainer != null) {
         placeBeforeThis.parent
             ..insertBefore(forumContainer, placeBeforeThis);
 //    ..insertBefore(voteContainer, placeBeforeThis);

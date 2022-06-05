@@ -43,9 +43,9 @@ const String classGAColumns = 'giveaway__columns';
 const String classGAColumnWidthFill = 'giveaway__column--width-fill';
 const String classGAUserName = 'giveaway__username';
 const String classGALinks = 'giveaway__links';
-const String classGAGameImage = 'global__image-outer-wrap--game-medium';
-const String classGAAvatar = 'global__image-outer-wrap--avatar-small';
-const String classGAAvatarImage = 'global__image-inner-wrap';
+const String classGAGameImage = 'giveaway_image_thumbnail';
+const String classGAGameImageMissing = 'giveaway_image_thumbnail_missing';
+const String classGAAvatar = 'giveaway_image_avatar';
 const String classGAContributorLvl = 'giveaway__column--contributor-level';
 const String classGAContributorPos = 'giveaway__column--contributor-level--positive';
 const String classGAContributorNeg = 'giveaway__column--contributor-level--negative';
@@ -119,6 +119,7 @@ const String classFaded = 'faded';
 const String classGridViewInfoContainer = 'gridview-info';
 const String classGridViewAvatar = 'gridview-avatar';
 const String classGridViewGAName = 'ga-name';
+const String classGridViewGAImage = 'sg2o-game-image';
 const String classOneClickBlackList = 'sg2o-blacklist-ga';
 const String classCustomWishList = 'sg2o-custom-wishlist';
 const String classGiveAwayBlackList = 'sg2o-giveaway-blacklist';
@@ -220,6 +221,7 @@ const String settingsTabMenuBackgroundColor = 'transparent';
 /// numbers
 const num oneDay = 1000 * 60 * 60 * 24;
 
-const num gridViewEntryWidth = 205;
+const num gridViewEntryWidth = 196;
+const num gridViewEntryHeight = 81;
 
 const num zIndexLayer = 100000; //needs to be 99.999+1 because of the filter widget.

@@ -11,7 +11,7 @@ class CustomWishList {
 
     /// Loads the wishlist from local storage.
     void loadWishList() {
-        currentWishList = JSON.decode(storage.getJson(keyCustomWishList));
+        currentWishList = jsonDecode(storage.getJson(keyCustomWishList));
     }
 
     /// Stores the current wishlist to the local storage.
