@@ -29,6 +29,7 @@ make-user-js:
 	@$(CAT) $(SCRIPT_HEAD) > $(RELEASE_TARGET)
 	@$(CAT) $(BUILD_PROJECT) >> $(RELEASE_TARGET)
 	@$(CP) .dart_tool/build/generated/sg2o/bin/main.dart.js.map sg2o.user.js.map
+	sed -i 's/\/\/# sourceMappingURL=main.dart.js.map/\/\/# sourceMappingURL=sg2o.user.js.map/g' $(RELEASE_TARGET)
 
 build:
 	@$(PUB) get
