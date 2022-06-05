@@ -127,6 +127,7 @@ void addToggleListener(DivElement element, String oneClass, String otherClass) {
             element.classes.remove(otherClass);
             element.classes.add(oneClass);
         }
+        e.stopImmediatePropagation();
     });
 }
 
