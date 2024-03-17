@@ -12,7 +12,7 @@ class GridView {
     num chanceTo = 100;
 
     GridView() {
-        giveAwayPages = List.empty(growable: true);
+        giveAwayPages = <GiveAwayPage>[];
     }
 
     /// Creates a [GiveAwayPage] for the pinned giveaways.

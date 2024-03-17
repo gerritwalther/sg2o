@@ -12,7 +12,7 @@ class GiveAwayPage {
     late num chanceTo;
 
     GiveAwayPage(num levelFrom, num levelTo, num pointsFrom, num pointsTo, num chanceFrom, num chanceTo) {
-        this.giveAways = List.empty(growable: true);
+        this.giveAways = <GiveAway>[];
         this.contributorLevelFrom = levelFrom;
         this.contributorLevelTo = levelTo;
         this.pointsFrom = pointsFrom;
