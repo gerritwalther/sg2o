@@ -18,7 +18,7 @@ class SGButton extends DivElement {
             ..appendText(' $text')
             ..onClick.listen(fnButtonListener)
         ;
-        return element;
+        return element as SGButton;
     }
 }
 

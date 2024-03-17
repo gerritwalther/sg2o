@@ -14,7 +14,7 @@ body {
   margin-top: 39px;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -27,7 +27,7 @@ body {
   width: 100%;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -41,9 +41,9 @@ body {
   margin-bottom: 0.5em;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
-        styleSheet.insertRule(
+        styleSheet?.insertRule(
 '''
 .$classGridView:hover .$classFaded {
   opacity: 1;
@@ -52,7 +52,7 @@ body {
             , 0
         );
 
-        styleSheet.insertRule(
+        styleSheet?.insertRule(
             '''
             .$classBorderNone {
                 width: auto;
@@ -66,7 +66,7 @@ body {
   padding-top: 5px;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -74,7 +74,7 @@ body {
   margin-bottom: 0.5em;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         // subtract 12px for border and padding from the width
         rule =
@@ -92,7 +92,7 @@ body {
   position: absolute;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -105,9 +105,9 @@ body {
   cursor: pointer;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
-        styleSheet.insertRule(
+        styleSheet?.insertRule(
             '''
 .$classGridViewGAImage {
   height: 100%;
@@ -121,7 +121,7 @@ body {
   float: left;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -129,7 +129,7 @@ body {
   float: right;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -139,7 +139,7 @@ body {
   margin-bottom: 0.5em;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -147,7 +147,7 @@ body {
   display: none !important;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -155,7 +155,7 @@ body {
   opacity: 0.5;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -165,7 +165,7 @@ body {
   text-align: center;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -173,7 +173,7 @@ body {
   cursor: pointer;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -182,7 +182,7 @@ body {
   margin-left: 30px;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -191,7 +191,7 @@ body {
     margin-left: 30px;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -200,7 +200,7 @@ body {
     margin-left: 30px;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -211,7 +211,7 @@ body {
     padding-top: 10px
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -219,6 +219,6 @@ body {
     text-align: center;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
     }
 }

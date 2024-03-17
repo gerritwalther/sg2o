@@ -55,9 +55,9 @@ WishList wishList = new WishList();
 CustomWishList customWishList = new CustomWishList();
 GiveawayBlackList giveAwayBlackList = new GiveawayBlackList();
 GridView gridView = new GridView();
-Settings settings;
-NavigationMenu navigationMenu;
-LayerAbout layerAbout;
+Settings? settings;
+NavigationMenu? navigationMenu;
+LayerAbout? layerAbout;
 
 /// Returns [true] if there are pinned giveaways.
 bool pinnedGAsExist() {
@@ -68,22 +68,22 @@ bool pinnedGAsExist() {
 
 /// Adds a class to the navigation to fix it at the top.
 void fixNavigation() {
-    Element navigationHeaderElement = querySelector(elementNavigation);
+    Element? navigationHeaderElement = querySelector(elementNavigation);
 
-    navigationHeaderElement.classes.add(classFixedNavigation);
+    navigationHeaderElement?.classes.add(classFixedNavigation);
 }
 
 /// Replaces the featured giveaways on top with the recent forum posts.
 void replaceFeaturedAndMoveRecentPosts() {
-    Element featuredContainer = querySelector('.$classFeaturedContainer');
+    Element? featuredContainer = querySelector('.$classFeaturedContainer');
     ElementList widgetContainers = querySelectorAll('.$classWidgetContainers');
-    Element placeBeforeThis;
+    Element? placeBeforeThis;
 //  Element voteContainer = widgetContainers.elementAt(1); //TODO find a better way to select this, as the community vote does not always exist.
-    Element forumContainer;
+    Element? forumContainer;
 
     /// Find the appropriate widget container.
     widgetContainers.forEach((Element e) {
-        if (e.innerHtml.contains('Discussions') && e.innerHtml.contains('Deals')) {
+        if (e.innerHtml!.contains('Discussions') && e.innerHtml!.contains('Deals')) {
             forumContainer = e;
         }
         // TODO find widgetContaier with 'Community Poll' or div with 'poll'-class. Also add an option to move or not to move the container to the top.
@@ -95,16 +95,16 @@ void replaceFeaturedAndMoveRecentPosts() {
         placeBeforeThis = querySelector('.$classSectionHeading');
     }
 
-    if (settings.isFeaturedGAToBeRemoved()) {
-        featuredContainer.remove();
+    if (settings!.isFeaturedGAToBeRemoved()) {
+        featuredContainer?.remove();
     }
 
-    if (settings.isRecentDiscussionsContainerToBeMoved() && forumContainer != null) {
-        placeBeforeThis.parent
-            ..insertBefore(forumContainer, placeBeforeThis);
+    if (settings!.isRecentDiscussionsContainerToBeMoved() && forumContainer != null) {
+        placeBeforeThis!.parent
+            ?..insertBefore(forumContainer!, placeBeforeThis);
 //    ..insertBefore(voteContainer, placeBeforeThis);
 
-        forumContainer.classes.remove(classWidgetMarginTop);
+        forumContainer?.classes.remove(classWidgetMarginTop);
         // TODO: Might not need to add a margin top here (at least not for pinned GAs, extra removal of margin-top for pinnedGAs can be removed if this is removed).
         placeBeforeThis.classes.add(classWidgetMarginTop);
     }

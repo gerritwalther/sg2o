@@ -2,12 +2,12 @@ part of sg2o;
 
 /// Class for the sidebar which is present on most (or all) of the pages
 class SideBar {
-    int offsetTop;
-    Element sidebarElement;
+    num offsetTop = 0;
+    Element? sidebarElement;
 
-    js.JsObject levelSliderObject;
-    js.JsObject pointsSliderObject;
-    js.JsObject chanceSliderObject;
+    js.JsObject? levelSliderObject;
+    js.JsObject? pointsSliderObject;
+    js.JsObject? chanceSliderObject;
 
     SideBar() {
         sidebarElement = querySelector('.$classSidebar');
@@ -20,22 +20,22 @@ class SideBar {
 
     /// Adds a class to the [SideBar] to fix it.
     void fixSidebar() {
-        Element sidebarElement = querySelector('.$classSidebar');
-        this.offsetTop = sidebarElement.offset.top;
+        Element? sidebarElement = querySelector('.$classSidebar');
+        this.offsetTop = sidebarElement!.offset.top;
 
         window.onScroll.listen(moveSidebar);
         moveSidebar(null);
     }
 
     /// Moves the sidebar to be always visible and at the same position.
-    void moveSidebar(Event e) {
-        Element sidebarElement = querySelector('.$classSidebar');
+    void moveSidebar(Event? e) {
+        Element? sidebarElement = querySelector('.$classSidebar');
 
         if (window.scrollY + 39 > offsetTop) {
             /* 25px for the inner page container, 39px for the nav-bar. */
-            sidebarElement.setAttribute('style', 'margin-top:' + (25 + 39 + window.scrollY - offsetTop).toString() + 'px;');
+            sidebarElement?.setAttribute('style', 'margin-top:' + (25 + 39 + window.scrollY - offsetTop).toString() + 'px;');
         } else {
-            sidebarElement.setAttribute('style', 'margin-top: 0px;');
+            sidebarElement?.setAttribute('style', 'margin-top: 0px;');
         }
     }
 
@@ -53,7 +53,7 @@ class SideBar {
             ..append(pointsSliderContainer)
             ..append(chanceSliderContainer)
         ;
-        sidebarElement.append(filterContainer);
+        sidebarElement?.append(filterContainer);
 
         levelSliderObject = addSliderJQueryToSlider('sg2o-level-slider', 0, 10, 1, 1, '', _onChange);
         pointsSliderObject = addSliderJQueryToSlider('sg2o-points-slider', 0, 100, 5, 2, '', _onChange);
@@ -62,8 +62,8 @@ class SideBar {
 
     /// Moves the ads to the end of all elements in the sidebar. Preferably call after `addFilter`.
     void moveAdsToTheEnd() {
-        Node adsElement = sidebarElement.querySelector('.sidebar__mpu');
-        sidebarElement.append(adsElement);
+        Node adsElement = sidebarElement?.querySelector('.sidebar__mpu') as Node;
+        sidebarElement?.append(adsElement);
     }
 
     /// Creates a [DivElement] containing another [DivElement] used as slider Object with corresponding [label].
@@ -115,12 +115,12 @@ class SideBar {
 
     /// Called when a slider position changes. Hides any giveaways that does not correspond to the ranges.
     void _onChange(js.JsObject obj1, js.JsObject obj2) {
-        num fromLevel = levelSliderObject.callMethod('slider', ['values', 0]);
-        num toLevel = levelSliderObject.callMethod('slider', ['values', 1]);
-        num fromPoints = pointsSliderObject.callMethod('slider', ['values', 0]);
-        num toPoints = pointsSliderObject.callMethod('slider', ['values', 1]);
-        num fromChance = chanceSliderObject.callMethod('slider', ['values', 0]);
-        num toChance = chanceSliderObject.callMethod('slider', ['values', 1]);
+        num fromLevel = levelSliderObject?.callMethod('slider', ['values', 0]);
+        num toLevel = levelSliderObject?.callMethod('slider', ['values', 1]);
+        num fromPoints = pointsSliderObject?.callMethod('slider', ['values', 0]);
+        num toPoints = pointsSliderObject?.callMethod('slider', ['values', 1]);
+        num fromChance = chanceSliderObject?.callMethod('slider', ['values', 0]);
+        num toChance = chanceSliderObject?.callMethod('slider', ['values', 1]);
         gridView.hideTemporarilyByRanges(fromLevel, toLevel, fromPoints, toPoints, fromChance, toChance);
     }
 }

@@ -8,6 +8,6 @@ class InfoElement extends DivElement {
             ..text = text
         ;
         new Timer(const Duration(seconds: 3), () => element.remove());
-        return element;
+        return element as InfoElement;
     }
 }

@@ -7,6 +7,6 @@ class SideBarHeading extends HeadingElement {
             ..classes.add(classSidebarHeading)
             ..text = content
         ;
-        return heading;
+        return heading as SideBarHeading;
     }
 }

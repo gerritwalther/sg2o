@@ -3,8 +3,8 @@ part of sg2o;
 /// Tooltip which is shown when hovering over icons in the gridview.
 class SimpleTooltip {
 
-    js.JsObject tooltip;
-    String content;
+    late js.JsObject tooltip;
+    late String content;
 
     bool userContentAdded = false;
 

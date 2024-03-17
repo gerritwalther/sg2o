@@ -9,6 +9,6 @@ class Spinner extends HtmlElement {
             ..classes.add(classFASpinner)
             ..classes.add(classFASpin)
         ;
-        return spinner;
+        return spinner as Spinner;
     }
 }

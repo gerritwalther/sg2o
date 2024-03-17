@@ -2,10 +2,10 @@ part of sg2o;
 
 class ColorSetting {
 
-    String title;
-    String storageKey;
-    Element inputContainer;
-    InputElement inputColor;
+    late String title;
+    late String storageKey;
+    late Element inputContainer;
+    late InputElement inputColor;
 
     ColorSetting (String title, String storageKey) {
         this.title = title;
@@ -37,7 +37,7 @@ class ColorSetting {
     }
 
     void store() {
-        storage.add(storageKey, inputColor.value);
+        storage.add(storageKey, inputColor.value ?? getDefaultColor(storageKey));
     }
 
     void restoreDefault() {

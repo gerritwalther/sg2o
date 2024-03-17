@@ -49,7 +49,7 @@ bool isElementCompletelyVisible(Element el) {
     return
         rect.top >= 0 &&
 //    rect.left >= 0 &&
-        rect.bottom <= window.innerHeight + 100 //&&
+        rect.bottom <= window.innerHeight! + 100 //&&
 //    rect.right <= window.innerWidth
     ;
 }
@@ -95,7 +95,7 @@ bool isOnGAPage() {
 Element createOption(bool yes, String question, fnCheckboxClick) {
     DivElement formRowIndent = new DivElement();
 
-    DivElement checkboxContainer = createCheckboxContainer('  $question', fnCheckboxClick);
+    Element checkboxContainer = createCheckboxContainer('  $question', fnCheckboxClick);
 
     formRowIndent
         ..classes.add(classFormRowIndent)
@@ -113,12 +113,12 @@ Element createOption(bool yes, String question, fnCheckboxClick) {
 }
 
 /// Adds listeners to the two specified elements to switch their classes.
-void toggleClassOnClick(DivElement element, String oneClass, String otherClass) {
+void toggleClassOnClick(Element element, String oneClass, String otherClass) {
     addToggleListener(element, oneClass, otherClass);
 }
 
 /// Switches the two specified classes on the specified element if clicked on.
-void addToggleListener(DivElement element, String oneClass, String otherClass) {
+void addToggleListener(Element element, String oneClass, String otherClass) {
     element.onClick.listen((Event e) {
         if (element.classes.contains(oneClass)) {
             element.classes.remove(oneClass);

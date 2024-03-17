@@ -2,42 +2,42 @@ part of sg2o;
 
 /// Class for one giveaway. Parses the whole information from the DOM. Also creates a collapsed element with the information.
 class GiveAway {
-    String name;
-    String created;
-    String creator;
-    String remaining;
-    String link;
-    String profileLink;
-    String giveAwayId;
-    String imageStyle;
-    String avatar;
-    int points;
-    int entries;
+    late String name;
+    late String created;
+    late String creator;
+    late String remaining;
+    late String link;
+    late String profileLink;
+    late String giveAwayId;
+    late String imageStyle;
+    late String avatar;
+    late int points;
+    late int entries;
     int copies = 1;
-    int comments;
+    late int comments;
     int contributorLevel = 0;
-    int sgGameId;
-    int steamId;
-    String steamLink;
-    num chanceOfWin;
-    bool isContributorGA;
-    bool isGroupGA;
-    bool isWishListGA;
-    bool isCustomWishListGA;
-    bool entered;
-    bool isWhiteListed;
+    late int sgGameId;
+    late int steamId;
+    late String steamLink;
+    late num chanceOfWin;
+    late bool isContributorGA;
+    late bool isGroupGA;
+    late bool isWishListGA;
+    late bool isCustomWishListGA;
+    late bool entered;
+    late bool isWhiteListed;
     bool isBlackListed = false;
     bool isSGPBlacklisted = false;
     bool isImageAvailable = false;
 
     /// Container for this game. Used for hiding it after moving it to the blacklist.
-    Element giveAwayContainer;
+    Element? giveAwayContainer;
 
     /// Use this to change border color.
-    Element giveAwayLink;
+    late Element giveAwayLink;
 
     /// Current border class which is updated when adding to the custom wishlist.
-    String borderClass;
+    late String borderClass;
 
 
     /// Constructor that parses the giveaway from [gaHtml]. The passed html has to contain a number of different elements.
@@ -50,38 +50,38 @@ class GiveAway {
         } else {
             copies = copiesAndPoints[0];
             points = copiesAndPoints[1];
-            this.copies = parseNumber(copies.text);
+            this.copies = parseNumber(copies.text)!;
         }
-        this.points = parseNumber(points.text);
-        Element nameAndLink = gaHtml.querySelector('a.$classGAName');
-        this.name = nameAndLink.text;
-        this.link = nameAndLink.getAttribute('href');
+        this.points = parseNumber(points.text)!;
+        Element? nameAndLink = gaHtml.querySelector('a.$classGAName');
+        this.name = nameAndLink!.text!;
+        this.link = nameAndLink.getAttribute('href')!;
         this.giveAwayId = parseIdFromLink(this.link);
-        this.remaining = parseTime(gaHtml.querySelector('div.$classGAColumns>div>span').text);
-        this.created = parseTime(gaHtml.querySelector('div.$classGAColumnWidthFill').text);
-        this.creator = gaHtml.querySelector('.$classGAUserName').text;
+        this.remaining = parseTime(gaHtml.querySelector('div.$classGAColumns>div>span')!.text!);
+        this.created = parseTime(gaHtml.querySelector('div.$classGAColumnWidthFill')!.text!);
+        this.creator = gaHtml.querySelector('.$classGAUserName')!.text!;
         ElementList entriesAndComments = gaHtml.querySelectorAll('div.$classGALinks>a>span');
-        this.entries = parseNumber(entriesAndComments.first.text);
-        this.comments = parseNumber(entriesAndComments.last.text);
+        this.entries = parseNumber(entriesAndComments.first.text)!;
+        this.comments = parseNumber(entriesAndComments.last.text)!;
         this.isImageAvailable = gaHtml.querySelector('a.$classGAGameImageMissing') == null;
         if (this.isImageAvailable) {
-            this.imageStyle = gaHtml.querySelector('a.$classGAGameImage').style.cssText;
+            this.imageStyle = gaHtml.querySelector('a.$classGAGameImage')!.style.cssText!;
         }
-        this.avatar = gaHtml.querySelector('.$classGAAvatar').style.backgroundImage;
-        this.profileLink = gaHtml.querySelector('.$classGAAvatar').getAttribute('href');
+        this.avatar = gaHtml.querySelector('.$classGAAvatar')!.style.backgroundImage;
+        this.profileLink = gaHtml.querySelector('.$classGAAvatar')!.getAttribute('href')!;
         ElementList contributorElement = gaHtml.querySelectorAll('.$classGAContributorLvl');
         this.isContributorGA = contributorElement.length > 0;
         if (this.isContributorGA) {
-            this.contributorLevel = parseNumber(contributorElement[0].text);
+            this.contributorLevel = parseNumber(contributorElement[0].text)!;
         }
         this.isGroupGA = gaHtml.querySelectorAll('.$classGAGroupIcon').length > 0;
         this.isWishListGA = wishList.isOnWishList(name);
         this.isCustomWishListGA = customWishList.isOnWishList(name);
         this.entered = gaHtml.querySelectorAll('.$classGAEntered').length > 0;
         this.isWhiteListed = gaHtml.querySelectorAll('.$classGAWhiteListed').length > 0;
-        this.sgGameId = parseNumber(gaHtml.getAttribute('data-game-id'));
+        this.sgGameId = parseNumber(gaHtml.getAttribute('data-game-id'))!;
         this.steamLink = getSteamLink(gaHtml);
-        this.steamId = parseNumber(this.steamLink);
+        this.steamId = parseNumber(this.steamLink)!;
 
         this.chanceOfWin = ((100 * this.copies) / (this.entries + ((entered) ? 0 : 1))).clamp(0, 100);
 
@@ -89,15 +89,15 @@ class GiveAway {
     }
 
     String getSteamLink(Element gaHtml) {
-        Element querySelector = gaHtml.querySelector('a.$classGAIcon');
+        Element? querySelector = gaHtml.querySelector('a.$classGAIcon');
         if (querySelector == null) {
             return '';
         }
-        return querySelector.getAttribute('href');
+        return querySelector.getAttribute('href')!;
     }
 
     /// Return this giveaway as small gridview compatible [Element].
-    Element wrappedWithStyles() {
+    Element? wrappedWithStyles() {
         giveAwayContainer = new DivElement();
 
         Element informationContainer = createInformationContainer();
@@ -137,7 +137,7 @@ class GiveAway {
         ;
 
         giveAwayContainer
-            ..classes.add(classGridView)
+            ?..classes.add(classGridView)
             ..append(giveAwayLinkContainer)
             ..append(informationContainer)
             ..onMouseEnter.listen((e) => informationContainer.classes.remove(classHidden))
@@ -192,9 +192,9 @@ class GiveAway {
             })
         ;
         // Add the tooltip when the mouse hovers the giveAwayContainer, otherwise it will not be added
-        ProfileTooltip profileTooltip = null;
+        ProfileTooltip? profileTooltip = null;
         giveAwayContainer
-            ..onMouseEnter.listen((Event e) {
+            ?..onMouseEnter.listen((Event e) {
                 if (profileTooltip == null) {
                     profileTooltip = new ProfileTooltip('sg2o-$creator-$giveAwayId-avatar', creator, avatarContainer);
                 }
@@ -202,7 +202,7 @@ class GiveAway {
         // Only load the profile info when hovering over the avatar to reduce load on SG
         avatarContainer
             ..onMouseEnter.listen((Event e) {
-                profileTooltip.addUserContent();
+                profileTooltip?.addUserContent();
             })
         ;
 
@@ -272,7 +272,7 @@ class GiveAway {
                 // remove giveaway from gridview so it is not added back again
                 gridView.remove(this);
                 // remove the container from the dom
-                giveAwayContainer.remove();
+                giveAwayContainer?.remove();
             })
         ;
         new SimpleTooltip('sg2o-$creator-$giveAwayId-id-blacklist', 'Hide this giveaway with ID "${this.giveAwayId}" until it is finished.', giveAwayBlackListContainer);
@@ -340,7 +340,7 @@ class GiveAway {
     void removeGiveAwayContainer(String name) {
         if (this.name == name) {
             window.console.info('Adding ${name} to blacklist.');
-            giveAwayContainer.remove();
+            giveAwayContainer?.remove();
             this.isBlackListed = true;
         }
     }
@@ -403,8 +403,8 @@ class GiveAway {
     /// Sends a post request to directly add the game on SGs blacklist.
     void addGameToBlackList() {
         Map<String, String> formData = new Map();
-        String xsrfToken = querySelectorAll('input[name="xsrf_token"]')[0].getAttribute('value');
-        formData['xsrf_token'] = xsrfToken;
+        String? xsrfToken = querySelectorAll('input[name="xsrf_token"]')[0].getAttribute('value');
+        formData['xsrf_token'] = xsrfToken!;
         formData['game_id'] = this.sgGameId.toString();
         formData['do'] = 'hide_giveaways_by_game_id';
         HttpRequest.postFormData('/ajax.php', formData);
@@ -412,18 +412,18 @@ class GiveAway {
 
     /// Adds/removes this game to the custom sg2o wishlist.
     void toggleGameOnCustomWishList(Event e) {
-        Element target = e.target;
+        Element? target = e.target as Element?;
         giveAwayLink.classes.remove(borderClass);
         if (isCustomWishListGA) {
             isCustomWishListGA = false;
             customWishList.removeGameFromWishList(name);
-            target.classes.remove(classFAFullHeart);
-            target.classes.add(classFAEmptyHeart);
+            target?.classes.remove(classFAFullHeart);
+            target?.classes.add(classFAEmptyHeart);
         } else {
             isCustomWishListGA = true;
             customWishList.addGameToWishList(name);
-            target.classes.remove(classFAEmptyHeart);
-            target.classes.add(classFAFullHeart);
+            target?.classes.remove(classFAEmptyHeart);
+            target?.classes.add(classFAFullHeart);
         }
         borderClass = getBorderColorClass();
         giveAwayLink.classes.add(borderClass);
@@ -444,11 +444,11 @@ class GiveAway {
 
     /// Toggles visibility of this game when [hide] is [true].
     void hideTemporarily(bool hide) {
-        if (!this.isBlackListed && !(this.entered && settings.hideEnteredGames()) && giveAwayContainer != null) {
+        if (!this.isBlackListed && !(this.entered && settings!.hideEnteredGames()) && giveAwayContainer != null) {
             if (hide) {
-                giveAwayContainer.classes.add(classHidden);
+                giveAwayContainer?.classes.add(classHidden);
             } else {
-                giveAwayContainer.classes.remove(classHidden);
+                giveAwayContainer?.classes.remove(classHidden);
             }
         }
     }

@@ -3,11 +3,11 @@ part of sg2o;
 /// Parses a number from a [String].
 /// This might only work with one number in the string.
 /// Returns [null] if there is no number in the string.
-int parseNumber(String stringWithNumber) {
+int? parseNumber(String? stringWithNumber) {
     var regexp = new RegExp(r'\d+');
-    Iterable<Match> allMatches = regexp.allMatches(stringWithNumber.replaceAll(',', ''));
+    Iterable<Match> allMatches = regexp.allMatches(stringWithNumber!.replaceAll(',', ''));
     if (allMatches.length > 0) {
-        int number = int.parse(allMatches.first.group(0));
+        int number = int.parse(allMatches.first.group(0) as String);
         return number;
     } else {
         return null;
@@ -16,7 +16,7 @@ int parseNumber(String stringWithNumber) {
 
 /// This takes a [String] of the format "<amount> <time-unit> ... " and returns it. E.g. "1 hour abc" returns "1 hour".
 String parseTime(String stringWithTime) {
-    int amount = parseNumber(stringWithTime);
+    int? amount = parseNumber(stringWithTime);
     return amount.toString() + ' ' + stringWithTime.split(' ').elementAt(1);
 }
 

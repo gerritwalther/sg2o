@@ -17,7 +17,7 @@ class MyStorage {
 
     /// Gets the value for [key].
     String get(String key) {
-        String value = storage[keyName + key];
+        String? value = storage[keyName + key];
         return (value != null) ? value : '';
     }
 
@@ -36,22 +36,20 @@ class MyStorage {
     /// Returns a [DateTime] object representing the last update for [key].
     DateTime getLastUpdate(String key) {
         String keyTimeStamp = keyName + key + keyNameTimestamp;
-        String timeStamp = storage[keyTimeStamp];
+        String? timeStamp = storage[keyTimeStamp];
         if (timeStamp != null) {
-            return new DateTime.fromMillisecondsSinceEpoch(num.parse(storage[keyTimeStamp], (String s) {
-                return 0;
-            }));
+            return new DateTime.fromMillisecondsSinceEpoch(int.tryParse(storage[keyTimeStamp]!) ?? 0);
         } else {
             return new DateTime.fromMillisecondsSinceEpoch(0);
         }
     }
 
     /// Returns the value for a foreign (not by sg2o) key.
-    String getForeign(String key) {
+    String? getForeign(String key) {
         if (storage.containsKey(key)) {
             return storage[key];
         } else {
-            return '';
+            return null;
         }
     }
 
@@ -67,7 +65,7 @@ class MyStorage {
      */
     void _checkAndDelete(String key, String value) {
         if (!key.endsWith(keyNameTimestamp)) {
-            DateTime timestamp = new DateTime.fromMillisecondsSinceEpoch(int.parse(storage[key + keyNameTimestamp]));
+            DateTime timestamp = new DateTime.fromMillisecondsSinceEpoch(int.parse(storage[key + keyNameTimestamp]!));
             DateTime aYearAgo = new DateTime.now().subtract(new Duration(days: daysForExpiration));
             if (timestamp.isBefore(aYearAgo)) {
                 storage.remove(key);

@@ -186,7 +186,7 @@ const String urlSteamWishList = '/account/steam/wishlist/search?page=';
 /// Storage related constants
 const String keyName = 'sg2o-';
 const String keyNameTimestamp = '-timestamp';
-const num daysForExpiration = 365;
+const int daysForExpiration = 365;
 
 const String keyAutomaticPageReload = 'automatic-page-reload';
 const String keyRemoveFeatured = 'remove-featured';

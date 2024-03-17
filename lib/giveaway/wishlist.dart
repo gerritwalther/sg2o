@@ -19,15 +19,15 @@ class WishList {
         window.console.log('Loading page $page from wishlist.');
         HttpRequest.request('$urlSteamWishList$page').then((HttpRequest resp) {
             if (resp.responseUrl != urlSteamGiftsHome) {
-                Document nextPageDocument = domParser.parseFromString(resp.responseText, 'text/html');
+                Document nextPageDocument = domParser.parseFromString(resp.responseText!, 'text/html');
                 ElementList wishListNames = nextPageDocument.querySelectorAll('.$classWishListName');
 
                 wishListNames.forEach((Element e) {
                     wishList[e.innerHtml] = 'true';
                 });
 
-                Element pagination = nextPageDocument.querySelector('.$classPaginationNavigation');
-                if (!pagination.children.removeLast().classes.contains(classIsSelected)) {
+                Element? pagination = nextPageDocument.querySelector('.$classPaginationNavigation');
+                if (!pagination!.children.removeLast().classes.contains(classIsSelected)) {
                     loadWishListFromProfile(++page);
                 } else {
                     storage.add(keyWishList, new JsonEncoder().convert(wishList).toString());

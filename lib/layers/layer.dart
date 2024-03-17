@@ -3,10 +3,10 @@ part of sg2o;
 /// Abstract class for layers.
 abstract class Layer {
 
-    Element body;
+    late Element body;
 
     Layer() {
-        body = querySelector('body');
+        body = querySelector('body')!;
         instantiateLayer();
     }
 

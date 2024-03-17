@@ -2,7 +2,7 @@ part of sg2o;
 
 class SettingsColor implements SettingsTab {
 
-    ParagraphElement pageContainer;
+    late ParagraphElement pageContainer;
 
     ColorSetting wishlistColorSetting = new ColorSetting('Wishlist border color: ', wishListColorKey);
     ColorSetting groupColorSetting = new ColorSetting('Group border color: ', groupColorKey);
@@ -56,7 +56,7 @@ class SettingsColor implements SettingsTab {
 
     /// Called when the tab for this settings page is clicked.
     void select() {
-        pageContainer.parent.classes.add(classSettingsTabSelected);
+        pageContainer.parent?.classes.add(classSettingsTabSelected);
     }
 
     String getColor(String key) {

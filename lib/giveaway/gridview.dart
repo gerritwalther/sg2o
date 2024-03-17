@@ -3,7 +3,7 @@ part of sg2o;
 /// Container class for all giveaway pages.
 class GridView {
 
-    List<GiveAwayPage> giveAwayPages;
+    late List<GiveAwayPage> giveAwayPages;
     num contributorLevelFrom = 0;
     num contributorLevelTo = 10;
     num pointsFrom = 0;
@@ -12,20 +12,20 @@ class GridView {
     num chanceTo = 100;
 
     GridView() {
-        giveAwayPages = new List();
+        giveAwayPages = List.empty(growable: true);
     }
 
     /// Creates a [GiveAwayPage] for the pinned giveaways.
     void collapsePinnedGAs() {
         // Removes the dropdown button.
         if (document.querySelectorAll('.$classPinnedGiveawaysButton').length > 0) {
-            document.querySelector('.$classPinnedGiveawaysButton').click();
+            document.querySelector('.$classPinnedGiveawaysButton')?.click();
         }
         ElementList giveAwayElements = document.querySelectorAll('.$classPinnedGiveawaysInner>.$classGiveawayRow');
-        Element parentElement = giveAwayElements[0].parent.parent;
+        Element parentElement = giveAwayElements[0].parent!.parent!;
 
         parentElement
-            ..parent.insertBefore(createHeading('Pinned giveaways', '/'), parentElement)
+            ..parent?.insertBefore(createHeading('Pinned giveaways', '/'), parentElement)
             ..setAttribute('style', 'margin-top: 0px;');
 
         GiveAwayPage giveAwayPage = new GiveAwayPage(contributorLevelFrom, contributorLevelTo, pointsFrom, pointsTo, chanceFrom, chanceTo);
@@ -40,7 +40,7 @@ class GridView {
         int numberPinnedGAs = querySelectorAll('.$classPinnedGiveawaysInner>.$classGiveawayRow').length;
         ElementList giveAwayElements = document.querySelectorAll('.$classGiveawayRow');
         if (giveAwayElements.length > numberPinnedGAs) {
-            Element parentElement = giveAwayElements[numberPinnedGAs].parent;
+            Element parentElement = giveAwayElements[numberPinnedGAs].parent!;
 
             GiveAwayPage giveAwayPage = new GiveAwayPage(contributorLevelFrom, contributorLevelTo, pointsFrom, pointsTo, chanceFrom, chanceTo);
 
@@ -54,7 +54,7 @@ class GridView {
     Element collapseGAListOnDocument(Document documentToQuery) {
         int numberPinnedGAs = documentToQuery.querySelectorAll('.$classPinnedGiveawaysInner>.$classGiveawayRow').length;
         ElementList giveAwayElements = documentToQuery.querySelectorAll('.$classGiveawayRow');
-        Element parentElement = giveAwayElements[numberPinnedGAs].parent;
+        Element parentElement = giveAwayElements[numberPinnedGAs].parent!;
 
         GiveAwayPage giveAwayPage = new GiveAwayPage(contributorLevelFrom, contributorLevelTo, pointsFrom, pointsTo, chanceFrom, chanceTo);
 

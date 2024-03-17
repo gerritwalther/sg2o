@@ -7,6 +7,6 @@ class FAElement extends HtmlElement {
         Element faElement = new Element.tag('i')
             ..classes.add(classFontAwesome)
         ;
-        return faElement;
+        return faElement as FAElement;
     }
 }

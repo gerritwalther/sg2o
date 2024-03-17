@@ -2,7 +2,7 @@ part of sg2o;
 
 class SettingsWishList implements SettingsTab {
 
-    ParagraphElement pageContainer;
+    late ParagraphElement pageContainer;
 
     Element createPage() {
         pageContainer = new ParagraphElement();
@@ -19,6 +19,6 @@ class SettingsWishList implements SettingsTab {
     }
 
     void select() {
-        pageContainer.parent.classes.add(classSettingsTabSelected);
+        pageContainer.parent?.classes.add(classSettingsTabSelected);
     }
 }

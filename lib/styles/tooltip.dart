@@ -9,7 +9,7 @@ class Tooltip extends Styles {
     void addStyles() {
 
         // This is only for the profile tooltip when hovering over the avatar on a giveaway.
-        styleSheet.insertRule(
+        styleSheet?.insertRule(
             '''
             .$classProfileTooltip {
                 width: 550px;
@@ -17,7 +17,7 @@ class Tooltip extends Styles {
             }
             ''', 0);
 
-        styleSheet.insertRule(
+        styleSheet?.insertRule(
             '''
             #$classProfileTooltipContainer {
                 width: 560px;
