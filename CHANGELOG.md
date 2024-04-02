@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0
+* Upgraded to Dart SDK 3.0
+  * Adjusted internal things to comply with the more strict type system
+* Fix moving ad block below the filter block
+
 ## 0.3.0
 - Added steam link to the giveaway entries on the gridview (#90)
 - Added navigation menu to the sg2o button in the top bar
@@ -9,6 +14,9 @@
 - Fixed an issue with games not having a steam link (#149)
 - Fixed settings can't be deactivated (#155)
 - Move left side ads below filters (#154)
+
+## 0.2.22
+- Upgraded to Dart SDK 2.0
 
 ## 0.2.21
 - Fix gridview after some restyling of cg.
