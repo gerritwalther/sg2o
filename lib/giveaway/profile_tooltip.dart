@@ -23,7 +23,7 @@ class ProfileTooltip {
 
     /// Returns string form of a Spinner.
     String createSpinner() {
-        return new Spinner().outerHtml!;
+        return Spinner().create().outerHtml!;
     }
 
     /// Requests the profile content once from the users profile and adds it to the tooltip.

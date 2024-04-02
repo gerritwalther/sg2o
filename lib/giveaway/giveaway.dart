@@ -119,14 +119,13 @@ class GiveAway {
             ;
         } else {
             giveAwayImage
-                ..append(new FAElement()..classes.add('fa-picture-o'))
+                ..append(FAElement().create('fa-picture-o'))
                 ..classes.add(classGAGameImageMissing)
             ;
         }
 
         if (isSGPBlacklisted) {
-            FAElement faBan = new FAElement();
-            faBan.classes.add('fa-ban');
+            Element faBan = FAElement().create('fa-ban');
             giveAwayImage.append(faBan);
             giveAwayImage.classes.add(classGAisSGPBlacklisted);
         }
@@ -167,7 +166,7 @@ class GiveAway {
         DivElement copiesContainer = new DivElement();
         copiesContainer
             ..classes.add(classFloatLeft)
-            ..append(createStrongElement(this.copies))
+            ..append(createStrongElement(this.copies.toString()))
             ..append(createTextElement((this.copies == 1) ? ' Copy' : ' Copies'));
 
         DivElement pointsContainer = new DivElement();
@@ -209,7 +208,7 @@ class GiveAway {
         DivElement entriesContainer = new DivElement();
         entriesContainer
             ..classes.add(classFloatLeft)
-            ..append(createStrongElement(this.entries))
+            ..append(createStrongElement(this.entries.toString()))
             ..append(createTextElement(' entries'));
 
         // Chance is calculated by entries. Only add 1 entry, when not yet entered.
@@ -221,7 +220,7 @@ class GiveAway {
         DivElement commentsContainer = new DivElement();
         commentsContainer
             ..classes.add(classFloatLeft)
-            ..append(createStrongElement(this.comments))
+            ..append(createStrongElement(this.comments.toString()))
             ..append(createTextElement(' comments'));
 
         DivElement levelContainer = new DivElement();

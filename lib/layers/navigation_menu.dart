@@ -55,10 +55,9 @@ class NavigationMenu {
         linkElement.classes.add(classNavigationRow);
         linkElement.setAttribute('href', '#$link');
 
-        FAElement iconElement = new FAElement();
-        iconElement.classes.add('fa-fw');
-        iconElement.classes.add(faIcon);
-        iconElement.classes.add(iconColor);
+        Element iconElement = FAElement().create('fa-fw')
+            ..classes.add(faIcon)
+            ..classes.add(iconColor);
 
         DivElement content = new DivElement();
         content.classes.add(classNavigationRowSummary);
@@ -103,8 +102,7 @@ class NavigationMenu {
             e.stopImmediatePropagation();
         });
 
-        FAElement faElement = new FAElement();
-        faElement.classes.add(classFAAngleDown);
+        Element faElement = FAElement().create(classFAAngleDown);
 
         dropDownArrow.append(faElement);
 

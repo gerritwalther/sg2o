@@ -11,13 +11,13 @@ class SettingsColor implements SettingsTab {
     ColorSetting contributorBelowLevelColorSetting = new ColorSetting('Contributor (below own level) border color: ', contributorBelowLevelColorKey);
 
     Element createPage() {
-        SGButton saveButton = new SGButton('fa-arrow-circle-right', 'Save colors!', this.storeColors);
+        DivElement saveButton = SGButton().create('fa-arrow-circle-right', 'Save colors!', this.storeColors);
 
         saveButton
             ..style.setProperty('margin-right', '5px')
         ;
 
-        SGButton restoreDefaultsButton = new SGButton('fa-trash', 'Restore defaults', this.restoreDefaultColors);
+        DivElement restoreDefaultsButton = SGButton().create('fa-trash', 'Restore defaults', this.restoreDefaultColors);
 
         pageContainer = new ParagraphElement();
 
@@ -41,7 +41,7 @@ class SettingsColor implements SettingsTab {
         contributorAboveLevelColorSetting.store();
         contributorBelowLevelColorSetting.store();
 
-        pageContainer.append(new InfoElement('Colors stored!'));
+        pageContainer.append(InfoElement().create('Colors stored!'));
     }
 
     void restoreDefaultColors(MouseEvent e) {
@@ -51,7 +51,7 @@ class SettingsColor implements SettingsTab {
         contributorAboveLevelColorSetting.restoreDefault();
         contributorBelowLevelColorSetting.restoreDefault();
 
-        pageContainer.append(new InfoElement('Default values restored!'));
+        pageContainer.append(InfoElement().create('Default values restored!'));
     }
 
     /// Called when the tab for this settings page is clicked.

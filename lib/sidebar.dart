@@ -48,7 +48,7 @@ class SideBar {
         DivElement chanceSliderContainer = createSlider('sg2o-chance-slider', 'Only show giveways in this chance of win range: ');
 
         filterContainer
-            ..append(new SideBarHeading('Giveaway filter'))
+            ..append(SideBarHeading().create('Giveaway filter'))
             ..append(levelSliderContainer)
             ..append(pointsSliderContainer)
             ..append(chanceSliderContainer)
@@ -62,8 +62,9 @@ class SideBar {
 
     /// Moves the ads to the end of all elements in the sidebar. Preferably call after `addFilter`.
     void moveAdsToTheEnd() {
-        Node adsElement = sidebarElement?.querySelector('.sidebar__mpu') as Node;
+        Node adsElement = sidebarElement?.querySelector('#np_steamgifts_homepage_top_responsive')?.parent as Node;
         sidebarElement?.append(adsElement);
+        return;
     }
 
     /// Creates a [DivElement] containing another [DivElement] used as slider Object with corresponding [label].
