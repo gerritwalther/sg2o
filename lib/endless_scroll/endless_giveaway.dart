@@ -10,20 +10,20 @@ class EndlessGiveAway extends EndlessScroll {
         if (Uri.base.queryParameters.containsKey('type')) {
             /// http://www.steamgifts.com/giveaways/search?page=2&q=life+is+strange
             /// http://www.steamgifts.com/giveaways/search?page=2&q=life+is+strange&type=new
-            type = Uri.base.queryParameters['type'];
+            type = Uri.base.queryParameters['type']!;
             window.console.log('Page type is $type');
         }
         if (Uri.base.queryParameters.containsKey('q')) {
-            query = Uri.base.queryParameters['q'];
+            query = Uri.base.queryParameters['q']!;
             window.console.log('Query is $query');
         }
-        itemsContainer = querySelector('.$classGridViewContainer');
+        itemsContainer = querySelector('.$classGridViewContainer')!;
     }
 
     void updatePage(num page) {
         updatePagination('Loading next page  ', true);
         HttpRequest.request('$urlGiveAwayPage$nextPage&type=$type&q=$query').then((HttpRequest resp) {
-            Document nextPageDocument = domParser.parseFromString(resp.responseText, 'text/html');
+            Document nextPageDocument = domParser.parseFromString(resp.responseText!, 'text/html');
             // Create gridView of new page and append it to the container.
             Element nextPageGiveawayGrid = gridView.collapseGAListOnDocument(nextPageDocument);
             itemsContainer

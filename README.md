@@ -21,7 +21,7 @@ pacman -S dart
 
 This will also install tools like `dart`, `dart2js` and `dartdevc`.
 
-`webdev` needs to be activated seperately
+`webdev` needs to be activated separately
 
 ```shell
 dart pub global activate webdev
@@ -32,25 +32,6 @@ and add to your `$HOME`
 ```shell
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 ```
-
-### Install dependencies
-
-```shell
-dart pub get
-```
-
-
-## Instructions for developers
-
-### Install prerequisites
-
-Install the Dart SDK on Manjaro/Arch:
-
-```shell
-pacman -S dart
-```
-
-This will also install tools like `dart`, `dart2js` and `dartdevc`.
 
 ### Install dependencies
 

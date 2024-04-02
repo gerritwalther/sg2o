@@ -2,9 +2,9 @@ part of sg2o;
 
 class NavigationMenu {
 
-    Element _navigationTopBar = querySelector('.$classLeftNavigation');
-    DivElement _absoluteDropDown;
-    DivElement _relativeDropDown;
+    Element? _navigationTopBar = querySelector('.$classLeftNavigation');
+    late DivElement _absoluteDropDown;
+    late DivElement _relativeDropDown;
 
     static final NavigationMenu _navigationMenu = new NavigationMenu._internal();
 
@@ -13,13 +13,13 @@ class NavigationMenu {
     }
 
     NavigationMenu._internal() {
-        _navigationTopBar.querySelectorAll('.$classNavigationButtonContainer').last.insertAdjacentElement('beforebegin', _createMenuEntry());
+        _navigationTopBar?.querySelectorAll('.$classNavigationButtonContainer').last.insertAdjacentElement('beforebegin', _createMenuEntry());
         addDropDownEntry(createDropDownEntry(classSettingsOverlay, 'fa-cog', 'Settings', 'Change settings for SG2O', 'icon-green'));
         addDropDownEntry(createDropDownEntry(classSG2OAboutLink, 'fa-info-circle', 'About the plugin', 'Information about the plugin.', 'icon-blue'));
     }
 
     /// Creates a menu entry to the navigation bar of SG with a dropdown arrow.
-    Node _createMenuEntry() {
+    Element _createMenuEntry() {
         DivElement navigationButtonContainer = new DivElement();
         navigationButtonContainer.classes.add(classNavigationButtonContainer);
 
@@ -55,10 +55,9 @@ class NavigationMenu {
         linkElement.classes.add(classNavigationRow);
         linkElement.setAttribute('href', '#$link');
 
-        FAElement iconElement = new FAElement();
-        iconElement.classes.add('fa-fw');
-        iconElement.classes.add(faIcon);
-        iconElement.classes.add(iconColor);
+        Element iconElement = FAElement().create('fa-fw')
+            ..classes.add(faIcon)
+            ..classes.add(iconColor);
 
         DivElement content = new DivElement();
         content.classes.add(classNavigationRowSummary);
@@ -103,8 +102,7 @@ class NavigationMenu {
             e.stopImmediatePropagation();
         });
 
-        FAElement faElement = new FAElement();
-        faElement.classes.add(classFAAngleDown);
+        Element faElement = FAElement().create(classFAAngleDown);
 
         dropDownArrow.append(faElement);
 

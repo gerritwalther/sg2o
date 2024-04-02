@@ -2,12 +2,12 @@ part of sg2o;
 
 class SettingsTabs {
 
-    DivElement tabs;
+    late DivElement tabs;
 
-    SettingsColor colorSettings;
-    SettingsCommon commonSettings;
-    SettingsGridView gridViewSettings;
-    SettingsWishList wishListSettings;
+    late SettingsColor colorSettings;
+    late SettingsCommon commonSettings;
+    late SettingsGridView gridViewSettings;
+    late SettingsWishList wishListSettings;
 
     SettingsTabs(SettingsColor colorSettings, SettingsCommon commonSettings, SettingsGridView gridViewSettings, SettingsWishList wishListSettings) {
         this.colorSettings = colorSettings;

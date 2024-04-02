@@ -2,12 +2,12 @@ part of sg2o;
 
 class SettingsWishList implements SettingsTab {
 
-    ParagraphElement pageContainer;
+    late ParagraphElement pageContainer;
 
     Element createPage() {
         pageContainer = new ParagraphElement();
         pageContainer
-            ..append(new SGButton('fa-refresh', 'Resync wishlist from profile!', reSyncWishList))
+            ..append(SGButton().create('fa-refresh', 'Resync wishlist from profile!', reSyncWishList))
         ;
 
         return pageContainer;
@@ -15,10 +15,10 @@ class SettingsWishList implements SettingsTab {
 
     void reSyncWishList(Event e) {
         wishList.loadWishListFromProfile(1);
-        pageContainer.append(new InfoElement('Resynced wishlist!'));
+        pageContainer.append(InfoElement().create('Resynced wishlist!'));
     }
 
     void select() {
-        pageContainer.parent.classes.add(classSettingsTabSelected);
+        pageContainer.parent?.classes.add(classSettingsTabSelected);
     }
 }

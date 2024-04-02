@@ -1,9 +1,12 @@
 part of sg2o;
 
 /// Simple element with a spinning circle inside.
-class Spinner extends HtmlElement {
+class Spinner {
+    factory Spinner() => Spinner._internal();
 
-    factory Spinner() {
+    Spinner._internal();
+
+    Element create() {
         Element spinner = new Element.tag('i')
             ..classes.add(classFontAwesome)
             ..classes.add(classFASpinner)

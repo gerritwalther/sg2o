@@ -1,8 +1,11 @@
 part of sg2o;
 
-class SideBarHeading extends HeadingElement {
+class SideBarHeading {
+    factory SideBarHeading() => SideBarHeading._internal();
 
-    factory SideBarHeading(String content) {
+    SideBarHeading._internal();
+
+    HeadingElement create(String content) {
         HeadingElement heading = new HeadingElement.h3()
             ..classes.add(classSidebarHeading)
             ..text = content

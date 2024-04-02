@@ -2,7 +2,7 @@ part of sg2o;
 
 class SettingsGridView implements SettingsTab {
 
-    ParagraphElement pageContainer;
+    late ParagraphElement pageContainer;
 
     SettingsGridView() {
 
@@ -20,12 +20,12 @@ class SettingsGridView implements SettingsTab {
 
     /// Function is called when clicking on element to hide/show entered giveaways.
     void storeHideValueToggle(Event e) {
-        settings.storeSettingToggle(e.target, keyHideGAs);
+        settings?.storeSettingToggle(e.target as Element, keyHideGAs);
     }
 
     /// Function is called when clicking on element to automatically add games to blacklist or not.
     void storeAutomaticBlackListToggle(Event e) {
-        settings.storeSettingToggle(e.target, keyAutomaticBlackList);
+        settings?.storeSettingToggle(e.target as Element, keyAutomaticBlackList);
     }
 
     Element createPage() {
@@ -39,7 +39,7 @@ class SettingsGridView implements SettingsTab {
     }
 
     void select() {
-        pageContainer.parent.classes.add(classSettingsTabSelected);
+        pageContainer.parent?.classes.add(classSettingsTabSelected);
     }
 
 }

@@ -4,8 +4,8 @@ part of sg2o;
 class ProfileTooltip {
 
     DomParser domParser = new DomParser();
-    String userName;
-    js.JsObject tooltip;
+    late String userName;
+    late js.JsObject tooltip;
     bool userContentAdded = false;
 
     ProfileTooltip(String cssId, String userName, Element avatarContainer) {
@@ -23,7 +23,7 @@ class ProfileTooltip {
 
     /// Returns string form of a Spinner.
     String createSpinner() {
-        return new Spinner().outerHtml;
+        return Spinner().create().outerHtml!;
     }
 
     /// Requests the profile content once from the users profile and adds it to the tooltip.
@@ -31,9 +31,9 @@ class ProfileTooltip {
         if (!userContentAdded) {
             userContentAdded = true;
             HttpRequest.request('/user/$userName').then((HttpRequest resp) {
-                Document profilePageDocument = domParser.parseFromString(resp.responseText, 'text/html');
+                Document profilePageDocument = domParser.parseFromString(resp.responseText!, 'text/html');
 
-                String profileHtml = profilePageDocument.querySelector('.featured__outer-wrap--user>.featured__inner-wrap>.featured__summary').outerHtml;
+                String profileHtml = profilePageDocument.querySelector('.featured__outer-wrap--user>.featured__inner-wrap>.featured__summary')!.outerHtml!;
 
                 profileHtml = removeDisallowedStyleAttributes(profileHtml);
 
@@ -43,8 +43,8 @@ class ProfileTooltip {
                 ;
 
                 return container.outerHtml;
-            }).then((String result) {
-                querySelector('#$classProfileTooltipContainer').setInnerHtml(result);
+            }).then((String? result) {
+                querySelector('#$classProfileTooltipContainer')?.setInnerHtml(result);
                 tooltip.callMethod('data', ['powertip', result]);
             });
         }

@@ -1,8 +1,11 @@
 part of sg2o;
 
-class InfoElement extends DivElement {
+class InfoElement {
+    factory InfoElement() => InfoElement._internal();
 
-    factory InfoElement(String text) {
+    InfoElement._internal();
+
+    DivElement create(String text) {
         DivElement element = new DivElement();
         element
             ..text = text

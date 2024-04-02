@@ -25,7 +25,7 @@ class SettingsStyles extends Styles {
   pointer-events: none;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -34,7 +34,7 @@ class SettingsStyles extends Styles {
   pointer-events: auto;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -50,7 +50,7 @@ class SettingsStyles extends Styles {
   background: -o-linear-gradient(#fff, #999);
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -73,7 +73,7 @@ class SettingsStyles extends Styles {
   box-shadow: 1px 1px 3px #000;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -81,7 +81,7 @@ class SettingsStyles extends Styles {
   background: #00d9ff;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -90,7 +90,7 @@ class SettingsStyles extends Styles {
   color: $fontColor;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         /// Tab design from http://codyhouse.co/gem/responsive-tabbed-navigation/
         rule =
@@ -102,7 +102,7 @@ class SettingsStyles extends Styles {
     margin: 2em auto;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -112,7 +112,7 @@ class SettingsStyles extends Styles {
     clear: both;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -123,7 +123,7 @@ class SettingsStyles extends Styles {
     box-shadow: rgba(203, 196, 130, 0.1288235) 0px -4px 0px inset;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -131,7 +131,7 @@ class SettingsStyles extends Styles {
     cursor: pointer;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -141,7 +141,7 @@ class SettingsStyles extends Styles {
     box-shadow: inset 0 -2px 3px rgba(203, 196, 130, 0.06);
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -151,7 +151,7 @@ class SettingsStyles extends Styles {
     clear: both;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -160,7 +160,7 @@ class SettingsStyles extends Styles {
     background-color: transparent;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -181,7 +181,7 @@ class SettingsStyles extends Styles {
     background-color: rgba(200, 200, 200, 0.3);
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -190,7 +190,7 @@ class SettingsStyles extends Styles {
     background-color: rgba(233, 230, 202, 0.3);
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -198,7 +198,7 @@ class SettingsStyles extends Styles {
     /* icons */
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -208,7 +208,7 @@ class SettingsStyles extends Styles {
     color: #29324e;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -217,7 +217,7 @@ class SettingsStyles extends Styles {
     -webkit-border-top-left-radius:12px;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -226,7 +226,7 @@ class SettingsStyles extends Styles {
     -webkit-border-top-right-radius:12px;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -235,7 +235,7 @@ class SettingsStyles extends Styles {
     min-height: 0;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -245,7 +245,7 @@ class SettingsStyles extends Styles {
     padding: 3em;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -256,7 +256,7 @@ class SettingsStyles extends Styles {
     animation: cd-fade-in 0.5s;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -270,7 +270,7 @@ class SettingsStyles extends Styles {
     font-size: 1rem;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -279,7 +279,7 @@ class SettingsStyles extends Styles {
     padding: 0px 3px;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
 
         rule =
         '''
@@ -287,6 +287,6 @@ class SettingsStyles extends Styles {
     color: $fontColor;
 }
 ''';
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
     }
 }

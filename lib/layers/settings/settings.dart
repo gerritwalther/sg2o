@@ -7,12 +7,12 @@ class Settings {
     SettingsGridView gridViewSettings = new SettingsGridView();
     SettingsColor colorSettings = new SettingsColor();
     SettingsWishList wishListSettings = new SettingsWishList();
-    SettingsTabs tabSettings;
+    SettingsTabs? tabSettings;
 
     Settings() {
         tabSettings = new SettingsTabs(colorSettings, commonSettings, gridViewSettings, wishListSettings);
-        Element body = querySelector('body');
-        body.append(addSettingsPage());
+        Element? body = querySelector('body');
+        body?.append(addSettingsPage());
     }
 
     /// Adds a modal layer page.
@@ -49,7 +49,7 @@ class Settings {
         overlayInnerContainer
             ..append(closeLink)
             ..append(heading)
-            ..append(tabSettings.getTabsPage())
+            ..append(tabSettings!.getTabsPage())
         ;
 
         overlayContainer.append(overlayInnerContainer);

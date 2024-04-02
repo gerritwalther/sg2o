@@ -1,8 +1,11 @@
 part of sg2o;
 
-class SGButton extends DivElement {
+class SGButton {
+    factory SGButton() => SGButton._internal();
 
-    factory SGButton(String faClass, String text, fnButtonListener) {
+    SGButton._internal();
+
+    DivElement create(String faClass, String text, fnButtonListener) {
         DivElement element = new DivElement();
         Element icon = new Element.tag('i');
 

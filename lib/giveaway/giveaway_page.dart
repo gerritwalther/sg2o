@@ -3,16 +3,16 @@ part of sg2o;
 /// This contains one page of giveaways. Used to propagate update events to all giveaways.
 class GiveAwayPage {
 
-    List<GiveAway> giveAways;
-    num contributorLevelFrom;
-    num contributorLevelTo;
-    num pointsFrom;
-    num pointsTo;
-    num chanceFrom;
-    num chanceTo;
+    late List<GiveAway> giveAways;
+    late num contributorLevelFrom;
+    late num contributorLevelTo;
+    late num pointsFrom;
+    late num pointsTo;
+    late num chanceFrom;
+    late num chanceTo;
 
     GiveAwayPage(num levelFrom, num levelTo, num pointsFrom, num pointsTo, num chanceFrom, num chanceTo) {
-        this.giveAways = new List();
+        this.giveAways = <GiveAway>[];
         this.contributorLevelFrom = levelFrom;
         this.contributorLevelTo = levelTo;
         this.pointsFrom = pointsFrom;
@@ -22,7 +22,7 @@ class GiveAwayPage {
     }
 
     /// Returns an [Element] containing all collapsed giveaway containers for one page. Also adds the giveaways to a list to be later updated.
-    Element collapseGAs(int beginWithNo, Document documentToQuery, String classForContainer, Element parentElementToInsertGAs, ElementList gaList) {
+    Element collapseGAs(int beginWithNo, Document documentToQuery, String? classForContainer, Element parentElementToInsertGAs, ElementList gaList) {
         parentElementToInsertGAs.innerHtml = '';
         if (classForContainer != null) {
             parentElementToInsertGAs.classes.add(classForContainer);
@@ -34,16 +34,16 @@ class GiveAwayPage {
             if (!giveAway.isGiveAwayIdBlackListed()) {
                 if (giveAway.isNotSGPBlackListed()) {
                     // Add giveaway only if its not entered, or its entered and option to hide entered GAs is deactivated.
-                    if ((!giveAway.isEntered() || (giveAway.isEntered() && !settings.hideEnteredGames()))) {
-                        parentElementToInsertGAs.append(giveAway.wrappedWithStyles());
+                    if ((!giveAway.isEntered() || (giveAway.isEntered() && !settings!.hideEnteredGames()))) {
+                        parentElementToInsertGAs.append(giveAway.wrappedWithStyles() as Node);
                     }
                 } else {
-                    if (settings.isAutomaticBlackListingOn()) {
+                    if (settings!.isAutomaticBlackListingOn()) {
                         window.console.log('Automatically adding ${giveAway.name} to the blacklist.');
                         giveAway.addGameToBlackList();
                     } else {
                         giveAway.setSGPBlacklisted(true);
-                        parentElementToInsertGAs.append(giveAway.wrappedWithStyles());
+                        parentElementToInsertGAs.append(giveAway.wrappedWithStyles() as Node);
                     }
                 }
 

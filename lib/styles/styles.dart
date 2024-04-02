@@ -3,7 +3,7 @@ part of sg2o;
 /// Main class for adding all the styles required for the plugin.
 class Styles {
 
-    CssStyleSheet styleSheet;
+    CssStyleSheet? styleSheet;
 
     Styles() {
         styleSheet = createStyleSheetElement();
@@ -21,20 +21,20 @@ class Styles {
     /// Creates a [StyleElement] and adds it to the DOM.
     CssStyleSheet createStyleSheetElement() {
         StyleElement styles = new StyleElement();
-        document.head.append(styles);
+        document.head?.append(styles);
 
-        return styles.sheet;
+        return styles.sheet as CssStyleSheet;
     }
 
     /// Adds a margin to the header.
     void addMarginToHeader() {
-        Element headerElement = querySelector('.$classSectionHeading');
+        Element? headerElement = querySelector('.$classSectionHeading');
 
-        headerElement.setAttribute('style', 'margin-bottom: 0.5em');
+        headerElement?.setAttribute('style', 'margin-bottom: 0.5em');
     }
 
     /// Creates a rule and adds it to the given stylesheet element.
     void addStyleRule(String rule) {
-        styleSheet.insertRule(rule, 0);
+        styleSheet?.insertRule(rule, 0);
     }
 }

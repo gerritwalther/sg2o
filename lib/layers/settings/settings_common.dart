@@ -2,7 +2,7 @@ part of sg2o;
 
 class SettingsCommon implements SettingsTab {
 
-    ParagraphElement pageContainer;
+    late ParagraphElement pageContainer;
 
     Element createPage() {
         pageContainer = new ParagraphElement();
@@ -32,20 +32,20 @@ class SettingsCommon implements SettingsTab {
 
     /// Function is called when clicking on element to automatically reload page when closing the settings.
     void storeAutomaticPageReloadValueToggle(Event e) {
-        settings.storeSettingToggle(e.target, keyAutomaticPageReload);
+        settings?.storeSettingToggle(e.target as Element, keyAutomaticPageReload);
     }
 
     /// Function is called when clicking on element for removing featured GA.
     void storeRemoveFeaturedValueToggle(Event e) {
-        settings.storeSettingToggle(e.target, keyRemoveFeatured);
+        settings?.storeSettingToggle(e.target as Element, keyRemoveFeatured);
     }
 
     /// Function is called when clicking on element for moving the recent discussions.
     void storeMoveRecentDiscussionsValueToggle(Event e) {
-        settings.storeSettingToggle(e.target, keyMoveRecentDiscussions);
+        settings?.storeSettingToggle(e.target as Element, keyMoveRecentDiscussions);
     }
 
     void select() {
-        pageContainer.parent.classes.add(classSettingsTabSelected);
+        pageContainer.parent?.classes.add(classSettingsTabSelected);
     }
 }

@@ -6,10 +6,10 @@ abstract class EndlessScroll {
     int currentPage = 1;
     int nextPage = 2;
     /// This is the container where the new content should be appended. Has to be specified by each constructor.
-    Element itemsContainer;
+    late Element itemsContainer;
     DomParser domParser = new DomParser();
     bool isLoading = false;
-    num lastLoading;
+    late num lastLoading;
     bool isLastPage = false;
 
     /// Use this constructor to initialize the class with the correct pagination element and pages count.
@@ -50,11 +50,11 @@ abstract class EndlessScroll {
             isLoading = true;
             lastLoading = now;
         }
-        Element pagination = querySelector('.$classPagination');
+        Element? pagination = querySelector('.$classPagination');
         if (isLastPage) {
             updatePagination('All pages loaded!', false);
         } else {
-            if (isElementCompletelyVisible(pagination)) {
+            if (isElementCompletelyVisible(pagination!)) {
                 updatePage(nextPage);
                 nextPage += 1;
             }
@@ -64,9 +64,9 @@ abstract class EndlessScroll {
 
     /// This function replaces the pagination content with a specified [content] and an optional spinner.
     void updatePagination(String content, bool addSpinner) {
-        Element currentPagination = querySelector('.$classPagination');
+        Element? currentPagination = querySelector('.$classPagination');
         currentPagination
-            ..children.clear()
+            ?..children.clear()
             ..append(createHeading(content, addSpinner));
     }
 
