@@ -10,4 +10,3 @@ targets:
           # List any dart2js specific args here, or omit it.
           dart2js_args:
           - -O3
-          - -o build/bin/main.dart.js

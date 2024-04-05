@@ -7,7 +7,7 @@ BUILD 					= build
 SCRIPT_HEAD			= sg2o.meta.js
 BUILD_PROJECT		= $(BUILD)/main.dart.js
 RELEASE_TARGET		= sg2o.user.js
-DART_TOOL				= .dart-tool
+DART_TOOL				= .dart_tool
 
 # Executables
 WEBDEV					= webdev
@@ -46,6 +46,6 @@ patch:
 
 clean:
 	@echo 'Removing build files.'
-	@$(RM) $(BUILD) $(DART-TOOL)
+	@$(RM) $(BUILD) $(DART_TOOL) $(RELEASE_TARGET)*
 
 .PHONY: clean build
