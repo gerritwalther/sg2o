@@ -61,7 +61,7 @@ LayerAbout? layerAbout;
 
 /// Returns [true] if there are pinned giveaways.
 bool pinnedGAsExist() {
-    ElementList pinnedGAs = querySelectorAll('.$classPinnedGiveawaysInner>.$classGiveawayRow');
+    ElementList pinnedGAs = querySelectorAll('.$classPinnedGiveawaysContainer>.$classGiveawayRow');
 
     return pinnedGAs.isNotEmpty;
 }
@@ -89,8 +89,8 @@ void replaceFeaturedAndMoveRecentPosts() {
         // TODO find widgetContaier with 'Community Poll' or div with 'poll'-class. Also add an option to move or not to move the container to the top.
     });
 
-    if (querySelectorAll('.$classPinnedGiveawaysOuter').length > 0) {
-        placeBeforeThis = querySelector('.$classPinnedGiveawaysOuter');
+    if (querySelectorAll('.$classPinnedGiveawaysHeader').length > 0) {
+        placeBeforeThis = querySelector('.$classPinnedGiveawaysHeader');
     } else {
         placeBeforeThis = querySelector('.$classSectionHeading');
     }
