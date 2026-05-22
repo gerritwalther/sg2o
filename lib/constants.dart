@@ -10,10 +10,9 @@ const String pluginName = 'SG₂O';
 
 /// classes defined by sg
 
-const String classPinnedGiveawaysOuter = 'pinned-giveaways__outer-wrap';
-const String classPinnedGiveawaysInner = 'pinned-giveaways__inner-wrap';
-const String classPinnedGiveawaysMinimized = 'pinned-giveaways__inner-wrap--minimized';
-const String classPinnedGiveawaysButton = 'pinned-giveaways__button';
+const String classPinnedGiveawaysContainer = 'pinned-giveaways';
+const String classPinnedGiveawaysHeader = 'pinned-giveaways-header';
+const String classPinnedGiveawaysButton = 'pinned-giveaways-expand';
 const String classGiveawayRow = 'giveaway__row-outer-wrap';
 const String classFeaturedContainer = 'featured__container';
 const String classFeaturedOuterWrap = 'featured__outer-wrap--home';

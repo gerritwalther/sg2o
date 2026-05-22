@@ -62,7 +62,11 @@ class SideBar {
 
     /// Moves the ads to the end of all elements in the sidebar. Preferably call after `addFilter`.
     void moveAdsToTheEnd() {
-        Node adsElement = sidebarElement?.querySelector('#np_steamgifts_homepage_top_responsive')?.parent as Node;
+        final divsInsideSidebar = sidebarElement?.querySelectorAll(':scope > div');
+        if (divsInsideSidebar == null || divsInsideSidebar.length < 2) return;
+
+        // Ads should be second to last div, as we already added the filter
+        final adsElement = divsInsideSidebar.elementAt(divsInsideSidebar.length - 2);
         sidebarElement?.append(adsElement);
         return;
     }

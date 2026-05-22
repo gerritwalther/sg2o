@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1
+* Fixed issue with new layout of feature giveaways
+* Fixed moving the filter section above the ad
+
 ## 0.4.0
 * Upgraded to Dart SDK 3.0
   * Adjusted internal things to comply with the more strict type system
