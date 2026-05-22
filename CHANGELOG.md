@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.2
+* Remove the pinned header tab
+
 ## 0.4.1
 * Fixed issue with new layout of feature giveaways
 * Fixed moving the filter section above the ad

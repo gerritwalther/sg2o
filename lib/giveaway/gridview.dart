@@ -39,6 +39,11 @@ class GridView {
                 giveAwayElements);
 
             giveAwayPages.add(giveAwayPage);
+
+            Element? pinnedGiveawayHeader = document.querySelector('.$classPinnedGiveawaysHeader');
+            if (pinnedGiveawayHeader != null) {
+                pinnedGiveawayHeader.remove();
+            }
         }
     }
 
